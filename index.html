@@ -540,7 +540,7 @@
 
     <nav id="main-nav" class="fixed top-0 w-full z-[100] nav-initial">
         <div id="nav-container" class="w-full mx-auto px-4 md:px-6 flex justify-between items-center">
-            <a href="index.html"
+            <a href="./"
                 class="text-base md:text-lg font-black tracking-tighter z-10 flex items-center text-white">
                 <span class="whitespace-nowrap flex items-center gap-2">
                     <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
@@ -551,32 +551,37 @@
                 class="hidden xl:flex relative space-x-2 items-center text-[10px] font-bold tracking-[0.15em] uppercase">
                 <div id="liquid-pill" class="liquid-pill"></div>
                 <div class="dropdown-wrapper relative group flex items-center">
-                    <a href="https://www.htetzawpaing.site/" class="nav-link flex items-center gap-1 active text-white"
+                    <a href="./" class="nav-link flex items-center gap-1 text-white font-bold"
                         data-en="Home" data-mm="ပင်မ">
                         Home <i data-lucide="chevron-down"
                             class="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="#person" class="dropdown-item" data-en="Identity" data-mm="ကိုယ်ရေးအကျဉ်း">Identity</a>
-                        <a href="#projects" class="dropdown-item" data-en="Projects"
+                        <a href="./#person" class="dropdown-item" data-en="Identity"
+                            data-mm="ကိုယ်ရေးအချက်အလက်များ">Identity</a>
+                        <a href="./#projects" class="dropdown-item" data-en="Projects"
                             data-mm="ဖန်တီးမှုများ">Projects</a>
-                        <a href="#specialization" class="dropdown-item" data-en="Specialization"
-                            data-mm="ကျွမ်းကျင်မှု">Specialization</a>
-                        <a href="#news" class="dropdown-item" data-en="News" data-mm="သတင်းလွှာ">News</a>
+                        <a href="./#specialization" class="dropdown-item"
+                            data-en="Specialization" data-mm="ကျွမ်းကျင်မှု">Specialization</a>
+                        <a href="./#news" class="dropdown-item" data-en="News"
+                            data-mm="သတင်းလွှာ">News</a>
                     </div>
                 </div>
-                <a href="./profile/" class="nav-link" data-en="Profile" data-mm="ကိုယ်ရေးအကျဉ်း">Profile</a>
-                <a href="#projects" class="nav-link" data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
-                <a href="#specialization" class="nav-link" data-en="Expertise" data-mm="ကျွမ်းကျင်မှု">Expertise</a>
+                <a href="./about/" class="nav-link text-white/60" data-en="About"
+                    data-mm="ကိုယ်ရေးအချက်အလက်များ">About</a>
+                <a href="./projects/" class="nav-link text-white/60" data-en="Projects"
+                    data-mm="ဖန်တီးမှုများ">Projects</a>
+                <a href="./expertise/" class="nav-link text-white/60" data-en="Expertise"
+                    data-mm="ကျွမ်းကျင်မှု">Expertise</a>
             </div>
             <div class="hidden xl:flex items-center gap-4 z-10">
                 <button id="lang-toggle"
-                    class="btn-outline px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                    class="bg-transparent border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
                     <i data-lucide="languages" class="w-3.5 h-3.5 opacity-70"></i>
                     <span id="lang-text">EN</span>
                 </button>
-                <a href="#contact-form"
-                    class="btn-premium px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                <a href="./connect/"
+                    class="bg-white text-black hover:bg-gray-200 transition-all duration-400 px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-full">
                     <span data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</span>
                 </a>
             </div>
@@ -592,30 +597,29 @@
             class="fixed top-6 right-6 p-3 text-white hover:text-gray-300 transition-colors bg-white/10 rounded-full z-[10000]">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-
         <div class="flex flex-col items-center w-full px-8 pt-24 pb-12 min-h-full">
             <div
                 class="flex flex-col items-center w-full gap-2 text-lg sm:text-xl font-black tracking-[0.15em] uppercase mt-auto">
-                <a href="#home" class="mobile-nav-link text-white w-full text-center py-4 border-b border-white/10"
+                <a href="./"
+                    class="mobile-nav-link text-white w-full text-center py-4 border-b border-white/10"
                     data-en="Home" data-mm="ပင်မ">Home</a>
-                <a href="#person"
+                <a href="./about/"
                     class="mobile-nav-link text-zinc-400 hover:text-white transition-all w-full text-center py-4 border-b border-white/10"
-                    data-en="Profile" data-mm="ကိုယ်ရေးအကျဉ်း">Profile</a>
-                <a href="./profile/"
+                    data-en="About" data-mm="ကိုယ်ရေးအချက်အလက်များ">About</a>
+                <a href="./projects/"
                     class="mobile-nav-link text-zinc-400 hover:text-white transition-all w-full text-center py-4 border-b border-white/10"
                     data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
-                <a href="#specialization"
+                <a href="./expertise/"
                     class="mobile-nav-link text-zinc-400 hover:text-white transition-all w-full text-center py-4 border-b border-white/10"
                     data-en="Expertise" data-mm="ကျွမ်းကျင်မှု">Expertise</a>
             </div>
-
             <div class="flex flex-col items-center gap-4 mt-8 mb-auto w-full">
                 <button id="mobile-lang-toggle"
                     class="w-full py-4 border border-white/20 rounded-full text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3 text-white hover:bg-white/5 transition-all">
                     <i data-lucide="languages" class="w-4 h-4 text-white/70"></i>
                     <span id="mobile-lang-text">EN</span>
                 </button>
-                <a href="#contact-form"
+                <a href="./connect/"
                     class="mobile-nav-link w-full py-4 bg-white text-black text-sm font-bold uppercase rounded-full text-center tracking-widest hover:bg-gray-200 transition-all">
                     <span data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</span>
                 </a>
@@ -672,7 +676,7 @@
                         class="text-3xl sm:text-4xl md:text-[3.5rem] font-black tracking-tightest leading-[1] reveal-text uppercase">
                         <span data-en="Identity" data-mm="ကိုယ်ရေးအချက်အလက်များ"
                             class="block text-zinc-500">Identity</span>
-                        <span class="text-white block" data-en="Profile." data-mm="အပြည့်အစုံ။">Profile.</span>
+                        <span class="text-white block" data-en="About." data-mm="အပြည့်အစုံ။">About.</span>
                     </h2>
                     <p class="text-zinc-400 leading-relaxed text-base md:text-xl font-light max-w-xl reveal-text"
                         style="transition-delay: 0.1s;"
@@ -848,7 +852,7 @@
                                     class="flex flex-wrap gap-2 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                                     <span>[ PHP ]</span> <span>[ Node.js ]</span> <span>[ MySQL ]</span>
                                 </div>
-                                <a href="https://www.htetzawpaing.site/projects/#secora-cybersecurity-project"
+                                <a href="./projects/#secora-cybersecurity-project"
                                     class="text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-zinc-400 transition-colors flex items-center gap-2">
                                     <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i
                                         data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -860,7 +864,7 @@
                     <div
                         class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group rounded-none md:rounded-2xl border border-white/10 bg-transparent">
                         <div class="h-64 md:h-[400px] relative overflow-hidden bg-zinc-900 border-b border-white/10">
-                            <img src="../project4/sori9.png"
+                            <img src="./project4/sori9.png"
                                 class="w-full h-full object-cover mono-img">
                         </div>
                         <div class="p-6 md:p-10 relative z-10 bg-black">
@@ -882,7 +886,7 @@
                                     class="flex flex-wrap gap-2 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                                     <span>[ WebCam ]</span> <span>[ FaceAPI ]</span> <span>[ React ]</span>
                                 </div>
-                                <a href="https://www.htetzawpaing.site/projects/#sori-music-recommendation"
+                                <a href="./projects/#sori-music-recommendation"
                                     class="text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-zinc-400 transition-colors flex items-center gap-2">
                                     <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i
                                         data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -914,7 +918,7 @@
                                     class="flex flex-wrap gap-2 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                                     <span>[ Python ]</span> <span>[ TensorFlow ]</span> <span>[ OpenCV ]</span>
                                 </div>
-                                <a href="https://www.htetzawpaing.site/projects/#sensori-detection-system"
+                                <a href="./projects/#sensori-detection-system"
                                     class="text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-zinc-400 transition-colors flex items-center gap-2">
                                     <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i
                                         data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -926,7 +930,7 @@
                     <div
                         class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group rounded-none md:rounded-2xl border border-white/10 bg-transparent">
                         <div class="h-64 md:h-[400px] relative overflow-hidden bg-zinc-900 border-b border-white/10">
-                            <img src="../project1/secora-voicecontrol2.png"
+                            <img src="./project1/secora-voicecontrol2.png"
                                 class="w-full h-full object-cover mono-img">
                         </div>
                         <div class="p-6 md:p-10 relative z-10 bg-black">
@@ -946,7 +950,7 @@
                                     class="flex flex-wrap gap-2 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                                     <span>[ Python ]</span> <span>[ NLP ]</span> <span>[ Speech Recog ]</span>
                                 </div>
-                                <a href="https://www.htetzawpaing.site/projects/#secora-voice-command-system"
+                                <a href="./projects/#secora-voice-command-system"
                                     class="text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-zinc-400 transition-colors flex items-center gap-2">
                                     <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i
                                         data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -958,7 +962,7 @@
                     <div
                         class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group rounded-none md:rounded-2xl border border-white/10 bg-transparent">
                         <div class="h-64 md:h-[400px] relative overflow-hidden bg-zinc-900 border-b border-white/10">
-                            <img src="../project2/siachat4.png"
+                            <img src="./project2/siachat4.png"
                                 class="w-full h-full object-cover mono-img">
                         </div>
                         <div class="p-6 md:p-10 relative z-10 bg-black">
@@ -979,7 +983,7 @@
                                     class="flex flex-wrap gap-2 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                                     <span>[ Node.JS ]</span> <span>[ WebSocket ]</span> <span>[ Logic ]</span>
                                 </div>
-                                <a href="https://www.htetzawpaing.site/projects/#sia-chatbot"
+                                <a href="./projects/#sia-chatbot"
                                     class="text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-zinc-400 transition-colors flex items-center gap-2">
                                     <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i
                                         data-lucide="arrow-up-right" class="w-4 h-4"></i>
@@ -991,7 +995,7 @@
                     <div
                         class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group rounded-none md:rounded-2xl border border-white/10 bg-transparent">
                         <div class="h-64 md:h-[400px] relative overflow-hidden bg-zinc-900 border-b border-white/10">
-                            <img src="../project3/sensori-dashboard.png"
+                            <img src="./project3/sensori-dashboard.png"
                                 class="w-full h-full object-cover mono-img">
                         </div>
                         <div class="p-6 md:p-10 relative z-10 bg-black">
@@ -1012,7 +1016,7 @@
                                     class="flex flex-wrap gap-2 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                                     <span>[ OpenCV ]</span> <span>[ TensorFlow ]</span> <span>[ Real-time API ]</span>
                                 </div>
-                                <a href="https://www.htetzawpaing.site/projects/#sensori-detection-system"
+                                <a href="./projects/#sensori-detection-system"
                                     class="text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-zinc-400 transition-colors flex items-center gap-2">
                                     <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i
                                         data-lucide="arrow-up-right" class="w-4 h-4"></i>
