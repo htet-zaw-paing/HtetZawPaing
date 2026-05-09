@@ -1,1431 +1,1106 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- 1. Technical Meta Tags -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="theme-color" content="#050505">
-
-        <!-- 2. Primary SEO -->
-        <title>About | Htet Zaw Paing - Software Engineer & AI
-            Researcher</title>
-        <meta name="title"
-            content="About | Htet Zaw Paing - Software Engineer & AI Researcher">
-        <meta name="description"
-            content="About Htet Zaw Paing. Download CV, view professional profiles (GitHub, LinkedIn), and connect for software engineering collaborations in Myanmar. Expert in AI, Web Development, and Cloud Architecture.">
-        <meta name="keywords"
-            content="About Htet Zaw Paing, Hire Software Engineer Myanmar, Htet Zaw Paing CV, Developer Contact Yangon, AI Researcher Contact, GitHub Htet Zaw Paing, LinkedIn Htet Zaw Paing, Software Architect Myanmar, Full Stack Developer Yangon">
-        <meta name="robots"
-            content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-        <meta name="language" content="English">
-        <meta name="author" content="Htet Zaw Paing">
-
-        <!-- 3. Open Graph / Social Media -->
-        <meta property="og:type" content="profile">
-        <meta property="og:url" content="https://www.htetzawpaing.site/about/">
-        <meta property="og:title"
-            content="About | Htet Zaw Paing - Software Engineer & AI Researcher">
-        <meta property="og:description"
-            content="Download CV, view GitHub and LinkedIn profiles, and get in touch with Htet Zaw Paing. Exploring the frontiers of AI and Software Engineering.">
-        <meta property="og:image"
-            content="https://www.htetzawpaing.site/favicon.jpg">
-        <meta property="og:site_name" content="Htet Zaw Paing Portfolio">
-        <meta property="profile:first_name" content="Htet">
-        <meta property="profile:last_name" content="Zaw Paing">
-        <meta property="profile:username" content="hzp4softwareengineering">
-
-        <!-- 4. Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:url" content="https://www.htetzawpaing.site/about/">
-        <meta name="twitter:title"
-            content="About | Htet Zaw Paing - Software Engineer & AI Researcher">
-        <meta name="twitter:description"
-            content="Software Engineer & AI Researcher. Download CV and Connect.">
-        <meta name="twitter:image"
-            content="https://www.htetzawpaing.site/favicon.jpg">
-
-        <!-- 5. Favicon & Canonical -->
-        <link rel="icon" type="image/png" sizes="16x16"
-            href="/favicon.png?v=2026">
-        <link rel="icon" type="image/png" sizes="32x32"
-            href="/favicon.png?v=2026">
-        <link rel="icon" type="image/png" sizes="48x48"
-            href="/favicon.png?v=2026">
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=2026">
-        <!-- Canonical points to directory index style for clean SEO -->
-        <link rel="canonical" href="https://www.htetzawpaing.site/about/">
-        <script defer id="supportfast-script"
-            src="https://cdn.supportfast.ai/chatbot.js"
-            data-chatbot-id="bot-oirq7rylle"></script>
-
-        <!-- 6. Structured Data (JSON-LD: Person Profile & Breadcrumbs) -->
-        <script type="application/ld+json">
-        [
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Htet Zaw Paing",
-            "url": "https://www.htetzawpaing.site/about/",
-            "image": "https://www.htetzawpaing.site/favicon.jpg",
-            "jobTitle": "Software Engineer",
-            "description": "Software Engineer and AI Researcher based in Yangon, Myanmar.",
-            "telephone": "+959456751882",
-            "email": "contact@htetzawpaing.site",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Yangon",
-              "addressCountry": "Myanmar"
-            },
-            "alumniOf": [
-              {
-                "@type": "CollegeOrUniversity",
-                "name": "Edinburgh Napier University"
-              },
-              {
-                "@type": "CollegeOrUniversity",
-                "name": "Info Myanmar University"
-              }
-            ],
-            "sameAs": [
-              "https://www.htetzawpaing.site/",
-              "https://github.com/hzp4softwareengineering",
-              "https://www.linkedin.com/in/htet-zaw-paing-a768533a8",
-              "https://discord.com/users/1110430133707341894"
-            ],
-            "knowsAbout": ["Software Engineering", "AI Research", "Web Development"]
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://www.htetzawpaing.site/"
-            },{
-              "@type": "ListItem",
-              "position": 2,
-              "name": "About",
-              "item": "https://www.htetzawpaing.site/about/"
-            }]
-          }
-        ]
-        </script>
-
-        <!-- Assets & Resources -->
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-            rel="stylesheet">
-        <script src="https://unpkg.com/lucide@latest"></script>
-
-        <style>
-        :root {
-            --bg-dark: #050505;
-            --glass-border: rgba(255, 255, 255, 0.053);
-            --ease-fluid: cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-        }
-
-        /* Ambient Background Animations (Modern Structure) */
-        .ambient-bg-layer {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .cyber-grid {
-            position: absolute;
-            top: 0; left: 0; width: 200%; height: 200%;
-            background-image: 
-                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
-            animation: grid-move 20s linear infinite;
-            opacity: 0.5;
-        }
-
-        @keyframes grid-move {
-            0% { transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px); }
-            100% { transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px); }
-        }
-
-        .nebula-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.2;
-            animation: float-orb 15s ease-in-out infinite alternate;
-        }
-        .orb-1 { width: 500px; height: 500px; background: #3b82f6; top: -100px; right: -100px; }
-        .orb-2 { width: 400px; height: 400px; background: #8b5cf6; bottom: 20%; left: -100px; animation-delay: -5s; }
-        .orb-3 { width: 300px; height: 300px; background: #06b6d4; top: 40%; right: 10%; animation-delay: -10s; }
-
-        @keyframes float-orb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, -30px) scale(1.1); }
-        }
-
-        /* Subtle Grain */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: overlay;
-        }
-
-        /* Space Background for Hero */
-        .hero-space-bg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            background-image: url('https://images.unsplash.com/photo-1610296669228-602fa827fc1f?q=80&w=2575&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .hero-space-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background: radial-gradient(circle at center, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.8) 60%, #050505 100%);
-        }
-
-        /* Styles */
-        .crystal-water-header {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(25px) saturate(250%);
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.4);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.01);
-            backdrop-filter: blur(40px) saturate(160%);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            transition: all 0.6s var(--ease-fluid);
-        }
-        .glass-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-        }
-
-        .nav-link {
-            position: relative; z-index: 2; padding: 8px 16px;
-            transition: color 0.3s ease;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
-        }
-        .nav-link:hover, .nav-link.active { color: #fff; }
-
-        .liquid-pill {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 99px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            pointer-events: none;
-            transition: all 0.6s var(--ease-fluid);
-            opacity: 0;
-        }
-
-        .edu-timeline::before {
-            content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
-            background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
-            opacity: 0.5;
-        }
-
-        .section-title { letter-spacing: -0.03em; }
-
-        .input-crystal {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .input-crystal:focus {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(10, 132, 255, 0.5);
-            outline: none;
-            box-shadow: 0 0 20px rgba(10, 132, 255, 0.1);
-        }
-
-        #mobile-menu { transition: transform 0.6s var(--ease-fluid); }
-        
-        .dropdown-wrapper { position: relative; }
-        .dropdown-menu {
-            position: absolute; top: 100%; left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            min-width: 160px;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 8px;
-            opacity: 0; visibility: hidden;
-            transition: all 0.4s var(--ease-fluid);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            z-index: 100;
-        }
-        .dropdown-wrapper:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(8px); }
-        .dropdown-item {
-            display: block; padding: 10px 16px;
-            color: rgba(255, 255, 255, 0.6);
-            border-radius: 12px; transition: all 0.2s ease;
-            text-align: center;
-        }
-        .dropdown-item:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
-
-        /* --- Updated Fan Card Styles --- */
-        .stack-container {
-            position: relative;
-            perspective: 1000px;
-            width: 300px; 
-            height: 420px;
-        }
-
-        .stack-card {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 24px; 
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            overflow: hidden;
-            background: #050505;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            touch-action: pan-y;
-            transform-origin: 50% 120%; 
-            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, filter 0.6s ease;
-            will-change: transform;
-        }
-        
-        .stack-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-        
-        .stack-card:hover {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-            border-color: rgba(59, 130, 246, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .stack-container {
-                width: 260px;
-                height: 360px;
-            }
-        }
-        </style>
-    </head>
-    <body>
-
-        <!-- Ambient Background Layers (Excluding Footer by visual layering) -->
-        <div class="ambient-bg-layer">
-            <div class="cyber-grid"></div>
-            <div class="nebula-orb orb-1"></div>
-            <div class="nebula-orb orb-2"></div>
-            <div class="nebula-orb orb-3"></div>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="fixed top-0 w-full z-[100] px-4 md:px-8 py-4">
-            <div
-                class="max-w-6xl mx-auto crystal-water-header px-4 py-2 flex justify-between items-center rounded-full relative z-50">
-                <a href="https://www.htetzawpaing.site/"
-                    class="text-lg font-bold tracking-tight z-10 flex items-center text-white/90">
-                    <div
-                        class="w-8 h-8 rounded-full overflow-hidden mr-3 border border-white/10 shadow-lg">
-                        <img
-                            src="/favicon.jpg"
-                            alt="Htet Zaw Paing"
-                            class="w-full h-full object-cover">
-                    </div>
-                    HZP<span class="text-blue-600">.</span>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div
-                    class="hidden md:flex relative space-x-1 items-center text-[11px] font-semibold tracking-wide uppercase">
-                    <div id="liquid-pill" class="liquid-pill"></div>
-
-                    <!-- Home with Dropdown -->
-                    <div
-                        class="dropdown-wrapper relative group flex items-center">
-                        <a href="https://www.htetzawpaing.site/"
-                            class="nav-link flex items-center gap-1 active"
-                            data-en="Home" data-mm="ပင်မ">
-                            Home <i data-lucide="chevron-down"
-                                class="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="https://www.htetzawpaing.site/#person"
-                                class="dropdown-item" data-en="Identity"
-                                data-mm="ကိုယ်ရေးအကျဉ်း">Identity</a>
-                            <a href="https://www.htetzawpaing.site/#projects"
-                                class="dropdown-item" data-en="Projects"
-                                data-mm="စီမံကိန်းများ">Projects</a>
-                            <a
-                                href="https://www.htetzawpaing.site/#specialization"
-                                class="dropdown-item" data-en="Specialization"
-                                data-mm="ကျွမ်းကျင်မှု">Specialization</a>
-                            <a href="https://www.htetzawpaing.site/#news"
-                                class="dropdown-item" data-en="News"
-                                data-mm="သတင်းလွှာ">News</a>
-                        </div>
-                    </div>
-
-                    <!-- Top Level Links -->
-                    <a href="/about" class="nav-link" data-en="Profile"
-                        data-mm="ကိုယ်ရေးအကျဉ်း">Profile</a>
-                    <a href="/projects" class="nav-link" data-en="Projects"
-                        data-mm="စီမံကိန်းများ">Projects</a>
-                    <a href="/expertise" class="nav-link" data-en="Expertise"
-                        data-mm="ကျွမ်းကျင်မှု">Expertise</a>
-                </div>
-
-                <!-- Desktop Actions -->
-                <div class="hidden md:flex items-center gap-3 z-10">
-                    <button id="lang-toggle"
-                        class="btn-crystal px-4 py-2 glass-card rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-2 text-white/80 border-white/5 bg-transparent hover:bg-white/5">
-                        <i data-lucide="languages"
-                            class="w-3.5 h-3.5 opacity-70"></i>
-                        <span id="lang-text">EN</span>
-                    </button>
-
-                    <a href="/profile"
-                        class="btn-crystal px-6 py-2.5 bg-blue-700 text-white text-[10px] font-bold uppercase rounded-full shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:bg-blue-500 border border-gray-600">
-                        <span data-en="Connect"
-                            data-mm="ဆက်သွယ်ရန်">Connect</span>
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger Button -->
-                <button id="menu-toggle"
-                    class="md:hidden z-50 p-2 text-white/80 hover:text-white transition-colors">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <!-- Mobile Slide-out Menu -->
-            <div id="mobile-menu"
-                class="fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-3xl transform translate-x-full flex flex-col justify-center items-center gap-8">
-                <button id="menu-close"
-                    class="absolute top-8 right-8 p-2 text-white/50 hover:text-white transition-colors">
-                    <i data-lucide="x" class="w-8 h-8"></i>
-                </button>
-
-                <div
-                    class="flex flex-col items-center gap-6 text-sm font-bold tracking-[0.15em] uppercase">
-                    <a href="https://www.htetzawpaing.site/"
-                        class="mobile-nav-link text-white transition-all"
-                        data-en="Home" data-mm="ပင်မ">Home</a>
-                    <a href="/about"
-                        class="mobile-nav-link text-white/60 hover:text-white transition-all"
-                        data-en="Profile" data-mm="ကိုယ်ရေးအကျဉ်း">Profile</a>
-                    <a href="/projects"
-                        class="mobile-nav-link text-white/60 hover:text-white transition-all"
-                        data-en="Projects" data-mm="စီမံကိန်းများ">Projects</a>
-                    <a href="/expertise"
-                        class="mobile-nav-link text-white/60 hover:text-white transition-all"
-                        data-en="Expertise"
-                        data-mm="ကျွမ်းကျင်မှု">Expertise</a>
-                </div>
-
-                <div class="w-12 h-[1px] bg-white/10"></div>
-
-                <div class="flex flex-col items-center gap-5">
-                    <button id="mobile-lang-toggle"
-                        class="px-6 py-3 glass-card bg-transparent rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-                        <i data-lucide="languages"
-                            class="w-4 h-4 text-white/50"></i>
-                        <span id="mobile-lang-text">EN</span>
-                    </button>
-
-                    <a href="/profile"
-                        class="px-8 py-3 bg-blue-700 text-white text-xs font-bold uppercase rounded-full shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                        <span data-en="Connect"
-                            data-mm="ဆက်သွယ်ရန်">Connect</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Hero Section (Full Screen Space Theme) -->
-        <section
-            class="min-h-screen relative flex items-center justify-center px-4 overflow-hidden">
-            <!-- Space Background -->
-            <div class="hero-space-bg"></div>
-            <div class="hero-space-overlay"></div>
-
-            <div
-                class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 pt-20">
-                <!-- Text Content -->
-                <div class="space-y-8 order-2 lg:order-1">
-                    <div
-                        class="inline-flex items-center gap-2 px-4 py-1.5 glass-card bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest text-blue-400 uppercase rounded-full">
-                        <span
-                            class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        <span data-en="About The Architect"
-                            data-mm="ဗိသုကာအကြောင်း">About The Architect</span>
-                    </div>
-
-                    <h1
-                        class="text-5xl md:text-7xl font-black tracking-tight leading-[1.1]">
-                        <span data-en="Behind" data-mm="ကုဒ်များ၏">Behind</span>
-                        <br>
-                        <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-blue-500"
-                            data-en="The Code." data-mm="နောက်ကွယ်။">The
-                            Code.</span>
-                    </h1>
-
-                    <p
-                        class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-lg shadow-black drop-shadow-md">
-                        <span data-en="I am" data-mm="ကျွန်တော်ကတော့">I
-                            am</span> <span class="text-white font-bold"
-                            data-en="Htet Zaw Paing" data-mm="ထက်ဇော်ပိုင်">Htet
-                            Zaw Paing</span>. <span
-                            data-en="A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story."
-                            data-mm="ကုဒ်လိုင်းများကို သင်္ကေတများအဖြစ်သာမက အနာဂတ်၏ အဆောက်အအုံများအဖြစ် မြင်သော ဖန်တီးရှင်တစ်ဦး ဖြစ်ပါသည်။ ဤသည်မှာ ကျွန်ုပ်၏ ဇာတ်လမ်းဖြစ်သည်။">A
-                            creator who sees lines of code not just as syntax,
-                            but as the building blocks of the future. This is my
-                            story.</span>
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf"
-                            class="glass-card px-8 py-4 bg-blue-600 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-blue-500 text-white flex justify-center items-center gap-2 transition-transform hover:scale-105 border-0">
-                            <i data-lucide="download" class="w-4 h-4"></i>
-                            <span data-en="Download CV"
-                                data-mm="CV ဒေါင်းလုဒ်">Download CV</span>
-                        </a>
-                        <a href="#biography"
-                            class="glass-card px-8 py-4 bg-transparent border border-white/10 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-white/5 text-white text-center transition-transform hover:scale-105">
-                            <span data-en="Read Biography"
-                                data-mm="အတ္ထုပ္ပတ္တိ ဖတ်ရန်">Read
-                                Biography</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Visual: Fanned Cards Stack -->
-                <div
-                    class="order-1 lg:order-2 relative flex justify-center items-center h-full">
-                    <!-- Glows -->
-                    <div
-                        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/30 rounded-full blur-[80px] pointer-events-none"></div>
-
-                    <div class="stack-container" id="card-stack"
-                        onmouseenter="pauseShuffle()"
-                        onmouseleave="resumeShuffle()" onclick="forceShuffle()">
-
-                        <!-- Card 1: Name -->
-                        <div class="stack-card">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
-                            <img src="../favicon.jpg" alt="Htet Zaw Paing">
-                            <div class="absolute bottom-8 left-8 z-20">
-                                <p
-                                    class="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-1">Identity</p>
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-white">Htet
-                                    Zaw Paing</h3>
-                            </div>
-                        </div>
-
-                        <!-- Card 2: Date of Birth -->
-                        <div class="stack-card">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
-                            <img src="../born.jpg" alt="Date of Birth">
-                            <div class="absolute bottom-8 left-8 z-20">
-                                <p
-                                    class="text-purple-400 text-[10px] font-bold uppercase tracking-widest mb-1">Date
-                                    of Birth</p>
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-white"
-                                    data-en="April 10, 2004"
-                                    data-mm="ဧပြီလ ၁၀၊ ၂၀၀၄">April 10, 2004</h3>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Location -->
-                        <div class="stack-card">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
-                            <img src="../location.jpg" alt="Location">
-                            <div class="absolute bottom-8 left-8 z-20">
-                                <p
-                                    class="text-green-400 text-[10px] font-bold uppercase tracking-widest mb-1">Location</p>
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-white"
-                                    data-en="Yangon, Myanmar"
-                                    data-mm="ရန်ကုန်၊ မြန်မာ">Yangon,
-                                    Myanmar</h3>
-                            </div>
-                        </div>
-
-                        <!-- Card 4: University -->
-                        <div class="stack-card">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
-                            <img src="../EdinburghNapier.avif" alt="University">
-                            <div class="absolute bottom-8 left-8 z-20">
-                                <p
-                                    class="text-yellow-400 text-[10px] font-bold uppercase tracking-widest mb-1">Education</p>
-                                <h3
-                                    class="text-xl md:text-2xl font-bold text-white">Edinburgh
-                                    Napier Univ</h3>
-                            </div>
-                        </div>
-
-                        <!-- Card 5: Role -->
-                        <div class="stack-card">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
-                            <img src="../role.jpg" alt="Role">
-                            <div class="absolute bottom-8 left-8 z-20">
-                                <p
-                                    class="text-red-400 text-[10px] font-bold uppercase tracking-widest mb-1">Profession</p>
-                                <h3
-                                    class="text-2xl md:text-3xl font-bold text-white">Software
-                                    Engineer</h3>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Biography & Education (Modern Layout) -->
-        <section id="biography"
-            class="py-20 md:py-32 px-4 md:px-6 relative z-10">
-            <!-- Decorative Side Element -->
-            <div
-                class="hidden lg:block absolute right-0 top-1/4 w-32 h-[500px] border-l border-white/5 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent"></div>
-
-            <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-                    <!-- Left: Personal Data (Updated Modern Look) -->
-                    <div class="lg:col-span-4 space-y-10">
-                        <div
-                            class="glass-card p-8 sticky top-32 border-t border-white/20 bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-3xl shadow-2xl">
-                            <h3
-                                class="text-xl font-bold mb-6 flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                                <i data-lucide="user"
-                                    class="w-5 h-5 text-blue-400"></i>
-                                <span data-en="Personal Details"
-                                    data-mm="ကိုယ်ရေးအချက်အလက်များ">Personal
-                                    Details</span>
-                            </h3>
-                            <div class="space-y-6">
-                                <div><p
-                                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1"
-                                        data-en="Full Name"
-                                        data-mm="အမည်အပြည့်အစုံ">Full Name</p><p
-                                        class="text-white font-medium text-lg tracking-wide">Htet
-                                        Zaw Paing</p></div>
-                                <div><p
-                                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1"
-                                        data-en="Born"
-                                        data-mm="မွေးနေ့">Born</p><p
-                                        class="text-white font-medium text-lg"
-                                        data-en="April 10, 2004"
-                                        data-mm="ဧပြီလ ၁၀၊ ၂၀၀၄">April 10,
-                                        2004</p></div>
-                                <div><p
-                                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1"
-                                        data-en="Base of Operations"
-                                        data-mm="နေရပ်">Base of Operations</p><p
-                                        class="text-white font-medium text-lg"
-                                        data-en="Yangon, Myanmar"
-                                        data-mm="ရန်ကုန်၊ မြန်မာ">Yangon,
-                                        Myanmar</p></div>
-
-                                <div class="pt-4 border-t border-white/5">
-                                    <p
-                                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2"
-                                        data-en="Family"
-                                        data-mm="မိသားစု">Family</p>
-                                    <div class="space-y-3">
-                                        <div
-                                            class="flex justify-between items-center">
-                                            <span
-                                                class="text-xs text-blue-400 font-semibold uppercase tracking-wider"
-                                                data-en="Father"
-                                                data-mm="ဖခင်">Father</span>
-                                            <span
-                                                class="text-white font-medium text-sm">U
-                                                Myo Zaw</span>
-                                        </div>
-                                        <div
-                                            class="flex justify-between items-center">
-                                            <span
-                                                class="text-xs text-purple-400 font-semibold uppercase tracking-wider"
-                                                data-en="Mother"
-                                                data-mm="မိခင်">Mother</span>
-                                            <span
-                                                class="text-white font-medium text-sm">Daw
-                                                Nilar Aung</span>
-                                        </div>
-                                        <div
-                                            class="flex justify-between items-center">
-                                            <span
-                                                class="text-xs text-green-400 font-semibold uppercase tracking-wider"
-                                                data-en="Brother"
-                                                data-mm="မောင်">Brother</span>
-                                            <span
-                                                class="text-white font-medium text-sm">Mg
-                                                Aung Zaw Paing</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="pt-4 border-t border-white/5">
-                                    <p
-                                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1"
-                                        data-en="Status"
-                                        data-mm="အခြေအနေ">Status</p>
-                                    <div
-                                        class="inline-flex items-center gap-2 mt-1 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 shadow-[0_0_10px_rgba(34,197,94,0.2)]">
-                                        <span
-                                            class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
-                                        <span
-                                            class="text-xs font-bold text-green-400"
-                                            data-en="Open to Work"
-                                            data-mm="အလုပ်လက်ခံနေပါသည်">Open to
-                                            Work</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-8 pt-8 border-t border-white/5">
-                                <h4 class="text-sm font-bold mb-4"
-                                    data-en="Tech Stack"
-                                    data-mm="နည်းပညာများ">Tech Stack</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">HTML/CSS</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">JavaScript</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-blue-500/10 rounded-lg text-xs font-medium text-blue-400 border border-blue-500/20 hover:bg-blue-500/20 transition-colors">React</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">PHP</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">MySQL</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-purple-500/10 rounded-lg text-xs font-medium text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-colors">Python</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-purple-500/10 rounded-lg text-xs font-medium text-purple-400 border border-purple-500/20 hover:bg-purple-500/20 transition-colors">TensorFlow</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Educational Journey Timeline (Enhanced) -->
-                    <div class="lg:col-span-8">
-                        <h2
-                            class="text-4xl font-bold mb-12 tracking-tight section-title"><span
-                                data-en="Educational"
-                                data-mm="ပညာရေး">Educational</span> <span
-                                class="text-blue-500" data-en="Voyage"
-                                data-mm="ခရီးလမ်း">Voyage</span></h2>
-                        <div class="relative edu-timeline space-y-12">
-
-                            <!-- 2031-2035 PhD -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-blue-500/50 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] group-hover:scale-110 transition-transform duration-300">
-                                    <span
-                                        class="text-[10px] font-bold text-blue-400">PhD</span>
-                                </div>
-                                <div
-                                    class="glass-card p-8 border-dashed border-blue-500/30 bg-blue-900/5 hover:opacity-100 transition-all hover:bg-blue-900/10 hover:border-blue-500/50">
-                                    <span
-                                        class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                        data-en="Est. 2031 - 2035"
-                                        data-mm="ခန့်မှန်းခြေ ၂၀၃၁ - ၂၀၃၅">Est.
-                                        2031 - 2035</span>
-                                    <h3 class="text-xl font-bold mb-2">PhD in
-                                        Computing</h3>
-                                    <p
-                                        class="text-gray-400 text-sm leading-relaxed"
-                                        data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures."
-                                        data-mm="AGI နှင့် Secure Quantum Architectures နယ်ပယ်များတွင် သုတေသနအသစ်များ ပါဝင်ကူညီရန် ရည်မှန်းထားပါသည်။">
-                                        Visionary goal to contribute novel
-                                        research to the field of Artificial
-                                        General Intelligence (AGI) and Secure
-                                        Quantum Architectures.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2027-2029 MSc -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-gray-700 rounded-full group-hover:border-gray-500 transition-colors">
-                                    <span
-                                        class="text-[10px] font-bold text-gray-600">MSc</span>
-                                </div>
-                                <div
-                                    class="glass-card p-8 border-dashed border-gray-700 opacity-60 hover:opacity-100 transition-all hover:translate-x-2">
-                                    <span
-                                        class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                        data-en="Est. 2027 - 2029"
-                                        data-mm="ခန့်မှန်းခြေ ၂၀၂၇ - ၂၀၂၉">Est.
-                                        2027 - 2029</span>
-                                    <h3 class="text-xl font-bold mb-2">MSc in
-                                        Computing</h3>
-                                    <p
-                                        class="text-gray-400 text-sm leading-relaxed"
-                                        data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems."
-                                        data-mm="အဆင့်မြင့် Software Architecture နှင့် Cloud Systems များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် ရည်မှန်းထားပါသည်။">
-                                        Strategic goal to deepen expertise in
-                                        Advanced Software Architecture and Cloud
-                                        Systems.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2026 Napier -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                    <div
-                                        class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.6)] group-hover:scale-110 transition-transform">
-                                        <i data-lucide="graduation-cap"
-                                            class="w-6 h-6 text-white"></i>
-                                    </div>
-                                </div>
-                                <div
-                                    class="glass-card p-8 bg-blue-900/10 border-blue-500/30 hover:bg-blue-900/20 hover:border-blue-500/50 transition-all">
-                                    <span
-                                        class="text-blue-400 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                        data-en="2026 - Current"
-                                        data-mm="၂၀၂၆ - လက်ရှိ">2026 -
-                                        Current</span>
-                                    <h3 class="text-2xl font-bold mb-1">BSc
-                                        (Hons) Computing</h3>
-                                    <p
-                                        class="text-white/60 text-xs font-bold uppercase tracking-widest mb-4">Edinburgh
-                                        Napier University</p>
-                                    <p class="text-gray-300 leading-relaxed"
-                                        data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks."
-                                        data-mm="လက်ရှိတွင် ဆော့ဖ်ဝဲဗိသုကာနှင့် cloud စနစ်များကို အာရုံစိုက်သင်ယူနေပါသည်။ လုံခြုံသော coding နည်းစနစ်များနှင့် ခေတ်မီ development frameworks များကိုလည်း လေ့လာနေပါသည်။">
-                                        Currently pursuing an advanced degree
-                                        focused on scalable software
-                                        architecture and cloud systems.
-                                        Deepening knowledge in secure coding
-                                        practices and modern development
-                                        frameworks.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2023 IMU -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                    <div
-                                        class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-purple-500/50 transition-colors">
-                                        <span
-                                            class="text-sm font-bold">HND</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="glass-card p-8 hover:bg-white/[0.05] hover:border-purple-500/30 transition-all">
-                                    <span
-                                        class="text-purple-400 font-bold text-xs uppercase tracking-widest mb-1 block">2023
-                                        - 2025</span>
-                                    <h3 class="text-xl font-bold mb-1">Higher
-                                        National Diploma</h3>
-                                    <p
-                                        class="text-white/40 text-xs font-bold uppercase tracking-widest mb-4">Info
-                                        Myanmar University / Pearson</p>
-                                    <p
-                                        class="text-gray-400 text-sm leading-relaxed"
-                                        data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models."
-                                        data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို မြှင့်တင်ခဲ့ပါသည်။ Full-stack development၊ data structures နှင့် AI မော်ဒယ်များကို အာရုံစိုက်ခဲ့ပါသည်။">
-                                        Formalized technical skills with HNC and
-                                        HND qualifications. Focused on
-                                        full-stack development, data structures,
-                                        and the initial exploration of AI
-                                        models.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2021 Self Learning -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                    <div
-                                        class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-green-500/50 transition-colors">
-                                        <i data-lucide="code-2"
-                                            class="w-6 h-6 text-white/70"></i>
-                                    </div>
-                                </div>
-                                <div
-                                    class="glass-card p-8 hover:bg-white/[0.05] hover:border-green-500/30 transition-all">
-                                    <span
-                                        class="text-green-400 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                        data-en="2021 - 2022"
-                                        data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
-                                    <h3 class="text-xl font-bold mb-1"
-                                        data-en="The Turning Point (Self-Learning)"
-                                        data-mm="အလှည့်အပြောင်း (ကိုယ်တိုင်လေ့လာခြင်း)">The
-                                        Turning Point (Self-Learning)</h3>
-                                    <p
-                                        class="text-white/40 text-xs font-bold uppercase tracking-widest mb-4"
-                                        data-en="Home / COVID-19 Period"
-                                        data-mm="အိမ် / ကိုဗစ်ကာလ">Home /
-                                        COVID-19 Period</p>
-                                    <p
-                                        class="text-gray-400 text-sm leading-relaxed"
-                                        data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path."
-                                        data-mm="ကိုဗစ်ကာလအတွင်း coding ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါသည်။ ၂ နှစ်တာကာလအတွင်း 'Hello World' မှစတင်၍ လက်တွေ့အသုံးချနိုင်သော application များ တည်ဆောက်နိုင်သည်အထိ ကိုယ်တိုင်လေ့လာခဲ့ပါသည်။">
-                                        During the global pause caused by
-                                        COVID-19, I discovered my passion for
-                                        code. I dedicated these two years to
-                                        intense self-study, moving from
-                                        "Hello World" to building functional
-                                        applications. This period defined my
-                                        career path.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2015 High School -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                    <div
-                                        class="w-3 h-3 rounded-full bg-gray-600"></div>
-                                </div>
-                                <div
-                                    class="glass-card p-6 hover:bg-white/[0.05] border-white/5 transition-all">
-                                    <span
-                                        class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                        data-en="2015 - 2020"
-                                        data-mm="၂၀၁၅ - ၂၀၂၀">2015 - 2020</span>
-                                    <h3 class="text-lg font-bold mb-1"
-                                        data-en="Secondary Education"
-                                        data-mm="အထက်တန်းပညာရေး">Secondary
-                                        Education</h3>
-                                    <p
-                                        class="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-2"
-                                        data-en='No.2 Basic Education High School, Bahan ("Nanyan")'
-                                        data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2
-                                        Basic Education High School, Bahan
-                                        ("Nanyan")</p>
-                                    <p class="text-gray-500 text-sm"
-                                        data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming."
-                                        data-mm="ပညာရေးစည်းကမ်းနှင့် ယုတ္တိဗေဒဆိုင်ရာ တွေးခေါ်မှုများကို တည်ဆောက်နိုင်ခဲ့ပြီး ၎င်းတို့သည် နောက်ပိုင်းတွင် programming အတွက် အခြေခံအုတ်မြစ်ဖြစ်လာခဲ့သည်။">
-                                        Developed academic discipline and
-                                        logical thinking skills that would later
-                                        serve as the foundation for programming.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2010 Primary -->
-                            <div class="relative pl-16 group">
-                                <div
-                                    class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                    <div
-                                        class="w-3 h-3 rounded-full bg-gray-600"></div>
-                                </div>
-                                <div
-                                    class="glass-card p-6 hover:bg-white/[0.05] border-white/5 transition-all">
-                                    <span
-                                        class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                        data-en="2010 - 2014"
-                                        data-mm="၂၀၁၀ - ၂၀၁၄">2010 - 2014</span>
-                                    <h3 class="text-lg font-bold mb-1"
-                                        data-en="Primary Foundation"
-                                        data-mm="မူလတန်းပညာရေး">Primary
-                                        Foundation</h3>
-                                    <p
-                                        class="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-2"
-                                        data-en="No.1 Basic Education Primary School, Bahan"
-                                        data-mm="အ.မ.က(၁) ဗဟန်း">No.1 Basic
-                                        Education Primary School, Bahan</p>
-                                    <p class="text-gray-500 text-sm"
-                                        data-en="The beginning of the academic journey."
-                                        data-mm="ပညာရေးခရီးလမ်း၏ အစပြုရာနေရာ။">
-                                        The beginning of the academic journey.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The "Why" Section (With Floating Elements) -->
-        <section class="py-20 px-4 md:px-6 relative overflow-hidden z-10">
-            <!-- Decorative Elements -->
-            <div
-                class="absolute left-10 top-20 w-32 h-32 border border-blue-500/20 rounded-full animate-spin-slow opacity-30"></div>
-            <div
-                class="absolute right-20 bottom-20 w-24 h-24 bg-gradient-to-tr from-purple-600 to-transparent opacity-20 blur-xl"></div>
-
-            <div class="max-w-4xl mx-auto text-center relative z-20">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 section-title">
-                    <span data-en="Code is Poetry,"
-                        data-mm="ကုဒ်ဆိုသည်မှာ ကဗျာ၊">Code is Poetry,</span>
-                    <br>
-                    <span class="text-blue-500" data-en="Written with Logic."
-                        data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသည်။">Written with
-                        Logic.</span>
-                </h2>
-
-                <div
-                    class="glass-card p-8 md:p-12 bg-gradient-to-br from-white/[0.03] to-transparent text-left space-y-6 backdrop-blur-xl border-white/10">
-                    <p class="text-gray-300 text-lg leading-relaxed"
-                        data-en="My journey into technology wasn't traditional. It began in the quiet isolation of the pandemic years. While the world stood still, I found movement in the cursor blinking on my screen. I realized that with a few lines of logic, I could create something from nothing."
-                        data-mm="နည်းပညာလောကထဲသို့ ကျွန်ုပ်ရောက်ရှိလာပုံသည် သမားရိုးကျ မဟုတ်ခဲ့ပါ။ ကပ်ရောဂါကာလ၏ တိတ်ဆိတ်မှုများကြားတွင် စတင်ခဲ့ခြင်းဖြစ်သည်။ ကမ္ဘာကြီးရပ်တန့်နေချိန်တွင် ကျွန်ုပ်၏ ဖန်သားပြင်ပေါ်မှ cursor ၏ လှုပ်ရှားမှုကို ရှာဖွေတွေ့ရှိခဲ့သည်။ ယုတ္တိဗေဒ အနည်းငယ်ဖြင့် ဘာမှမရှိရာမှ တစ်စုံတစ်ခုကို ဖန်တီးနိုင်ကြောင်း နားလည်ခဲ့ပါသည်။">
-                        My journey into technology wasn't traditional. It began
-                        in the quiet isolation of the pandemic years. While the
-                        world stood still, I found movement in the cursor
-                        blinking on my screen. I realized that with a few lines
-                        of logic, I could create something from nothing.
-                    </p>
-                    <p class="text-gray-300 text-lg leading-relaxed"
-                        data-en="I am driven by two things: Innovation and Creation. There is a profound joy in writing a script and watching it come to life—solving a problem, automating a task, or simply creating something beautiful."
-                        data-mm="ကျွန်ုပ်ကို တွန်းအားပေးသော အရာနှစ်ခုမှာ ဆန်းသစ်တီထွင်မှုနှင့် ဖန်တီးမှုတို့ ဖြစ်သည်။ ပြဿနာတစ်ခုကို ဖြေရှင်းရန်၊ လုပ်ငန်းတစ်ခုကို အလိုအလျောက်လုပ်ဆောင်ရန် သို့မဟုတ် လှပသောအရာတစ်ခုကို ဖန်တီးရန် script တစ်ခုရေးသားပြီး ၎င်းအသက်ဝင်လာသည်ကို ကြည့်ရှုရခြင်းသည် အလွန်ပျော်ရွှင်ဖွယ်ကောင်းပါသည်။">
-                        I am driven by two things: <span
-                            class="text-white font-bold">Innovation</span> and
-                        <span class="text-white font-bold">Creation</span>.
-                        There is a profound joy in writing a script and watching
-                        it come to life—solving a problem, automating a task, or
-                        simply creating something beautiful.
-                    </p>
-
-                    <div
-                        class="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div class="flex items-center gap-4 w-full md:w-auto">
-                            <div
-                                class="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center border border-yellow-500/20">
-                                <i data-lucide="code"
-                                    class="w-6 h-6 text-yellow-400"></i>
-                            </div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
-                                    data-en="Favorite Environment"
-                                    data-mm="အကြိုက်ဆုံး ပတ်ဝန်းကျင်">Favorite
-                                    Environment</p>
-                                <p
-                                    class="text-white font-medium text-sm md:text-base">VS
-                                    Code + Cafè + Americano + <span
-                                        class="text-blue-600 italic">Cigarettes
-                                        After Sex 🎵🎶</span></p>
-                            </div>
-                        </div>
-                        <img src="../favicon.jpg" alt="Signature"
-                            class="w-10 h-10 rounded-full opacity-50 grayscale">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Integrated Contact & Footer Section (MATCHING REQUESTED DESIGN) -->
-        <footer id="contact-footer"
-            class="relative pt-24 pb-12 px-4 md:px-8 border-t border-white/5 bg-[#020202] overflow-hidden">
-            <div
-                class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
-            <div
-                class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-            <div
-                class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-20 relative z-10">
-                <!-- Left Column: Branding & Contact Info -->
-                <div class="space-y-10">
-                    <div class="space-y-6">
-                        <h2
-                            class="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                            <span data-en="Let's" data-mm="အတူ">Let's</span>
-                            <span class="text-blue-500" data-en="Collaborate"
-                                data-mm="ပူးပေါင်းဆောင်ရွက်">Collaborate</span><br>
-                            <span class="text-white/30" data-en="The Future."
-                                data-mm="အနာဂတ်အတွက်">The Future.</span>
-                        </h2>
-                        <p
-                            class="text-gray-400 text-lg leading-relaxed max-w-md font-medium"
-                            data-en="Have an innovative idea or a project in mind? Send me a message directly and let's build the future together."
-                            data-mm="ဆန်းသစ်သော စိတ်ကူးများ၊ စီမံကိန်းများရှိပါသလား။ စာပို့၍ ဆွေးနွေးတိုင်ပင်နိုင်ပါသည်။">
-                            Have an innovative idea or a project in mind? Send
-                            me a message directly and let's build the future
-                            together.
-                        </p>
-                    </div>
-
-                    <div class="space-y-6 pt-4">
-                        <a href="tel:+959456751882"
-                            class="flex items-center gap-5 group">
-                            <div
-                                class="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-all duration-300">
-                                <i data-lucide="phone"
-                                    class="w-5 h-5 text-gray-400 group-hover:text-blue-400"></i>
-                            </div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1"
-                                    data-en="Call Me"
-                                    data-mm="ဖုန်းခေါ်ဆိုရန်">Call Me</p>
-                                <p
-                                    class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">+95
-                                    9456751882</p>
-                            </div>
-                        </a>
-
-                        <a href="mailto:contact@htetzawpaing.site"
-                            class="flex items-center gap-5 group">
-                            <div
-                                class="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-all duration-300">
-                                <i data-lucide="mail"
-                                    class="w-5 h-5 text-gray-400 group-hover:text-purple-400"></i>
-                            </div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1"
-                                    data-en="Email Me"
-                                    data-mm="အီးမေးလ်ပို့ရန်">Email Me</p>
-                                <p
-                                    class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors break-all">contact@htetzawpaing.site</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Social Links -->
-                    <div class="flex flex-wrap gap-3 pt-4">
-                        <a href="https://github.com/hzp4softwareengineering"
-                            target="_blank"
-                            class="w-12 h-12 rounded-2xl flex items-center justify-center glass-card hover:bg-[#c90076] hover:border-[#c90076] text-gray-400 hover:text-white transition-all duration-300 hover:-translate-y-1">
-                            <i data-lucide="github" class="w-5 h-5"></i>
-                        </a>
-                        <a href="www.linkedin.com/in/htet-zaw-paing-a768533a8"
-                            target="_blank"
-                            class="w-12 h-12 rounded-2xl flex items-center justify-center glass-card hover:bg-[#0077b5] hover:border-[#0077b5] text-gray-400 hover:text-white transition-all duration-300 hover:-translate-y-1">
-                            <svg class="w-5 h-5 fill-current"
-                                viewBox="0 0 24 24"><path
-                                    d="M20.447 20.452h-3.554v-5.569c0-1.327-.024-3.037-1.849-3.037-1.851 0-2.135 1.445-2.135 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.9 1.637-1.848 3.372-1.848 3.605 0 4.271 2.373 4.271 5.456v6.283zM5.337 7.433c-1.144 0-2.07-.926-2.07-2.07 0-1.143.926-2.07 2.07-2.07 1.143 0 2.07.927 2.07 2.07 0 1.144-.927 2.07-2.07 2.07zM6.632 20.452H4.041V9h2.591v11.452z" /></svg>
-                        </a>
-                        <a href="https://discord.com/users/1110430133707341894"
-                            target="_blank"
-                            class="w-12 h-12 rounded-2xl flex items-center justify-center glass-card hover:bg-[#5865F2] hover:border-[#5865F2] text-gray-400 hover:text-white transition-all duration-300 hover:-translate-y-1">
-                            <svg class="w-5 h-5 fill-current"
-                                viewBox="0 0 24 24"><path
-                                    d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01a13.928 13.928 0 0 0 10.36 0a.07.07 0 0 1 .077.01c.124.097.248.196.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" /></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Column: Contact Form -->
-                <div
-                    class="glass-card p-8 md:p-10 bg-white/[0.02] border border-white/10 rounded-3xl relative overflow-hidden">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 pointer-events-none"></div>
-
-                    <form id="direct-email-form"
-                        class="space-y-5 relative z-10">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <div class="space-y-2">
-                                <label
-                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-1"
-                                    data-en="Name" data-mm="အမည်">Name</label>
-                                <input type="text" id="contact-name"
-                                    class="w-full px-5 py-4 input-crystal text-sm bg-black/20"
-                                    placeholder="Your Name" required>
-                            </div>
-                            <div class="space-y-2">
-                                <label
-                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-1"
-                                    data-en="Email"
-                                    data-mm="အီးမေးလ်">Email</label>
-                                <input type="email" id="contact-email"
-                                    class="w-full px-5 py-4 input-crystal text-sm bg-black/20"
-                                    placeholder="your@email.com" required>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label
-                                class="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-1"
-                                data-en="Subject"
-                                data-mm="အကြောင်းအရာ">Subject</label>
-                            <input type="text" id="contact-subject"
-                                class="w-full px-5 py-4 input-crystal text-sm bg-black/20"
-                                placeholder="Project Inquiry / Collaboration"
-                                required>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label
-                                class="text-[10px] font-bold uppercase tracking-widest text-gray-500 ml-1"
-                                data-en="Message"
-                                data-mm="စာသား">Message</label>
-                            <textarea id="contact-message" rows="4"
-                                class="w-full px-5 py-4 input-crystal text-sm resize-none bg-black/20"
-                                placeholder="Tell me about your project details..."
-                                required></textarea>
-                        </div>
-
-                        <button type="submit"
-                            class="w-full py-4 bg-blue-600 rounded-2xl font-bold text-xs uppercase tracking-[0.15em] shadow-lg shadow-blue-500/20 text-center hover:bg-blue-500 text-white transition-all transform hover:-translate-y-1">
-                            <span data-en="Send Message"
-                                data-mm="စာပို့ရန်">Send Message</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Bottom Bar: Copyright & Status -->
-            <div
-                class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div
-                    class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-                    <span
-                        class="text-xl font-bold tracking-tight text-white">HZP<span
-                            class="text-blue-600">.</span></span>
-                    <p
-                        class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-600">
-                        &copy; 2026 Htet Zaw Paing. <span
-                            data-en="All Rights Reserved."
-                            data-mm="မူပိုင်ခွင့်များ ရယူထားပြီး။">All Rights
-                            Reserved.</span>
-                    </p>
-                </div>
-
-                <div
-                    class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-white/5">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span
-                            class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    <span
-                        class="text-[9px] font-bold uppercase tracking-widest text-gray-400"
-                        data-en="Secure Node Online"
-                        data-mm="လုံခြုံသော စနစ် အွန်လိုင်း">Secure Node
-                        Online</span>
-                </div>
-            </div>
-        </footer>
-
-        <script>
-        lucide.createIcons();
-
-        // Language Logic
-        let currentLang = 'en';
-        const langToggle = document.getElementById('lang-toggle');
-        const mobileLangToggle = document.getElementById('mobile-lang-toggle');
-        const langText = document.getElementById('lang-text');
-        const mobileLangText = document.getElementById('mobile-lang-text');
-        
-        const translatables = document.querySelectorAll('[data-en]');
-
-        function updateLang(lang) {
-            translatables.forEach(el => {
-                const text = el.getAttribute(`data-${lang}`);
-                if (text) el.innerText = text;
-            });
-            if(langText) langText.innerText = lang.toUpperCase();
-            if(mobileLangText) mobileLangText.innerText = lang.toUpperCase();
-        }
-
-        const toggleLang = () => {
-            currentLang = currentLang === 'en' ? 'mm' : 'en';
-            updateLang(currentLang);
-        };
-
-        if(langToggle) langToggle.addEventListener('click', toggleLang);
-        if(mobileLangToggle) mobileLangToggle.addEventListener('click', toggleLang);
-
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-        function openMenu() { mobileMenu.classList.remove('translate-x-full'); document.body.style.overflow = 'hidden'; }
-        function closeMenu() { mobileMenu.classList.add('translate-x-full'); document.body.style.overflow = 'auto'; }
-
-        if(menuToggle) menuToggle.addEventListener('click', openMenu);
-        if(menuClose) menuClose.addEventListener('click', closeMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pill = document.getElementById('liquid-pill');
-        const header = document.querySelector('.crystal-water-header');
-
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', (e) => {
-                if(e.target.classList.contains('dropdown-item')) return;
-                const rect = e.target.getBoundingClientRect();
-                const container = pill.offsetParent;
-                if (container) {
-                    const containerRect = container.getBoundingClientRect();
-                    pill.style.width = `${rect.width}px`;
-                    pill.style.height = `${rect.height}px`;
-                    pill.style.left = `${rect.left - containerRect.left}px`;
-                    pill.style.top = `${rect.top - containerRect.top}px`;
-                    pill.style.opacity = '1';
-                }
-            });
-        });
-        
-        header.addEventListener('mouseleave', () => { pill.style.opacity = '0'; });
-
-        const contactForm = document.getElementById('direct-email-form');
-        if(contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('contact-name').value;
-                const email = document.getElementById('contact-email').value;
-                const subject = document.getElementById('contact-subject').value;
-                const message = document.getElementById('contact-message').value;
-                const fullBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-                const mailtoLink = `mailto:contact@htetzawpaing.site?subject=${encodeURIComponent(subject)}&body=${fullBody}`;
-                window.location.href = mailtoLink;
-            });
-        }
-
-        const stack = document.getElementById('card-stack');
-        const cards = Array.from(stack.children).filter(c => c.classList.contains('stack-card'));
-        let activeIndex = 0;
-        let shuffleInterval;
-        let isPaused = false;
-
-        function updateCards() {
-            const isMobile = window.innerWidth < 768;
-            const total = cards.length;
-            const xSpread = isMobile ? 5 : 15;
-            const rotSpread = isMobile ? 8 : 12;
-            
-            cards.forEach((card, i) => {
-                let pos = (i - activeIndex + total) % total;
-                let val = pos - 2; 
-                
-                let rot = val * rotSpread;
-                let x = val * xSpread;
-                let z = pos;
-                
-                card.style.zIndex = z;
-                card.style.transform = `translateX(${x}px) rotate(${rot}deg)`;
-                
-                card.style.filter = `brightness(${0.6 + (pos * 0.1)})`;
-            });
-        }
-
-        function cycleStack() {
-            if(!isPaused) {
-                activeIndex = (activeIndex + 1) % cards.length;
-                updateCards();
-            }
-        }
-
-        function startShuffle() {
-            if (shuffleInterval) clearInterval(shuffleInterval);
-            shuffleInterval = setInterval(cycleStack, 2500); // 2.5 seconds per shuffle
-        }
-
-        function pauseShuffle() {
-            isPaused = true;
-            // Expand slightly on hover
-            const isMobile = window.innerWidth < 768;
-            const xSpreadHover = isMobile ? 25 : 50; 
-            
-            cards.forEach((card, i) => {
-                let pos = (i - activeIndex + cards.length) % cards.length;
-                let val = pos - 2;
-                let rot = val * (isMobile ? 8 : 12);
-                let x = val * xSpreadHover;
-                card.style.transform = `translateX(${x}px) rotate(${rot}deg)`;
-            });
-        }
-
-        function resumeShuffle() {
-            isPaused = false;
-            updateCards();
-        }
-
-        function forceShuffle() {
-            // Manual trigger
-            activeIndex = (activeIndex + 1) % cards.length;
-            updateCards();
-            resetTimer();
-        }
-        
-        function resetTimer() {
-             if (shuffleInterval) clearInterval(shuffleInterval);
-             shuffleInterval = setInterval(cycleStack, 3000);
-        }
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        stack.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            pauseShuffle(); 
-        }, {passive: true});
-
-        stack.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-            resumeShuffle();
-        }, {passive: true});
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 30) {
-                // Swiped Left 
-                activeIndex = (activeIndex + 1) % cards.length;
-                updateCards();
-                resetTimer();
-            } else if (touchEndX > touchStartX + 30) {
-                // Swiped Right
-                activeIndex = (activeIndex - 1 + cards.length) % cards.length;
-                updateCards();
-                resetTimer();
-            }
-        }
-
-        // Init
-        updateCards();
-        startShuffle();
-        
-        // Handle resize to adjust offsets
-        window.addEventListener('resize', updateCards);
-
-        </script>
-    </body>
+<html lang="en" class="bg-black">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#000000">
+<title>About | Htet Zaw Paing - Software Engineer & AI Researcher</title>
+<meta name="title" content="About | Htet Zaw Paing - Software Engineer & AI Researcher">
+<meta name="description" content="About Htet Zaw Paing. Download CV, view professional profiles (GitHub, LinkedIn), and connect for software engineering collaborations in Myanmar. Expert in AI, Web Development, and Cloud Architecture.">
+<meta name="keywords" content="About Htet Zaw Paing, Hire Software Engineer Myanmar, Htet Zaw Paing CV, Developer Contact Yangon, AI Researcher Contact, GitHub Htet Zaw Paing, LinkedIn Htet Zaw Paing, Software Architect Myanmar, Full Stack Developer Yangon">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="language" content="English">
+<meta name="author" content="Htet Zaw Paing">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://www.htetzawpaing.site/about/">
+<meta property="og:title" content="About | Htet Zaw Paing - Software Engineer & Web Developer">
+<meta property="og:description" content="Download CV, view GitHub and LinkedIn profiles, and get in touch with Htet Zaw Paing. Exploring the frontiers of AI and Software Engineering.">
+<meta property="og:image" content="https://www.htetzawpaing.site/favicon.jpg">
+<meta property="og:site_name" content="Htet Zaw Paing Portfolio">
+<meta property="profile:first_name" content="Htet">
+<meta property="profile:last_name" content="Zaw Paing">
+<meta property="profile:username" content="hzp4softwareengineering">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.htetzawpaing.site/about/">
+<meta name="twitter:title" content="About | Htet Zaw Paing - Software Engineer & Web Developer">
+<meta name="twitter:description" content="Software Engineer & Web Developer. Download CV and Connect.">
+<meta name="twitter:image" content="https://www.htetzawpaing.site/favicon.jpg">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=2026">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v2026">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png?v2026">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v2026">
+<link rel="canonical" href="https://www.htetzawpaing.site/about/">
+<script type="application/ld+json">
+[
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": "Htet Zaw Paing",
+"url": "https://www.htetzawpaing.site/about/",
+"image": "https://www.htetzawpaing.site/favicon.jpg",
+"jobTitle": "Software Engineer",
+"description": "Software Engineer and Web Developer based in Yangon, Myanmar.",
+"telephone": "+959456751882",
+"email": "contact@htetzawpaing.site",
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "Yangon",
+"addressCountry": "Myanmar"
+},
+"alumniOf": [
+{
+"@type": "CollegeOrUniversity",
+"name": "Edinburgh Napier University"
+},
+{
+"@type": "CollegeOrUniversity",
+"name": "Info Myanmar University"
+}
+],
+"sameAs": [
+"https://www.htetzawpaing.site/",
+"https://github.com/hzp4softwareengineering",
+"https://www.linkedin.com/in/htet-zaw-paing-a768533a8",
+"https://discord.com/users/1110430133707341894"
+],
+"knowsAbout": ["Software Engineering", "Web Development"]
+},
+{
+"@context": "https://schema.org",
+"@type": "BreadcrumbList",
+"itemListElement": [{
+"@type": "ListItem",
+"position": 1,
+"name": "Home",
+"item": "https://www.htetzawpaing.site/"
+},{
+"@type": "ListItem",
+"position": 2,
+"name": "About",
+"item": "https://www.htetzawpaing.site/about/"
+}]
+}
+]
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<script defer id="supportfast-script" src="https://cdn.supportfast.ai/chatbot.js" data-chatbot-id="bot-oirq7rylle"></script>
+<style>
+:root {
+--bg-dark: #000000;
+--text-main: #ffffff;
+--text-muted: #a1a1aa;
+--glass-border: rgba(255, 255, 255, 0.08);
+--ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+--ease-fluid: cubic-bezier(0.19, 1, 0.22, 1);
+}
+html { scroll-behavior: smooth; width: 100%; overflow-x: clip; background-color: var(--bg-dark); }
+body {
+font-family: 'Inter', sans-serif;
+background-color: var(--bg-dark);
+color: var(--text-main);
+width: 100%;
+overflow-x: clip;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+body::after {
+content: "";
+position: fixed;
+top: 0; left: 0; width: 100vw; height: 100vh;
+background: url('https://grainy-gradients.vercel.app/noise.svg');
+opacity: 0.035;
+pointer-events: none;
+z-index: 9999;
+mix-blend-mode: overlay;
+}
+.cursor-glow {
+position: absolute;
+width: 900px;
+height: 900px;
+background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 50%);
+border-radius: 50%;
+pointer-events: none;
+top: 85%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 1;
+filter: blur(60px);
+will-change: transform;
+}
+#nav-container {
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+border: 1px solid transparent;
+}
+.nav-initial #nav-container {
+max-width: 100%;
+border-radius: 0;
+background-color: transparent;
+padding-top: 1.5rem;
+padding-bottom: 1.5rem;
+margin-top: 0;
+width: 100%;
+}
+.nav-scrolled #nav-container {
+max-width: 80rem;
+border-radius: 9999px;
+background: rgba(10, 10, 10, 0.75);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-color: rgba(255, 255, 255, 0.08);
+padding-top: 0.8rem;
+padding-bottom: 0.8rem;
+margin-top: 1rem;
+width: 95%;
+}
+.glass-card {
+position: relative;
+background: rgba(255, 255, 255, 0.015); 
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border: 1px solid var(--glass-border);
+border-radius: 24px;
+overflow: hidden;
+transform: translateZ(0); 
+will-change: transform;
+transition: transform 0.6s var(--ease-cinematic), border-color 0.6s var(--ease-cinematic), background 0.6s ease;
+}
+.glass-card::after {
+content: '';
+position: absolute;
+inset: 0;
+background: radial-gradient(600px circle at var(--mouse-x, center) var(--mouse-y, center), rgba(255, 255, 255, 0.04), transparent 40%);
+opacity: 0;
+transition: opacity 0.4s ease;
+pointer-events: none;
+}
+.glass-card:hover {
+border-color: rgba(255, 255, 255, 0.2);
+background: rgba(255, 255, 255, 0.03); 
+transform: translateY(-4px);
+}
+.glass-card:hover::after { opacity: 1; }
+.btn-premium {
+background: #fff;
+color: #000;
+transition: all 0.4s var(--ease-cinematic);
+}
+.btn-premium:hover {
+transform: translateY(-2px);
+}
+.liquid-pill {
+position: absolute;
+background: rgba(255, 255, 255, 0.1);
+border-radius: 99px;
+transition: all 0.5s var(--ease-cinematic);
+pointer-events: none;
+z-index: 0;
+opacity: 0;
+}
+.nav-link {
+position: relative;
+z-index: 2;
+padding: 8px 20px;
+transition: color 0.3s ease;
+color: rgba(255, 255, 255, 0.5);
+font-weight: 500;
+}
+.nav-link:hover { color: #fff; }
+.dropdown-wrapper { position: relative; }
+.dropdown-menu {
+position: absolute;
+top: 100%; left: 50%;
+transform: translateX(-50%) translateY(15px);
+min-width: 160px;
+background: rgba(10, 10, 10, 0.95); 
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 16px;
+padding: 8px;
+opacity: 0; visibility: hidden;
+transition: all 0.4s var(--ease-cinematic);
+z-index: 100;
+backdrop-filter: blur(20px);
+}
+.dropdown-wrapper:hover .dropdown-menu {
+opacity: 1; visibility: visible;
+transform: translateX(-50%) translateY(8px);
+}
+.dropdown-item {
+display: block; padding: 10px 16px;
+color: rgba(255, 255, 255, 0.6);
+border-radius: 8px;
+transition: all 0.2s ease; text-align: center;
+font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+}
+.dropdown-item:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+.input-minimal {
+background: transparent;
+border: none;
+border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 0;
+color: white;
+transition: all 0.4s ease;
+}
+.input-minimal:focus {
+border-color: #fff;
+outline: none;
+box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.1);
+background: rgba(255,255,255,0.02);
+}
+.input-minimal::placeholder { color: rgba(255, 255, 255, 0.2); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+#mobile-menu { 
+transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease; 
+}
+.reveal-text {
+opacity: 0;
+transform: translateY(40px); 
+transition: opacity 1.2s var(--ease-cinematic), transform 1.2s var(--ease-cinematic);
+will-change: opacity, transform; 
+}
+.reveal-text.active-text {
+opacity: 1;
+transform: translateY(0);
+}
+.mono-img {
+filter: saturate(1.1);
+transition: filter 0.8s var(--ease-cinematic), transform 1.2s var(--ease-cinematic);
+}
+.group:hover .mono-img {
+filter: saturate(1.2);
+transform: scale(1.05);
+}
+.stack-container {
+position: relative;
+perspective: 1200px;
+width: 380px; 
+height: 520px;
+margin: 0 auto;
+}
+.stack-card {
+position: absolute;
+width: 100%;
+height: 100%;
+border-radius: 24px; 
+border: 1px solid rgba(255, 255, 255, 0.15);
+overflow: hidden;
+background: #050505;
+box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6);
+cursor: pointer;
+touch-action: pan-y;
+transform-origin: 50% 150%; 
+transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, filter 0.6s ease;
+will-change: transform, filter;
+}
+.stack-card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+pointer-events: none;
+}
+.stack-card:hover {
+box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+border-color: rgba(255, 255, 255, 0.4);
+}
+.edu-timeline::before {
+content: ''; position: absolute; left: 28px; top: 0; bottom: 0; width: 2px;
+background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
+box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+opacity: 0.5;
+}
+.section-title { letter-spacing: -0.03em; }
+.ambient-orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(100px);
+z-index: -1;
+pointer-events: none;
+animation: floatOrb 25s infinite ease-in-out alternate;
+}
+.orb-footer {
+width: 30vw; height: 30vw; max-width: 500px; max-height: 500px;
+background: rgba(255, 255, 255, 0.015);
+top: 40%; left: 60%;
+animation-delay: -10s;
+}
+@keyframes floatOrb {
+0% { transform: translate(0, 0) scale(1); }
+100% { transform: translate(5%, 10%) scale(1.1); }
+}
+
+@media (max-width: 768px) {
+.nav-scrolled #nav-container { width: 92%; margin-top: 0.5rem; }
+.stack-container { width: 300px; height: 420px; }
+}
+@media (max-width: 450px) {
+.btn-premium, .btn-outline { padding: 0.8rem 1rem !important; font-size: 0.7rem !important; width: 100% !important; justify-content: center; }
+.glass-card { padding: 1.2rem !important; border-radius: 16px !important; }
+}
+@media (max-width: 320px) {
+#mobile-menu .mobile-nav-link { font-size: 1rem !important; padding: 0.8rem 0 !important; }
+.glass-card { padding: 1rem !important; border-radius: 12px !important; }
+.section-title { font-size: 1.8rem !important; }
+.pl-10 { padding-left: 1.5rem !important; }
+}
+@media (max-width: 250px) {
+.btn-outline, .btn-premium { font-size: 0.6rem !important; padding: 0.5rem !important; }
+#mobile-menu .mobile-nav-link { font-size: 0.85rem !important; padding: 0.5rem 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav" class="fixed top-0 w-full z-[100] nav-initial">
+<div id="nav-container" class="w-full mx-auto px-4 md:px-6 flex justify-between items-center">
+<a href="https://www.htetzawpaing.site/" class="text-base md:text-lg font-black tracking-tighter z-10 flex items-center text-white">
+<span class="whitespace-nowrap flex items-center gap-2">
+<div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+HZP.
+</span>
+</a>
+<div class="hidden xl:flex relative space-x-2 items-center text-[10px] font-bold tracking-[0.15em] uppercase">
+<div id="liquid-pill" class="liquid-pill"></div>
+<div class="dropdown-wrapper relative group flex items-center">
+<a href="https://www.htetzawpaing.site/" class="nav-link flex items-center gap-1 text-white/60" data-en="Home" data-mm="ပင်မ">
+Home <i data-lucide="chevron-down" class="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300"></i>
+</a>
+<div class="dropdown-menu">
+<a href="https://www.htetzawpaing.site/about/" class="dropdown-item" data-en="Identity" data-mm="ကိုယ်ရေးအချက်အလက်များ">Identity</a>
+<a href="https://www.htetzawpaing.site/projects/" class="dropdown-item" data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
+<a href="https://www.htetzawpaing.site/expertise/" class="dropdown-item" data-en="Specialization" data-mm="ကျွမ်းကျင်မှု">Specialization</a>
+<a href="https://www.htetzawpaing.site/#news" class="dropdown-item" data-en="News" data-mm="သတင်းလွှာ">News</a>
+</div>
+</div>
+<a href="https://www.htetzawpaing.site/about/" class="nav-link text-white font-bold" data-en="Profile" data-mm="ကိုယ်ရေးအချက်အလက်များ">Profile</a>
+<a href="https://www.htetzawpaing.site/projects/" class="nav-link text-white/60" data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
+<a href="https://www.htetzawpaing.site/expertise/" class="nav-link text-white/60" data-en="Expertise" data-mm="ကျွမ်းကျင်မှု">Expertise</a>
+</div>
+<div class="hidden xl:flex items-center gap-4 z-10">
+<button id="lang-toggle" class="bg-transparent border border-white/20 text-white hover:bg-white hover:text-black transition-all duration-300 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+<i data-lucide="languages" class="w-3.5 h-3.5 opacity-70"></i>
+<span id="lang-text">EN</span>
+</button>
+<a href="#contact-footer" class="bg-white text-black hover:bg-gray-200 transition-all duration-400 px-6 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-full">
+<span data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</span>
+</a>
+</div>
+<button id="menu-toggle" class="xl:hidden z-50 p-2 text-white hover:text-gray-300 transition-colors">
+<i data-lucide="menu" class="w-6 h-6"></i>
+</button>
+</div>
+</nav>
+
+<div id="mobile-menu" class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100dvh] transition-transform duration-500 ease-in-out block">
+<button id="menu-close" class="fixed top-6 right-6 p-3 text-white hover:text-gray-300 transition-colors bg-white/10 rounded-full z-[10000]">
+<i data-lucide="x" class="w-6 h-6"></i>
+</button>
+<div class="flex flex-col items-center w-full px-8 pt-24 pb-12 min-h-full">
+<div class="flex flex-col items-center w-full gap-2 text-lg sm:text-xl font-black tracking-[0.15em] uppercase mt-auto">
+<a href="https://www.htetzawpaing.site/" class="mobile-nav-link text-zinc-400 hover:text-white transition-all w-full text-center py-4 border-b border-white/10" data-en="Home" data-mm="ပင်မ">Home</a>
+<a href="https://www.htetzawpaing.site/about/" class="mobile-nav-link text-white w-full text-center py-4 border-b border-white/10" data-en="Profile" data-mm="ကိုယ်ရေးအချက်အလက်များ">Profile</a>
+<a href="https://www.htetzawpaing.site/projects/" class="mobile-nav-link text-zinc-400 hover:text-white transition-all w-full text-center py-4 border-b border-white/10" data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
+<a href="https://www.htetzawpaing.site/expertise/" class="mobile-nav-link text-zinc-400 hover:text-white transition-all w-full text-center py-4 border-b border-white/10" data-en="Expertise" data-mm="ကျွမ်းကျင်မှု">Expertise</a>
+</div>
+<div class="flex flex-col items-center gap-4 mt-8 mb-auto w-full">
+<button id="mobile-lang-toggle" class="w-full py-4 border border-white/20 rounded-full text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3 text-white hover:bg-white/5 transition-all">
+<i data-lucide="languages" class="w-4 h-4 text-white/70"></i>
+<span id="mobile-lang-text">EN</span>
+</button>
+<a href="#contact-footer" class="mobile-nav-link w-full py-4 bg-white text-black text-sm font-bold uppercase rounded-full text-center tracking-widest hover:bg-gray-200 transition-all">
+<span data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</span>
+</a>
+</div>
+</div>
+</div>
+
+<section id="home" class="min-h-screen relative flex items-center justify-center px-4 overflow-hidden">
+<canvas id="hero-canvas" class="absolute inset-0 z-0 pointer-events-none w-full h-full"></canvas>
+<div class="cursor-glow"></div>
+<div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 pt-20">
+<div class="space-y-8 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 glass-card bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest text-white uppercase rounded-full reveal-text">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+<span data-en="About The Architect" data-mm="ဖန်တီးသူ၏ နောက်ခံသမိုင်းကြောင်း">About The Architect</span>
+</div>
+<h1 class="text-[clamp(3rem,8vw,5.5rem)] md:text-7xl font-black tracking-tightest leading-[1.1] reveal-text">
+<span class="text-white" data-en="Behind" data-mm="ကုဒ်လိုင်းများ၏">Behind</span>
+<br>
+<span class="text-white" data-en="The Code." data-mm="နောက်ကွယ်။">The Code.</span>
+</h1>
+<p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg shadow-black drop-shadow-md reveal-text" style="transition-delay: 0.1s;">
+<span data-en="I am" data-mm="ကျွန်တော်ကတော့">ကျွန်တော်ကတော့</span> <span class="text-white font-bold" data-en="Htet Zaw Paing" data-mm="ထက်ဇော်ပိုင်">Htet Zaw Paing</span> <span data-en="A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story." data-mm="ပါ။ ကွန်ပျူတာကုဒ်တွေကို ရိုးရှင်းတဲ့ စာကြောင်းတွေလို့ မမြင်ဘဲ၊ အနာဂတ်ကို တည်ဆောက်မယ့် အုတ်မြစ်တွေလို့ ခံယူထားတဲ့ ဖန်တီးရှင်တစ်ယောက်ပါ။ ဒါကတော့ ကျွန်တော့်ရဲ့ ဖြတ်သန်းမှု ဇာတ်လမ်းပါပဲ။">A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story.</span>
+</p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4 reveal-text" style="transition-delay: 0.2s;">
+<a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf" class="bg-white text-black hover:bg-gray-200 transition-all duration-400 rounded-[24px] p-5 flex items-center justify-center gap-3 group hover:-translate-y-1 font-bold text-xs uppercase tracking-[0.2em]">
+<i data-lucide="download" class="w-5 h-5 transition-transform duration-400 group-hover:scale-110"></i>
+<span data-en="Download CV" data-mm="ကိုယ်ရေးမှတ်တမ်း (CV) ရယူရန်">Download CV</span>
+</a>
+<a href="#biography" class="bg-transparent text-white border border-white/20 hover:!bg-white hover:!text-black transition-all duration-400 rounded-[24px] p-5 flex items-center justify-center gap-3 group hover:-translate-y-1 font-bold text-xs uppercase tracking-[0.2em]">
+<span data-en="Read Biography" data-mm="ဖြတ်သန်းမှု သမိုင်းကြောင်း ဖတ်ရန်">Read Biography</span>
+</a>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative flex justify-center items-center h-[400px] lg:h-[600px] reveal-text" style="transition-delay: 0.3s;">
+<div class="stack-container" id="card-stack" onmouseenter="pauseShuffle()" onmouseleave="resumeShuffle()" onclick="forceShuffle()">
+<div class="stack-card">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
+<img src="../favicon.jpg" alt="Htet Zaw Paing">
+<div class="absolute bottom-8 left-8 z-20">
+<p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1" data-en="Identity" data-mm="ကိုယ်ရေးအချက်အလက်များ">Identity</p>
+<h3 class="text-2xl md:text-3xl font-bold text-white">Htet Zaw Paing</h3>
+</div>
+</div>
+<div class="stack-card">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
+<img src="../born.jpg" alt="Date of Birth">
+<div class="absolute bottom-8 left-8 z-20">
+<p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1" data-en="Date of Birth" data-mm="မွေးသက္ကရာဇ်">Date of Birth</p>
+<h3 class="text-2xl md:text-3xl font-bold text-white" data-en="April 10, 2004" data-mm="၁၀ ဧပြီ ၂၀၀၄">April 10, 2004</h3>
+</div>
+</div>
+<div class="stack-card">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
+<img src="../location.jpg" alt="Location">
+<div class="absolute bottom-8 left-8 z-20">
+<p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1" data-en="Location" data-mm="အခြေစိုက်ရာဒေသ">Location</p>
+<h3 class="text-2xl md:text-3xl font-bold text-white" data-en="Yangon, Myanmar" data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</h3>
+</div>
+</div>
+<div class="stack-card">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
+<img src="../EdinburghNapier.avif" alt="University">
+<div class="absolute bottom-8 left-8 z-20">
+<p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1" data-en="Education" data-mm="ပညာအရည်အချင်း">Education</p>
+<h3 class="text-xl md:text-2xl font-bold text-white">Edinburgh Napier Univ</h3>
+</div>
+</div>
+<div class="stack-card">
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10"></div>
+<img src="../role.jpg" alt="Role">
+<div class="absolute bottom-8 left-8 z-20">
+<p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1" data-en="Profession" data-mm="လက်ရှိအလုပ်အကိုင်">Profession</p>
+<h3 class="text-2xl md:text-3xl font-bold text-white" data-en="Software Engineer" data-mm="ဆော့ဖ်ဝဲအင်ဂျင်နီယာ">Software Engineer</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="biography" class="py-20 md:py-32 px-4 md:px-6 relative z-10" style="overflow: visible;">
+<div class="hidden lg:block absolute right-0 top-1/4 w-32 h-[500px] border-l border-white/5 bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
+<div class="max-w-6xl mx-auto" style="overflow: visible;">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative">
+<div class="lg:col-span-4 self-start sticky top-32 w-full transition-transform duration-500 z-30">
+<div class="glass-card p-8 border-t border-white/20 bg-gradient-to-b from-white/[0.05] to-transparent backdrop-blur-3xl shadow-2xl reveal-text">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-white">
+<i data-lucide="user" class="w-5 h-5 text-white"></i>
+<span data-en="Personal Details" data-mm="ကိုယ်ရေးအချက်အလက်များ">Personal Details</span>
+</h3>
+<div class="space-y-6">
+<div><p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1" data-en="Full Name" data-mm="အမည်အပြည့်အစုံ">Full Name</p><p class="text-white font-medium text-lg tracking-wide">Htet Zaw Paing</p></div>
+<div><p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1" data-en="Born" data-mm="မွေးသက္ကရာဇ်">Born</p><p class="text-white font-medium text-lg" data-en="April 10, 2004" data-mm="၁၀ ဧပြီ ၂၀၀၄">April 10, 2004</p></div>
+<div><p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1" data-en="Base of Operations" data-mm="အခြေစိုက်ရာဒေသ">Base of Operations</p><p class="text-white font-medium text-lg" data-en="Yangon, Myanmar" data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</p></div>
+<div class="pt-4 border-t border-white/5">
+<p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2" data-en="Family" data-mm="မိသားစု">Family</p>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<span class="text-xs text-white/60 font-semibold uppercase tracking-wider" data-en="Father" data-mm="ဖခင်">Father</span>
+<span class="text-white font-medium text-sm">U Myo Zaw</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-white/60 font-semibold uppercase tracking-wider" data-en="Mother" data-mm="မိခင်">Mother</span>
+<span class="text-white font-medium text-sm">Daw Nilar Aung</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-white/60 font-semibold uppercase tracking-wider" data-en="Brother" data-mm="ညီ/အစ်ကို">Brother</span>
+<span class="text-white font-medium text-sm">Mg Aung Zaw Paing</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5">
+<p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1" data-en="Status" data-mm="လက်ရှိ လုပ်ငန်းအခြေအနေ">Status</p>
+<div class="inline-flex items-center gap-2 mt-1 px-3 py-1 rounded-full border border-white/20">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+<span class="text-xs font-bold text-white" data-en="Open to Work" data-mm="အလုပ်ခေါ်ဆိုမှုများ လက်ခံနေပါသည်">Open to Work</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-white/5">
+<h4 class="text-sm font-bold mb-4 text-white" data-en="Tech Stack" data-mm="ကျွမ်းကျင်သော နည်းပညာများ">Tech Stack</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">HTML/CSS</span>
+<span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">JavaScript</span>
+<span class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">React</span>
+<span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">PHP</span>
+<span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">MySQL</span>
+<span class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">Python</span>
+<span class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">TensorFlow</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8">
+<h2 class="text-4xl font-bold mb-12 tracking-tight section-title reveal-text"><span data-en="Educational" data-mm="ပညာရေးနှင့် ဖြတ်သန်းခဲ့သော" class="text-gray-400">Educational</span> <span class="text-white" data-en="Voyage" data-mm="ခရီးစဉ်">Voyage</span></h2>
+<div class="relative edu-timeline space-y-12">
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.1s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-white/50 rounded-full group-hover:scale-110 transition-transform duration-300">
+<span class="text-[10px] font-bold text-white">PhD</span>
+</div>
+<div class="glass-card p-8 border-dashed border-white/30 bg-white/5 hover:opacity-100 transition-all hover:bg-white/10 hover:border-white/50">
+<span class="text-white font-bold text-xs uppercase tracking-widest mb-1 block" data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
+<h3 class="text-xl font-bold mb-2 text-white" data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in Computing</h3>
+<p class="text-gray-400 text-sm leading-relaxed" data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures." data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures.</p>
+</div>
+</div>
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.2s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-gray-700 rounded-full group-hover:border-gray-500 transition-colors">
+<span class="text-[10px] font-bold text-gray-500">MSc</span>
+</div>
+<div class="glass-card p-8 border-dashed border-gray-700 opacity-60 hover:opacity-100 transition-all hover:translate-x-2">
+<span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
+<h3 class="text-xl font-bold mb-2 text-white" data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing</h3>
+<p class="text-gray-400 text-sm leading-relaxed" data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems." data-mm="အဆင့်မြင့် ဆော့ဖ်ဝဲလ်ဗိသုကာပညာနှင့် Cloud စနစ်များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် မဟာဘွဲ့ကို ရည်မှန်းထားပါသည်။">Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems.</p>
+</div>
+</div>
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.3s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
+<i data-lucide="graduation-cap" class="w-6 h-6 text-black"></i>
+</div>
+</div>
+<div class="glass-card p-8 bg-white/5 border border-white/20 hover:bg-white/10 transition-all">
+<span class="text-white font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
+<h3 class="text-2xl font-bold mb-1 text-white" data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">BSc (Hons) Computing</h3>
+<p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Edinburgh Napier University</p>
+<p class="text-gray-300 leading-relaxed" data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks." data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks.</p>
+</div>
+</div>
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.4s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+<div class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
+<span class="text-sm font-bold text-white">HND</span>
+</div>
+</div>
+<div class="glass-card p-8 hover:bg-white/[0.05] hover:border-white/30 transition-all">
+<span class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-1 block">2023 - 2025</span>
+<h3 class="text-xl font-bold mb-1 text-white" data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher National Diploma</h3>
+<p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-4">Info Myanmar University / Pearson</p>
+<p class="text-gray-400 text-sm leading-relaxed" data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models." data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models.</p>
+</div>
+</div>
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.5s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+<div class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
+<i data-lucide="code-2" class="w-6 h-6 text-white/70"></i>
+</div>
+</div>
+<div class="glass-card p-8 hover:bg-white/[0.05] hover:border-white/30 transition-all">
+<span class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
+<h3 class="text-xl font-bold mb-1 text-white" data-en="The Turning Point (Self-Learning)" data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point (Self-Learning)</h3>
+<p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-4" data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period</p>
+<p class="text-gray-400 text-sm leading-relaxed" data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path." data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path.</p>
+</div>
+</div>
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.6s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+<div class="w-3 h-3 rounded-full bg-gray-600"></div>
+</div>
+<div class="glass-card p-6 hover:bg-white/[0.05] border-white/5 transition-all">
+<span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2015 - 2020" data-mm="၂၀၁၅ - ၂၀၂၀">2015 - 2020</span>
+<h3 class="text-lg font-bold mb-1 text-white" data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
+<p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2" data-en='No.2 Basic Education High School, Bahan ("Nanyan")' data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan ("Nanyan")</p>
+<p class="text-gray-500 text-sm" data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming." data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">Developed academic discipline and logical thinking skills that would later serve as the foundation for programming.</p>
+</div>
+</div>
+<div class="relative pl-16 group reveal-text" style="transition-delay: 0.7s;">
+<div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+<div class="w-3 h-3 rounded-full bg-gray-600"></div>
+</div>
+<div class="glass-card p-6 hover:bg-white/[0.05] border-white/5 transition-all">
+<span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2010 - 2014" data-mm="၂၀၁၀ - ၂၀၁၄">2010 - 2014</span>
+<h3 class="text-lg font-bold mb-1 text-white" data-en="Primary Foundation" data-mm="အခြေခံပညာ မူလတန်း">Primary Foundation</h3>
+<p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2" data-en="No.1 Basic Education Primary School, Bahan" data-mm="အ.မ.က(၁) ဗဟန်း">No.1 Basic Education Primary School, Bahan</p>
+<p class="text-gray-500 text-sm" data-en="The beginning of the academic journey." data-mm="ပညာရေးခရီးစဉ် စတင်ရာ အခြေခံအုတ်မြစ်။">The beginning of the academic journey.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-20 px-4 md:px-6 relative overflow-hidden z-10 border-t border-white/5">
+<div class="max-w-4xl mx-auto text-center relative z-20">
+<h2 class="text-3xl md:text-5xl font-bold mb-8 section-title reveal-text">
+<span class="text-gray-400" data-en="Code is Poetry," data-mm="ကုဒ်ဆိုသည်မှာ">Code is Poetry,</span>
+<br>
+<span class="text-white" data-en="Written with Logic." data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသော ကဗျာတစ်ပုဒ် ဖြစ်ပါသည်။">Written with Logic.</span>
+</h2>
+<div class="glass-card p-8 md:p-12 bg-white/[0.02] text-left space-y-6 backdrop-blur-xl border-white/10 reveal-text" style="transition-delay: 0.1s;">
+<p class="text-gray-300 text-lg leading-relaxed" data-en="My journey into technology wasn't traditional. It began in the quiet isolation of the pandemic years. While the world stood still, I found movement in the cursor blinking on my screen. I realized that with a few lines of logic, I could create something from nothing." data-mm="နည်းပညာလောကထဲကို ကျွန်တော် ရောက်ရှိလာပုံက သမားရိုးကျ မဟုတ်ခဲ့ပါဘူး။ ကမ္ဘာကြီး ရပ်တန့်သွားခဲ့တဲ့ ကိုဗစ်ကပ်ရောဂါကာလရဲ့ တိတ်ဆိတ်မှုတွေကြားမှာ စတင်ခဲ့တာပါ။ ဖန်သားပြင်ပေါ်က မျက်တောင်ခတ်နေတဲ့ cursor လေးရဲ့ လှုပ်ရှားမှုကို သတိထားမိခဲ့ပြီး၊ ယုတ္တိဗေဒ ကုဒ်လိုင်းအနည်းငယ်နဲ့ ဘာမှမရှိရာကနေ အရာတစ်ခုကို ဖန်တီးနိုင်တယ်ဆိုတာကို နားလည်ခဲ့ပါတယ်။">My journey into technology wasn't traditional. It began in the quiet isolation of the pandemic years. While the world stood still, I found movement in the cursor blinking on my screen. I realized that with a few lines of logic, I could create something from nothing.</p>
+<p class="text-gray-300 text-lg leading-relaxed" data-en="I am driven by two things: Innovation and Creation. There is a profound joy in writing a script and watching it come to life—solving a problem, automating a task, or simply creating something beautiful." data-mm="ကျွန်တော့်ကို အမြဲတွန်းအားပေးနေတဲ့ အရာနှစ်ခုကတော့ 'ဆန်းသစ်တီထွင်မှု' နဲ့ 'ဖန်တီးမှု' ပါပဲ။ ပြဿနာတစ်ခုကို ဖြေရှင်းဖို့၊ လုပ်ငန်းစဉ်တစ်ခုကို အလိုအလျောက်ဖြစ်စေဖို့၊ ဒါမှမဟုတ် လှပတဲ့အရာတစ်ခုကို ဖန်တီးဖို့အတွက် script တစ်ခုရေးသားပြီး အဲဒါလေး အသက်ဝင်လာတာကို ကြည့်ရှုရတာဟာ အလွန်ပဲ နက်ရှိုင်းတဲ့ ပီတိတစ်ခု ဖြစ်ပါတယ်။">I am driven by two things: <span class="text-white font-bold">Innovation</span> and <span class="text-white font-bold">Creation</span>. There is a profound joy in writing a script and watching it come to life—solving a problem, automating a task, or simply creating something beautiful.</p>
+<div class="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+<i data-lucide="code" class="w-6 h-6 text-white"></i>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase tracking-widest text-gray-500" data-en="Favorite Environment" data-mm="အကြိုက်ဆုံး လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Favorite Environment</p>
+<p class="text-white font-medium text-sm md:text-base">VS Code + Cafè + Americano + <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank" class="text-gray-400 italic hover:text-white transition-colors underline decoration-white/30 hover:decoration-white">Cigarettes After Sex 🎵</a></p>
+</div>
+</div>
+<img src="../favicon.jpg" alt="Signature" class="w-10 h-10 rounded-full opacity-50 grayscale">
+</div>
+</div>
+</div>
+</section>
+
+<footer id="contact-footer" class="relative pt-32 pb-16 px-4 md:px-8 bg-black overflow-hidden border-t border-white/10">
+<div class="ambient-orb orb-3"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-32 relative z-10">
+<div class="space-y-16">
+<div class="space-y-6 reveal-text">
+<h2 class="text-4xl sm:text-5xl md:text-[5rem] font-black tracking-tightest leading-[0.9] uppercase">
+<span data-en="Let's Work" data-mm="အတူတကွ" class="block text-zinc-500">Let's Work</span>
+<span class="text-white block" data-en="Together." data-mm="ပူးပေါင်းဆောင်ရွက်ကြပါစို့။">Together.</span>
+</h2>
+<p class="text-zinc-400 text-base md:text-xl leading-relaxed font-light mt-8 max-w-md" data-en="Have an innovative idea or a project in mind? Send me a message directly and let's build the future together." data-mm="သင့်ဆီမှာ ဆန်းသစ်တဲ့ စိတ်ကူး ဒါမှမဟုတ် ပရောဂျက်တစ်ခုခု ရှိနေပါသလား။ ကျွန်တော့်ဆီ တိုက်ရိုက် စာပို့ဆက်သွယ်ပြီး အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့။">
+Have an innovative idea or a project in mind? Send me a message directly and let's build the future together.
+</p>
+</div>
+<div class="space-y-8 reveal-text" style="transition-delay: 0.1s;">
+<a href="tel:+959456751882" class="flex items-center gap-6 group w-max">
+<div class="w-12 h-12 rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:text-black transition-all duration-300">
+<i data-lucide="phone" class="w-4 h-4"></i>
+</div>
+<div>
+<p class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 mb-1" data-en="Phone" data-mm="ဖုန်းခေါ်ဆိုရန်">Phone</p>
+<p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9456751882</p>
+</div>
+</a>
+<a href="mailto:contact@htetzawpaing.site" class="flex items-center gap-6 group w-max">
+<div class="w-12 h-12 rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:text-black transition-all duration-300">
+<i data-lucide="mail" class="w-4 h-4"></i>
+</div>
+<div>
+<p class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 mb-1" data-en="Email" data-mm="အီးမေးလ်ပို့ရန်">Email</p>
+<p class="text-lg md:text-xl font-black tracking-widest text-white break-all">contact@htetzawpaing.site</p>
+</div>
+</a>
+</div>
+<div class="flex flex-wrap gap-4 pt-8 border-t border-white/10 reveal-text" style="transition-delay: 0.2s;">
+<a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center border border-white/20 hover:bg-white hover:text-black transition-all duration-300">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.327-.024-3.037-1.849-3.037-1.851 0-2.135 1.445-2.135 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.9 1.637-1.848 3.372-1.848 3.605 0 4.271 2.373 4.271 5.456v6.283zM5.337 7.433c-1.144 0-2.07-.926-2.07-2.07 0-1.143.926-2.07 2.07-2.07 1.143 0 2.07.927 2.07 2.07 0 1.144-.927 2.07-2.07 2.07zM6.632 20.452H4.041V9h2.591v11.452z"/></svg>
+</a>
+<a href="https://github.com/hzp4softwareengineering" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center border border-white/20 hover:bg-white hover:text-black transition-all duration-300">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+</a>
+<a href="https://discord.com/users/1110430133707341894" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center border border-white/20 hover:bg-white hover:text-black transition-all duration-300">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01a13.928 13.928 0 0 0 10.36 0a.07.07 0 0 1 .077.01c.124.097.248.196.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg>
+</a>
+</div>
+</div>
+<div class="relative reveal-text" style="transition-delay: 0.3s;">
+<form id="direct-email-form" class="space-y-12 relative z-10 p-0 md:p-8 bg-transparent">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-2 relative">
+<label class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 block absolute -top-5" data-en="Name" data-mm="အမည်">Name</label>
+<input type="text" id="contact-name" class="w-full py-2 input-minimal text-lg" placeholder="John Doe" required>
+</div>
+<div class="space-y-2 relative mt-6 md:mt-0">
+<label class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 block absolute -top-5" data-en="Email" data-mm="အီးမေးလ်">Email</label>
+<input type="email" id="contact-email" class="w-full py-2 input-minimal text-lg" placeholder="john@domain.com" required>
+</div>
+</div>
+<div class="space-y-2 relative">
+<label class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 block absolute -top-5" data-en="Subject" data-mm="အကြောင်းအရာ">Subject</label>
+<input type="text" id="contact-subject" class="w-full py-2 input-minimal text-lg" placeholder="Project Inquiry" required>
+</div>
+<div class="space-y-2 relative">
+<label class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 block absolute -top-5" data-en="Message" data-mm="စာသား">Message</label>
+<textarea id="contact-message" rows="3" class="w-full py-2 input-minimal text-lg resize-none" placeholder="Tell me about your project..." required></textarea>
+</div>
+<button type="submit" class="btn-premium w-full py-5 rounded-full font-black text-xs uppercase tracking-[0.3em] flex justify-center items-center gap-3">
+<span data-en="Send Message" data-mm="စာပို့မည်">Send Message</span> <i data-lucide="send" class="w-4 h-4"></i>
+</button>
+</form>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 text-center md:text-left">
+<span class="text-xl font-black tracking-tighter text-white">HZP.</span>
+<p class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500">
+&copy; 2026 Htet Zaw Paing. <span data-en="All Rights Reserved." data-mm="မူပိုင်ခွင့်များ ရယူထားပြီး။">All Rights Reserved.</span>
+</p>
+</div>
+</div>
+</footer>
+
+<script>
+lucide.createIcons();
+
+const mainNav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 50) {
+mainNav.classList.add('nav-scrolled');
+mainNav.classList.remove('nav-initial');
+} else {
+mainNav.classList.add('nav-initial');
+mainNav.classList.remove('nav-scrolled');
+}
+});
+if (window.scrollY <= 50) {
+mainNav.classList.add('nav-initial');
+mainNav.classList.remove('nav-scrolled');
+} else {
+mainNav.classList.add('nav-scrolled');
+mainNav.classList.remove('nav-initial');
+}
+
+let currentLang = 'en';
+const langToggle = document.getElementById('lang-toggle');
+const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+const langText = document.getElementById('lang-text');
+const mobileLangText = document.getElementById('mobile-lang-text');
+const translatables = document.querySelectorAll('[data-en]');
+
+function updateLang(lang) {
+translatables.forEach(el => {
+const text = el.getAttribute(`data-${lang}`);
+if (text) el.innerText = text;
+});
+if(langText) langText.innerText = lang.toUpperCase();
+if(mobileLangText) mobileLangText.innerText = lang.toUpperCase();
+}
+
+const toggleLang = () => {
+currentLang = currentLang === 'en' ? 'mm' : 'en';
+updateLang(currentLang);
+};
+
+if(langToggle) langToggle.addEventListener('click', toggleLang);
+if(mobileLangToggle) mobileLangToggle.addEventListener('click', toggleLang);
+
+const menuToggle = document.getElementById('menu-toggle');
+const menuClose = document.getElementById('menu-close');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+function openMenu() {
+mobileMenu.classList.remove('translate-x-full');
+document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+mobileMenu.classList.add('translate-x-full');
+document.body.style.overflow = 'auto';
+}
+
+if(menuToggle) menuToggle.addEventListener('click', openMenu);
+if(menuClose) menuClose.addEventListener('click', closeMenu);
+mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+const navLinks = document.querySelectorAll('.nav-link');
+const pill = document.getElementById('liquid-pill');
+
+navLinks.forEach(link => {
+link.addEventListener('mouseenter', (e) => {
+if(e.target.classList.contains('dropdown-item')) return;
+const rect = e.target.getBoundingClientRect();
+const container = pill.offsetParent || pill.parentElement;
+if (container) {
+const containerRect = container.getBoundingClientRect();
+pill.style.width = `${rect.width}px`;
+pill.style.height = `${rect.height}px`;
+pill.style.left = `${rect.left - containerRect.left}px`;
+pill.style.top = `${rect.top - containerRect.top}px`;
+pill.style.opacity = '1';
+}
+});
+});
+
+document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
+if(pill) pill.style.opacity = '0';
+});
+
+document.querySelectorAll('.glass-card').forEach(card => {
+card.addEventListener('mousemove', e => {
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+card.style.setProperty('--mouse-x', `${x}px`);
+card.style.setProperty('--mouse-y', `${y}px`);
+});
+});
+
+const observerOptions = {
+root: null,
+threshold: 0.15,
+rootMargin: "0px"
+};
+
+const scrollObserver = new IntersectionObserver((entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+if (entry.target.classList.contains('reveal-text')) {
+entry.target.classList.add('active-text');
+}
+observer.unobserve(entry.target);
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.reveal-text').forEach(el => {
+scrollObserver.observe(el);
+});
+
+const homeSection = document.getElementById('home');
+const cursorGlow = document.querySelector('.cursor-glow');
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight * 0.85; 
+let glowX = mouseX;
+let glowY = mouseY;
+
+if (homeSection && cursorGlow) {
+homeSection.addEventListener('mousemove', (e) => {
+const rect = homeSection.getBoundingClientRect();
+mouseX = e.clientX - rect.left;
+mouseY = e.clientY - rect.top;
+});
+
+function animateGlow() {
+glowX += (mouseX - glowX) * 0.15;
+glowY += (mouseY - glowY) * 0.15;
+cursorGlow.style.transform = `translate(calc(${glowX}px - 50%), calc(${glowY}px - 50%))`;
+requestAnimationFrame(animateGlow);
+}
+animateGlow();
+}
+
+const canvas = document.getElementById('hero-canvas');
+if(canvas) {
+const ctx = canvas.getContext('2d');
+let width, height;
+let particles = [];
+const symbols = ['</>', '</>', '</>', '0', '1', '{ }', '[ ]', '=>', '&&', '||', 'က', 'ဒ', 'င', 'ဗ', 'js', 'api', 'dev', 'sys', 'db'];
+let spacing = window.innerWidth < 768 ? 40 : 55;
+
+function initParticles() {
+width = canvas.width = homeSection.offsetWidth;
+height = canvas.height = homeSection.offsetHeight;
+spacing = window.innerWidth < 768 ? 40 : 55;
+particles = [];
+let numParticles = Math.floor((width * height) / (spacing * spacing));
+
+for (let i = 0; i < numParticles; i++) {
+let baseOp = Math.random() * 0.2 + 0.15;
+particles.push({
+x: Math.random() * width, 
+y: Math.random() * height,
+baseX: Math.random() * width, 
+baseY: Math.random() * height,
+vx: (Math.random() - 0.5) * 0.15, 
+vy: (Math.random() - 0.5) * 0.15,
+text: symbols[Math.floor(Math.random() * symbols.length)],
+baseOpacity: baseOp,
+opacity: baseOp,
+scale: Math.random() * 6 + 12
+});
+}
+}
+
+function drawParticles() {
+ctx.clearRect(0, 0, width, height);
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+
+const maxDist = 280; 
+
+for(let i=0; i<particles.length; i++) {
+let p = particles[i];
+
+p.baseX += p.vx;
+p.baseY += p.vy;
+
+if (p.baseX < -50) p.baseX = width + 50;
+if (p.baseX > width + 50) p.baseX = -50;
+if (p.baseY < -50) p.baseY = height + 50;
+if (p.baseY > height + 50) p.baseY = -50;
+
+let dx = mouseX - p.baseX;
+let dy = mouseY - p.baseY;
+let distance = Math.sqrt(dx * dx + dy * dy);
+
+let targetX = p.baseX;
+let targetY = p.baseY;
+let targetOpacity = p.baseOpacity; 
+let targetScale = p.scale; 
+
+if (distance < maxDist) {
+let force = Math.pow((maxDist - distance) / maxDist, 1.2);
+targetX = p.baseX - (dx * force * 0.12);
+targetY = p.baseY - (dy * force * 0.12);
+targetOpacity = Math.min(1, p.baseOpacity + force * 0.8); 
+targetScale = p.scale + (force * 8);
+
+if (force > 0.4 && Math.random() < 0.08) {
+p.text = symbols[Math.floor(Math.random() * symbols.length)];
+}
+
+ctx.shadowBlur = force > 0 ? force * 20 : 0;
+ctx.shadowColor = "rgba(255, 255, 255, 1)";
+} else {
+ctx.shadowBlur = 0;
+}
+
+p.x += (targetX - p.x) * 0.1;
+p.y += (targetY - p.y) * 0.1;
+p.opacity += (targetOpacity - p.opacity) * 0.1;
+
+ctx.font = `${targetScale}px Inter, sans-serif`;
+ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+ctx.fillText(p.text, p.x, p.y);
+}
+requestAnimationFrame(drawParticles);
+}
+
+initParticles();
+drawParticles();
+window.addEventListener('resize', initParticles);
+}
+
+const contactForm = document.getElementById('direct-email-form');
+if(contactForm) {
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const name = document.getElementById('contact-name').value;
+const email = document.getElementById('contact-email').value;
+const subject = document.getElementById('contact-subject').value;
+const message = document.getElementById('contact-message').value;
+const fullBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+const mailtoLink = `mailto:contact@htetzawpaing.site?subject=${encodeURIComponent(subject)}&body=${fullBody}`;
+window.location.href = mailtoLink;
+});
+}
+
+const stack = document.getElementById('card-stack');
+const cards = Array.from(stack.children).filter(c => c.classList.contains('stack-card'));
+let activeIndex = 0;
+let shuffleInterval;
+let isPaused = false;
+
+function updateCards() {
+const isMobile = window.innerWidth < 768;
+const total = cards.length;
+const xSpread = isMobile ? 20 : 40;
+const rotSpread = isMobile ? 5 : 10;
+const ySpread = isMobile ? 5 : 10;
+
+cards.forEach((card, i) => {
+let diff = i - activeIndex;
+if (diff > 2) diff -= total;
+if (diff < -2) diff += total;
+
+let rot = diff * rotSpread;
+let x = diff * xSpread;
+let y = Math.abs(diff) * ySpread;
+let z = 10 - Math.abs(diff);
+
+card.style.zIndex = z;
+card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${1 - Math.abs(diff)*0.05}) rotate(${rot}deg)`;
+card.style.filter = `brightness(${1 - (Math.abs(diff) * 0.2)})`;
+card.style.opacity = 1; 
+});
+}
+
+function cycleStack() {
+if(!isPaused) {
+activeIndex = (activeIndex + 1) % cards.length;
+updateCards();
+}
+}
+
+function startShuffle() {
+if (shuffleInterval) clearInterval(shuffleInterval);
+shuffleInterval = setInterval(cycleStack, 3000); 
+}
+
+function pauseShuffle() {
+isPaused = true;
+const isMobile = window.innerWidth < 768;
+const xSpreadHover = isMobile ? 30 : 60;
+const rotSpreadHover = isMobile ? 6 : 12;
+
+cards.forEach((card, i) => {
+let diff = i - activeIndex;
+if (diff > 2) diff -= cards.length;
+if (diff < -2) diff += cards.length;
+
+let rot = diff * rotSpreadHover;
+let x = diff * xSpreadHover;
+let y = Math.abs(diff) * 5;
+let z = 10 - Math.abs(diff);
+
+card.style.zIndex = z;
+card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${1 - Math.abs(diff)*0.02}) rotate(${rot}deg)`;
+card.style.filter = `brightness(1)`;
+});
+}
+
+function resumeShuffle() {
+isPaused = false;
+updateCards();
+}
+
+function forceShuffle() {
+activeIndex = (activeIndex + 1) % cards.length;
+updateCards();
+resetTimer();
+}
+
+function resetTimer() {
+if (shuffleInterval) clearInterval(shuffleInterval);
+shuffleInterval = setInterval(cycleStack, 3000);
+}
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+stack.addEventListener('touchstart', e => {
+touchStartX = e.changedTouches[0].screenX;
+pauseShuffle(); 
+}, {passive: true});
+
+stack.addEventListener('touchend', e => {
+touchEndX = e.changedTouches[0].screenX;
+handleSwipe();
+resumeShuffle();
+}, {passive: true});
+
+function handleSwipe() {
+if (touchEndX < touchStartX - 30) {
+activeIndex = (activeIndex + 1) % cards.length;
+updateCards();
+resetTimer();
+} else if (touchEndX > touchStartX + 30) {
+activeIndex = (activeIndex - 1 + cards.length) % cards.length;
+updateCards();
+resetTimer();
+}
+}
+
+updateCards();
+startShuffle();
+window.addEventListener('resize', updateCards);
+</script>
+</body>
 </html>
