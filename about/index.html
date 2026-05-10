@@ -338,7 +338,6 @@
             transform: scale(1.03);
         }
 
-        /* Optimized Floating Animations */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
@@ -364,22 +363,22 @@
             letter-spacing: -0.03em;
         }
 
-        /* 3D Keycap styling for F12 */
         .kbd-key {
             display: inline-block;
-            padding: 0.15em 0.4em;
+            padding: 0.25em 0.5em;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             font-size: 0.85em;
-            font-weight: bold;
+            font-weight: 700;
             line-height: 1;
             color: #ffffff;
-            background: linear-gradient(180deg, #333333 0%, #1a1a1a 100%);
-            border: 1px solid #444;
+            background: linear-gradient(180deg, #2b2b2b 0%, #181818 100%);
+            border: 1px solid #111;
             border-radius: 6px;
-            box-shadow: 0 4px 0 #000, 0 5px 10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 4px 0 #090909, 0 5px 8px rgba(0, 0, 0, 0.8);
             transform: translateY(-2px);
-            margin: 0 2px;
-            text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+            margin: 0 0.3em;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+            vertical-align: middle;
         }
 
         .cv-auto { content-visibility: auto; contain-intrinsic-size: 1000px; }
@@ -416,10 +415,8 @@
             .glass-card::after { display: none !important; }
             .btn-premium:hover, .btn-outline:hover { transform: none !important; }
             
-            /* Disable floats on mobile for perf */
             .animate-float, .animate-float-delayed { animation: none !important; }
             
-            /* Hide absolute badges on tiny screens if needed */
             .mobile-hide-badge { display: none; }
         }
 
@@ -550,7 +547,6 @@
         
         <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-12 relative z-10">
             
-            <!-- Optimized Text Section -->
             <div class="w-full lg:w-[55%] space-y-8 text-center lg:text-left order-2 lg:order-1">
                 <div
                     class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest text-white uppercase rounded-full reveal-text">
@@ -589,16 +585,13 @@
                 </div>
             </div>
 
-            <!-- Redesigned, Optimized Hero Image Composition -->
             <div class="w-full lg:w-[45%] relative flex justify-center items-center h-auto order-1 lg:order-2 reveal-text" style="transition-delay: 0.3s;">
                 
                 <div class="relative w-full max-w-[360px] md:max-w-[400px] aspect-[4/5] rounded-3xl overflow-hidden glass-card shadow-[0_0_40px_rgba(255,255,255,0.05)] group border border-white/10 z-10">
                     <img src="../favicon.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 mono-img" alt="Htet Zaw Paing">
                     
-                    <!-- Sleek Gradient Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
                     
-                    <!-- Internal Card Details -->
                     <div class="absolute bottom-0 left-0 w-full p-8 text-left z-20">
                          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/40 backdrop-blur-md mb-4">
                               <span class="text-white/80 text-[9px] font-bold tracking-[0.2em] uppercase" data-en="Identity" data-mm="ကိုယ်ရေးအချက်အလက်များ">Identity</span>
@@ -608,7 +601,6 @@
                     </div>
                 </div>
 
-                <!-- Floating Badges -->
                 <div class="absolute -left-6 md:-left-12 top-16 md:top-24 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 animate-float shadow-2xl z-20 border border-white/10 bg-black/60 backdrop-blur-xl mobile-hide-badge hidden sm:flex">
                     <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                         <i data-lucide="map-pin" class="w-4 h-4 text-white"></i>
@@ -720,7 +712,6 @@
                     </h2>
                     
                     <div class="relative edu-timeline space-y-12">
-                        <!-- Timeline Items -->
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.1s;">
                             <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-white/50 rounded-full group-hover:scale-110 transition-transform duration-300">
                                 <span class="text-[10px] font-bold text-white">PhD</span>
@@ -802,15 +793,12 @@
         </div>
     </section>
 
-    <!-- Completely Redesigned & Rewritten "Code is Poetry" Section matching requested design -->
     <section class="cv-auto py-32 px-4 md:px-8 relative overflow-hidden z-10 border-y border-white/5 bg-black">
         <div class="max-w-6xl mx-auto relative z-20">
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-0 items-stretch">
                 
-                <!-- Left Column: Typography -->
                 <div class="lg:w-[45%] flex flex-col items-start justify-center reveal-text lg:pr-16">
                     <div class="mb-4">
-                        <!-- Modern Quote Marks (Muted styling like the reference image) -->
                         <span class="text-[#222] text-[6rem] font-serif leading-none tracking-tighter select-none">&ldquo;</span>
                     </div>
                     <h2 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] -mt-8">
@@ -821,10 +809,8 @@
                     <p class="text-zinc-500 font-bold uppercase tracking-[0.2em] text-[10px]" data-en="Written with Logic" data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသော">Written with Logic</p>
                 </div>
 
-                <!-- Subtle Vertical Pale Line Divider (Hidden on Mobile) -->
                 <div class="hidden lg:block w-[1px] bg-white/10 shrink-0 mx-4"></div>
 
-                <!-- Right Column: Editorial Text & Footer -->
                 <div class="lg:w-[55%] flex flex-col justify-center reveal-text lg:pl-16" style="transition-delay: 0.1s;">
                     <div class="space-y-8 text-[15px] md:text-base text-zinc-400 font-light leading-relaxed">
                         <p data-en="My journey into software engineering began quite unexpectedly during the COVID-19 pandemic. While aimlessly exploring websites in that period of isolation, I accidentally pressed the <kbd class='kbd-key'>F12</kbd> key. Suddenly, a hidden panel of raw text and symbols emerged on my screen. I had absolutely no idea what they were, what they were for, or how they worked. I was completely mesmerized to realize that these cryptic lines—known as source code—were the invisible gears actively powering the entire website."
@@ -837,11 +823,9 @@
                         </p>
                     </div>
 
-                    <!-- Environment & Avatar Footer -->
                     <div class="mt-12 pt-8 border-t border-white/5 flex items-center justify-between gap-6">
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 shrink-0 bg-[#0a0a0a]">
-                                <!-- Using right chevron for terminal aesthetic matching your design -->
                                 <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
                             </div>
                             <div>
@@ -989,6 +973,33 @@
     </footer>
 
     <script>
+
+        const baseTitle = "About | Htet Zaw Paing - Software Engineer & AI Researcher";
+
+        const messages = [
+            "Hey, come back!",
+            "Did you think",
+            "you could",
+            "escape without",
+            "saying hi?",
+             
+        ];
+
+        let i = 0;
+        let interval;
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                interval = setInterval(() => {
+                    document.title = messages[i];
+                    i = (i + 1) % messages.length;
+                }, 100);
+            } else {
+                clearInterval(interval);
+                document.title = baseTitle;
+            }
+        });
+
         lucide.createIcons();
 
         const mainNav = document.getElementById('main-nav');
@@ -1020,7 +1031,8 @@
         function updateLang(lang) {
             translatables.forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
-                if (text) el.innerText = text;
+                // BUG FIX: Changed innerText to innerHTML so the <kbd> tags inside the string are rendered instead of shown as text.
+                if (text) el.innerHTML = text; 
             });
             if (langText) langText.innerText = lang.toUpperCase();
             if (mobileLangText) mobileLangText.innerText = lang.toUpperCase();
@@ -1116,7 +1128,6 @@
             scrollObserver.observe(el);
         });
 
-        /* OPTIMIZED CANVAS (Lightweight Rising Sparks instead of heavy glowing physics text) */
         const canvas = document.getElementById('hero-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
@@ -1132,7 +1143,6 @@
                 width = canvas.width = window.innerWidth;
                 height = canvas.height = window.innerHeight;
                 particles = [];
-                // Dramatically reduced particle count for absolute smoothness (no glitching)
                 let numParticles = Math.min(30, Math.floor((width * height) / 40000));
 
                 for (let i = 0; i < numParticles; i++) {
@@ -1157,10 +1167,8 @@
                 for (let i = 0; i < particles.length; i++) {
                     let p = particles[i];
 
-                    // Simple upward float (Extremely lightweight)
                     p.y -= p.vy;
 
-                    // Respawn at bottom
                     if (p.y < -50) {
                         p.y = height + 50;
                         p.x = Math.random() * width;

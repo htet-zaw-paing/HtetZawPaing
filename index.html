@@ -458,6 +458,24 @@
             background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.15), transparent);
         }
 
+        .kbd-key {
+            display: inline-block;
+            padding: 0.25em 0.5em;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85em;
+            font-weight: 700;
+            line-height: 1;
+            color: #ffffff;
+            background: linear-gradient(180deg, #2b2b2b 0%, #181818 100%);
+            border: 1px solid #111;
+            border-radius: 6px;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.6), 0 4px 0 #090909, 0 5px 8px rgba(0, 0, 0, 0.8);
+            transform: translateY(-2px);
+            margin: 0 0.3em;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+            vertical-align: middle;
+        }
+
         .cv-auto {
             content-visibility: auto;
             contain-intrinsic-size: 1000px;
@@ -1428,6 +1446,31 @@
     </footer>
 
     <script>
+        const baseTitle = "Htet Zaw Paing | Software Engineer & Web Developer in Myanmar";
+
+        const messages = [
+            "Hey, Come back!",
+            "Where are you going?",
+            "Wait, I have more to show you!",
+            "The best is yet to come!",
+            "Don't leave me alone!",
+        ];
+
+        let i = 0;
+        let interval;
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                interval = setInterval(() => {
+                    document.title = messages[i];
+                    i = (i + 1) % messages.length;
+                }, 100);
+            } else {
+                clearInterval(interval);
+                document.title = baseTitle;
+            }
+        });
+
         lucide.createIcons();
 
         let currentLang = localStorage.getItem('hzp_lang') || 'en';
@@ -1440,7 +1483,7 @@
         function updateLang(lang) {
             translatables.forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
-                if (text) el.innerText = text;
+                if (text) el.innerHTML = text;
             });
             if (langText) langText.innerText = lang.toUpperCase();
             if (mobileLangText) mobileLangText.innerText = lang.toUpperCase();
@@ -1460,13 +1503,20 @@
         const mainNav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                mainNav.classList.add('crystal-water-header', 'nav-scrolled');
+                mainNav.classList.add('nav-scrolled');
                 mainNav.classList.remove('nav-initial');
             } else {
                 mainNav.classList.add('nav-initial');
-                mainNav.classList.remove('crystal-water-header', 'nav-scrolled');
+                mainNav.classList.remove('nav-scrolled');
             }
         });
+        if (window.scrollY <= 50) {
+            mainNav.classList.add('nav-initial');
+            mainNav.classList.remove('nav-scrolled');
+        } else {
+            mainNav.classList.add('nav-scrolled');
+            mainNav.classList.remove('nav-initial');
+        }
 
         const menuToggle = document.getElementById('menu-toggle');
         const menuClose = document.getElementById('menu-close');
@@ -1512,7 +1562,7 @@
                 });
             });
 
-            document.querySelector('.crystal-water-header')?.addEventListener('mouseleave', () => {
+            document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
                 if (pill) pill.style.opacity = '0';
             });
 

@@ -665,12 +665,12 @@
                     solutions that I've engineered for the future.</span>
             </p>
         </div>
-        <div class="absolute bottom-20 inset-x-0 z-20 flex justify-center animate-bounce opacity-70 cursor-pointer">
+        <a href="#featured-projects" class="absolute bottom-20 inset-x-0 z-20 flex justify-center animate-bounce opacity-70 cursor-pointer">
             <i data-lucide="chevron-down" class="w-8 h-8 text-white/80"></i>
-        </div>
+        </a>
     </section>
 
-    <section class="cv-auto mt-20 md:mt-32">
+    <section id="featured-projects" class="cv-auto mt-20 md:mt-32">
         <div class="text-center mb-16 px-4">
             <div
                 class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full text-[10px] font-bold text-white uppercase tracking-widest mb-4 reveal-text">
@@ -1678,6 +1678,18 @@
     </div>
 
     <script>
+        const baseTitle = "Projects | Htet Zaw Paing – Software Engineer & Web Developer";
+
+        const messages = [
+            "Hey Check this out!",
+            "I had a lot of fun building this one!",
+            "This project was a real challenge, but I loved it!",
+            "This project showcases my skills in full-stack development!",
+            "I put a lot of effort into making this project great!",
+            "This project is a testament to my passion for coding!",
+            "I hope you find this project as exciting as I did!",
+        ];
+
         lucide.createIcons();
 
         const mainNav = document.getElementById('main-nav');

@@ -532,13 +532,13 @@
                 A comprehensive overview of my technical skills, core competencies, and professional focus areas in
                 Software Engineering and Web Development.
             </p>
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <i data-lucide="chevron-down" class="w-6 h-6 text-white/50"></i>
-            </div>
         </div>
+        <a href="#overview" class="absolute bottom-20 inset-x-0 z-20 flex justify-center animate-bounce opacity-70 cursor-pointer">
+            <i data-lucide="chevron-down" class="w-8 h-8 text-white/80"></i>
+        </a>
     </section>
 
-    <section class="cv-auto max-w-5xl mx-auto mb-20 px-4 md:px-6 reveal-text relative z-10" style="transition-delay: 0.2s;">
+    <section id="overview" class="cv-auto pt-24 max-w-5xl mx-auto mb-20 px-4 md:px-6 reveal-text relative z-10" style="transition-delay: 0.2s;">
         <div class="glass-card p-8 md:p-10 relative overflow-hidden">
             <div class="hidden md:block absolute top-0 right-0 w-64 h-64 bg-white/5 blur-[80px] rounded-full pointer-events-none"></div>
             <div class="flex flex-col md:flex-row gap-8 items-start">
@@ -855,6 +855,36 @@
     </footer>
 
     <script>
+        const baseTitle = "Expertise | Htet Zaw Paing – Software Engineer & Web Developer";
+
+        const messages = [
+            "Hey, Come back!",
+            "Where are you going?",
+            "This page is not that bad, you know?",
+            "Don't leave me here alone!",
+            "I have so much to show you!",
+            "Wait, I can be fun!",
+            "Leaving so soon?",
+            "Are you sure you want to go?",
+            "I promise I won't bite!",
+            "Stay a little longer, please!"
+        ];
+
+        let i = 0;
+        let interval;
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                interval = setInterval(() => {
+                    document.title = messages[i];
+                    i = (i + 1) % messages.length;
+                }, 100);
+            } else {
+                clearInterval(interval);
+                document.title = baseTitle;
+            }
+        });
+
         lucide.createIcons();
 
         const mainNav = document.getElementById('main-nav');
