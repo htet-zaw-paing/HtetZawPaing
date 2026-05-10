@@ -122,33 +122,20 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.035;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: overlay;
-        }
-
-        .cursor-glow {
-            position: absolute;
-            width: 900px;
-            height: 900px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
-            border-radius: 50%;
-            pointer-events: none;
-            top: 85%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            filter: blur(60px);
-            will-change: transform;
+        @media (min-width: 769px) {
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100svh;
+                background: url('https://grainy-gradients.vercel.app/noise.svg');
+                opacity: 0.035;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: overlay;
+            }
         }
 
         #nav-container {
@@ -179,14 +166,6 @@
             width: 95%;
         }
 
-        .crystal-water-header {
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
-        }
-
         .glass-card {
             position: relative;
             background: rgba(255, 255, 255, 0.015);
@@ -196,7 +175,6 @@
             border-radius: 24px;
             overflow: hidden;
             transform: translateZ(0);
-            will-change: transform;
             transition: transform 0.6s var(--ease-cinematic), border-color 0.6s var(--ease-cinematic), background 0.6s ease;
         }
 
@@ -340,9 +318,9 @@
 
         .reveal-text {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1.2s var(--ease-cinematic), transform 1.2s var(--ease-cinematic);
-            will-change: opacity, transform;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic);
+            will-change: auto;
         }
 
         .reveal-text.active-text {
@@ -357,54 +335,20 @@
 
         .group:hover .mono-img {
             filter: saturate(1.2);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        .stack-container {
-            position: relative;
-            perspective: 1200px;
-            width: 380px;
-            height: 520px;
-            margin: 0 auto;
+        /* Optimized Floating Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
         }
-
-        .stack-card {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            overflow: hidden;
-            background: #050505;
-            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            touch-action: pan-y;
-            transform-origin: 50% 150%;
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
-            will-change: transform;
+        @keyframes float-delayed {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
-
-        .card-dimmer {
-            position: absolute;
-            inset: 0;
-            background: #000000;
-            z-index: 15;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-        }
-
-        .stack-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-
-        .stack-card:hover {
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float-delayed 7s ease-in-out 3s infinite; }
 
         .edu-timeline::before {
             content: '';
@@ -413,67 +357,79 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.5), transparent);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-            opacity: 0.5;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
         }
 
         .section-title {
             letter-spacing: -0.03em;
         }
 
-        .ambient-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            z-index: -1;
-            pointer-events: none;
-            animation: floatOrb 25s infinite ease-in-out alternate;
+        /* 3D Keycap styling for F12 */
+        .kbd-key {
+            display: inline-block;
+            padding: 0.15em 0.4em;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.85em;
+            font-weight: bold;
+            line-height: 1;
+            color: #ffffff;
+            background: linear-gradient(180deg, #333333 0%, #1a1a1a 100%);
+            border: 1px solid #444;
+            border-radius: 6px;
+            box-shadow: 0 4px 0 #000, 0 5px 10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            margin: 0 2px;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
         }
 
-        .orb-footer {
-            width: 30vw;
-            height: 30vw;
-            max-width: 500px;
-            max-height: 500px;
-            background: rgba(255, 255, 255, 0.015);
-            top: 40%;
-            left: 60%;
-            animation-delay: -10s;
-        }
-
-        @keyframes floatOrb {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            100% {
-                transform: translate(5%, 10%) scale(1.1);
-            }
-        }
+        .cv-auto { content-visibility: auto; contain-intrinsic-size: 1000px; }
 
         @media (max-width: 768px) {
+            * {
+                box-shadow: none !important;
+                will-change: auto !important;
+            }
             .nav-scrolled #nav-container {
-                width: 92%;
-                margin-top: 0.5rem;
+                width: 100%;
+                margin-top: 0;
+                border-radius: 0;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(10, 10, 10, 0.98) !important;
             }
-
-            .stack-container {
-                width: 300px;
-                height: 420px;
+            .glass-card, .dropdown-menu {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: #111111 !important;
+                transform: none !important;
             }
+            .cursor-glow {
+                display: none !important;
+                animation: none !important;
+            }
+            .reveal-text {
+                transition-duration: 0.4s !important;
+                transition-delay: 0s !important;
+                transform: translateY(20px);
+            }
+            .glass-card:hover { transform: none !important; }
+            .glass-card::after { display: none !important; }
+            .btn-premium:hover, .btn-outline:hover { transform: none !important; }
+            
+            /* Disable floats on mobile for perf */
+            .animate-float, .animate-float-delayed { animation: none !important; }
+            
+            /* Hide absolute badges on tiny screens if needed */
+            .mobile-hide-badge { display: none; }
         }
 
         @media (max-width: 450px) {
-
-            .btn-premium,
-            .btn-outline {
+            .btn-premium, .btn-outline {
                 padding: 0.8rem 1rem !important;
                 font-size: 0.7rem !important;
                 width: 100% !important;
                 justify-content: center;
             }
-
             .glass-card {
                 padding: 1.2rem !important;
                 border-radius: 16px !important;
@@ -485,32 +441,15 @@
                 font-size: 1rem !important;
                 padding: 0.8rem 0 !important;
             }
-
             .glass-card {
                 padding: 1rem !important;
                 border-radius: 12px !important;
             }
-
             .section-title {
                 font-size: 1.8rem !important;
             }
-
             .pl-10 {
                 padding-left: 1.5rem !important;
-            }
-        }
-
-        @media (max-width: 250px) {
-
-            .btn-outline,
-            .btn-premium {
-                font-size: 0.6rem !important;
-                padding: 0.5rem !important;
-            }
-
-            #mobile-menu .mobile-nav-link {
-                font-size: 0.85rem !important;
-                padding: 0.5rem 0 !important;
             }
         }
     </style>
@@ -571,7 +510,7 @@
     </nav>
 
     <div id="mobile-menu"
-        class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100dvh] transition-transform duration-500 ease-in-out block">
+        class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100svh] transition-transform duration-500 ease-in-out block">
         <button id="menu-close"
             class="fixed top-6 right-6 p-3 text-white hover:text-gray-300 transition-colors bg-white/10 rounded-full z-[10000]">
             <i data-lucide="x" class="w-6 h-6"></i>
@@ -606,125 +545,100 @@
         </div>
     </div>
 
-    <section id="home" class="min-h-screen relative flex items-center justify-center px-4 overflow-hidden">
-        <canvas id="hero-canvas" class="absolute inset-0 z-0 pointer-events-none w-full h-full"></canvas>
-        <div class="cursor-glow"></div>
-        <div
-            class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 pt-20">
-            <div class="space-y-8 order-2 lg:order-1">
+    <section id="home" class="min-h-[100svh] relative flex items-center justify-center px-4 md:px-8 overflow-hidden pt-24 pb-12">
+        <canvas id="hero-canvas" class="absolute inset-0 z-0 pointer-events-none w-full h-full opacity-50"></canvas>
+        
+        <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-12 relative z-10">
+            
+            <!-- Optimized Text Section -->
+            <div class="w-full lg:w-[55%] space-y-8 text-center lg:text-left order-2 lg:order-1">
                 <div
-                    class="inline-flex items-center gap-2 px-4 py-1.5 glass-card bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest text-white uppercase rounded-full reveal-text">
+                    class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 text-[10px] font-bold tracking-widest text-white uppercase rounded-full reveal-text">
                     <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                     <span data-en="About The Architect" data-mm="ဖန်တီးသူ၏ နောက်ခံသမိုင်းကြောင်း">About The
                         Architect</span>
                 </div>
-                <h1
-                    class="text-[clamp(3rem,8vw,5.5rem)] md:text-7xl font-black tracking-tightest leading-[1.1] reveal-text">
+                
+                <h1 class="text-[clamp(3.5rem,8vw,6rem)] font-black tracking-tightest leading-[1.05] reveal-text">
                     <span class="text-white" data-en="Behind" data-mm="ကုဒ်လိုင်းများ၏">Behind</span>
                     <br>
                     <span class="text-white" data-en="The Code." data-mm="နောက်ကွယ်။">The Code.</span>
                 </h1>
-                <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-lg shadow-black drop-shadow-md reveal-text"
+                
+                <p class="text-gray-400 text-lg md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 shadow-black drop-shadow-md reveal-text"
                     style="transition-delay: 0.1s;">
-                    <span data-en="I am" data-mm="ကျွန်တော်ကတော့">ကျွန်တော်ကတော့</span> <span
-                        class="text-white font-bold" data-en="Htet Zaw Paing" data-mm="ထက်ဇော်ပိုင်">Htet Zaw
-                        Paing</span> <span
-                        data-en="A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story."
-                        data-mm="ပါ။ ကွန်ပျူတာကုဒ်တွေကို ရိုးရှင်းတဲ့ စာကြောင်းတွေလို့ မမြင်ဘဲ၊ အနာဂတ်ကို တည်ဆောက်မယ့် အုတ်မြစ်တွေလို့ ခံယူထားတဲ့ ဖန်တီးရှင်တစ်ယောက်ပါ။ ဒါကတော့ ကျွန်တော့်ရဲ့ ဖြတ်သန်းမှု ဇာတ်လမ်းပါပဲ။">A
-                        creator who sees lines of code not just as syntax, but as the building blocks of the future.
-                        This is my story.</span>
+                    <span data-en="I am" data-mm="ကျွန်တော်ကတော့">ကျွန်တော်ကတော့</span> 
+                    <span class="text-white font-bold" data-en="Htet Zaw Paing" data-mm="ထက်ဇော်ပိုင်">Htet Zaw Paing</span> 
+                    <span data-en="A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story."
+                        data-mm="ပါ။ ကွန်ပျူတာကုဒ်တွေကို ရိုးရှင်းတဲ့ စာကြောင်းတွေလို့ မမြင်ဘဲ၊ အနာဂတ်ကို တည်ဆောက်မယ့် အုတ်မြစ်တွေလို့ ခံယူထားတဲ့ ဖန်တီးရှင်တစ်ယောက်ပါ။ ဒါကတော့ ကျွန်တော့်ရဲ့ ဖြတ်သန်းမှု ဇာတ်လမ်းပါပဲ။">
+                        A creator who sees lines of code not just as syntax, but as the building blocks of the future.
+                        This is my story.
+                    </span>
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-4 reveal-text" style="transition-delay: 0.2s;">
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start reveal-text" style="transition-delay: 0.2s;">
                     <a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf"
-                        class="bg-white text-black hover:bg-gray-200 transition-all duration-400 rounded-[24px] p-5 flex items-center justify-center gap-3 group hover:-translate-y-1 font-bold text-xs uppercase tracking-[0.2em]">
-                        <i data-lucide="download"
-                            class="w-5 h-5 transition-transform duration-400 group-hover:scale-110"></i>
+                        class="bg-white text-black hover:bg-gray-200 transition-all duration-400 rounded-[24px] px-8 py-4 flex items-center justify-center gap-3 group font-bold text-xs uppercase tracking-[0.2em]">
+                        <i data-lucide="download" class="w-5 h-5 transition-transform duration-400 group-hover:-translate-y-1"></i>
                         <span data-en="Download CV" data-mm="ကိုယ်ရေးမှတ်တမ်း (CV) ရယူရန်">Download CV</span>
                     </a>
                     <a href="#biography"
-                        class="bg-transparent text-white border border-white/20 hover:!bg-white hover:!text-black transition-all duration-400 rounded-[24px] p-5 flex items-center justify-center gap-3 group hover:-translate-y-1 font-bold text-xs uppercase tracking-[0.2em]">
+                        class="bg-transparent text-white border border-white/20 hover:bg-white hover:text-black transition-all duration-400 rounded-[24px] px-8 py-4 flex items-center justify-center gap-3 group font-bold text-xs uppercase tracking-[0.2em]">
                         <span data-en="Read Biography" data-mm="ဖြတ်သန်းမှု သမိုင်းကြောင်း ဖတ်ရန်">Read Biography</span>
                     </a>
                 </div>
             </div>
-            <div class="order-1 lg:order-2 relative flex justify-center items-center h-[400px] lg:h-[600px] reveal-text"
-                style="transition-delay: 0.3s;">
-                <div class="stack-container" id="card-stack" onmouseenter="pauseShuffle()"
-                    onmouseleave="resumeShuffle()" onclick="forceShuffle()">
-                    <div class="stack-card">
-                        <div class="card-dimmer"></div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10">
-                        </div>
-                        <img src="../favicon.jpg" alt="Htet Zaw Paing">
-                        <div class="absolute bottom-8 left-8 z-20">
-                            <p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1"
-                                data-en="Identity" data-mm="ကိုယ်ရေးအချက်အလက်များ">Identity</p>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white">Htet Zaw Paing</h3>
-                        </div>
+
+            <!-- Redesigned, Optimized Hero Image Composition -->
+            <div class="w-full lg:w-[45%] relative flex justify-center items-center h-auto order-1 lg:order-2 reveal-text" style="transition-delay: 0.3s;">
+                
+                <div class="relative w-full max-w-[360px] md:max-w-[400px] aspect-[4/5] rounded-3xl overflow-hidden glass-card shadow-[0_0_40px_rgba(255,255,255,0.05)] group border border-white/10 z-10">
+                    <img src="../favicon.jpg" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 mono-img" alt="Htet Zaw Paing">
+                    
+                    <!-- Sleek Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
+                    
+                    <!-- Internal Card Details -->
+                    <div class="absolute bottom-0 left-0 w-full p-8 text-left z-20">
+                         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/40 backdrop-blur-md mb-4">
+                              <span class="text-white/80 text-[9px] font-bold tracking-[0.2em] uppercase" data-en="Identity" data-mm="ကိုယ်ရေးအချက်အလက်များ">Identity</span>
+                         </div>
+                         <h3 class="text-2xl md:text-3xl font-black text-white tracking-tight mb-1">Htet Zaw Paing</h3>
+                         <p class="text-zinc-400 text-sm font-medium tracking-wide">Software Engineer</p>
                     </div>
-                    <div class="stack-card">
-                        <div class="card-dimmer"></div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10">
-                        </div>
-                        <img src="../born.jpg" alt="Date of Birth">
-                        <div class="absolute bottom-8 left-8 z-20">
-                            <p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1"
-                                data-en="Date of Birth" data-mm="မွေးသက္ကရာဇ်">Date of Birth</p>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white" data-en="April 10, 2004"
-                                data-mm="၁၀ ဧပြီ ၂၀၀၄">April 10, 2004</h3>
-                        </div>
+                </div>
+
+                <!-- Floating Badges -->
+                <div class="absolute -left-6 md:-left-12 top-16 md:top-24 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 animate-float shadow-2xl z-20 border border-white/10 bg-black/60 backdrop-blur-xl mobile-hide-badge hidden sm:flex">
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-white"></i>
                     </div>
-                    <div class="stack-card">
-                        <div class="card-dimmer"></div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10">
-                        </div>
-                        <img src="../location.jpg" alt="Location">
-                        <div class="absolute bottom-8 left-8 z-20">
-                            <p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1"
-                                data-en="Location" data-mm="အခြေစိုက်ရာဒေသ">Location</p>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white" data-en="Yangon, Myanmar"
-                                data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</h3>
-                        </div>
+                    <div>
+                         <p class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest" data-en="Location" data-mm="အခြေစိုက်ရာဒေသ">Location</p>
+                         <p class="text-xs font-bold text-white" data-en="Yangon, MM" data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, MM</p>
                     </div>
-                    <div class="stack-card">
-                        <div class="card-dimmer"></div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10">
-                        </div>
-                        <img src="../EdinburghNapier.avif" alt="University">
-                        <div class="absolute bottom-8 left-8 z-20">
-                            <p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1"
-                                data-en="Education" data-mm="ပညာအရည်အချင်း">Education</p>
-                            <h3 class="text-xl md:text-2xl font-bold text-white">Edinburgh Napier Univ</h3>
-                        </div>
+                </div>
+
+                <div class="absolute -right-6 md:-right-8 bottom-24 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 animate-float-delayed shadow-2xl z-20 border border-white/10 bg-black/60 backdrop-blur-xl mobile-hide-badge hidden sm:flex">
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-white"></i>
                     </div>
-                    <div class="stack-card">
-                        <div class="card-dimmer"></div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10">
-                        </div>
-                        <img src="../role.jpg" alt="Role">
-                        <div class="absolute bottom-8 left-8 z-20">
-                            <p class="text-white/60 text-[10px] font-bold uppercase tracking-widest mb-1"
-                                data-en="Profession" data-mm="လက်ရှိအလုပ်အကိုင်">Profession</p>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white" data-en="Software Engineer"
-                                data-mm="ဆော့ဖ်ဝဲအင်ဂျင်နီယာ">Software Engineer</h3>
-                        </div>
+                    <div>
+                         <p class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest" data-en="Education" data-mm="ပညာအရည်အချင်း">Education</p>
+                         <p class="text-xs font-bold text-white">Edinburgh Napier</p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
-    <section id="biography" class="py-20 md:py-32 px-4 md:px-6 relative z-10" style="overflow: visible;">
+    <section id="biography" class="cv-auto py-20 md:py-32 px-4 md:px-6 relative z-10" style="overflow: visible;">
         <div
             class="hidden lg:block absolute right-0 top-1/4 w-32 h-[500px] border-l border-white/5 bg-gradient-to-b from-transparent via-white/5 to-transparent">
         </div>
-        <div class="max-w-6xl mx-auto" style="overflow: visible;">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
+        <div class="max-w-7xl mx-auto" style="overflow: visible;">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 relative">
                 <div class="lg:col-span-4 relative">
                     <div class="relative lg:sticky top-32 w-full transition-transform duration-500 z-30">
                         <div
@@ -787,176 +701,99 @@
                                 <h4 class="text-sm font-bold mb-4 text-white" data-en="Tech Stack"
                                     data-mm="ကျွမ်းကျင်သော နည်းပညာများ">Tech Stack</h4>
                                 <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">HTML/CSS</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">JavaScript</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">React</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">PHP</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">MySQL</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">Python</span>
-                                    <span
-                                        class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">TensorFlow</span>
+                                    <span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">HTML/CSS</span>
+                                    <span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">JavaScript</span>
+                                    <span class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">React</span>
+                                    <span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">PHP</span>
+                                    <span class="px-3 py-1.5 bg-white/5 rounded-lg text-xs font-medium text-gray-300 border border-white/5 hover:bg-white/10 transition-colors">MySQL</span>
+                                    <span class="px-3 py-1.5 bg-white/10 rounded-lg text-xs font-medium text-white border border-white/20 transition-colors">Python</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="lg:col-span-8">
-                    <h2 class="text-4xl font-bold mb-12 tracking-tight section-title reveal-text"><span
-                            data-en="Educational" data-mm="ပညာရေးနှင့် ဖြတ်သန်းခဲ့သော"
-                            class="text-gray-400">Educational</span> <span class="text-white" data-en="Voyage"
-                            data-mm="ခရီးစဉ်">Voyage</span></h2>
+                    <h2 class="text-4xl font-bold mb-12 tracking-tight section-title reveal-text">
+                        <span data-en="Educational" data-mm="ပညာရေးနှင့် ဖြတ်သန်းခဲ့သော" class="text-gray-400">Educational</span> 
+                        <span class="text-white" data-en="Voyage" data-mm="ခရီးစဉ်">Voyage</span>
+                    </h2>
+                    
                     <div class="relative edu-timeline space-y-12">
+                        <!-- Timeline Items -->
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.1s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-white/50 rounded-full group-hover:scale-110 transition-transform duration-300">
+                            <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-white/50 rounded-full group-hover:scale-110 transition-transform duration-300">
                                 <span class="text-[10px] font-bold text-white">PhD</span>
                             </div>
-                            <div
-                                class="glass-card p-8 border-dashed border-white/30 bg-white/5 hover:opacity-100 transition-all hover:bg-white/10 hover:border-white/50">
-                                <span class="text-white font-bold text-xs uppercase tracking-widest mb-1 block"
-                                    data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
-                                <h3 class="text-xl font-bold mb-2 text-white" data-en="PhD in Computing"
-                                    data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in Computing</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed"
-                                    data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures."
-                                    data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">
-                                    Visionary goal to contribute novel research to the field of Artificial General
-                                    Intelligence (AGI) and Secure Quantum Architectures.</p>
+                            <div class="glass-card p-8 border-dashed border-white/30 bg-white/5 hover:opacity-100 transition-all hover:bg-white/10 hover:border-white/50">
+                                <span class="text-white font-bold text-xs uppercase tracking-widest mb-1 block" data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
+                                <h3 class="text-xl font-bold mb-2 text-white" data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in Computing</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures." data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures.</p>
                             </div>
                         </div>
+
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.2s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-gray-700 rounded-full group-hover:border-gray-500 transition-colors">
+                            <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10 border border-dashed border-gray-700 rounded-full group-hover:border-gray-500 transition-colors">
                                 <span class="text-[10px] font-bold text-gray-500">MSc</span>
                             </div>
-                            <div
-                                class="glass-card p-8 border-dashed border-gray-700 opacity-60 hover:opacity-100 transition-all hover:translate-x-2">
-                                <span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                    data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
-                                <h3 class="text-xl font-bold mb-2 text-white" data-en="MSc in Computing"
-                                    data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed"
-                                    data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems."
-                                    data-mm="အဆင့်မြင့် ဆော့ဖ်ဝဲလ်ဗိသုကာပညာနှင့် Cloud စနစ်များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် မဟာဘွဲ့ကို ရည်မှန်းထားပါသည်။">
-                                    Strategic goal to deepen expertise in Advanced Software Architecture and Cloud
-                                    Systems.</p>
+                            <div class="glass-card p-8 border-dashed border-gray-700 opacity-60 hover:opacity-100 transition-all hover:translate-x-2">
+                                <span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
+                                <h3 class="text-xl font-bold mb-2 text-white" data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems." data-mm="အဆင့်မြင့် ဆော့ဖ်ဝဲလ်ဗိသုကာပညာနှင့် Cloud စနစ်များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် မဟာဘွဲ့ကို ရည်မှန်းထားပါသည်။">Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems.</p>
                             </div>
                         </div>
+
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.3s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                <div
-                                    class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
+                            <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+                                <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
                                     <i data-lucide="graduation-cap" class="w-6 h-6 text-black"></i>
                                 </div>
                             </div>
-                            <div
-                                class="glass-card p-8 bg-white/5 border border-white/20 hover:bg-white/10 transition-all">
-                                <span class="text-white font-bold text-xs uppercase tracking-widest mb-1 block"
-                                    data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
-                                <h3 class="text-2xl font-bold mb-1 text-white" data-en="BSc (Hons) Computing"
-                                    data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">BSc (Hons) Computing</h3>
-                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Edinburgh
-                                    Napier University</p>
-                                <p class="text-gray-300 leading-relaxed"
-                                    data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks."
-                                    data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">
-                                    Currently pursuing an advanced degree focused on scalable software architecture and
-                                    cloud systems. Deepening knowledge in secure coding practices and modern development
-                                    frameworks.</p>
+                            <div class="glass-card p-8 bg-white/5 border border-white/20 hover:bg-white/10 transition-all">
+                                <span class="text-white font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
+                                <h3 class="text-2xl font-bold mb-1 text-white" data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">BSc (Hons) Computing</h3>
+                                <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-4">Edinburgh Napier University</p>
+                                <p class="text-gray-300 leading-relaxed" data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks." data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks.</p>
                             </div>
                         </div>
+
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.4s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                <div
-                                    class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
+                            <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+                                <div class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
                                     <span class="text-sm font-bold text-white">HND</span>
                                 </div>
                             </div>
                             <div class="glass-card p-8 hover:bg-white/[0.05] hover:border-white/30 transition-all">
-                                <span class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-1 block">2023
-                                    - 2025</span>
-                                <h3 class="text-xl font-bold mb-1 text-white" data-en="Higher National Diploma"
-                                    data-mm="Higher National Diploma (HND)">Higher National Diploma</h3>
-                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-4">Info Myanmar
-                                    University / Pearson</p>
-                                <p class="text-gray-400 text-sm leading-relaxed"
-                                    data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models."
-                                    data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">
-                                    Formalized technical skills with HNC and HND qualifications. Focused on full-stack
-                                    development, data structures, and the initial exploration of AI models.</p>
+                                <span class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-1 block">2023 - 2025</span>
+                                <h3 class="text-xl font-bold mb-1 text-white" data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher National Diploma</h3>
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-4">Info Myanmar University / Pearson</p>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models." data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models.</p>
                             </div>
                         </div>
+
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.5s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                <div
-                                    class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
+                            <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+                                <div class="w-14 h-14 rounded-full glass-card border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
                                     <i data-lucide="code-2" class="w-6 h-6 text-white/70"></i>
                                 </div>
                             </div>
                             <div class="glass-card p-8 hover:bg-white/[0.05] hover:border-white/30 transition-all">
-                                <span class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                    data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
-                                <h3 class="text-xl font-bold mb-1 text-white"
-                                    data-en="The Turning Point (Self-Learning)"
-                                    data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point
-                                    (Self-Learning)</h3>
-                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-4"
-                                    data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period
-                                </p>
-                                <p class="text-gray-400 text-sm leading-relaxed"
-                                    data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path."
-                                    data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">
-                                    During the global pause caused by COVID-19, I discovered my passion for code. I
-                                    dedicated these two years to intense self-study, moving from 'Hello World' to
-                                    building functional applications. This period defined my career path.</p>
+                                <span class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
+                                <h3 class="text-xl font-bold mb-1 text-white" data-en="The Turning Point (Self-Learning)" data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point (Self-Learning)</h3>
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-4" data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period</p>
+                                <p class="text-gray-400 text-sm leading-relaxed" data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path." data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path.</p>
                             </div>
                         </div>
+
                         <div class="relative pl-16 group reveal-text" style="transition-delay: 0.6s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
+                            <div class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
                                 <div class="w-3 h-3 rounded-full bg-gray-600"></div>
                             </div>
                             <div class="glass-card p-6 hover:bg-white/[0.05] border-white/5 transition-all">
-                                <span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                    data-en="2015 - 2020" data-mm="၂၀၁၅ - ၂၀၂၀">2015 - 2020</span>
-                                <h3 class="text-lg font-bold mb-1 text-white" data-en="Secondary Education"
-                                    data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
-                                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2"
-                                    data-en='No.2 Basic Education High School, Bahan ("Nanyan")'
-                                    data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan
-                                    ("Nanyan")</p>
-                                <p class="text-gray-500 text-sm"
-                                    data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming."
-                                    data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">
-                                    Developed academic discipline and logical thinking skills that would later serve as
-                                    the foundation for programming.</p>
-                            </div>
-                        </div>
-                        <div class="relative pl-16 group reveal-text" style="transition-delay: 0.7s;">
-                            <div
-                                class="absolute left-0 top-0 w-[58px] h-[58px] flex items-center justify-center bg-[#050505] z-10">
-                                <div class="w-3 h-3 rounded-full bg-gray-600"></div>
-                            </div>
-                            <div class="glass-card p-6 hover:bg-white/[0.05] border-white/5 transition-all">
-                                <span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block"
-                                    data-en="2010 - 2014" data-mm="၂၀၁၀ - ၂၀၁၄">2010 - 2014</span>
-                                <h3 class="text-lg font-bold mb-1 text-white" data-en="Primary Foundation"
-                                    data-mm="အခြေခံပညာ မူလတန်း">Primary Foundation</h3>
-                                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2"
-                                    data-en="No.1 Basic Education Primary School, Bahan" data-mm="အ.မ.က(၁) ဗဟန်း">No.1
-                                    Basic Education Primary School, Bahan</p>
-                                <p class="text-gray-500 text-sm" data-en="The beginning of the academic journey."
-                                    data-mm="ပညာရေးခရီးစဉ် စတင်ရာ အခြေခံအုတ်မြစ်။">The beginning of the academic
-                                    journey.</p>
+                                <span class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-1 block" data-en="2015 - 2020" data-mm="၂၀၁5 - ၂၀၂၀">2015 - 2020</span>
+                                <h3 class="text-lg font-bold mb-1 text-white" data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
+                                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2" data-en='No.2 Basic Education High School, Bahan ("Nanyan")' data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan ("Nanyan")</p>
+                                <p class="text-gray-500 text-sm" data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming." data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">Developed academic discipline and logical thinking skills that would later serve as the foundation for programming.</p>
                             </div>
                         </div>
                     </div>
@@ -965,54 +802,66 @@
         </div>
     </section>
 
-    <section class="py-20 px-4 md:px-6 relative overflow-hidden z-10 border-t border-white/5">
-        <div class="max-w-4xl mx-auto text-center relative z-20">
-            <h2 class="text-3xl md:text-5xl font-bold mb-8 section-title reveal-text">
-                <span class="text-gray-400" data-en="Code is Poetry," data-mm="ကုဒ်ဆိုသည်မှာ">Code is Poetry,</span>
-                <br>
-                <span class="text-white" data-en="Written with Logic."
-                    data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသော ကဗျာတစ်ပုဒ် ဖြစ်ပါသည်။">Written with Logic.</span>
-            </h2>
-            <div class="glass-card p-8 md:p-12 bg-white/[0.02] text-left space-y-6 backdrop-blur-xl border-white/10 reveal-text"
-                style="transition-delay: 0.1s;">
-                <p class="text-gray-300 text-lg leading-relaxed"
-                    data-en="My journey into technology wasn't traditional. It began in the quiet isolation of the pandemic years. While the world stood still, I found movement in the cursor blinking on my screen. I realized that with a few lines of logic, I could create something from nothing."
-                    data-mm="နည်းပညာလောကထဲကို ကျွန်တော် ရောက်ရှိလာပုံက သမားရိုးကျ မဟုတ်ခဲ့ပါဘူး။ ကမ္ဘာကြီး ရပ်တန့်သွားခဲ့တဲ့ ကိုဗစ်ကပ်ရောဂါကာလရဲ့ တိတ်ဆိတ်မှုတွေကြားမှာ စတင်ခဲ့တာပါ။ ဖန်သားပြင်ပေါ်က မျက်တောင်ခတ်နေတဲ့ cursor လေးရဲ့ လှုပ်ရှားမှုကို သတိထားမိခဲ့ပြီး၊ ယုတ္တိဗေဒ ကုဒ်လိုင်းအနည်းငယ်နဲ့ ဘာမှမရှိရာကနေ အရာတစ်ခုကို ဖန်တီးနိုင်တယ်ဆိုတာကို နားလည်ခဲ့ပါတယ်။">
-                    My journey into technology wasn't traditional. It began in the quiet isolation of the pandemic
-                    years. While the world stood still, I found movement in the cursor blinking on my screen. I realized
-                    that with a few lines of logic, I could create something from nothing.</p>
-                <p class="text-gray-300 text-lg leading-relaxed"
-                    data-en="I am driven by two things: Innovation and Creation. There is a profound joy in writing a script and watching it come to life—solving a problem, automating a task, or simply creating something beautiful."
-                    data-mm="ကျွန်တော့်ကို အမြဲတွန်းအားပေးနေတဲ့ အရာနှစ်ခုကတော့ 'ဆန်းသစ်တီထွင်မှု' နဲ့ 'ဖန်တီးမှု' ပါပဲ။ ပြဿနာတစ်ခုကို ဖြေရှင်းဖို့၊ လုပ်ငန်းစဉ်တစ်ခုကို အလိုအလျောက်ဖြစ်စေဖို့၊ ဒါမှမဟုတ် လှပတဲ့အရာတစ်ခုကို ဖန်တီးဖို့အတွက် script တစ်ခုရေးသားပြီး အဲဒါလေး အသက်ဝင်လာတာကို ကြည့်ရှုရတာဟာ အလွန်ပဲ နက်ရှိုင်းတဲ့ ပီတိတစ်ခု ဖြစ်ပါတယ်။">
-                    I am driven by two things: <span class="text-white font-bold">Innovation</span> and <span
-                        class="text-white font-bold">Creation</span>. There is a profound joy in writing a script and
-                    watching it come to life—solving a problem, automating a task, or simply creating something
-                    beautiful.</p>
-                <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="flex items-center gap-4 w-full md:w-auto">
-                        <div
-                            class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                            <i data-lucide="code" class="w-6 h-6 text-white"></i>
+    <!-- Completely Redesigned & Rewritten "Code is Poetry" Section matching requested design -->
+    <section class="cv-auto py-32 px-4 md:px-8 relative overflow-hidden z-10 border-y border-white/5 bg-black">
+        <div class="max-w-6xl mx-auto relative z-20">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-0 items-stretch">
+                
+                <!-- Left Column: Typography -->
+                <div class="lg:w-[45%] flex flex-col items-start justify-center reveal-text lg:pr-16">
+                    <div class="mb-4">
+                        <!-- Modern Quote Marks (Muted styling like the reference image) -->
+                        <span class="text-[#222] text-[6rem] font-serif leading-none tracking-tighter select-none">&ldquo;</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] -mt-8">
+                        <span class="text-zinc-500 block" data-en="Code is" data-mm="ကုဒ်ဆိုသည်မှာ">Code is</span>
+                        <span class="text-white block mt-1" data-en="Poetry." data-mm="ကဗျာတစ်ပုဒ်။">Poetry.</span>
+                    </h2>
+                    <div class="w-12 h-[2px] bg-white mt-8 mb-6"></div>
+                    <p class="text-zinc-500 font-bold uppercase tracking-[0.2em] text-[10px]" data-en="Written with Logic" data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသော">Written with Logic</p>
+                </div>
+
+                <!-- Subtle Vertical Pale Line Divider (Hidden on Mobile) -->
+                <div class="hidden lg:block w-[1px] bg-white/10 shrink-0 mx-4"></div>
+
+                <!-- Right Column: Editorial Text & Footer -->
+                <div class="lg:w-[55%] flex flex-col justify-center reveal-text lg:pl-16" style="transition-delay: 0.1s;">
+                    <div class="space-y-8 text-[15px] md:text-base text-zinc-400 font-light leading-relaxed">
+                        <p data-en="My journey into software engineering began quite unexpectedly during the COVID-19 pandemic. While aimlessly exploring websites in that period of isolation, I accidentally pressed the <kbd class='kbd-key'>F12</kbd> key. Suddenly, a hidden panel of raw text and symbols emerged on my screen. I had absolutely no idea what they were, what they were for, or how they worked. I was completely mesmerized to realize that these cryptic lines—known as source code—were the invisible gears actively powering the entire website."
+                           data-mm="ဆော့ဖ်ဝဲအင်ဂျင်နီယာတစ်ဦးအဖြစ် ကျွန်ုပ်၏ခရီးစဉ်သည် COVID-19 ကပ်ရောဂါကာလအတွင်း မမျှော်လင့်ဘဲ စတင်ခဲ့ပါသည်။ ဝက်ဘ်ဆိုက်များကို လေ့လာကြည့်ရှုနေရင်း <kbd class='kbd-key'>F12</kbd> ခလုတ်ကို မတော်တဆ နှိပ်မိခဲ့ပါသည်။ ထိုအခါ နားလည်ရခက်သော စာသားများနှင့် သင်္ကေတများစွာ ပါဝင်သည့် လျှို့ဝှက် panel တစ်ခုကို ဖန်သားပြင်ပေါ်တွင် တွေ့လိုက်ရသည်။ ၎င်းတို့သည် မည်သည့်အရာဖြစ်ကြောင်း၊ မည်သို့အလုပ်လုပ်ကြောင်းကို လုံးဝမသိခဲ့သော်လည်း၊ ထိုကုဒ်စာသားလေးများက ဝက်ဘ်ဆိုက်တစ်ခုလုံးကို အသက်သွင်းပေးနေကြောင်း သိလိုက်ရသည့်အခါ ကျွန်ုပ် အလွန်အံ့သြမှင်သက်မိပါသည်။">
+                            My journey into software engineering began quite unexpectedly during the COVID-19 pandemic. While aimlessly exploring websites in that period of isolation, I accidentally pressed the <kbd class='kbd-key'>F12</kbd> key. Suddenly, a hidden panel of raw text and symbols emerged on my screen. I had absolutely no idea what they were, what they were for, or how they worked. I was completely mesmerized to realize that these cryptic lines—known as source code—were the invisible gears actively powering the entire website.
+                        </p>
+                        <p data-en="That single serendipitous moment sparked a profound curiosity within me. The sheer amazement of how simple text could architect functional, interactive digital worlds quickly evolved into a dedicated pursuit of learning. It transformed a simple accident into the foundation of my career as a software engineer today."
+                           data-mm="ထိုတိုက်ဆိုင်မှုလေးက ကျွန်ုပ်၏ စူးစမ်းလိုစိတ်ကို ပြင်းပြစွာ နှိုးဆွပေးခဲ့သည်။ ရိုးရှင်းသော စာသားလေးများက အပြန်အလှန်တုံ့ပြန်နိုင်သော ဒစ်ဂျစ်တယ်ကမ္ဘာများကို မည်သို့ တည်ဆောက်နိုင်သည်ကို နားလည်ချင်လာခဲ့ပြီး၊ ၎င်းသည်ပင် ယနေ့ ဆော့ဖ်ဝဲအင်ဂျင်နီယာတစ်ဦးအဖြစ် ရပ်တည်နိုင်ရန် အဓိက အုတ်မြစ်ဖြစ်လာခဲ့ပါသည်။">
+                            That single serendipitous moment sparked a profound curiosity within me. The sheer amazement of how simple text could architect functional, interactive digital worlds quickly evolved into a dedicated pursuit of learning. It transformed a simple accident into the foundation of my career as a software engineer today.
+                        </p>
+                    </div>
+
+                    <!-- Environment & Avatar Footer -->
+                    <div class="mt-12 pt-8 border-t border-white/5 flex items-center justify-between gap-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 shrink-0 bg-[#0a0a0a]">
+                                <!-- Using right chevron for terminal aesthetic matching your design -->
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1" data-en="Environment" data-mm="လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Environment</p>
+                                <p class="text-white font-medium text-[11px] md:text-xs tracking-wide">VS Code + Cafè + Americano + <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank" class="text-zinc-400 hover:text-white transition-colors">Cigarettes After Sex 🎵</a></p>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-[10px] font-bold uppercase tracking-widest text-gray-500"
-                                data-en="Favorite Environment" data-mm="အကြိုက်ဆုံး လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Favorite
-                                Environment</p>
-                            <p class="text-white font-medium text-sm md:text-base">VS Code + Cafè + Americano + <a
-                                    href="https://www.youtube.com/@CigarettesAfterSex" target="_blank"
-                                    class="text-gray-400 italic hover:text-white transition-colors underline decoration-white/30 hover:decoration-white">Cigarettes
-                                    After Sex 🎵</a></p>
+                        
+                        <div class="shrink-0">
+                            <img src="../favicon.jpg" alt="Htet Zaw Paing" class="w-10 h-10 rounded-full opacity-40 grayscale border border-white/10" loading="lazy" decoding="async">
                         </div>
                     </div>
-                    <img src="../favicon.jpg" alt="Signature" class="w-10 h-10 rounded-full opacity-50 grayscale">
                 </div>
+                
             </div>
         </div>
     </section>
 
     <footer id="contact-footer"
-        class="relative pt-32 pb-16 px-4 md:px-8 bg-black overflow-hidden border-t border-white/10">
-        <div class="ambient-orb orb-3"></div>
+        class="cv-auto relative pt-32 pb-16 px-4 md:px-8 bg-black overflow-hidden border-t border-white/10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-32 relative z-10">
             <div class="space-y-16">
                 <div class="space-y-6 reveal-text">
@@ -1024,11 +873,12 @@
                     </h2>
                     <p class="text-zinc-400 text-base md:text-xl leading-relaxed font-light mt-8 max-w-md"
                         data-en="Have an innovative idea or a project in mind? Send me a message directly and let's build the future together."
-                        data-mm="သင့်ဆီမှာ ဆန်းသစ်တဲ့ စိတ်ကူး ဒါမှမဟုတ် ပရောဂျက်တစ်ခုခု ရှိနေပါသလား။ ကျွန်တော့်ဆီ တိုက်ရိုက် စာပို့ဆက်သွယ်ပြီး အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့။">
+                        data-mm="သင့်ထံတွင် ဆန်းသစ်သော စိတ်ကူး သို့မဟုတ် လုပ်ငန်းစဉ်များ ရှိပါသလား။ ကျွန်ုပ်ထံ တိုက်ရိုက် စာပို့ဆက်သွယ်ပြီး အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့။">
                         Have an innovative idea or a project in mind? Send me a message directly and let's build the
                         future together.
                     </p>
                 </div>
+
                 <div class="space-y-8 reveal-text" style="transition-delay: 0.1s;">
                     <a href="tel:+959456751882" class="flex items-center gap-6 group w-max">
                         <div
@@ -1041,6 +891,7 @@
                             <p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9456751882</p>
                         </div>
                     </a>
+
                     <a href="mailto:contact@htetzawpaing.site" class="flex items-center gap-6 group w-max">
                         <div
                             class="w-12 h-12 rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white group-hover:text-black transition-all duration-300">
@@ -1054,6 +905,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div class="flex flex-wrap gap-4 pt-8 border-t border-white/10 reveal-text"
                     style="transition-delay: 0.2s;">
                     <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank"
@@ -1079,6 +931,7 @@
                     </a>
                 </div>
             </div>
+
             <div class="relative reveal-text" style="transition-delay: 0.3s;">
                 <form id="direct-email-form" class="space-y-12 relative z-10 p-0 md:p-8 bg-transparent">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -1097,6 +950,7 @@
                                 placeholder="john@domain.com" required>
                         </div>
                     </div>
+
                     <div class="space-y-2 relative">
                         <label
                             class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 block absolute -top-5"
@@ -1104,6 +958,7 @@
                         <input type="text" id="contact-subject" class="w-full py-2 input-minimal text-lg"
                             placeholder="Project Inquiry" required>
                     </div>
+
                     <div class="space-y-2 relative">
                         <label
                             class="text-[9px] font-bold uppercase tracking-[0.2em] text-zinc-500 block absolute -top-5"
@@ -1111,6 +966,7 @@
                         <textarea id="contact-message" rows="3" class="w-full py-2 input-minimal text-lg resize-none"
                             placeholder="Tell me about your project..." required></textarea>
                     </div>
+
                     <button type="submit"
                         class="btn-premium w-full py-5 rounded-full font-black text-xs uppercase tracking-[0.3em] flex justify-center items-center gap-3">
                         <span data-en="Send Message" data-mm="စာပို့မည်">Send Message</span> <i data-lucide="send"
@@ -1119,6 +975,7 @@
                 </form>
             </div>
         </div>
+
         <div
             class="max-w-7xl mx-auto pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 text-center md:text-left">
@@ -1152,11 +1009,12 @@
             mainNav.classList.remove('nav-initial');
         }
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('hzp_lang') || 'en';
         const langToggle = document.getElementById('lang-toggle');
         const mobileLangToggle = document.getElementById('mobile-lang-toggle');
         const langText = document.getElementById('lang-text');
         const mobileLangText = document.getElementById('mobile-lang-text');
+
         const translatables = document.querySelectorAll('[data-en]');
 
         function updateLang(lang) {
@@ -1170,8 +1028,10 @@
 
         const toggleLang = () => {
             currentLang = currentLang === 'en' ? 'mm' : 'en';
+            localStorage.setItem('hzp_lang', currentLang);
             updateLang(currentLang);
         };
+        updateLang(currentLang);
 
         if (langToggle) langToggle.addEventListener('click', toggleLang);
         if (mobileLangToggle) mobileLangToggle.addEventListener('click', toggleLang);
@@ -1193,40 +1053,47 @@
 
         if (menuToggle) menuToggle.addEventListener('click', openMenu);
         if (menuClose) menuClose.addEventListener('click', closeMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
 
         const navLinks = document.querySelectorAll('.nav-link');
         const pill = document.getElementById('liquid-pill');
 
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', (e) => {
-                if (e.target.classList.contains('dropdown-item')) return;
-                const rect = e.target.getBoundingClientRect();
-                const container = pill.offsetParent || pill.parentElement;
-                if (container) {
-                    const containerRect = container.getBoundingClientRect();
-                    pill.style.width = `${rect.width}px`;
-                    pill.style.height = `${rect.height}px`;
-                    pill.style.left = `${rect.left - containerRect.left}px`;
-                    pill.style.top = `${rect.top - containerRect.top}px`;
-                    pill.style.opacity = '1';
-                }
-            });
-        });
+        if(window.innerWidth > 768) {
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', (e) => {
+                    if (e.target.classList.contains('dropdown-item')) return;
 
-        document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
-            if (pill) pill.style.opacity = '0';
-        });
+                    const rect = e.target.getBoundingClientRect();
+                    const container = pill.offsetParent || pill.parentElement;
 
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+                    if (container) {
+                        const containerRect = container.getBoundingClientRect();
+                        pill.style.width = `${rect.width}px`;
+                        pill.style.height = `${rect.height}px`;
+                        pill.style.left = `${rect.left - containerRect.left}px`;
+                        pill.style.top = `${rect.top - containerRect.top}px`;
+                        pill.style.opacity = '1';
+                    }
+                });
             });
-        });
+
+            document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
+                if (pill) pill.style.opacity = '0';
+            });
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
 
         const observerOptions = {
             root: null,
@@ -1249,106 +1116,57 @@
             scrollObserver.observe(el);
         });
 
-        const homeSection = document.getElementById('home');
-        const cursorGlow = document.querySelector('.cursor-glow');
-
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight * 0.85;
-        let glowX = mouseX;
-        let glowY = mouseY;
-
-        if (homeSection && cursorGlow) {
-            homeSection.addEventListener('mousemove', (e) => {
-                const rect = homeSection.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
-            });
-
-            function animateGlow() {
-                glowX += (mouseX - glowX) * 0.15;
-                glowY += (mouseY - glowY) * 0.15;
-                cursorGlow.style.transform = `translate(calc(${glowX}px - 50%), calc(${glowY}px - 50%))`;
-                requestAnimationFrame(animateGlow);
-            }
-            animateGlow();
-        }
-
+        /* OPTIMIZED CANVAS (Lightweight Rising Sparks instead of heavy glowing physics text) */
         const canvas = document.getElementById('hero-canvas');
         if (canvas) {
             const ctx = canvas.getContext('2d');
             let width, height;
             let particles = [];
-            const symbols = ['</>', '</>', '</>', '0', '1', '{ }', '[ ]', '=>', '&&', '||', 'က', 'ဒ', 'င', 'ဗ', 'js', 'api', 'dev', 'sys', 'db'];
-            let spacing = window.innerWidth < 768 ? 40 : 55;
+            const symbols = ['</>', '0', '1', '{ }', 'js', 'sys'];
 
             function initParticles() {
-                width = canvas.width = homeSection.offsetWidth;
-                height = canvas.height = homeSection.offsetHeight;
-                spacing = window.innerWidth < 768 ? 40 : 55;
+                if (window.innerWidth < 768) {
+                    if(ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    return;
+                }
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
                 particles = [];
-                let numParticles = Math.floor((width * height) / (spacing * spacing));
+                // Dramatically reduced particle count for absolute smoothness (no glitching)
+                let numParticles = Math.min(30, Math.floor((width * height) / 40000));
 
                 for (let i = 0; i < numParticles; i++) {
-                    let baseOp = Math.random() * 0.2 + 0.15;
                     particles.push({
                         x: Math.random() * width,
                         y: Math.random() * height,
-                        baseX: Math.random() * width,
-                        baseY: Math.random() * height,
-                        vx: (Math.random() - 0.5) * 0.15,
-                        vy: (Math.random() - 0.5) * 0.15,
+                        vy: Math.random() * 0.5 + 0.1,
                         text: symbols[Math.floor(Math.random() * symbols.length)],
-                        baseOpacity: baseOp,
-                        opacity: baseOp,
-                        scale: Math.random() * 6 + 12
+                        opacity: Math.random() * 0.3 + 0.1,
+                        scale: Math.random() * 8 + 10
                     });
                 }
             }
 
             function drawParticles() {
+                if (window.innerWidth < 768) return;
+
                 ctx.clearRect(0, 0, width, height);
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
 
-                const maxDist = 280;
-
                 for (let i = 0; i < particles.length; i++) {
                     let p = particles[i];
 
-                    p.baseX += p.vx;
-                    p.baseY += p.vy;
+                    // Simple upward float (Extremely lightweight)
+                    p.y -= p.vy;
 
-                    if (p.baseX < -50) p.baseX = width + 50;
-                    if (p.baseX > width + 50) p.baseX = -50;
-                    if (p.baseY < -50) p.baseY = height + 50;
-                    if (p.baseY > height + 50) p.baseY = -50;
-
-                    let dx = mouseX - p.baseX;
-                    let dy = mouseY - p.baseY;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-
-                    let targetX = p.baseX;
-                    let targetY = p.baseY;
-                    let targetOpacity = p.baseOpacity;
-                    let targetScale = p.scale;
-
-                    if (distance < maxDist) {
-                        let force = Math.pow((maxDist - distance) / maxDist, 1.2);
-                        targetX = p.baseX - (dx * force * 0.12);
-                        targetY = p.baseY - (dy * force * 0.12);
-                        targetOpacity = Math.min(1, p.baseOpacity + force * 0.8);
-                        targetScale = p.scale + (force * 8);
-
-                        if (force > 0.4 && Math.random() < 0.08) {
-                            p.text = symbols[Math.floor(Math.random() * symbols.length)];
-                        }
+                    // Respawn at bottom
+                    if (p.y < -50) {
+                        p.y = height + 50;
+                        p.x = Math.random() * width;
                     }
 
-                    p.x += (targetX - p.x) * 0.1;
-                    p.y += (targetY - p.y) * 0.1;
-                    p.opacity += (targetOpacity - p.opacity) * 0.1;
-
-                    ctx.font = `${targetScale}px Inter, sans-serif`;
+                    ctx.font = `${p.scale}px Inter, sans-serif`;
                     ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
                     ctx.fillText(p.text, p.x, p.y);
                 }
@@ -1356,7 +1174,7 @@
             }
 
             initParticles();
-            drawParticles();
+            if (window.innerWidth >= 768) drawParticles();
             window.addEventListener('resize', initParticles);
         }
 
@@ -1364,128 +1182,17 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
+
                 const name = document.getElementById('contact-name').value;
                 const email = document.getElementById('contact-email').value;
                 const subject = document.getElementById('contact-subject').value;
                 const message = document.getElementById('contact-message').value;
+
                 const fullBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
                 const mailtoLink = `mailto:contact@htetzawpaing.site?subject=${encodeURIComponent(subject)}&body=${fullBody}`;
                 window.location.href = mailtoLink;
             });
         }
-
-        const stack = document.getElementById('card-stack');
-        const cards = Array.from(stack.children).filter(c => c.classList.contains('stack-card'));
-        let activeIndex = 0;
-        let shuffleInterval;
-        let isPaused = false;
-
-        function updateCards() {
-            const isMobile = window.innerWidth < 768;
-            const total = cards.length;
-            const xSpread = isMobile ? 20 : 40;
-            const rotSpread = isMobile ? 5 : 10;
-            const ySpread = isMobile ? 5 : 10;
-
-            cards.forEach((card, i) => {
-                let diff = i - activeIndex;
-                if (diff > 2) diff -= total;
-                if (diff < -2) diff += total;
-
-                let rot = diff * rotSpread;
-                let x = diff * xSpread;
-                let y = Math.abs(diff) * ySpread;
-                let z = 10 - Math.abs(diff);
-
-                card.style.zIndex = z;
-                card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${1 - Math.abs(diff) * 0.05}) rotate(${rot}deg)`;
-                let dimmer = card.querySelector('.card-dimmer');
-                if (dimmer) {
-                    dimmer.style.opacity = Math.abs(diff) * 0.25;
-                }
-            });
-        }
-
-        function cycleStack() {
-            if (!isPaused) {
-                activeIndex = (activeIndex + 1) % cards.length;
-                updateCards();
-            }
-        }
-
-        function startShuffle() {
-            if (shuffleInterval) clearInterval(shuffleInterval);
-            shuffleInterval = setInterval(cycleStack, 3000);
-        }
-
-        function pauseShuffle() {
-            isPaused = true;
-            const isMobile = window.innerWidth < 768;
-            const xSpreadHover = isMobile ? 30 : 60;
-            const rotSpreadHover = isMobile ? 6 : 12;
-
-            cards.forEach((card, i) => {
-                let diff = i - activeIndex;
-                if (diff > 2) diff -= cards.length;
-                if (diff < -2) diff += cards.length;
-
-                let rot = diff * rotSpreadHover;
-                let x = diff * xSpreadHover;
-                let y = Math.abs(diff) * 5;
-                let z = 10 - Math.abs(diff);
-
-                card.style.zIndex = z;
-                card.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${1 - Math.abs(diff) * 0.02}) rotate(${rot}deg)`;
-                let dimmer = card.querySelector('.card-dimmer');
-                if (dimmer) dimmer.style.opacity = 0;
-            });
-        }
-
-        function resumeShuffle() {
-            isPaused = false;
-            updateCards();
-        }
-
-        function forceShuffle() {
-            activeIndex = (activeIndex + 1) % cards.length;
-            updateCards();
-            resetTimer();
-        }
-
-        function resetTimer() {
-            if (shuffleInterval) clearInterval(shuffleInterval);
-            shuffleInterval = setInterval(cycleStack, 3000);
-        }
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        stack.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            pauseShuffle();
-        }, { passive: true });
-
-        stack.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-            resumeShuffle();
-        }, { passive: true });
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 30) {
-                activeIndex = (activeIndex + 1) % cards.length;
-                updateCards();
-                resetTimer();
-            } else if (touchEndX > touchStartX + 30) {
-                activeIndex = (activeIndex - 1 + cards.length) % cards.length;
-                updateCards();
-                resetTimer();
-            }
-        }
-
-        updateCards();
-        startShuffle();
-        window.addEventListener('resize', updateCards);
     </script>
 </body>
 

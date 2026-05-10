@@ -15,14 +15,14 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://www.htetzawpaing.site/profile/">
+    <meta property="og:url" content="https://www.htetzawpaing.site/connect/">
     <meta property="og:title" content="Connect | Htet Zaw Paing - Software Engineer & Web Developer">
     <meta property="og:description"
         content="Download CV, view GitHub and LinkedIn profiles, and get in touch with Htet Zaw Paing.">
     <meta property="og:image" content="https://www.htetzawpaing.site/favicon.jpg">
     <meta property="og:site_name" content="Htet Zaw Paing Portfolio">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://www.htetzawpaing.site/profile/">
+    <meta name="twitter:url" content="https://www.htetzawpaing.site/connect/">
     <meta name="twitter:title" content="Connect | Htet Zaw Paing - Software Engineer & Web Developer">
     <meta name="twitter:description" content="Software Engineer & Web Developer. Download CV and Connect.">
     <meta name="twitter:image" content="https://www.htetzawpaing.site/favicon.jpg">
@@ -30,7 +30,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v2026">
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png?v2026">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v2026">
-    <link rel="canonical" href="https://www.htetzawpaing.site/profile/">
+    <link rel="canonical" href="https://www.htetzawpaing.site/connect/">
     <script type="application/ld+json">
 [
 {
@@ -55,7 +55,7 @@
 "@id": "https://www.htetzawpaing.site/#person",
 "name": "Htet Zaw Paing",
 "alternateName": "ထက်ဇော်ပိုင်",
-"url": "https://www.htetzawpaing.site/profile/",
+"url": "https://www.htetzawpaing.site/connect/",
 "image": "https://www.htetzawpaing.site/favicon.jpg",
 "jobTitle": "Software Engineer",
 "description": "Software Engineer and Web Developer based in Yangon, Myanmar.",
@@ -111,18 +111,35 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.035;
+        @media (min-width: 769px) {
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100svh;
+                background: url('https://grainy-gradients.vercel.app/noise.svg');
+                opacity: 0.035;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: overlay;
+            }
+        }
+
+        .cursor-glow {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 50%);
+            border-radius: 50%;
             pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: overlay;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            filter: blur(60px);
+            will-change: transform;
         }
 
         #nav-container {
@@ -162,7 +179,6 @@
             border-radius: 24px;
             overflow: hidden;
             transform: translateZ(0);
-            will-change: transform;
             transition: transform 0.6s var(--ease-cinematic), border-color 0.6s var(--ease-cinematic), background 0.6s ease;
         }
 
@@ -298,7 +314,7 @@
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1.2s var(--ease-cinematic), transform 1.2s var(--ease-cinematic);
-            will-change: opacity, transform;
+            will-change: auto;
         }
 
         .reveal-text.active-text {
@@ -326,23 +342,48 @@
             transform: translateY(-2px);
         }
 
+        .cv-auto { content-visibility: auto; contain-intrinsic-size: 1000px; }
+
         @media (max-width: 768px) {
-            .nav-scrolled #nav-container {
-                width: 92%;
-                margin-top: 0.5rem;
+            * {
+                box-shadow: none !important;
+                will-change: auto !important;
             }
+            .nav-scrolled #nav-container {
+                width: 100%;
+                margin-top: 0;
+                border-radius: 0;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(10, 10, 10, 0.98) !important;
+            }
+            .glass-card, .dropdown-menu {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: #111111 !important;
+                transform: none !important;
+            }
+            .cursor-glow, .ambient-orb {
+                display: none !important;
+                animation: none !important;
+            }
+            .reveal-text {
+                transition-duration: 0.4s !important;
+                transition-delay: 0s !important;
+                transform: translateY(20px);
+            }
+            .glass-card:hover { transform: none !important; }
+            .glass-card::after { display: none !important; }
+            .btn-premium:hover, .btn-outline:hover { transform: none !important; }
         }
 
         @media (max-width: 450px) {
-
-            .btn-premium,
-            .btn-outline {
+            .btn-premium, .btn-outline {
                 padding: 0.8rem 1rem !important;
                 font-size: 0.7rem !important;
                 width: 100% !important;
                 justify-content: center;
             }
-
             .glass-card {
                 padding: 1.2rem !important;
                 border-radius: 16px !important;
@@ -354,7 +395,6 @@
                 font-size: 1rem !important;
                 padding: 0.8rem 0 !important;
             }
-
             .glass-card {
                 padding: 1rem !important;
                 border-radius: 12px !important;
@@ -362,13 +402,10 @@
         }
 
         @media (max-width: 250px) {
-
-            .btn-outline,
-            .btn-premium {
+            .btn-outline, .btn-premium {
                 font-size: 0.6rem !important;
                 padding: 0.5rem !important;
             }
-
             #mobile-menu .mobile-nav-link {
                 font-size: 0.85rem !important;
                 padding: 0.5rem 0 !important;
@@ -433,7 +470,7 @@
     </nav>
 
     <div id="mobile-menu"
-        class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100dvh] transition-transform duration-500 ease-in-out block">
+        class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100svh] transition-transform duration-500 ease-in-out block">
         <button id="menu-close"
             class="fixed top-6 right-6 p-3 text-white hover:text-gray-300 transition-colors bg-white/10 rounded-full z-[10000]">
             <i data-lucide="x" class="w-6 h-6"></i>
@@ -468,12 +505,13 @@
         </div>
     </div>
 
-    <section class="min-h-screen pt-32 pb-20 px-4 flex flex-col items-center justify-center relative">
+    <section id="home" class="min-h-[100svh] pt-32 pb-20 px-4 flex flex-col items-center justify-center relative overflow-hidden">
+        <div class="cursor-glow"></div>
         <div class="w-full max-w-xl space-y-6 relative z-10">
             <div class="glass-card p-8 flex flex-col items-center text-center reveal-text"
                 style="transition-delay: 0.1s;">
                 <div class="w-28 h-28 rounded-full p-1 bg-white/10 mb-5 relative group">
-                    <img src="../favicon.jpg" alt="About"
+                    <img src="../favicon.jpg" alt="About" loading="lazy" decoding="async"
                         class="w-full h-full object-cover rounded-full border-4 border-black mono-img">
                     <div class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-4 border-black rounded-full animate-pulse"
                         title="Online"></div>
@@ -590,8 +628,7 @@
         </div>
     </section>
 
-    <footer id="contact-footer"
-        class="relative pt-32 pb-16 px-4 md:px-8 border-t border-white/10 bg-black overflow-hidden">
+    <footer id="contact-footer" class="cv-auto relative pt-20 pb-16 px-4 md:px-8 border-t border-white/10 bg-black overflow-hidden">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-32 relative z-10">
             <div class="space-y-16">
                 <div class="space-y-6 reveal-text">
@@ -739,7 +776,7 @@
             mainNav.classList.remove('nav-initial');
         }
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('hzp_lang') || 'en';
         const langToggle = document.getElementById('lang-toggle');
         const mobileLangToggle = document.getElementById('mobile-lang-toggle');
         const langText = document.getElementById('lang-text');
@@ -758,8 +795,10 @@
 
         const toggleLang = () => {
             currentLang = currentLang === 'en' ? 'mm' : 'en';
+            localStorage.setItem('hzp_lang', currentLang);
             updateLang(currentLang);
         };
+        updateLang(currentLang);
 
         if (langToggle) langToggle.addEventListener('click', toggleLang);
         if (mobileLangToggle) mobileLangToggle.addEventListener('click', toggleLang);
@@ -789,37 +828,39 @@
         const navLinks = document.querySelectorAll('.nav-link');
         const pill = document.getElementById('liquid-pill');
 
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', (e) => {
-                if (e.target.classList.contains('dropdown-item')) return;
+        if(window.innerWidth > 768) {
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', (e) => {
+                    if (e.target.classList.contains('dropdown-item')) return;
 
-                const rect = e.target.getBoundingClientRect();
-                const container = pill.offsetParent || pill.parentElement;
+                    const rect = e.target.getBoundingClientRect();
+                    const container = pill.offsetParent || pill.parentElement;
 
-                if (container) {
-                    const containerRect = container.getBoundingClientRect();
-                    pill.style.width = `${rect.width}px`;
-                    pill.style.height = `${rect.height}px`;
-                    pill.style.left = `${rect.left - containerRect.left}px`;
-                    pill.style.top = `${rect.top - containerRect.top}px`;
-                    pill.style.opacity = '1';
-                }
+                    if (container) {
+                        const containerRect = container.getBoundingClientRect();
+                        pill.style.width = `${rect.width}px`;
+                        pill.style.height = `${rect.height}px`;
+                        pill.style.left = `${rect.left - containerRect.left}px`;
+                        pill.style.top = `${rect.top - containerRect.top}px`;
+                        pill.style.opacity = '1';
+                    }
+                });
             });
-        });
 
-        document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
-            if (pill) pill.style.opacity = '0';
-        });
-
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+            document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
+                if (pill) pill.style.opacity = '0';
             });
-        });
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
 
         const observerOptions = {
             root: null,
@@ -841,6 +882,30 @@
         document.querySelectorAll('.reveal-text').forEach(el => {
             scrollObserver.observe(el);
         });
+
+        const homeSection = document.getElementById('home');
+        const cursorGlow = document.querySelector('.cursor-glow');
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight * 0.85;
+        let glowX = mouseX;
+        let glowY = mouseY;
+
+        if (homeSection && cursorGlow && window.innerWidth > 768) {
+            homeSection.addEventListener('mousemove', (e) => {
+                const rect = homeSection.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+
+            function animateGlow() {
+                glowX += (mouseX - glowX) * 0.15;
+                glowY += (mouseY - glowY) * 0.15;
+                cursorGlow.style.transform = `translate(calc(${glowX}px - 50%), calc(${glowY}px - 50%))`;
+                requestAnimationFrame(animateGlow);
+            }
+            animateGlow();
+        }
 
         const contactForm = document.getElementById('direct-email-form');
         if (contactForm) {

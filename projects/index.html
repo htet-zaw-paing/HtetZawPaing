@@ -84,18 +84,20 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: url('https://grainy-gradients.vercel.app/noise.svg');
-            opacity: 0.035;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: overlay;
+        @media (min-width: 769px) {
+            body::after {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100svh;
+                background: url('https://grainy-gradients.vercel.app/noise.svg');
+                opacity: 0.035;
+                pointer-events: none;
+                z-index: 9999;
+                mix-blend-mode: overlay;
+            }
         }
 
         .cursor-glow {
@@ -150,7 +152,6 @@
             border-radius: 24px;
             overflow: hidden;
             transform: translateZ(0);
-            will-change: transform;
             transition: transform 0.6s var(--ease-cinematic), border-color 0.6s var(--ease-cinematic), background 0.6s ease;
         }
 
@@ -286,7 +287,6 @@
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1.2s var(--ease-cinematic), transform 1.2s var(--ease-cinematic);
-            will-change: opacity, transform;
         }
 
         .reveal-text.active-text {
@@ -469,15 +469,48 @@
             border-bottom: 1px solid var(--glass-border);
         }
 
+        .cv-auto { content-visibility: auto; contain-intrinsic-size: 1000px; }
+
         @media (max-width: 768px) {
+            * {
+                box-shadow: none !important;
+                will-change: auto !important;
+            }
             .nav-scrolled #nav-container {
-                width: 92%;
-                margin-top: 0.5rem;
+                width: 100%;
+                margin-top: 0;
+                border-radius: 0;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: rgba(10, 10, 10, 0.98) !important;
+            }
+            .glass-card, .dropdown-menu, .view-btn, .zoom-toolbar, #lightbox-modal, .full-width-glass {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: #111111 !important;
+                transform: none !important;
+            }
+            .cursor-glow, .slide-bg-blur {
+                display: none !important;
+                animation: none !important;
+            }
+            .reveal-text {
+                transition-duration: 0.4s !important;
+                transition-delay: 0s !important;
+                transform: translateY(20px);
+            }
+            .glass-card:hover { transform: none !important; }
+            .glass-card::after { display: none !important; }
+            .btn-premium:hover, .btn-outline:hover, .view-btn:hover { transform: none !important; }
+            .carousel-btn, .view-btn {
+                background: rgba(20, 20, 20, 0.9) !important;
+            }
+            .carousel-slide .slide-main-img {
+                filter: none !important;
             }
         }
 
         @media (max-width: 450px) {
-
             .btn-premium,
             .btn-outline {
                 padding: 0.8rem 1rem !important;
@@ -505,7 +538,6 @@
         }
 
         @media (max-width: 250px) {
-
             .btn-outline,
             .btn-premium {
                 font-size: 0.6rem !important;
@@ -575,7 +607,7 @@
     </nav>
 
     <div id="mobile-menu"
-        class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100dvh] transition-transform duration-500 ease-in-out block">
+        class="fixed inset-0 z-[9999] bg-[#000000] transform translate-x-full overflow-y-auto w-full h-[100svh] transition-transform duration-500 ease-in-out block">
         <button id="menu-close"
             class="fixed top-6 right-6 p-3 text-white hover:text-gray-300 transition-colors bg-white/10 rounded-full z-[10000]">
             <i data-lucide="x" class="w-6 h-6"></i>
@@ -610,7 +642,7 @@
         </div>
     </div>
 
-    <section id="home" class="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
+    <section id="home" class="min-h-[100svh] flex flex-col items-center justify-center px-4 relative overflow-hidden">
         <canvas id="hero-canvas" class="absolute inset-0 z-0 pointer-events-none w-full h-full"></canvas>
         <div class="cursor-glow"></div>
         <div class="max-w-7xl w-full mx-auto text-center relative z-10 pt-16">
@@ -638,7 +670,7 @@
         </div>
     </section>
 
-    <section class="mt-20 md:mt-32">
+    <section class="cv-auto mt-20 md:mt-32">
         <div class="text-center mb-16 px-4">
             <div
                 class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full text-[10px] font-bold text-white uppercase tracking-widest mb-4 reveal-text">
@@ -662,7 +694,7 @@
         </div>
     </section>
 
-    <section class="pt-20 pb-0 px-4 md:px-6 relative">
+    <section class="cv-auto pt-20 pb-0 px-4 md:px-6 relative">
         <div class="max-w-7xl mx-auto space-y-32">
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-stretch group"
@@ -721,27 +753,27 @@
                         <div class="carousel-container" id="carousel-1">
                             <div class="carousel-track">
                                 <div class="carousel-slide">
-                                    <img src="../project1/secora-voicecontrol1.png"
+                                    <img src="../project1/secora-voicecontrol1.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project1/secora-voicecontrol1.png"
+                                    <img src="../project1/secora-voicecontrol1.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project1/secora-voicecontrol3.png"
+                                    <img src="../project1/secora-voicecontrol3.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project1/secora-voicecontrol3.png"
+                                    <img src="../project1/secora-voicecontrol3.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project1/secora-voicecontrol2.png"
+                                    <img src="../project1/secora-voicecontrol2.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project1/secora-voicecontrol2.png"
+                                    <img src="../project1/secora-voicecontrol2.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project1/secora-voicecontrol4.png"
+                                    <img src="../project1/secora-voicecontrol4.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project1/secora-voicecontrol4.png"
+                                    <img src="../project1/secora-voicecontrol4.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                             </div>
@@ -766,27 +798,27 @@
                         <div class="carousel-container" id="carousel-2">
                             <div class="carousel-track">
                                 <div class="carousel-slide">
-                                    <img src="../project2/siachat1.png"
+                                    <img src="../project2/siachat1.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project2/siachat1.png"
+                                    <img src="../project2/siachat1.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project2/siachat2.png"
+                                    <img src="../project2/siachat2.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project2/siachat2.png"
+                                    <img src="../project2/siachat2.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project2/siachat3.png"
+                                    <img src="../project2/siachat3.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project2/siachat3.png"
+                                    <img src="../project2/siachat3.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project2/siachat4.png"
+                                    <img src="../project2/siachat4.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project2/siachat4.png"
+                                    <img src="../project2/siachat4.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                             </div>
@@ -915,81 +947,81 @@
                         <div class="carousel-container" id="carousel-3">
                             <div class="carousel-track">
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-mini-robot.png"
+                                    <img src="../project3/sensori-mini-robot.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-mini-robot.png"
+                                    <img src="../project3/sensori-mini-robot.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-welcome.png"
+                                    <img src="../project3/sensori-welcome.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-welcome.png"
+                                    <img src="../project3/sensori-welcome.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-dashboard.png"
+                                    <img src="../project3/sensori-dashboard.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-dashboard.png"
+                                    <img src="../project3/sensori-dashboard.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-email-alert.png"
+                                    <img src="../project3/sensori-email-alert.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-email-alert.png"
+                                    <img src="../project3/sensori-email-alert.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-add-family.png"
+                                    <img src="../project3/sensori-add-family.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-add-family.png"
+                                    <img src="../project3/sensori-add-family.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-add-friend.png"
+                                    <img src="../project3/sensori-add-friend.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-add-friend.png"
+                                    <img src="../project3/sensori-add-friend.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-add-partner1.png"
+                                    <img src="../project3/sensori-add-partner1.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-add-partner1.png"
+                                    <img src="../project3/sensori-add-partner1.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-add-partner.png"
+                                    <img src="../project3/sensori-add-partner.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-add-partner.png"
+                                    <img src="../project3/sensori-add-partner.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-camera-permission.png"
+                                    <img src="../project3/sensori-camera-permission.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-camera-permission.png"
+                                    <img src="../project3/sensori-camera-permission.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-camera-active.png"
+                                    <img src="../project3/sensori-camera-active.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-camera-active.png"
+                                    <img src="../project3/sensori-camera-active.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-emergency.png"
+                                    <img src="../project3/sensori-emergency.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-emergency.png"
+                                    <img src="../project3/sensori-emergency.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-confirm-delete.png"
+                                    <img src="../project3/sensori-confirm-delete.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-confirm-delete.png"
+                                    <img src="../project3/sensori-confirm-delete.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project3/sensori-delete-dashboard.png"
+                                    <img src="../project3/sensori-delete-dashboard.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project3/sensori-delete-dashboard.png"
+                                    <img src="../project3/sensori-delete-dashboard.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                             </div>
@@ -1015,63 +1047,63 @@
                         <div class="carousel-container" id="carousel-4">
                             <div class="carousel-track">
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori1.png"
+                                    <img src="../project4/sori1.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori1.png"
+                                    <img src="../project4/sori1.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori2.png"
+                                    <img src="../project4/sori2.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori2.png"
+                                    <img src="../project4/sori2.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori3.png"
+                                    <img src="../project4/sori3.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori3.png"
+                                    <img src="../project4/sori3.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori4.png"
+                                    <img src="../project4/sori4.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori4.png"
+                                    <img src="../project4/sori4.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori5.png"
+                                    <img src="../project4/sori5.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori5.png"
+                                    <img src="../project4/sori5.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori6.png"
+                                    <img src="../project4/sori6.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori6.png"
+                                    <img src="../project4/sori6.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori7.png"
+                                    <img src="../project4/sori7.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori7.png"
+                                    <img src="../project4/sori7.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori8.png"
+                                    <img src="../project4/sori8.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori8.png"
+                                    <img src="../project4/sori8.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori9.png"
+                                    <img src="../project4/sori9.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori9.png"
+                                    <img src="../project4/sori9.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="../project4/sori10.png"
+                                    <img src="../project4/sori10.png" loading="lazy" decoding="async"
                                         class="slide-bg-blur">
-                                    <img src="../project4/sori10.png"
+                                    <img src="../project4/sori10.png" loading="lazy" decoding="async"
                                         class="slide-main-img">
                                 </div>
                             </div>
@@ -1150,7 +1182,7 @@
         </div>
     </section>
 
-    <section class="w-full relative mt-32 py-24 full-width-glass overflow-hidden" id="secora-cybersecurity-project">
+    <section class="cv-auto w-full relative mt-32 py-24 full-width-glass overflow-hidden" id="secora-cybersecurity-project">
         <div
             class="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px] pointer-events-none">
         </div>
@@ -1187,213 +1219,213 @@
                     <div class="carousel-container" id="carousel-5">
                         <div class="carousel-track">
                             <div class="carousel-slide">
-                                <img src="../project5/secora-home-mm.png"
+                                <img src="../project5/secora-home-mm.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/secora-home-mm.png"
+                                <img src="../project5/secora-home-mm.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/secora-home-jp.png"
+                                <img src="../project5/secora-home-jp.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/secora-home-jp.png"
+                                <img src="../project5/secora-home-jp.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/secora-home-eng.png"
+                                <img src="../project5/secora-home-eng.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/secora-home-eng.png"
+                                <img src="../project5/secora-home-eng.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/secora-home-light.png"
+                                <img src="../project5/secora-home-light.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/secora-home-light.png"
+                                <img src="../project5/secora-home-light.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/exchange-local.png"
+                                <img src="../project5/exchange-local.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/exchange-local.png"
+                                <img src="../project5/exchange-local.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/exchange-global.png"
+                                <img src="../project5/exchange-global.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/exchange-global.png"
+                                <img src="../project5/exchange-global.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/rate-global.png"
+                                <img src="../project5/rate-global.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/rate-global.png"
+                                <img src="../project5/rate-global.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/rate-calculate.png"
+                                <img src="../project5/rate-calculate.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/rate-calculate.png"
+                                <img src="../project5/rate-calculate.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/serafeed.png"
+                                <img src="../project5/serafeed.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/serafeed.png"
+                                <img src="../project5/serafeed.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/addPost.png"
+                                <img src="../project5/addPost.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/addPost.png"
+                                <img src="../project5/addPost.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/deletePost.png"
+                                <img src="../project5/deletePost.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/deletePost.png"
+                                <img src="../project5/deletePost.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/membership.png"
+                                <img src="../project5/membership.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/membership.png"
+                                <img src="../project5/membership.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/user-dashboard.png"
+                                <img src="../project5/user-dashboard.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/user-dashboard.png"
+                                <img src="../project5/user-dashboard.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/wishlist.png"
+                                <img src="../project5/wishlist.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/wishlist.png"
+                                <img src="../project5/wishlist.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/cart.png"
+                                <img src="../project5/cart.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/cart.png"
+                                <img src="../project5/cart.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/orders.png"
+                                <img src="../project5/orders.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/orders.png"
+                                <img src="../project5/orders.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/order-confirmation.png"
+                                <img src="../project5/order-confirmation.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/order-confirmation.png"
+                                <img src="../project5/order-confirmation.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/order-confirmation-email.png"
+                                <img src="../project5/order-confirmation-email.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/order-confirmation-email.png"
+                                <img src="../project5/order-confirmation-email.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/services.png"
+                                <img src="../project5/services.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/services.png"
+                                <img src="../project5/services.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/spoints.png"
+                                <img src="../project5/spoints.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/spoints.png"
+                                <img src="../project5/spoints.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/setting.png"
+                                <img src="../project5/setting.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/setting.png"
+                                <img src="../project5/setting.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/user-dashboard-mm.png"
+                                <img src="../project5/user-dashboard-mm.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/user-dashboard-mm.png"
+                                <img src="../project5/user-dashboard-mm.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/cartbar.png"
+                                <img src="../project5/cartbar.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/cartbar.png"
+                                <img src="../project5/cartbar.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/checkout.png"
+                                <img src="../project5/checkout.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/checkout.png"
+                                <img src="../project5/checkout.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/promotion.png"
+                                <img src="../project5/promotion.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/promotion.png"
+                                <img src="../project5/promotion.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/admin-order.png"
+                                <img src="../project5/admin-order.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/admin-order.png"
+                                <img src="../project5/admin-order.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/admin-membership.png"
+                                <img src="../project5/admin-membership.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/admin-membership.png"
+                                <img src="../project5/admin-membership.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/admin-service.png"
+                                <img src="../project5/admin-service.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/admin-service.png"
+                                <img src="../project5/admin-service.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/admin-feed.png"
+                                <img src="../project5/admin-feed.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/admin-feed.png"
+                                <img src="../project5/admin-feed.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/admin-promotion.png"
+                                <img src="../project5/admin-promotion.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/admin-promotion.png"
+                                <img src="../project5/admin-promotion.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/report.png"
+                                <img src="../project5/report.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/report.png"
+                                <img src="../project5/report.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/service-status-good.png"
+                                <img src="../project5/service-status-good.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/service-status-good.png"
+                                <img src="../project5/service-status-good.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/service-status-dander.png"
+                                <img src="../project5/service-status-dander.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/service-status-dander.png"
+                                <img src="../project5/service-status-dander.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/filter.png"
+                                <img src="../project5/filter.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/filter.png"
+                                <img src="../project5/filter.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                             <div class="carousel-slide">
-                                <img src="../project5/service-manage.png"
+                                <img src="../project5/service-manage.png" loading="lazy" decoding="async"
                                     class="slide-bg-blur">
-                                <img src="../project5/service-manage.png"
+                                <img src="../project5/service-manage.png" loading="lazy" decoding="async"
                                     class="slide-main-img">
                             </div>
                         </div>
@@ -1482,7 +1514,7 @@
         </div>
     </section>
 
-    <footer id="contact-footer" class="relative pt-32 pb-16 px-4 md:px-8 bg-black overflow-hidden">
+    <footer id="contact-footer" class="cv-auto relative pt-32 pb-16 px-4 md:px-8 bg-black overflow-hidden">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-32 relative z-10">
             <div class="space-y-16">
                 <div class="space-y-6 reveal-text">
@@ -1666,7 +1698,7 @@
             mainNav.classList.remove('nav-initial');
         }
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('hzp_lang') || 'en';
         const langToggle = document.getElementById('lang-toggle');
         const mobileLangToggle = document.getElementById('mobile-lang-toggle');
         const langText = document.getElementById('lang-text');
@@ -1681,9 +1713,12 @@
             if (langText) langText.innerText = lang.toUpperCase();
             if (mobileLangText) mobileLangText.innerText = lang.toUpperCase();
         }
+        
+        updateLang(currentLang);
 
         const toggleLang = () => {
             currentLang = currentLang === 'en' ? 'mm' : 'en';
+            localStorage.setItem('hzp_lang', currentLang);
             updateLang(currentLang);
         };
 
@@ -1712,35 +1747,37 @@
         const navLinks = document.querySelectorAll('.nav-link');
         const pill = document.getElementById('liquid-pill');
 
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', (e) => {
-                if (e.target.classList.contains('dropdown-item')) return;
-                const rect = e.target.getBoundingClientRect();
-                const container = pill.offsetParent || pill.parentElement;
-                if (container) {
-                    const containerRect = container.getBoundingClientRect();
-                    pill.style.width = `${rect.width}px`;
-                    pill.style.height = `${rect.height}px`;
-                    pill.style.left = `${rect.left - containerRect.left}px`;
-                    pill.style.top = `${rect.top - containerRect.top}px`;
-                    pill.style.opacity = '1';
-                }
+        if(window.innerWidth > 768) {
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', (e) => {
+                    if (e.target.classList.contains('dropdown-item')) return;
+                    const rect = e.target.getBoundingClientRect();
+                    const container = pill.offsetParent || pill.parentElement;
+                    if (container) {
+                        const containerRect = container.getBoundingClientRect();
+                        pill.style.width = `${rect.width}px`;
+                        pill.style.height = `${rect.height}px`;
+                        pill.style.left = `${rect.left - containerRect.left}px`;
+                        pill.style.top = `${rect.top - containerRect.top}px`;
+                        pill.style.opacity = '1';
+                    }
+                });
             });
-        });
 
-        document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
-            if (pill) pill.style.opacity = '0';
-        });
-
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+            document.getElementById('nav-container')?.addEventListener('mouseleave', () => {
+                if (pill) pill.style.opacity = '0';
             });
-        });
+
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        }
 
         const observerOptions = {
             root: null,
@@ -1771,7 +1808,7 @@
         let glowX = mouseX;
         let glowY = mouseY;
 
-        if (homeSection && cursorGlow) {
+        if (homeSection && cursorGlow && window.innerWidth > 768) {
             homeSection.addEventListener('mousemove', (e) => {
                 const rect = homeSection.getBoundingClientRect();
                 mouseX = e.clientX - rect.left;
@@ -1793,12 +1830,15 @@
             let width, height;
             let particles = [];
             const symbols = ['</>', '</>', '</>', '0', '1', '{ }', '[ ]', '=>', '&&', '||', 'က', 'ဒ', 'င', 'ဗ', 'js', 'api', 'dev', 'sys', 'db'];
-            let spacing = window.innerWidth < 768 ? 40 : 55;
+            let spacing = 55;
 
             function initParticles() {
+                if (window.innerWidth < 768) {
+                    if(ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    return; 
+                }
                 width = canvas.width = homeSection.offsetWidth;
                 height = canvas.height = homeSection.offsetHeight;
-                spacing = window.innerWidth < 768 ? 40 : 55;
                 particles = [];
                 let numParticles = Math.floor((width * height) / (spacing * spacing));
 
@@ -1820,6 +1860,8 @@
             }
 
             function drawParticles() {
+                if (window.innerWidth < 768) return; 
+
                 ctx.clearRect(0, 0, width, height);
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
@@ -1875,7 +1917,7 @@
             }
 
             initParticles();
-            drawParticles();
+            if (window.innerWidth >= 768) drawParticles();
             window.addEventListener('resize', initParticles);
         }
 
