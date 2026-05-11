@@ -1689,6 +1689,20 @@
             "This project is a testament to my passion for coding!",
             "I hope you find this project as exciting as I did!",
         ];
+        let i = 0;
+        let interval;
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                interval = setInterval(() => {
+                    document.title = messages[i];
+                    i = (i + 1) % messages.length;
+                }, 100);
+            } else {
+                clearInterval(interval);
+                document.title = baseTitle;
+            }
+        });
 
         lucide.createIcons();
 

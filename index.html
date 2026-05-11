@@ -37,6 +37,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png?v2026">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v2026">
     <link rel="canonical" href="https://www.htetzawpaing.site/">
+    <link rel="manifest" href="manifest.json">
     <script type="application/ld+json">
 [
 {
@@ -1884,6 +1885,12 @@
         }
         setTimeout(loopTypewriter, 1000);
     </script>
+        <script>
+            if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js")
+                .then(() => console.log("SW Registered"));
+            }
+        </script>
 </body>
 
 </html>
