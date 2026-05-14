@@ -71,7 +71,6 @@
 ]
 </script>
 
-    <!-- Core Styles and Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -507,11 +506,20 @@
                 -webkit-backdrop-filter: none !important;
                 background: rgba(10, 10, 10, 0.98) !important;
             }
-            .glass-card, .dropdown-menu, .view-btn, .zoom-toolbar, #lightbox-modal, .full-width-glass {
+            .glass-card, .dropdown-menu, #lightbox-modal, .full-width-glass {
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
                 background: #111111 !important;
                 transform: none !important;
+            }
+            .zoom-toolbar {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: #111111 !important;
+            }
+            .view-btn {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
             }
             .cursor-glow, .slide-bg-blur {
                 display: none !important;
@@ -524,7 +532,8 @@
             }
             .glass-card:hover { transform: none !important; }
             .glass-card::after { display: none !important; }
-            .btn-premium:hover, .btn-outline:hover, .view-btn:hover { transform: none !important; }
+            .btn-premium:hover, .btn-outline:hover { transform: none !important; }
+            .view-btn:hover { transform: translateX(-50%) !important; }
             .carousel-btn, .view-btn {
                 background: rgba(20, 20, 20, 0.9) !important;
             }
