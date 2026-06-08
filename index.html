@@ -49,10 +49,10 @@
             --accent: #d2fc2a;
             --text-main: #f4f4f0;
             --text-muted: #888d81;
+            
             --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
-            --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
-            --ease-combo: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* New bouncy combo ease */
-            --ease-snap: cubic-bezier(0.85, 0, 0.15, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-curtain: cubic-bezier(0.85, 0, 0.15, 1);
         }
         ::selection {
             background: var(--accent);
@@ -80,19 +80,36 @@
             position: fixed;
             inset: 0;
             z-index: 999999;
-            background-color: var(--bg-olive);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 1.2s var(--ease-cinematic), visibility 1.2s var(--ease-cinematic), filter 1.2s var(--ease-cinematic);
+            background-color: transparent;
+            pointer-events: auto;
         }
+        .curtain {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background-color: var(--bg-olive);
+            z-index: 1;
+            transition: transform 1.2s var(--ease-curtain);
+            will-change: transform;
+        }
+        .curtain-top { top: 0; transform-origin: top; }
+        .curtain-bottom { bottom: 0; transform-origin: bottom; }
+        
         .loader-terminal {
+            position: relative;
+            z-index: 10;
             font-family: 'JetBrains Mono', monospace;
             color: var(--accent);
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
+            transition: opacity 0.4s ease, transform 0.6s var(--ease-bounce);
+            will-change: transform, opacity;
         }
         .loader-cursor {
             display: inline-block;
@@ -105,7 +122,11 @@
         }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* Dynamic Section Backgrounds */
+        body.system-ready .curtain-top { transform: translateY(-100%); }
+        body.system-ready .curtain-bottom { transform: translateY(100%); }
+        body.system-ready .loader-terminal { opacity: 0; transform: scale(0.8) translateY(-20px); }
+        body.system-ready #preloader { pointer-events: none; transition: visibility 0s linear 1.5s; visibility: hidden; }
+
         .scroll-bg {
             will-change: background-position;
             z-index: 0;
@@ -134,7 +155,6 @@
             background-size: 60px 103.92px;
         }
 
-        /* Dynamic Code Background Elements */
         @keyframes float-code {
             0% { transform: translateY(110vh) rotate(-10deg); opacity: 0; }
             10% { opacity: 0.25; }
@@ -155,13 +175,37 @@
             user-select: none;
             pointer-events: none;
             mix-blend-mode: screen;
-            opacity: 0; /* Handled by animation */
+            opacity: 0; 
         }
         .code-anim-1 { animation: float-code 22s linear infinite; }
         .code-anim-2 { animation: float-code-reverse 18s linear infinite; }
         .code-anim-3 { animation: float-code 28s linear infinite; }
 
-        /* Cursor React Glow */
+        @keyframes line-move-1 {
+            0% { transform: translateX(-2px); }
+            100% { transform: translateX(2px); }
+        }
+        @keyframes line-move-2 {
+            0% { transform: translateX(2px); width: 80%; }
+            100% { transform: translateX(-2px); width: 100%; }
+        }
+        @keyframes line-move-3 {
+            0% { transform: translateX(-2px); }
+            100% { transform: translateX(2px); }
+        }
+        
+        .menu-line-1 { animation: line-move-1 1s ease-in-out infinite alternate; }
+        .menu-line-2 { animation: line-move-2 1.2s ease-in-out infinite alternate; }
+        .menu-line-3 { animation: line-move-3 0.9s ease-in-out infinite alternate; }
+
+        .group:hover .menu-line-1, .group:hover .menu-line-2, .group:hover .menu-line-3 {
+            animation: none;
+            transition: transform 0.6s var(--ease-bounce), width 0.6s var(--ease-bounce), background-color 0.3s ease;
+        }
+        .group:hover .menu-line-1 { transform: translateX(4px); width: 70%; transition-delay: 0s; }
+        .group:hover .menu-line-2 { transform: translateX(-4px); width: 100%; transition-delay: 0.05s; }
+        .group:hover .menu-line-3 { transform: translateX(4px); width: 70%; transition-delay: 0.1s; }
+
         #cursor-glow {
             position: fixed;
             width: 600px;
@@ -188,7 +232,7 @@
             font-size: 1.15rem;
             letter-spacing: -0.02em;
             text-transform: uppercase;
-            transition: color 0.4s ease, transform 0.6s var(--ease-combo);
+            transition: color 0.3s ease, transform 0.4s var(--ease-bounce);
             width: max-content;
         }
         .side-nav-link::before {
@@ -198,7 +242,7 @@
             transform: translateY(-50%);
             height: 3px;
             background-color: var(--accent);
-            transition: all 0.6s var(--ease-combo);
+            transition: all 0.4s var(--ease-bounce);
         }
         
         .nav-left .side-nav-link::before { right: 100%; width: 0; margin-right: 15px; }
@@ -214,7 +258,7 @@
             border-radius: 12px;
             font-weight: 900;
             text-transform: uppercase;
-            transition: all 0.5s var(--ease-combo);
+            transition: all 0.4s var(--ease-bounce);
             border: 1px solid rgba(0,0,0,0.1);
         }
         .btn-solid-lime:hover {
@@ -226,7 +270,7 @@
             background: #ffffff;
             color: #111;
             border-radius: 12px;
-            transition: all 0.5s var(--ease-combo);
+            transition: all 0.4s var(--ease-bounce);
             border: 1px solid rgba(0,0,0,0.1);
         }
         .btn-solid-white:hover {
@@ -237,7 +281,7 @@
 
         .mono-img {
             filter: grayscale(0.2) contrast(1.15) brightness(0.95);
-            transition: filter 1.2s ease, transform 1.2s var(--ease-combo);
+            transition: filter 0.6s ease, transform 0.6s var(--ease-bounce);
         }
         .group:hover .mono-img {
             filter: grayscale(0) contrast(1.05) brightness(1);
@@ -252,7 +296,7 @@
         .reveal-element {
             opacity: 0;
             will-change: transform, opacity, filter;
-            transition: opacity 1.2s ease-out, transform 1.2s var(--ease-combo), filter 1.2s ease-out;
+            transition: opacity 0.8s ease-out, transform 0.8s var(--ease-bounce), filter 0.8s ease-out;
             filter: blur(10px);
         }
         .reveal-up { transform: translateY(60px); }
@@ -272,12 +316,50 @@
             border: 1px solid rgba(210, 252, 42, 0.05);
             border-radius: 24px;
             overflow: hidden;
-            transition: transform 0.6s var(--ease-combo), border-color 0.6s ease, background 0.6s ease;
+            transition: transform 0.4s var(--ease-bounce), border-color 0.4s ease, background 0.4s ease;
         }
         .glass-card:hover {
             border-color: rgba(210, 252, 42, 0.2);
             background: rgba(210, 252, 42, 0.02);
             transform: translateY(-8px);
+        }
+
+        #main-content-wrapper {
+            transition: margin 0.8s var(--ease-cinematic), border-radius 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic), opacity 0.8s ease, filter 0.8s ease;
+            transform-origin: top center;
+            will-change: margin, border-radius, transform, opacity, filter;
+        }
+        
+        #main-content-wrapper.wrapper-expanded {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-bottom: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+        }
+        
+        .wrapper-svg-container {
+            transition: opacity 0.4s ease;
+            will-change: opacity;
+        }
+        
+        #main-content-wrapper.wrapper-expanded .wrapper-svg-container {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body:not(.system-ready) #main-content-wrapper {
+            opacity: 0;
+            transform: scale(0.96) translateY(40px);
+            filter: blur(15px);
+        }
+        body:not(.system-ready) #home .reveal-element {
+            opacity: 0 !important;
+            transform: translateY(40px) scale(0.95) !important;
+            transition: none !important;
+            filter: blur(15px) !important;
         }
 
         .input-minimal {
@@ -286,7 +368,7 @@
             border-radius: 12px;
             color: white;
             padding: 1rem 1.25rem;
-            transition: all 0.5s var(--ease-combo);
+            transition: all 0.4s var(--ease-bounce);
         }
         .input-minimal:focus {
             border-color: var(--accent);
@@ -300,7 +382,7 @@
         ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-        #mobile-menu { transition: transform 0.8s var(--ease-combo), opacity 0.8s ease; }
+        #mobile-menu { transition: transform 0.6s var(--ease-bounce), opacity 0.6s ease; }
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -310,22 +392,6 @@
             width: 1px;
             background: linear-gradient(to bottom, transparent, rgba(210, 252, 42, 0.3), transparent);
         }
-        
-        #main-content-wrapper {
-            transition: transform 1.5s var(--ease-combo), opacity 1.5s ease, filter 1.5s ease;
-            transform-origin: top center;
-        }
-        body:not(.system-ready) #main-content-wrapper {
-            opacity: 0;
-            transform: scale(0.96) translateY(40px);
-            filter: blur(15px);
-        }
-        body:not(.system-ready) #home .reveal-element {
-            opacity: 0 !important;
-            transform: translateY(40px) scale(0.95) !important;
-            transition: none !important;
-            filter: blur(15px) !important;
-        }
 
         @media (max-width: 768px) {
             .side-nav-link:hover { transform: none; }
@@ -333,9 +399,8 @@
             .glass-card:hover { transform: none; box-shadow: none; }
         }
 
-        /* Scrolled Navigation Styles */
         #main-nav {
-            transition: transform 0.6s var(--ease-combo);
+            transition: transform 0.5s var(--ease-bounce);
             transform: translateY(0);
         }
         #nav-inner {
@@ -347,176 +412,13 @@
             box-shadow: none;
             transform-origin: center top;
             will-change: width, max-width, padding, background-color, border-radius, box-shadow, backdrop-filter;
-            transition: width 0.6s var(--ease-combo), 
-                        max-width 0.6s var(--ease-combo), 
-                        padding 0.6s var(--ease-combo), 
-                        background-color 0.6s ease, 
-                        border-radius 0.6s var(--ease-combo), 
-                        box-shadow 0.6s ease, 
-                        backdrop-filter 0.6s ease;
-        }
-        .side-nav-link::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 3px;
-            background-color: var(--accent);
-            transition: all 0.4s var(--ease-cinematic);
-        }
-        
-        .nav-left .side-nav-link::before { right: 100%; width: 0; margin-right: 15px; }
-        .nav-right .side-nav-link::before { left: 100%; width: 0; margin-left: 15px; }
-        .nav-left .side-nav-link:hover, .nav-left .side-nav-link.active { color: var(--accent); transform: translateX(10px); }
-        .nav-right .side-nav-link:hover, .nav-right .side-nav-link.active { color: var(--accent); transform: translateX(-10px); }
-        .nav-left .side-nav-link:hover::before, .nav-left .side-nav-link.active::before { width: 20px; }
-        .nav-right .side-nav-link:hover::before, .nav-right .side-nav-link.active::before { width: 20px; }
-
-        .btn-solid-lime {
-            background: var(--accent);
-            color: #111;
-            border-radius: 12px;
-            font-weight: 900;
-            text-transform: uppercase;
-            transition: all 0.4s var(--ease-combo);
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-        .btn-solid-lime:hover {
-            background: #ffffff;
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3);
-        }
-        .btn-solid-white {
-            background: #ffffff;
-            color: #111;
-            border-radius: 12px;
-            transition: all 0.4s var(--ease-combo);
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-        .btn-solid-white:hover {
-            background: var(--accent);
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3);
-        }
-
-        .mono-img {
-            filter: grayscale(0.2) contrast(1.15) brightness(0.95);
-            transition: filter 1.5s var(--ease-cinematic), transform 1.5s var(--ease-cinematic);
-        }
-        .group:hover .mono-img {
-            filter: grayscale(0) contrast(1.05) brightness(1);
-            transform: scale(1.03);
-        }
-        
-        .mask-image-bottom {
-            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-        }
-
-        .reveal-element {
-            opacity: 0;
-            will-change: transform, opacity, filter;
-            transition: opacity 1.5s var(--ease-cinematic), transform 1.5s var(--ease-cinematic), filter 1.5s var(--ease-cinematic);
-            filter: blur(10px);
-        }
-        .reveal-up { transform: translateY(60px); }
-        .reveal-down { transform: translateY(-60px); }
-        .reveal-left { transform: translateX(60px); }
-        .reveal-right { transform: translateX(-60px); }
-        .reveal-scale { transform: scale(0.9); }
-        
-        .reveal-element.is-visible {
-            opacity: 1;
-            transform: translate(0, 0) scale(1);
-            filter: blur(0);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(210, 252, 42, 0.05);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: transform 0.8s var(--ease-cinematic), border-color 0.8s ease, background 0.8s ease;
-        }
-        .glass-card:hover {
-            border-color: rgba(210, 252, 42, 0.2);
-            background: rgba(210, 252, 42, 0.02);
-            transform: translateY(-6px);
-        }
-
-        .input-minimal {
-            background: rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            color: white;
-            padding: 1rem 1.25rem;
-            transition: all 0.4s var(--ease-cinematic);
-        }
-        .input-minimal:focus {
-            border-color: var(--accent);
-            outline: none;
-            background: rgba(0,0,0,0.4);
-            box-shadow: 0 0 0 4px rgba(210, 252, 42, 0.05);
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-olive); }
-        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-        #mobile-menu { transition: transform 0.8s var(--ease-cinematic), opacity 0.8s var(--ease-cinematic); }
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, rgba(210, 252, 42, 0.3), transparent);
-        }
-        
-        #main-content-wrapper {
-            transition: transform 1.8s var(--ease-cinematic), opacity 1.8s var(--ease-cinematic), filter 1.8s var(--ease-cinematic);
-            transform-origin: top center;
-        }
-        body:not(.system-ready) #main-content-wrapper {
-            opacity: 0;
-            transform: scale(0.96) translateY(40px);
-            filter: blur(15px);
-        }
-        body:not(.system-ready) #home .reveal-element {
-            opacity: 0 !important;
-            transform: translateY(40px) scale(0.95) !important;
-            transition: none !important;
-            filter: blur(15px) !important;
-        }
-
-        @media (max-width: 768px) {
-            .side-nav-link:hover { transform: none; }
-            .side-nav-link:hover::before { display: none; }
-            .glass-card:hover { transform: none; box-shadow: none; }
-        }
-
-        /* Scrolled Navigation Styles */
-        #main-nav {
-            transition: transform 0.5s var(--ease-elastic);
-            transform: translateY(0);
-        }
-        #nav-inner {
-            width: 100%;
-            max-width: 100%;
-            padding: 24px 40px;
-            background: transparent;
-            border-radius: 0px;
-            box-shadow: none;
-            transform-origin: center top;
-            will-change: width, max-width, padding, background-color, border-radius, box-shadow, backdrop-filter;
-            transition: width 0.5s var(--ease-elastic), 
-                        max-width 0.5s var(--ease-elastic), 
-                        padding 0.5s var(--ease-elastic), 
-                        background-color 0.5s var(--ease-elastic), 
-                        border-radius 0.5s var(--ease-elastic), 
-                        box-shadow 0.5s var(--ease-elastic), 
-                        backdrop-filter 0.5s var(--ease-elastic);
+            transition: width 0.5s var(--ease-bounce), 
+                        max-width 0.5s var(--ease-bounce), 
+                        padding 0.5s var(--ease-bounce), 
+                        background-color 0.5s ease, 
+                        border-radius 0.5s var(--ease-bounce), 
+                        box-shadow 0.5s ease, 
+                        backdrop-filter 0.5s ease;
         }
         #main-nav.scrolled-nav {
             transform: translateY(20px);
@@ -553,7 +455,6 @@
             }
         }
         
-        /* Lenis Smooth Scroll Setup */
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
         .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -566,6 +467,8 @@
     <div id="cursor-glow"></div>
 
     <div id="preloader">
+        <div class="curtain curtain-top"></div>
+        <div class="curtain curtain-bottom"></div>
         <div class="loader-terminal">
             <span id="loading-text">System.init()</span><span class="loader-cursor"></span>
         </div>
@@ -573,8 +476,8 @@
 
     <nav id="main-nav" class="fixed top-0 w-full z-[100] bg-transparent pointer-events-none flex justify-center">
         <div class="flex justify-between items-center pointer-events-auto" id="nav-inner">
-            <a href="./" class="flex flex-col text-[#111] leading-none z-20 hover:scale-105 transition-all duration-500 origin-left" id="nav-logo">
-                <span class="font-serif-display font-black text-xl md:text-3xl tracking-tighter uppercase transition-all duration-500">HTET ZAW Paing</span>
+            <a href="./" class="flex flex-col text-[#111] leading-none z-20 hover:scale-105 transition-all duration-400 origin-left" id="nav-logo">
+                <span class="font-serif-display font-black text-xl md:text-3xl tracking-tighter uppercase transition-all duration-400">HTET ZAW Paing</span>
             </a>
             
             <div class="hidden md:flex items-center gap-3 z-20">
@@ -585,20 +488,29 @@
                 <button id="lang-toggle" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm">
                     <i data-lucide="globe" class="w-4 h-4"></i>
                 </button>
-                <button id="menu-toggle-desktop" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm">
-                    <i data-lucide="menu" class="w-4 h-4"></i>
+                
+                <button id="menu-toggle-desktop" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm group">
+                    <div class="relative w-[18px] h-3 flex flex-col justify-between overflow-hidden">
+                        <span class="menu-line-1 w-full h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                        <span class="menu-line-2 w-[80%] h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                        <span class="menu-line-3 w-full h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                    </div>
                 </button>
             </div>
 
-            <button id="menu-toggle" class="md:hidden z-50 btn-solid-white w-12 h-12 flex items-center justify-center shadow-sm">
-                <i data-lucide="menu" class="w-5 h-5"></i>
+            <button id="menu-toggle" class="md:hidden z-50 btn-solid-white w-12 h-12 flex items-center justify-center shadow-sm group">
+                <div class="relative w-5 h-[14px] flex flex-col justify-between overflow-hidden">
+                    <span class="menu-line-1 w-full h-[2.5px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                    <span class="menu-line-2 w-[80%] h-[2.5px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                    <span class="menu-line-3 w-full h-[2.5px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                </div>
             </button>
         </div>
     </nav>
 
     <div id="mobile-menu" class="fixed inset-0 z-[9999] bg-[#272a21] transform translate-x-full opacity-0 overflow-y-auto w-full h-[100svh] bg-pattern-grid flex flex-col">
-        <button id="menu-close" class="absolute top-8 right-8 btn-solid-lime w-12 h-12 flex items-center justify-center z-[10000]">
-            <i data-lucide="x" class="w-5 h-5"></i>
+        <button id="menu-close" class="absolute top-8 right-8 btn-solid-lime w-12 h-12 flex items-center justify-center z-[10000] group">
+            <i data-lucide="x" class="w-5 h-5 transition-transform duration-500 group-hover:rotate-180 ease-[cubic-bezier(0.34,1.56,0.64,1)]"></i>
         </button>
         
         <div class="flex flex-col items-center justify-center w-full flex-grow px-8 relative z-10">
@@ -624,9 +536,10 @@
         </div>
     </div>
 
+    <!-- Main Zooming Wrapper -->
     <div id="main-content-wrapper" class="mx-3 md:mx-6 mb-3 md:mb-6 mt-20 md:mt-24 rounded-[2.5rem] md:rounded-[3rem] bg-[#272a21] relative z-10 overflow-hidden shadow-2xl flex-grow flex flex-col">
         
-        <div class="absolute top-[-1px] left-1/2 -translate-x-1/2 w-[260px] md:w-[340px] z-20 text-[#e8fb7a]">
+        <div class="wrapper-svg-container absolute top-[-1px] left-1/2 -translate-x-1/2 w-[260px] md:w-[340px] z-20 text-[#e8fb7a]" id="top-curve">
             <svg viewBox="0 0 340 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-full drop-shadow-sm">
                 <path d="M0,0 C35,0 50,45 90,45 L250,45 C290,45 305,0 340,0 Z" />
             </svg>
@@ -635,7 +548,6 @@
         <section id="home" class="relative min-h-[calc(100svh-8rem)] flex flex-col justify-end pt-24 pb-8 md:pb-12 px-4 md:px-12 z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-60 pointer-events-none" data-speed="0.4"></div>
             
-            <!-- Dynamic Moving Code Texts Background -->
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <span class="code-symbol code-anim-1 text-2xl lg:text-4xl" style="left: 10%; animation-delay: 0s;">&lt;/&gt;</span>
                 <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 25%; animation-delay: -5s;">{ }</span>
@@ -669,12 +581,11 @@
                         <span class="block text-white">STANDARDS.</span>
                     </h1>
 
-                    <div class="mb-10 md:mb-16 text-[#d2fc2a] font-mono text-sm md:text-xl font-bold uppercase tracking-widest reveal-element reveal-up" style="transition-delay: 0.2s; min-height: 28px;">
+                    <div class="mb-10 md:mb-16 text-[#d2fc2a] font-mono text-sm md:text-xl font-bold uppercase tracking-widest reveal-element reveal-up" style="transition-delay: 0.1s; min-height: 28px;">
                         > <span id="typewriter-text"></span><span class="animate-pulse">_</span>
                     </div>
 
-
-                    <div class="absolute -bottom-10 left-0 w-full z-30 reveal-element reveal-up lg:hidden flex justify-center" style="transition-delay: 0.6s;">
+                    <div class="absolute -bottom-10 left-0 w-full z-30 reveal-element reveal-up lg:hidden flex justify-center" style="transition-delay: 0.2s;">
                         <a href="./connect/" class="btn-solid-lime px-7 py-3.5 text-[11px] sm:text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl whitespace-nowrap w-max rounded-xl">
                             Business Enquiries <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
                         </a>
@@ -691,7 +602,7 @@
                 </div>
             </div>
 
-            <div class="w-full flex justify-between items-center relative z-40 border-t border-[rgba(210,252,42,0.1)] pt-6 md:pt-8 px-2 md:px-6 reveal-element reveal-up" style="transition-delay: 0.7s;">
+            <div class="w-full flex justify-between items-center relative z-40 border-t border-[rgba(210,252,42,0.1)] pt-6 md:pt-8 px-2 md:px-6 reveal-element reveal-up" style="transition-delay: 0.2s;">
                 <div class="hidden md:flex gap-6 opacity-40 font-mono text-xs uppercase tracking-widest font-bold">
                     <span>REACT</span> <span>PHP</span> <span>NODE</span>
                 </div>
@@ -705,7 +616,7 @@
                 </div>
             </div>
 
-            <div class="mt-8 lg:hidden flex w-full justify-between px-4 z-30 reveal-element reveal-up" style="transition-delay: 0.8s;">
+            <div class="mt-8 lg:hidden flex w-full justify-between px-4 z-30 reveal-element reveal-up" style="transition-delay: 0.3s;">
                 <nav class="flex flex-col space-y-3 text-xs font-black uppercase tracking-widest text-white">
                     <a href="./" class="text-[#d2fc2a]">Home</a>
                     <a href="./about/">About</a>
@@ -754,13 +665,13 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 relative reveal-element reveal-scale order-1 lg:order-2" style="transition-delay: 0.2s;">
+                <div class="lg:col-span-5 relative reveal-element reveal-scale order-1 lg:order-2" style="transition-delay: 0.1s;">
                     <div class="glass-card p-3 rounded-[2rem]">
                         <div class="w-full aspect-[4/5] rounded-[1.5rem] overflow-hidden relative group bg-[#111]">
-                            <img src="./favicon-nobg.png" alt="Htet Zaw Paing" loading="lazy" decoding="async" class="w-full h-full object-cover mono-img">
-                            <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8">
-                                <h3 class="text-3xl font-black mb-1 text-[#d2fc2a] tracking-tight transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700">Htet Zaw Paing</h3>
-                                <p class="text-white font-mono text-[10px] tracking-[0.2em] uppercase transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700 delay-100" data-en="SOFTWARE ENGINEER" data-mm="ဆော့ဖ်ဝဲအင်ဂျင်နီယာ">SOFTWARE ENGINEER</p>
+                            <img src="./favicon-nobg.png" alt="Htet Zaw Paing" loading="lazy" decoding="async" class="w-full h-full object-cover mono-img" onerror="this.src='https://placehold.co/800x1000/111/d2fc2a?text=Profile'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                                <h3 class="text-3xl font-black mb-1 text-[#d2fc2a] tracking-tight transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">Htet Zaw Paing</h3>
+                                <p class="text-white font-mono text-[10px] tracking-[0.2em] uppercase transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-100" data-en="SOFTWARE ENGINEER" data-mm="ဆော့ဖ်ဝဲအင်ဂျင်နီယာ">SOFTWARE ENGINEER</p>
                             </div>
                         </div>
                     </div>
@@ -775,7 +686,7 @@
 
                 <div class="relative timeline-line space-y-16">
                     <div class="relative pl-12 md:pl-20 group reveal-element reveal-right" style="transition-delay: 0.1s;">
-                        <div class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-500"></div>
+                        <div class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400"></div>
                         <div>
                             <span class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]" data-en="CURRENT - 2026" data-mm="လက်ရှိ - ၂၀၂၆">CURRENT - 2026</span>
                             <h3 class="text-2xl md:text-4xl font-black mb-3 text-white tracking-tighter">Bsc (Hons) in Computing</h3>
@@ -785,7 +696,7 @@
                     </div>
 
                     <div class="relative pl-12 md:pl-20 group reveal-element reveal-right" style="transition-delay: 0.2s;">
-                        <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#555] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-500"></div>
+                        <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#555] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
                         <div>
                             <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block">2024 - 2025</span>
                             <h3 class="text-xl md:text-3xl font-black mb-3 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors">HND in Computing</h3>
@@ -795,7 +706,7 @@
                     </div>
 
                     <div class="relative pl-12 md:pl-20 group reveal-element reveal-right" style="transition-delay: 0.3s;">
-                        <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#444] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-500"></div>
+                        <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#444] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
                         <div>
                             <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block">2023 - 2024</span>
                             <h3 class="text-xl md:text-3xl font-black mb-3 text-[#888] tracking-tighter group-hover:text-[#d2fc2a] transition-colors">HNC in Computing</h3>
@@ -824,14 +735,14 @@
                         <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed" data-en="A curation of high-impact technical architectures developed during my academic and independent research tenures." data-mm="ကျွန်ုပ်၏ ပညာရေးနှင့် သီးခြားသုတေသန ကာလများအတွင်း တည်ဆောက်ခဲ့သော အဆင့်မြင့် နည်းပညာစနစ်များအား စုစည်းဖော်ပြချက်။">
                             A curation of high-impact technical architectures developed during my academic and independent research tenures.</p>
                     </div>
-                    <div class="flex gap-4 self-start md:self-end reveal-element reveal-left" style="transition-delay: 0.2s;">
+                    <div class="flex gap-4 self-start md:self-end reveal-element reveal-left" style="transition-delay: 0.1s;">
                         <button id="projects-prev" class="w-14 h-14 rounded-xl border border-[rgba(210,252,42,0.2)] flex items-center justify-center bg-transparent text-[#d2fc2a] hover:bg-[#d2fc2a] hover:text-[#111] transition-all duration-400 shadow-sm hover:scale-110 hover:-translate-y-1"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
                         <button id="projects-next" class="w-14 h-14 rounded-xl border border-[rgba(210,252,42,0.2)] flex items-center justify-center bg-transparent text-[#d2fc2a] hover:bg-[#d2fc2a] hover:text-[#111] transition-all duration-400 shadow-sm hover:scale-110 hover:-translate-y-1"><i data-lucide="arrow-right" class="w-6 h-6"></i></button>
                     </div>
                 </div>
 
-                <div class="overflow-hidden reveal-element reveal-up" style="transition-delay: 0.3s;">
-                    <div id="projects-track" class="flex gap-6 md:gap-10 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                <div class="overflow-hidden reveal-element reveal-up" style="transition-delay: 0.2s;">
+                    <div id="projects-track" class="flex gap-6 md:gap-10 transition-transform duration-[1.0s] ease-[cubic-bezier(0.22,1,0.36,1)]">
                         
                         <div class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group flex flex-col p-2">
                             <div class="h-64 md:h-[400px] relative overflow-hidden bg-[#111] rounded-[1.2rem]">
@@ -898,6 +809,73 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group flex flex-col p-2">
+                            <div class="h-64 md:h-[400px] relative overflow-hidden bg-[#111] rounded-[1.2rem]">
+                                <img src="./project1/secora-voicecontrol2.png" loading="lazy" decoding="async" class="w-full h-full object-cover mono-img" onerror="this.src='https://placehold.co/800x600/111/d2fc2a?text=Voice+Command+Preview'">
+                            </div>
+                            <div class="p-6 md:p-8 flex flex-col flex-grow">
+                                <div class="flex justify-between items-start mb-6">
+                                    <h3 class="text-2xl md:text-3xl font-black tracking-tighter uppercase text-white">Voice Command</h3>
+                                    <span class="border border-[#d2fc2a]/30 text-[#d2fc2a] text-[9px] font-mono font-bold uppercase rounded px-3 py-1 tracking-widest bg-[rgba(210,252,42,0.05)]">Interface</span>
+                                </div>
+                                <p class="text-[#888d81] leading-relaxed mb-8 text-sm font-mono flex-grow" data-en="Built Secora Voice, a voice-activated system using NLP that understands user intent and executes complex commands, making technology interaction faster and more natural." data-mm="အသုံးပြုသူ၏ အသံဖြင့်ခိုင်းစေချက်များကို NLP နည်းပညာသုံး၍ နားလည်လုပ်ဆောင်ပေးနိုင်သော 'Secora Voice' စနစ်ဖြစ်ပြီး၊ နည်းပညာနှင့် ထိတွေ့ဆက်ဆံရာတွင် ပိုမိုမြန်ဆန် သဘာဝကျစေရန် ဖန်တီးထားပါသည်။">
+                                    Built Secora Voice, a voice-activated system using NLP that understands user intent and executes complex commands, making technology interaction faster and more natural.</p>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pt-6 border-t border-[rgba(255,255,255,0.05)] mt-auto">
+                                    <div class="flex flex-wrap gap-3 text-[10px] font-mono font-bold text-[#666] uppercase tracking-widest">
+                                        <span>[ Python ]</span> <span>[ NLP ]</span> <span>[ Speech Recog ]</span>
+                                    </div>
+                                    <a href="./projects/#secora-voice-command-system" class="text-xs font-black uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors flex items-center gap-2">
+                                        <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group flex flex-col p-2">
+                            <div class="h-64 md:h-[400px] relative overflow-hidden bg-[#111] rounded-[1.2rem]">
+                                <img src="./project2/siachat4.png" loading="lazy" decoding="async" class="w-full h-full object-cover mono-img" onerror="this.src='https://placehold.co/800x600/111/d2fc2a?text=Sia+Chatbot+Preview'">
+                            </div>
+                            <div class="p-6 md:p-8 flex flex-col flex-grow">
+                                <div class="flex justify-between items-start mb-6">
+                                    <h3 class="text-2xl md:text-3xl font-black tracking-tighter uppercase text-white">Sia Chatbot</h3>
+                                    <span class="border border-[#d2fc2a]/30 text-[#d2fc2a] text-[9px] font-mono font-bold uppercase rounded px-3 py-1 tracking-widest bg-[rgba(210,252,42,0.05)]">Service</span>
+                                </div>
+                                <p class="text-[#888d81] leading-relaxed mb-8 text-sm font-mono flex-grow" data-en="I developed Sia, an intelligent 24/7 support agent that delivers instant, accurate help—from order tracking to complex policy explanations—without relying on human teams." data-mm="ကုန်ပစ္စည်း ခြေရာခံခြင်းမှအစ ရှုပ်ထွေးသော မူဝါဒရှင်းလင်းချက်များအထိ လူသားအကူအညီမလိုဘဲ အချိန်ပြည့် ဖြေကြားပေးနိုင်သော 'Sia' အမည်ရ ဉာဏ်ရည်တု Chatbot ကို ဖန်တီးခဲ့ပါသည်။">
+                                    I developed Sia, an intelligent 24/7 support agent that delivers instant, accurate help—from order tracking to complex policy explanations—without relying on human teams.</p>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pt-6 border-t border-[rgba(255,255,255,0.05)] mt-auto">
+                                    <div class="flex flex-wrap gap-3 text-[10px] font-mono font-bold text-[#666] uppercase tracking-widest">
+                                        <span>[ Node.JS ]</span> <span>[ WebSocket ]</span> <span>[ Logic ]</span>
+                                    </div>
+                                    <a href="./projects/#sia-chatbot" class="text-xs font-black uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors flex items-center gap-2">
+                                        <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group flex flex-col p-2">
+                            <div class="h-64 md:h-[400px] relative overflow-hidden bg-[#111] rounded-[1.2rem]">
+                                <img src="./project3/sensori-dashboard.png" loading="lazy" decoding="async" class="w-full h-full object-cover mono-img" onerror="this.src='https://placehold.co/800x600/111/d2fc2a?text=Emotion+Dashboard+Preview'">
+                            </div>
+                            <div class="p-6 md:p-8 flex flex-col flex-grow">
+                                <div class="flex justify-between items-start mb-6">
+                                    <h3 class="text-2xl md:text-3xl font-black tracking-tighter uppercase text-white">Emotion Detection</h3>
+                                    <span class="border border-[#d2fc2a]/30 text-[#d2fc2a] text-[9px] font-mono font-bold uppercase rounded px-3 py-1 tracking-widest bg-[rgba(210,252,42,0.05)]">Dashboard</span>
+                                </div>
+                                <p class="text-[#888d81] leading-relaxed mb-8 text-sm font-mono flex-grow" data-en="A system designed to detect emotions such as happiness, sadness, and anger in real-time, bridging human care with digital tracking to support mental well-being." data-mm="စိတ်ကျန်းမာရေးကို ပံ့ပိုးပေးနိုင်ရန် ရည်ရွယ်၍ ပျော်ရွှင်မှု၊ ဝမ်းနည်းမှု၊ ဒေါသထွက်မှုစသည့် စိတ်ခံစားချက်များကို အချိန်နှင့်တပြေးညီ ထောက်လှမ်းပေးနိုင်သော စနစ်တစ်ခု ဖြစ်ပါသည်။">
+                                    A system designed to detect emotions such as happiness, sadness, and anger in real-time, bridging human care with digital tracking to support mental well-being.</p>
+                                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pt-6 border-t border-[rgba(255,255,255,0.05)] mt-auto">
+                                    <div class="flex flex-wrap gap-3 text-[10px] font-mono font-bold text-[#666] uppercase tracking-widest">
+                                        <span>[ OpenCV ]</span> <span>[ TensorFlow ]</span> <span>[ API ]</span>
+                                    </div>
+                                    <a href="./projects/#sensori-detection-system" class="text-xs font-black uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors flex items-center gap-2">
+                                        <span data-en="View Detail" data-mm="အသေးစိတ်ကြည့်ရန်">View Detail</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -906,7 +884,6 @@
         <section id="specialization" class="py-24 md:py-40 px-6 md:px-12 relative overflow-hidden border-y border-[rgba(210,252,42,0.05)] bg-[rgba(0,0,0,0.2)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-topo opacity-50 pointer-events-none" data-speed="-0.25"></div>
             
-            <!-- Secondary Code Background in specialization section -->
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-50">
                 <span class="code-symbol code-anim-2 text-2xl lg:text-3xl" style="left: 15%; animation-delay: -2s;">git commit</span>
                 <span class="code-symbol code-anim-1 text-4xl lg:text-5xl" style="left: 75%; animation-delay: -9s;">{ ... }</span>
@@ -929,19 +906,19 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="glass-card p-6 md:p-8 flex flex-col gap-6 group reveal-element reveal-scale" style="transition-delay: 0.2s;">
-                            <i data-lucide="shield-check" class="w-10 h-10 text-[#555] group-hover:text-[#d2fc2a] group-hover:scale-125 transition-transform duration-700"></i>
+                        <div class="glass-card p-6 md:p-8 flex flex-col gap-6 group reveal-element reveal-scale" style="transition-delay: 0.1s;">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-[#555] group-hover:text-[#d2fc2a] group-hover:scale-125 transition-transform duration-500 var(--ease-bounce)"></i>
                             <span class="font-mono font-bold text-[10px] uppercase tracking-[0.2em] text-white transition-colors" data-en="Security Systems" data-mm="လုံခြုံရေး စနစ်များ">Security Systems</span>
                         </div>
-                        <div class="glass-card p-6 md:p-8 flex flex-col gap-6 group reveal-element reveal-scale" style="transition-delay: 0.4s;">
-                            <i data-lucide="layout" class="w-10 h-10 text-[#555] group-hover:text-[#d2fc2a] group-hover:scale-125 transition-transform duration-700"></i>
+                        <div class="glass-card p-6 md:p-8 flex flex-col gap-6 group reveal-element reveal-scale" style="transition-delay: 0.2s;">
+                            <i data-lucide="layout" class="w-10 h-10 text-[#555] group-hover:text-[#d2fc2a] group-hover:scale-125 transition-transform duration-500 var(--ease-bounce)"></i>
                             <span class="font-mono font-bold text-[10px] uppercase tracking-[0.2em] text-white transition-colors" data-en="Modern UI/UX" data-mm="ခေတ်မီ UI/UX">Modern UI/UX</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:w-7/12 w-full space-y-12 pl-0 lg:pl-16 border-l-0 lg:border-l border-[rgba(210,252,42,0.1)]">
-                    <div class="space-y-4 reveal-element reveal-left" style="transition-delay: 0.2s;">
+                    <div class="space-y-4 reveal-element reveal-left" style="transition-delay: 0.1s;">
                         <div class="flex justify-between items-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase">
                             <span class="text-white" data-en="Front & Backend Systems" data-mm="Front-End နှင့် Back-End စနစ်များ">Front & Backend Systems</span>
                             <span class="text-[#d2fc2a]">98%</span>
@@ -950,7 +927,7 @@
                             <div class="absolute left-0 top-0 bottom-0 bg-[#d2fc2a]" style="width: 98%"></div>
                         </div>
                     </div>
-                    <div class="space-y-4 reveal-element reveal-left" style="transition-delay: 0.4s;">
+                    <div class="space-y-4 reveal-element reveal-left" style="transition-delay: 0.2s;">
                         <div class="flex justify-between items-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase">
                             <span class="text-white" data-en="Web Technologies" data-mm="Web နည်းပညာများ">Web Technologies</span>
                             <span class="text-[#d2fc2a]">92%</span>
@@ -959,7 +936,7 @@
                             <div class="absolute left-0 top-0 bottom-0 bg-[#d2fc2a]" style="width: 92%"></div>
                         </div>
                     </div>
-                    <div class="space-y-4 reveal-element reveal-left" style="transition-delay: 0.6s;">
+                    <div class="space-y-4 reveal-element reveal-left" style="transition-delay: 0.3s;">
                         <div class="flex justify-between items-end text-[10px] font-mono font-bold tracking-[0.2em] uppercase">
                             <span class="text-white" data-en="Software Architecture" data-mm="Software တည်ဆောက်ပုံစနစ်များ">Software Architecture</span>
                             <span class="text-[#d2fc2a]">85%</span>
@@ -988,14 +965,14 @@
                         </h2>
                         <p class="text-[#888d81] text-sm md:text-base font-mono mt-6" data-en="Latest breakthroughs from my development process." data-mm="ကျွန်ုပ်၏ ဖန်တီးမှု လုပ်ငန်းစဉ်များမှ နောက်ဆုံးရ တိုးတက်မှု အခြေအနေများ။">Latest breakthroughs from my development process.</p>
                     </div>
-                    <div class="flex gap-4 self-start md:self-end reveal-element reveal-left" style="transition-delay: 0.2s;">
+                    <div class="flex gap-4 self-start md:self-end reveal-element reveal-left" style="transition-delay: 0.1s;">
                         <button id="news-prev" class="w-14 h-14 rounded-xl border border-[rgba(210,252,42,0.2)] flex items-center justify-center bg-transparent text-[#d2fc2a] hover:bg-[#d2fc2a] hover:text-[#111] transition-all duration-400 shadow-sm hover:scale-110 hover:-translate-y-1"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
                         <button id="news-next" class="w-14 h-14 rounded-xl border border-[rgba(210,252,42,0.2)] flex items-center justify-center bg-transparent text-[#d2fc2a] hover:bg-[#d2fc2a] hover:text-[#111] transition-all duration-400 shadow-sm hover:scale-110 hover:-translate-y-1"><i data-lucide="arrow-right" class="w-6 h-6"></i></button>
                     </div>
                 </div>
 
-                <div class="overflow-hidden reveal-element reveal-up" style="transition-delay: 0.4s;">
-                    <div id="news-track" class="flex gap-6 md:gap-8 transition-transform duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                <div class="overflow-hidden reveal-element reveal-up" style="transition-delay: 0.2s;">
+                    <div id="news-track" class="flex gap-6 md:gap-8 transition-transform duration-[1.0s] ease-[cubic-bezier(0.22,1,0.36,1)]">
                         
                         <div class="news-card glass-card group flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] flex-shrink-0 border-none p-8 md:p-10">
                             <div class="space-y-6 flex-grow">
@@ -1008,7 +985,7 @@
                             </div>
                             <div class="pt-8 mt-8 border-t border-[rgba(255,255,255,0.05)]">
                                 <a href="https://storage2.me-qr.com/pdf/9921b7d3-a0a8-477c-8b71-6eb9dac9e21c.pdf" class="inline-flex items-center justify-between w-full text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors" target="_blank">
-                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500"></i>
+                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-400 var(--ease-bounce)"></i>
                                 </a>
                             </div>
                         </div>
@@ -1024,7 +1001,7 @@
                             </div>
                             <div class="pt-8 mt-8 border-t border-[rgba(255,255,255,0.05)]">
                                 <a href="https://storage2.me-qr.com/pdf/1fb75d60-aa68-4d28-bd3b-161540f382d1.pdf" class="inline-flex items-center justify-between w-full text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors" target="_blank">
-                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500"></i>
+                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-400 var(--ease-bounce)"></i>
                                 </a>
                             </div>
                         </div>
@@ -1040,7 +1017,23 @@
                             </div>
                             <div class="pt-8 mt-8 border-t border-[rgba(255,255,255,0.05)]">
                                 <a href="https://storage2.me-qr.com/pdf/fb37eb1b-6038-49e7-bb3a-7707338831d6.pdf" class="inline-flex items-center justify-between w-full text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors" target="_blank">
-                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500"></i>
+                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-400 var(--ease-bounce)"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="news-card glass-card group flex flex-col w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] flex-shrink-0 border-none p-8 md:p-10">
+                            <div class="space-y-6 flex-grow">
+                                <div class="text-[9px] font-mono font-bold text-[#666] uppercase tracking-widest flex items-center gap-3">
+                                    <span class="w-2 h-2 bg-[#d2fc2a] rounded-full shadow-[0_0_15px_rgba(210,252,42,0.9)]"></span> Jan 2026 • Web Architecture
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tighter leading-[1.1] text-white" data-en="Modern System Architectures" data-mm="ခေတ်မီဆော့ဖ်ဝဲ တည်ဆောက်မှု">Modern System Architectures</h3>
+                                <p class="text-[#888d81] leading-relaxed text-sm font-mono" data-en="Designing robust frameworks enables scalable applications to handle massive user loads while ensuring seamless interactions without explicit degradation." data-mm="ခိုင်မာသော မူဘောင်များကို ဒီဇိုင်းထုတ်ခြင်းသည် အရွယ်အစားကြီးမားသော အပလီကေးရှင်းများကို သုံးစွဲသူအများအပြားကို ကိုင်တွယ်ဖြေရှင်းနိုင်စေပါသည်။">
+                                    Designing robust frameworks enables scalable applications to handle massive user loads while ensuring seamless interactions without explicit degradation.</p>
+                            </div>
+                            <div class="pt-8 mt-8 border-t border-[rgba(255,255,255,0.05)]">
+                                <a href="#" class="inline-flex items-center justify-between w-full text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a] hover:text-white transition-colors" target="_blank">
+                                    <span data-en="Read Full Article" data-mm="ဆောင်းပါးအပြည့်အစုံ ဖတ်ရန်">Read Full Article</span> <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-400 var(--ease-bounce)"></i>
                                 </a>
                             </div>
                         </div>
@@ -1069,9 +1062,9 @@
                         </p>
                     </div>
 
-                    <div class="space-y-8 reveal-element reveal-up" style="transition-delay: 0.2s;">
+                    <div class="space-y-8 reveal-element reveal-up" style="transition-delay: 0.1s;">
                         <a href="tel:+959456751882" class="flex items-center gap-6 group w-max">
-                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-500 shadow-sm">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
                                 <i data-lucide="phone" class="w-5 h-5"></i>
                             </div>
                             <div>
@@ -1081,7 +1074,7 @@
                         </a>
 
                         <a href="mailto:contact@htetzawpaing.site" class="flex items-center gap-6 group w-max">
-                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-500 shadow-sm">
+                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
                                 <i data-lucide="mail" class="w-5 h-5"></i>
                             </div>
                             <div>
@@ -1092,7 +1085,7 @@
                     </div>
                 </div>
 
-                <div class="relative reveal-element reveal-left" style="transition-delay: 0.4s;">
+                <div class="relative reveal-element reveal-left" style="transition-delay: 0.2s;">
                     <form id="direct-email-form" class="space-y-8 relative z-10 p-8 md:p-10 glass-card">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-3">
@@ -1133,20 +1126,18 @@
     </div>
 
     <script>
-        // Lenis Smooth Scroll Initialization
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 1.0, 
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: 'vertical',
             gestureDirection: 'vertical',
             smooth: true,
-            mouseMultiplier: 1,
+            mouseMultiplier: 1.2,
             smoothTouch: false,
-            touchMultiplier: 2,
+            touchMultiplier: 2.5,
             infinite: false,
         });
 
-        // Mouse Parallax Tracker
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
         let glowX = mouseX;
@@ -1157,19 +1148,16 @@
             mouseY = e.clientY;
         });
 
-        // Loop handles Lenis scroll + dynamic section backgrounds + cursor glow
         const cursorGlow = document.getElementById('cursor-glow');
         const scrollBgs = document.querySelectorAll('.scroll-bg');
 
         function raf(time) {
             lenis.raf(time);
             
-            // Smooth cursor glow physics
             glowX += (mouseX - glowX) * 0.15;
             glowY += (mouseY - glowY) * 0.15;
             if(cursorGlow) cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
 
-            // Scroll + Mouse Parallax on Backgrounds
             const scrollY = window.scrollY;
             scrollBgs.forEach(bg => {
                 const speed = parseFloat(bg.dataset.speed || 0.1);
@@ -1183,19 +1171,33 @@
         }
         requestAnimationFrame(raf);
 
-        // Navbar Scroll Effect
         const mainNav = document.getElementById('main-nav');
         
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 60) {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 60) {
                 mainNav.classList.add('scrolled-nav');
             } else {
                 mainNav.classList.remove('scrolled-nav');
             }
+
+            const wrapper = document.getElementById('main-content-wrapper');
+            const footer = document.getElementById('contact-form');
+            
+            if (wrapper && footer) {
+                const heroHeight = window.innerHeight * 0.75;
+                const footerRect = footer.getBoundingClientRect();
+                
+                if (scrollY > heroHeight && footerRect.top > window.innerHeight * 0.6) {
+                    wrapper.classList.add('wrapper-expanded');
+                } else {
+                    wrapper.classList.remove('wrapper-expanded');
+                }
+            }
         });
 
         window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
             const loadingText = document.getElementById('loading-text');
             
             let loadState = 0;
@@ -1207,13 +1209,9 @@
                     loadingText.innerText = loadingStates[loadState];
                 } else {
                     clearInterval(loaderInterval);
-                    preloader.style.opacity = '0';
-                    setTimeout(() => {
-                        preloader.style.visibility = 'hidden';
-                        document.body.classList.add('system-ready');
-                    }, 1200);
+                    document.body.classList.add('system-ready');
                 }
-            }, 300);
+            }, 200); 
         });
 
         const baseTitle = "Htet Zaw Paing - Software Engineer & Web Developer";
@@ -1260,6 +1258,7 @@
         document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
         document.getElementById('mobile-lang-toggle')?.addEventListener('click', toggleLang);
 
+        // Mobile menu functionality
         const mobileMenu = document.getElementById('mobile-menu');
         
         function openMenu() {
@@ -1377,6 +1376,7 @@
         setupCarousel('news-track', 'news-prev', 'news-next', '.news-card');
         setupCarousel('projects-track', 'projects-prev', 'projects-next', '#projects-track .glass-card');
 
+        // Form handler
         const contactForm = document.getElementById('direct-email-form');
         if (contactForm) {
             contactForm.addEventListener('submit', function (e) {
@@ -1389,6 +1389,7 @@
             });
         }
 
+        // Subtitle Typewriter
         const phrases = ["Full-Stack Developer.", "Software Engineer.", "Web Architect.", "System Designer."];
         let phraseIndex = 0;
         let charIndex = 0;
@@ -1411,24 +1412,22 @@
             let typingSpeed = isDeleting ? 30 : 60;
 
             if (!isDeleting && charIndex === currentPhrase.length) {
-                typingSpeed = 2500;
+                typingSpeed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                typingSpeed = 500;
+                typingSpeed = 300;
             }
 
             setTimeout(loopTypewriter, typingSpeed);
         }
-        setTimeout(loopTypewriter, 1500);
+        setTimeout(loopTypewriter, 1000);
 
-        // Hero H1 Dynamic Typewriter
         const heroPhrases = ["TOMORROW'S", "THE FUTURE'S", "NEXT-GEN", "SECURE"];
         let heroPhraseIndex = 0;
-        let heroCharIndex = 10; // Start with TOMORROW'S fully typed out
+        let heroCharIndex = 10; 
         let heroIsDeleting = false;
-        let hasStartedHeroTyping = false;
 
         function heroTypewriterLoop() {
             const textEl = document.getElementById('hero-typewriter');
@@ -1444,25 +1443,24 @@
                 heroCharIndex++;
             }
 
-            let speed = heroIsDeleting ? 40 : 100; 
+            let speed = heroIsDeleting ? 40 : 80;
 
             if (!heroIsDeleting && heroCharIndex === currentPhrase.length) {
-                speed = 2500; // Pause reading time
+                speed = 2500; 
                 heroIsDeleting = true;
             } else if (heroIsDeleting && heroCharIndex === 0) {
                 heroIsDeleting = false;
                 heroPhraseIndex = (heroPhraseIndex + 1) % heroPhrases.length;
-                speed = 500; 
+                speed = 400; 
             }
 
             setTimeout(heroTypewriterLoop, speed);
         }
         
-        // Wait 3.5 seconds before it starts deleting the initial "TOMORROW'S"
         setTimeout(() => {
             heroIsDeleting = true;
             heroTypewriterLoop();
-        }, 3500);
+        }, 3000);
 
     </script>
     <script>
