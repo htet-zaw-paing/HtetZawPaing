@@ -67,7 +67,7 @@
         html {
             scroll-behavior: smooth;
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: clip;
             background-color: var(--bg-lime);
         }
         body {
@@ -75,7 +75,7 @@
             background-color: var(--bg-lime);
             color: var(--text-main);
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: clip;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -379,7 +379,6 @@
         #main-content-wrapper {
             transition: margin 0.8s var(--ease-cinematic), border-radius 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic), opacity 0.8s ease, filter 0.8s ease;
             transform-origin: top center;
-            will-change: margin, border-radius, transform, opacity, filter;
         }
         
         #main-content-wrapper.wrapper-expanded {
@@ -406,6 +405,7 @@
             opacity: 0;
             transform: scale(0.96) translateY(40px);
             filter: blur(15px);
+            will-change: margin, border-radius, transform, opacity, filter;
         }
         body:not(.system-ready) .reveal-element {
             opacity: 0 !important;
@@ -606,7 +606,7 @@
         </div>
     </div>
 
-    <div id="main-content-wrapper" class="mx-3 md:mx-6 mb-3 md:mb-6 mt-20 md:mt-24 rounded-[2.5rem] md:rounded-[3rem] bg-[#272a21] relative z-10 overflow-hidden shadow-2xl flex-grow flex flex-col">
+    <div id="main-content-wrapper" class="mx-3 md:mx-6 mb-3 md:mb-6 mt-20 md:mt-24 rounded-[2.5rem] md:rounded-[3rem] bg-[#272a21] relative z-10 overflow-clip shadow-2xl flex-grow flex flex-col">
         
         <div class="wrapper-svg-container absolute top-[-1px] left-1/2 -translate-x-1/2 w-[260px] md:w-[340px] z-20 text-[#e8fb7a]" id="top-curve">
             <svg viewBox="0 0 340 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-full drop-shadow-sm">
@@ -697,68 +697,75 @@
             </div>
         </section>
 
-        <section id="biography" class="py-24 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-[rgba(210,252,42,0.05)] z-10">
+        <!-- Note: Removed overflow-hidden from this section to prevent it from clipping the sticky context -->
+        <section id="biography" class="py-24 md:py-36 px-6 md:px-12 relative border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-dots opacity-40 pointer-events-none" data-speed="-0.3"></div>
             
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 relative z-10">
                 
-                <div class="lg:col-span-4 relative reveal-element reveal-right">
-                    <div class="relative lg:sticky top-32 w-full transition-transform duration-500 z-30 space-y-6">
+                <div class="lg:col-span-4 relative">
+                    
+                    <!-- The sticky element itself. MUST NOT have transform properties from reveal animations -->
+                    <div class="relative lg:sticky top-32 w-full z-30 h-max">
                         
-                        <div class="glass-card p-8 shadow-2xl">
-                            <h3 class="text-xl font-black mb-8 flex items-center gap-3 text-[#d2fc2a] uppercase tracking-tighter">
-                                <i data-lucide="user" class="w-5 h-5"></i>
-                                <span data-en="Personal Details" data-mm="ကိုယ်ရေးအချက်အလက်များ">Personal Details</span>
-                            </h3>
-                            <div class="space-y-6 font-mono text-sm">
-                                <div>
-                                    <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Full Name" data-mm="အမည်အပြည့်အစုံ">Full Name</p>
-                                    <p class="text-white font-bold tracking-wide">Htet Zaw Paing</p>
-                                </div>
-                                <div>
-                                    <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Born" data-mm="မွေးသက္ကရာဇ်">Born</p>
-                                    <p class="text-white font-bold" data-en="April 10, 2004" data-mm="၁၀ ဧပြီ ၂၀၀၄">April 10, 2004</p>
-                                </div>
-                                <div>
-                                    <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Base of Operations" data-mm="အခြေစိုက်ရာဒေသ">Base of Operations</p>
-                                    <p class="text-white font-bold" data-en="Yangon, Myanmar" data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</p>
-                                </div>
-                                <div class="pt-4 border-t border-[rgba(255,255,255,0.05)]">
-                                    <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-3" data-en="Family" data-mm="မိသားစု">Family</p>
-                                    <div class="space-y-3">
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Father" data-mm="ဖခင်">Father</span>
-                                            <span class="text-white font-bold">U Myo Zaw</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Mother" data-mm="မိခင်">Mother</span>
-                                            <span class="text-white font-bold">Daw Nilar Aung</span>
-                                        </div>
-                                        <div class="flex justify-between items-center">
-                                            <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Brother" data-mm="ညီ/အစ်ကို">Brother</span>
-                                            <span class="text-white font-bold">Mg Aung Zaw Paing</span>
+                        <!-- The animation wrapper lives INSIDE the sticky container so it doesn't break sticky behavior -->
+                        <div class="space-y-6 transition-transform duration-500 reveal-element reveal-right">
+                            
+                            <div class="glass-card p-8 shadow-2xl">
+                                <h3 class="text-xl font-black mb-8 flex items-center gap-3 text-[#d2fc2a] uppercase tracking-tighter">
+                                    <i data-lucide="user" class="w-5 h-5"></i>
+                                    <span data-en="Personal Details" data-mm="ကိုယ်ရေးအချက်အလက်များ">Personal Details</span>
+                                </h3>
+                                <div class="space-y-6 font-mono text-sm">
+                                    <div>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Full Name" data-mm="အမည်အပြည့်အစုံ">Full Name</p>
+                                        <p class="text-white font-bold tracking-wide">Htet Zaw Paing</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Born" data-mm="မွေးသက္ကရာဇ်">Born</p>
+                                        <p class="text-white font-bold" data-en="April 10, 2004" data-mm="၁၀ ဧပြီ ၂၀၀၄">April 10, 2004</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Base of Operations" data-mm="အခြေစိုက်ရာဒေသ">Base of Operations</p>
+                                        <p class="text-white font-bold" data-en="Yangon, Myanmar" data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</p>
+                                    </div>
+                                    <div class="pt-4 border-t border-[rgba(255,255,255,0.05)]">
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-3" data-en="Family" data-mm="မိသားစု">Family</p>
+                                        <div class="space-y-3">
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Father" data-mm="ဖခင်">Father</span>
+                                                <span class="text-white font-bold">U Myo Zaw</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Mother" data-mm="မိခင်">Mother</span>
+                                                <span class="text-white font-bold">Daw Nilar Aung</span>
+                                            </div>
+                                            <div class="flex justify-between items-center">
+                                                <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Brother" data-mm="ညီ/အစ်ကို">Brother</span>
+                                                <span class="text-white font-bold">Mg Aung Zaw Paing</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="pt-4 border-t border-[rgba(255,255,255,0.05)]">
-                                    <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-2" data-en="Status" data-mm="လက်ရှိ လုပ်ငန်းအခြေအနေ">Status</p>
-                                    <div class="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded bg-[rgba(210,252,42,0.1)] border border-[#d2fc2a]/20">
-                                        <span class="w-2 h-2 bg-[#d2fc2a] rounded-full animate-pulse shadow-[0_0_10px_rgba(210,252,42,0.8)]"></span>
-                                        <span class="text-[10px] font-bold text-[#d2fc2a] tracking-widest uppercase" data-en="Open to Work" data-mm="အလုပ်ခေါ်ဆိုမှုများ လက်ခံနေပါသည်">Open to Work</span>
+                                    <div class="pt-4 border-t border-[rgba(255,255,255,0.05)]">
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-2" data-en="Status" data-mm="လက်ရှိ လုပ်ငန်းအခြေအနေ">Status</p>
+                                        <div class="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded bg-[rgba(210,252,42,0.1)] border border-[#d2fc2a]/20">
+                                            <span class="w-2 h-2 bg-[#d2fc2a] rounded-full animate-pulse shadow-[0_0_10px_rgba(210,252,42,0.8)]"></span>
+                                            <span class="text-[10px] font-bold text-[#d2fc2a] tracking-widest uppercase" data-en="Open to Work" data-mm="အလုပ်ခေါ်ဆိုမှုများ လက်ခံနေပါသည်">Open to Work</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="glass-card p-8">
-                            <h4 class="text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-4 text-[#888d81]" data-en="Tech Stack" data-mm="ကျွမ်းကျင်သော နည်းပညာများ">Tech Stack</h4>
-                            <div class="flex flex-wrap gap-2 font-mono">
-                                <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">HTML/CSS</span>
-                                <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">JavaScript</span>
-                                <span class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">React</span>
-                                <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">PHP</span>
-                                <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">MySQL</span>
-                                <span class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">Python</span>
+                            <div class="glass-card p-8">
+                                <h4 class="text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-4 text-[#888d81]" data-en="Tech Stack" data-mm="ကျွမ်းကျင်သော နည်းပညာများ">Tech Stack</h4>
+                                <div class="flex flex-wrap gap-2 font-mono">
+                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">HTML/CSS</span>
+                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">JavaScript</span>
+                                    <span class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">React</span>
+                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">PHP</span>
+                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">MySQL</span>
+                                    <span class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">Python</span>
+                                </div>
                             </div>
                         </div>
                     </div>
