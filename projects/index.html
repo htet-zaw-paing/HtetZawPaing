@@ -1871,5 +1871,48 @@
         });
 
     </script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js").then(() => console.log("SW Registered"));
+        }
+        
+        const __logStyle = 'color: #888d81; font-family: monospace; font-size: 11px;';
+        
+        console.log('%cStarting initial load...', __logStyle);
+        console.log('%cStarting basic initialization...', __logStyle);
+        console.log('%cInitializing page: home', __logStyle);
+        console.log('%cPage enter started', __logStyle);
+        console.log('%cPage enter completed', __logStyle);
+        
+        const __logoHtet = `
+    ██╗  ██╗████████╗███████╗████████╗
+    ██║  ██║╚══██╔══╝██╔════╝╚══██╔══╝
+    ███████║   ██║   █████╗     ██║   
+    ██╔══██║   ██║   ██╔══╝     ██║   
+    ██║  ██║   ██║   ███████╗   ██║   
+    ╚═╝  ╚═╝   ╚═╝   ╚══════╝   ╚═╝   `;
+
+        const __logoZaw = `
+    ███████╗ █████╗ ██╗    ██╗
+    ╚══███╔╝██╔══██╗██║    ██║
+      ███╔╝ ███████║██║ █╗ ██║
+     ███╔╝  ██╔══██║██║███╗██║
+    ███████╗██║  ██║╚███╔███╔╝
+    ╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝`;
+
+        const __logoPaing = `
+    ██████╗  █████╗ ██╗███╗   ██╗██████╗ 
+    ██╔══██╗██╔══██╗██║████╗  ██║██╔════╝ 
+    ██████╔╝███████║██║██╔██╗ ██║██║  ███╗
+    ██╔═══╝ ██╔══██║██║██║╚██╗██║██║   ██║
+    ██║     ██║  ██║██║██║ ╚████║╚██████╔╝
+    ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ `;
+
+        console.log('%c' + __logoHtet, 'color: #d2fc2a; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
+        console.log('%c' + __logoZaw, 'color: #ffffff; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
+        console.log('%c' + __logoPaing, 'color: #d2fc2a; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
+        
+        console.log('%cresize issue prevention', __logStyle);
+    </script>
 </body>
 </html>
