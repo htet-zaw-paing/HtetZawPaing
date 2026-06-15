@@ -38,42 +38,38 @@
     <link rel="canonical" href="https://www.htetzawpaing.site/connect/">
 
     <script type="application/ld+json">
-    [
         {
-            "@context": "https://schema.org",
-            "@type": "ContactPage",
-            "@id": "https://www.htetzawpaing.site/connect/#webpage",
-            "name": "Connect with Htet Zaw Paing",
-            "description": "Contact information, social media links, and CV download for Htet Zaw Paing.",
-            "url": "https://www.htetzawpaing.site/connect/",
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Htet Zaw Paing",
-                "telephone": "+959456751882",
-                "email": "contact@htetzawpaing.site",
-                "sameAs": [
-                    "https://github.com/hzp4softwareengineering",
-                    "https://www.linkedin.com/in/htet-zaw-paing-a768533a8",
-                    "https://discord.com/users/1110430133707341894"
-                ]
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://www.htetzawpaing.site/#person",
+              "name": "Htet Zaw Paing",
+              "url": "https://www.htetzawpaing.site/"
+            },
+            {
+              "@type": "ContactPage",
+              "@id": "https://www.htetzawpaing.site/connect/#webpage",
+              "url": "https://www.htetzawpaing.site/connect/",
+              "name": "Connect - Htet Zaw Paing",
+              "description": "Connect with Htet Zaw Paing through professional networks, social media, email, and other contact channels.",
+              "about": {
+                "@id": "https://www.htetzawpaing.site/#person"
+              },
+              "mainEntity": {
+                "@id": "https://www.htetzawpaing.site/connect/#contact-point"
+              }
+            },
+            {
+              "@type": "ContactPoint",
+              "@id": "https://www.htetzawpaing.site/connect/#contact-point",
+              "contactType": "Professional Inquiries",
+              "email": "your.email@example.com",
+              "url": "https://www.linkedin.com/in/htet-zaw-paing",
+              "availableLanguage": ["English", "Burmese"]
             }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.htetzawpaing.site/"
-            },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Connect",
-                "item": "https://www.htetzawpaing.site/connect/"
-            }]
+          ]
         }
-    ]
     </script>
 
     <link rel="stylesheet" href="../tailwind.css">

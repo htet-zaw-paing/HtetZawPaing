@@ -38,36 +38,102 @@
     <link rel="canonical" href="https://www.htetzawpaing.site/projects/">
 
     <script type="application/ld+json">
-    [
         {
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "@id": "https://www.htetzawpaing.site/projects/#collection",
-            "name": "Projects by Htet Zaw Paing",
-            "description": "A collection of software engineering, AI, and web development projects created by Htet Zaw Paing.",
-            "url": "https://www.htetzawpaing.site/projects/",
-            "creator": {
-                "@type": "Person",
-                "@id": "https://www.htetzawpaing.site/#person",
-                "name": "Htet Zaw Paing"
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://www.htetzawpaing.site/#person",
+              "name": "Htet Zaw Paing",
+              "url": "https://www.htetzawpaing.site/"
+            },
+            {
+              "@type": "CollectionPage",
+              "@id": "https://www.htetzawpaing.site/projects/#webpage",
+              "url": "https://www.htetzawpaing.site/projects/",
+              "name": "Projects - Htet Zaw Paing",
+              "description": "Software engineering, web development, and programming projects created by Htet Zaw Paing.",
+              "about": {
+                "@id": "https://www.htetzawpaing.site/#person"
+              },
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "MyanCode",
+                      "url": "https://www.myancode.com/",
+                      "applicationCategory": "WebApplication"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "Secora",
+                      "url": "https://www.htetzawpaing.site/projects/#secora-cybersecurity-project",
+                      "applicationCategory": "SecurityApplication"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "Sori Music",
+                      "url": "https://www.htetzawpaing.site/projects/#sori-music-recommendation",
+                      "applicationCategory": "MultimediaApplication"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "Sensori",
+                      "url": "https://www.htetzawpaing.site/projects/#sensori-detection-system",
+                      "applicationCategory": "UtilityApplication"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "Secora Voice Command",
+                      "url": "https://www.htetzawpaing.site/projects/#secora-voice-command-system",
+                      "applicationCategory": "UtilityApplication"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "Sia Chatbot",
+                      "url": "https://www.htetzawpaing.site/projects/#sia-chatbot",
+                      "applicationCategory": "CommunicationApplication"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 7,
+                    "item": {
+                      "@type": "SoftwareApplication",
+                      "name": "Emotion Detection System",
+                      "url": "https://www.htetzawpaing.site/projects/#sensori-detection-system",
+                      "applicationCategory": "UtilityApplication"
+                    }
+                  }
+                ]
+              }
             }
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.htetzawpaing.site/"
-            },{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Projects",
-                "item": "https://www.htetzawpaing.site/projects/"
-            }]
+          ]
         }
-    ]
     </script>
 
     <link rel="stylesheet" href="../tailwind.css">
