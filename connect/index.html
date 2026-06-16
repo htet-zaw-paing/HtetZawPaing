@@ -72,7 +72,7 @@
         }
     </script>
 
-    <link rel="stylesheet" href="../tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
@@ -445,6 +445,36 @@
             background: rgba(210, 252, 42, 0.02);
             transform: translateY(-8px);
         }
+        
+        .brand-card {
+            border: 1px solid;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.4s var(--ease-bounce), border-color 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .brand-card:hover { transform: translateY(-4px); }
+        .brand-card svg, .brand-card i, .brand-card span { transition: all 0.4s ease; }
+        
+        /* Formal suitable background colors with vibe match */
+        .btn-brand-linkedin { background: rgba(10, 102, 194, 0.08); border-color: rgba(10, 102, 194, 0.2); }
+        .btn-brand-linkedin:hover { background: rgba(10, 102, 194, 0.25); border-color: rgba(10, 102, 194, 0.5); box-shadow: 0 10px 20px -10px rgba(10, 102, 194, 0.3); }
+        .btn-brand-linkedin:hover svg { fill: #60A5FA; }
+        .btn-brand-linkedin:hover span { color: #60A5FA; }
+
+        .btn-brand-github { background: rgba(255, 255, 255, 0.03); border-color: rgba(255, 255, 255, 0.1); }
+        .btn-brand-github:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.1); }
+        .btn-brand-github:hover svg { fill: #ffffff; }
+        .btn-brand-github:hover span { color: #ffffff; }
+
+        .btn-brand-discord { background: rgba(88, 101, 242, 0.08); border-color: rgba(88, 101, 242, 0.2); }
+        .btn-brand-discord:hover { background: rgba(88, 101, 242, 0.25); border-color: rgba(88, 101, 242, 0.5); box-shadow: 0 10px 20px -10px rgba(88, 101, 242, 0.3); }
+        .btn-brand-discord:hover svg { fill: #A7B1FF; }
+        .btn-brand-discord:hover span { color: #A7B1FF; }
+
+        .btn-brand-phone { background: rgba(210, 252, 42, 0.05); border-color: rgba(210, 252, 42, 0.2); }
+        .btn-brand-phone:hover { background: rgba(210, 252, 42, 0.15); border-color: rgba(210, 252, 42, 0.4); box-shadow: 0 10px 20px -10px rgba(210, 252, 42, 0.2); }
+        .btn-brand-phone:hover i { color: #d2fc2a; }
+        .btn-brand-phone:hover span { color: #d2fc2a; }
 
         #main-content-wrapper {
             transition: margin 0.8s var(--ease-cinematic), border-radius 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic), opacity 0.8s ease, filter 0.8s ease;
@@ -510,6 +540,7 @@
             .side-nav-link:hover { transform: none; }
             .side-nav-link:hover::before { display: none; }
             .glass-card:hover { transform: none; box-shadow: none; }
+            .brand-card:hover { transform: none; }
         }
 
         #main-nav {
@@ -568,7 +599,6 @@
             }
         }
         
-        /* Lenis Smooth Scroll Setup */
         html.lenis { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto; }
         .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -595,7 +625,7 @@
         <div class="curtain-seam"></div>
         <div class="loader-terminal">
             <span class="bracket">[</span>
-            <span id="loading-text">System.loading()</span><span class="loader-cursor"></span>
+            <span id="loading-text">System.init()</span><span class="loader-cursor"></span>
             <span class="bracket">]</span>
         </div>
     </div>
@@ -689,39 +719,39 @@
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 reveal-element reveal-up" style="transition-delay: 0.2s;">
-                    <a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf" class="btn-solid-white rounded-[24px] p-5 flex items-center justify-center gap-3 group">
-                        <i data-lucide="download" class="w-5 h-5 transition-transform duration-400 group-hover:scale-110"></i>
-                        <span class="font-black text-xs uppercase tracking-[0.2em]" data-en="Download CV" data-mm="CV ရယူရန်">Download CV</span>
+                <div class="grid grid-cols-2 gap-2 sm:gap-3 reveal-element reveal-up" style="transition-delay: 0.2s;">
+                    <a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf" class="btn-solid-white rounded-[16px] sm:rounded-[24px] p-3 sm:p-5 flex items-center justify-center gap-1.5 sm:gap-3 group">
+                        <i data-lucide="download" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-400 group-hover:scale-110 shrink-0"></i>
+                        <span class="font-black text-[9px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-center" data-en="Download CV" data-mm="CV ရယူရန်">Download CV</span>
                     </a>
-                    <a href="#contact-form" class="btn-solid-lime rounded-[24px] p-5 flex items-center justify-center gap-3 group">
-                        <i data-lucide="mail" class="w-5 h-5 transition-transform duration-400 group-hover:scale-110"></i>
-                        <span class="font-black text-xs uppercase tracking-[0.2em]" data-en="Send Email" data-mm="အီးမေးလ်ပို့ရန်">Send Email</span>
+                    <a href="#contact-form" class="btn-solid-lime rounded-[16px] sm:rounded-[24px] p-3 sm:p-5 flex items-center justify-center gap-1.5 sm:gap-3 group">
+                        <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-400 group-hover:scale-110 shrink-0"></i>
+                        <span class="font-black text-[9px] sm:text-xs uppercase tracking-wider sm:tracking-[0.2em] text-center" data-en="Send Email" data-mm="အီးမေးလ်ပို့ရန်">Send Email</span>
                     </a>
                 </div>
                 
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 reveal-element reveal-up" style="transition-delay: 0.3s;">
-                    <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank" class="glass-card p-5 flex flex-col items-center justify-center gap-3 group hover:bg-[#d2fc2a] hover:border-[#d2fc2a] cursor-pointer">
-                        <svg class="w-6 h-6 fill-[#888d81] group-hover:fill-[#111] transition-colors duration-400" viewBox="0 0 24 24">
+                <div class="grid grid-cols-3 gap-2 sm:gap-3 reveal-element reveal-up" style="transition-delay: 0.3s;">
+                    <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank" class="brand-card btn-brand-linkedin p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 group cursor-pointer">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-[#888d81]" viewBox="0 0 24 24">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.024-3.037-1.849-3.037-1.851 0-2.135 1.445-2.135 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.9 1.637-1.848 3.372-1.848 3.605 0 4.271 2.373 4.271 5.456v6.283zM5.337 7.433c-1.144 0-2.07-.926-2.07-2.07 0-1.143.926-2.07 2.07-2.07 1.143 0 2.07.927 2.07 2.07 0 1.144-.927 2.07-2.07 2.07zM6.632 20.452H4.041V9h2.591v11.452z" />
                         </svg>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#888d81] group-hover:text-[#111] transition-colors duration-400">LinkedIn</span>
+                        <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-[#888d81]">LinkedIn</span>
                     </a>
-                    <a href="https://github.com/hzp4softwareengineering" target="_blank" class="glass-card p-5 flex flex-col items-center justify-center gap-3 group hover:bg-[#d2fc2a] hover:border-[#d2fc2a] cursor-pointer">
-                        <svg class="w-6 h-6 fill-[#888d81] group-hover:fill-[#111] transition-colors duration-400" viewBox="0 0 24 24">
+                    <a href="https://github.com/hzp4softwareengineering" target="_blank" class="brand-card btn-brand-github p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 group cursor-pointer">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-[#888d81]" viewBox="0 0 24 24">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#888d81] group-hover:text-[#111] transition-colors duration-400">GitHub</span>
+                        <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-[#888d81]">GitHub</span>
                     </a>
-                    <a href="https://discord.com/users/1110430133707341894" target="_blank" class="glass-card p-5 flex flex-col items-center justify-center gap-3 group hover:bg-[#d2fc2a] hover:border-[#d2fc2a] cursor-pointer">
-                        <svg class="w-6 h-6 fill-[#888d81] group-hover:fill-[#111] transition-colors duration-400" viewBox="0 0 24 24">
+                    <a href="https://discord.com/users/1110430133707341894" target="_blank" class="brand-card btn-brand-discord p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 group cursor-pointer">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-[#888d81]" viewBox="0 0 24 24">
                             <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01a13.928 13.928 0 0 0 10.36 0a.07.07 0 0 1 .077.01c.124.097.248.196.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z" />
                         </svg>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#888d81] group-hover:text-[#111] transition-colors duration-400">Discord</span>
+                        <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-[#888d81]">Discord</span>
                     </a>
-                    <a href="tel:+959456751882" class="glass-card p-5 flex flex-col items-center justify-center gap-3 hover:bg-[#d2fc2a] hover:border-[#d2fc2a] group transition-all duration-400 cursor-pointer col-span-2 md:col-span-3">
-                        <i data-lucide="phone" class="w-6 h-6 text-[#888d81] group-hover:text-[#111] transition-colors duration-400"></i>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#888d81] group-hover:text-[#111] transition-colors duration-400" data-en="Phone" data-mm="ဖုန်း">Phone</span>
+                    <a href="tel:+959456751882" class="brand-card btn-brand-phone col-span-3 p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 cursor-pointer group">
+                        <i data-lucide="phone" class="w-5 h-5 sm:w-6 sm:h-6 text-[#888d81]"></i>
+                        <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-[#888d81]" data-en="Phone" data-mm="ဖုန်း">Phone</span>
                     </a>
                 </div>
 
