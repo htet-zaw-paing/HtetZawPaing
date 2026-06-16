@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#e8fb7a">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https: wss: ws:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: blob: https:; frame-src 'self' https:;">
     
     <title>Connect - Htet Zaw Paing</title>
     <meta name="title" content="Connect - Htet Zaw Paing">
@@ -476,6 +478,21 @@
         .btn-brand-phone:hover i { color: #d2fc2a; }
         .btn-brand-phone:hover span { color: #d2fc2a; }
 
+        /* Custom Social Grid ensuring 3x1 layout bypasses compiled Tailwind constraints */
+        .custom-social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.5rem;
+        }
+        .custom-col-span-3 {
+            grid-column: span 3 / span 3;
+        }
+        @media (min-width: 640px) {
+            .custom-social-grid {
+                gap: 0.75rem;
+            }
+        }
+
         #main-content-wrapper {
             transition: margin 0.8s var(--ease-cinematic), border-radius 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic), opacity 0.8s ease, filter 0.8s ease;
             transform-origin: top center;
@@ -730,7 +747,7 @@
                     </a>
                 </div>
                 
-                <div class="grid grid-cols-3 gap-2 sm:gap-3 reveal-element reveal-up" style="transition-delay: 0.3s;">
+                <div class="custom-social-grid reveal-element reveal-up" style="transition-delay: 0.3s;">
                     <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank" class="brand-card btn-brand-linkedin p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 group cursor-pointer">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-[#888d81]" viewBox="0 0 24 24">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.024-3.037-1.849-3.037-1.851 0-2.135 1.445-2.135 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.9 1.637-1.848 3.372-1.848 3.605 0 4.271 2.373 4.271 5.456v6.283zM5.337 7.433c-1.144 0-2.07-.926-2.07-2.07 0-1.143.926-2.07 2.07-2.07 1.143 0 2.07.927 2.07 2.07 0 1.144-.927 2.07-2.07 2.07zM6.632 20.452H4.041V9h2.591v11.452z" />
@@ -749,7 +766,7 @@
                         </svg>
                         <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-[#888d81]">Discord</span>
                     </a>
-                    <a href="tel:+959456751882" class="brand-card btn-brand-phone col-span-3 p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 cursor-pointer group">
+                    <a href="tel:+959456751882" class="brand-card btn-brand-phone custom-col-span-3 p-3 sm:p-5 flex flex-col items-center justify-center gap-2 sm:gap-3 cursor-pointer group">
                         <i data-lucide="phone" class="w-5 h-5 sm:w-6 sm:h-6 text-[#888d81]"></i>
                         <span class="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider sm:tracking-widest text-[#888d81]" data-en="Phone" data-mm="ဖုန်း">Phone</span>
                     </a>
