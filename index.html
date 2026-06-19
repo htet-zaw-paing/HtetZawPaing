@@ -835,7 +835,7 @@
             pointer-events: none;
         }
 
-        body:not(.system-ready) #main-content-wrapper {
+        body.is-booting #main-content-wrapper {
             opacity: 0;
             transform: scale(0.96) translateY(40px);
             filter: blur(15px);
@@ -2073,6 +2073,8 @@
             }
         });
 
+        document.body.classList.add('is-booting');
+
         window.addEventListener('load', () => {
             const loadingText = document.getElementById('loading-text');
 
@@ -2085,6 +2087,7 @@
                     loadingText.innerText = loadingStates[loadState];
                 } else {
                     clearInterval(loaderInterval);
+                    document.body.classList.remove('is-booting');
                     document.body.classList.add('system-ready');
                 }
             }, 200);

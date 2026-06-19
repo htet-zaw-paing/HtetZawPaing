@@ -1088,6 +1088,8 @@
             }
         });
 
+        document.body.classList.add('is-booting');
+
         window.addEventListener('load', () => {
             const loadingText = document.getElementById('loading-text');
             
@@ -1100,6 +1102,7 @@
                     loadingText.innerText = loadingStates[loadState];
                 } else {
                     clearInterval(loaderInterval);
+                    document.body.classList.remove('is-booting');
                     document.body.classList.add('system-ready');
                 }
             }, 200); 
