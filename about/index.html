@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <script>
+        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        if (isBot) {
+            document.documentElement.classList.add('bot-mode');
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#e8fb7a">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https: wss: ws:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: blob: https:; frame-src 'self' https:;">
-    
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'self' https: wss: ws:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: blob: https:; frame-src 'self' https:;">
+
     <title>About - Htet Zaw Paing</title>
     <meta name="title" content="About - Htet Zaw Paing">
-    <meta name="description" content="About Htet Zaw Paing. Download CV, view professional profiles (GitHub, LinkedIn), and connect for software engineering collaborations in Myanmar. Expert in AI, Web Development, and Cloud Architecture.">
-    <meta name="keywords" content="About Htet Zaw Paing, Hire Software Engineer Myanmar, Htet Zaw Paing CV, Developer Contact Yangon, AI Researcher Contact, GitHub Htet Zaw Paing, LinkedIn Htet Zaw Paing, Software Architect Myanmar, Full Stack Developer Yangon">
+    <meta name="description"
+        content="About Htet Zaw Paing. Download CV, view professional profiles (GitHub, LinkedIn), and connect for software engineering collaborations in Myanmar. Expert in AI, Web Development, and Cloud Architecture.">
+    <meta name="keywords"
+        content="About Htet Zaw Paing, Hire Software Engineer Myanmar, Htet Zaw Paing CV, Developer Contact Yangon, AI Researcher Contact, GitHub Htet Zaw Paing, LinkedIn Htet Zaw Paing, Software Architect Myanmar, Full Stack Developer Yangon">
     <meta name="author" content="Htet Zaw Paing">
-    
+
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="language" content="English">
     <meta name="geo.region" content="MM-06">
     <meta name="geo.placename" content="Yangon">
-    
+
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://www.htetzawpaing.site/about/">
     <meta property="og:title" content="About - Htet Zaw Paing">
-    <meta property="og:description" content="Download CV, view GitHub and LinkedIn profiles, and get in touch with Htet Zaw Paing. Exploring the frontiers of AI and Software Engineering.">
+    <meta property="og:description"
+        content="Download CV, view GitHub and LinkedIn profiles, and get in touch with Htet Zaw Paing. Exploring the frontiers of AI and Software Engineering.">
     <meta property="og:image" content="https://www.htetzawpaing.site/favicon.jpg">
     <meta property="og:site_name" content="Htet Zaw Paing Portfolio">
     <meta property="profile:first_name" content="Htet">
     <meta property="profile:last_name" content="Zaw Paing">
     <meta property="profile:username" content="hzp4softwareengineering">
-    
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.htetzawpaing.site/about/">
     <meta name="twitter:title" content="About - Htet Zaw Paing">
@@ -44,10 +56,13 @@
     <link rel="stylesheet" href="../tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script defer id="supportfast-script" src="https://cdn.supportfast.ai/chatbot.js" data-chatbot-id="bot-oirq7rylle"></script>
+    <script defer id="supportfast-script" src="https://cdn.supportfast.ai/chatbot.js"
+        data-chatbot-id="bot-oirq7rylle"></script>
 
     <script type="application/ld+json">
         {
@@ -84,22 +99,25 @@
             --accent: #d2fc2a;
             --text-main: #f4f4f0;
             --text-muted: #888d81;
-            
+
             /* Enhanced Easing Functions */
             --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
             --ease-curtain: cubic-bezier(0.85, 0, 0.15, 1);
         }
+
         ::selection {
             background: var(--accent);
             color: var(--bg-olive);
         }
+
         html {
             scroll-behavior: smooth;
             width: 100%;
             overflow-x: clip;
             background-color: var(--bg-lime);
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-lime);
@@ -109,8 +127,14 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .font-serif-display { font-family: 'Playfair Display', serif; }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .font-serif-display {
+            font-family: 'Playfair Display', serif;
+        }
 
         #preloader {
             position: fixed;
@@ -123,6 +147,7 @@
             background-color: transparent;
             pointer-events: auto;
         }
+
         .curtain {
             position: absolute;
             left: 0;
@@ -132,22 +157,24 @@
             z-index: 1;
             transition: transform 1.2s var(--ease-curtain);
             will-change: transform;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 40px 40px;
         }
-        .curtain-top { 
-            top: 0; 
-            transform-origin: top; 
+
+        .curtain-top {
+            top: 0;
+            transform-origin: top;
             border-bottom: 2px solid #1a1c16;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
         }
-        .curtain-bottom { 
-            bottom: 0; 
-            transform-origin: bottom; 
+
+        .curtain-bottom {
+            bottom: 0;
+            transform-origin: bottom;
             border-top: 2px solid #1a1c16;
-            box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
         }
 
         .curtain-seam {
@@ -177,7 +204,11 @@
             transition: opacity 0.4s ease, transform 0.6s var(--ease-bounce);
             will-change: transform, opacity;
         }
-        #loading-text { text-shadow: 0 0 15px rgba(210, 252, 42, 0.4); }
+
+        #loading-text {
+            text-shadow: 0 0 15px rgba(210, 252, 42, 0.4);
+        }
+
         .loader-cursor {
             display: inline-block;
             width: 8px;
@@ -187,33 +218,115 @@
             vertical-align: middle;
             margin-left: 8px;
         }
-        @keyframes blink { 50% { opacity: 0; } }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
 
         body.system-ready .curtain-seam {
             animation: cinematic-flash 1.4s cubic-bezier(0.85, 0, 0.15, 1) forwards;
         }
+
         @keyframes cinematic-flash {
-            0% { width: 0%; height: 1px; opacity: 1; }
-            20% { width: 100%; height: 1px; opacity: 1; box-shadow: 0 0 20px var(--accent), 0 0 10px #fff; }
-            40% { width: 100%; height: 2px; opacity: 1; box-shadow: 0 0 40px var(--accent), 0 0 20px #fff; }
-            50% { width: 100%; height: 35vh; opacity: 0.95; background-color: #fff; box-shadow: 0 0 150px var(--accent); }
-            100% { width: 100%; height: 120vh; opacity: 0; background-color: var(--accent); box-shadow: none; }
+            0% {
+                width: 0%;
+                height: 1px;
+                opacity: 1;
+            }
+
+            20% {
+                width: 100%;
+                height: 1px;
+                opacity: 1;
+                box-shadow: 0 0 20px var(--accent), 0 0 10px #fff;
+            }
+
+            40% {
+                width: 100%;
+                height: 2px;
+                opacity: 1;
+                box-shadow: 0 0 40px var(--accent), 0 0 20px #fff;
+            }
+
+            50% {
+                width: 100%;
+                height: 35vh;
+                opacity: 0.95;
+                background-color: #fff;
+                box-shadow: 0 0 150px var(--accent);
+            }
+
+            100% {
+                width: 100%;
+                height: 120vh;
+                opacity: 0;
+                background-color: var(--accent);
+                box-shadow: none;
+            }
         }
 
-        body.system-ready .curtain-top { transform: translateY(-100%); transition: transform 1.4s var(--ease-curtain) 0.5s; }
-        body.system-ready .curtain-bottom { transform: translateY(100%); transition: transform 1.4s var(--ease-curtain) 0.5s; }
-        body.system-ready .loader-terminal { opacity: 0; transform: scale(0.8) translateY(-20px); }
-        body.system-ready #preloader { pointer-events: none; transition: visibility 0s linear 1.8s; visibility: hidden; }
+        body.system-ready .curtain-top {
+            transform: translateY(-100%);
+            transition: transform 1.4s var(--ease-curtain) 0.5s;
+        }
+
+        body.system-ready .curtain-bottom {
+            transform: translateY(100%);
+            transition: transform 1.4s var(--ease-curtain) 0.5s;
+        }
+
+        body.system-ready .loader-terminal {
+            opacity: 0;
+            transform: scale(0.8) translateY(-20px);
+        }
+
+        body.system-ready #preloader {
+            pointer-events: none;
+            transition: visibility 0s linear 1.8s;
+            visibility: hidden;
+        }
 
         @keyframes smooth-slow-glitch {
-            0%, 100% { transform: translate(0); text-shadow: none; }
-            20% { transform: translate(-1.5px, 1px) skewX(1.5deg); text-shadow: 2px 0px 0px rgba(210, 252, 42, 0.4), -2px 0px 0px rgba(255, 0, 100, 0.3); }
-            21% { transform: translate(0); text-shadow: none; }
-            45% { transform: translate(1px, -1px) skewX(-1.5deg); text-shadow: -2px 0px 0px rgba(210, 252, 42, 0.4), 2px 0px 0px rgba(0, 255, 255, 0.3); }
-            46% { transform: translate(0); text-shadow: none; }
-            70% { transform: translate(-1px, 0.5px) skewX(0.5deg); text-shadow: 1px 0px 0px rgba(210, 252, 42, 0.4); }
-            71% { transform: translate(0); text-shadow: none; }
+
+            0%,
+            100% {
+                transform: translate(0);
+                text-shadow: none;
+            }
+
+            20% {
+                transform: translate(-1.5px, 1px) skewX(1.5deg);
+                text-shadow: 2px 0px 0px rgba(210, 252, 42, 0.4), -2px 0px 0px rgba(255, 0, 100, 0.3);
+            }
+
+            21% {
+                transform: translate(0);
+                text-shadow: none;
+            }
+
+            45% {
+                transform: translate(1px, -1px) skewX(-1.5deg);
+                text-shadow: -2px 0px 0px rgba(210, 252, 42, 0.4), 2px 0px 0px rgba(0, 255, 255, 0.3);
+            }
+
+            46% {
+                transform: translate(0);
+                text-shadow: none;
+            }
+
+            70% {
+                transform: translate(-1px, 0.5px) skewX(0.5deg);
+                text-shadow: 1px 0px 0px rgba(210, 252, 42, 0.4);
+            }
+
+            71% {
+                transform: translate(0);
+                text-shadow: none;
+            }
         }
+
         .logo-glitch-anim {
             display: inline-block;
             animation: smooth-slow-glitch 7s infinite ease-in-out;
@@ -226,16 +339,19 @@
             -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 90%);
             mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 90%);
         }
+
         .bg-pattern-wave {
             background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 16 L20 24 M16 20 L24 20' stroke='%23d2fc2a' stroke-width='1.5' fill='none' opacity='0.4'/%3E%3C/svg%3E");
             background-size: 60px 60px;
         }
+
         .bg-pattern-dots {
             background-image: radial-gradient(rgba(210, 252, 42, 0.4) 1.5px, transparent 1.5px);
             background-size: 40px 40px;
         }
+
         .bg-pattern-grid {
-            background-image: 
+            background-image:
                 linear-gradient(rgba(210, 252, 42, 0.08) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(210, 252, 42, 0.08) 1px, transparent 1px),
                 linear-gradient(rgba(210, 252, 42, 0.03) 2px, transparent 2px),
@@ -244,17 +360,45 @@
         }
 
         @keyframes float-code {
-            0% { transform: translateY(110vh) rotate(-10deg); opacity: 0; }
-            10% { opacity: 0.25; }
-            90% { opacity: 0.25; }
-            100% { transform: translateY(-20vh) rotate(15deg); opacity: 0; }
+            0% {
+                transform: translateY(110vh) rotate(-10deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.25;
+            }
+
+            90% {
+                opacity: 0.25;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(15deg);
+                opacity: 0;
+            }
         }
+
         @keyframes float-code-reverse {
-            0% { transform: translateY(110vh) rotate(10deg); opacity: 0; }
-            10% { opacity: 0.2; }
-            90% { opacity: 0.2; }
-            100% { transform: translateY(-20vh) rotate(-15deg); opacity: 0; }
+            0% {
+                transform: translateY(110vh) rotate(10deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.2;
+            }
+
+            90% {
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(-15deg);
+                opacity: 0;
+            }
         }
+
         .code-symbol {
             position: absolute;
             font-family: 'JetBrains Mono', monospace;
@@ -263,35 +407,85 @@
             user-select: none;
             pointer-events: none;
             mix-blend-mode: screen;
-            opacity: 0; 
+            opacity: 0;
         }
-        .code-anim-1 { animation: float-code 22s linear infinite; }
-        .code-anim-2 { animation: float-code-reverse 18s linear infinite; }
+
+        .code-anim-1 {
+            animation: float-code 22s linear infinite;
+        }
+
+        .code-anim-2 {
+            animation: float-code-reverse 18s linear infinite;
+        }
 
         @keyframes line-move-1 {
-            0% { transform: translateX(-4px); }
-            100% { transform: translateX(4px); }
-        }
-        @keyframes line-move-2 {
-            0% { transform: translateX(4px); width: 60%; }
-            100% { transform: translateX(-4px); width: 100%; }
-        }
-        @keyframes line-move-3 {
-            0% { transform: translateX(-4px); }
-            100% { transform: translateX(4px); }
-        }
-        
-        .menu-line-1 { animation: line-move-1 1s ease-in-out infinite alternate; }
-        .menu-line-2 { animation: line-move-2 1.2s ease-in-out infinite alternate; }
-        .menu-line-3 { animation: line-move-3 0.9s ease-in-out infinite alternate; }
+            0% {
+                transform: translateX(-4px);
+            }
 
-        .group:hover .menu-line-1, .group:hover .menu-line-2, .group:hover .menu-line-3 {
+            100% {
+                transform: translateX(4px);
+            }
+        }
+
+        @keyframes line-move-2 {
+            0% {
+                transform: translateX(4px);
+                width: 60%;
+            }
+
+            100% {
+                transform: translateX(-4px);
+                width: 100%;
+            }
+        }
+
+        @keyframes line-move-3 {
+            0% {
+                transform: translateX(-4px);
+            }
+
+            100% {
+                transform: translateX(4px);
+            }
+        }
+
+        .menu-line-1 {
+            animation: line-move-1 1s ease-in-out infinite alternate;
+        }
+
+        .menu-line-2 {
+            animation: line-move-2 1.2s ease-in-out infinite alternate;
+        }
+
+        .menu-line-3 {
+            animation: line-move-3 0.9s ease-in-out infinite alternate;
+        }
+
+        .group:hover .menu-line-1,
+        .group:hover .menu-line-2,
+        .group:hover .menu-line-3 {
             animation: none;
             transition: transform 0.6s var(--ease-bounce), width 0.6s var(--ease-bounce), background-color 0.3s ease;
         }
-        .group:hover .menu-line-1 { transform: translateX(8px); width: 50%; transition-delay: 0s; }
-        .group:hover .menu-line-2 { transform: translateX(-4px); width: 100%; transition-delay: 0.05s; }
-        .group:hover .menu-line-3 { transform: translateX(8px); width: 50%; transition-delay: 0.1s; }
+
+        .group:hover .menu-line-1 {
+            transform: translateX(8px);
+            width: 50%;
+            transition-delay: 0s;
+        }
+
+        .group:hover .menu-line-2 {
+            transform: translateX(-4px);
+            width: 100%;
+            transition-delay: 0.05s;
+        }
+
+        .group:hover .menu-line-3 {
+            transform: translateX(8px);
+            width: 50%;
+            transition-delay: 0.1s;
+        }
 
         #cursor-glow {
             position: fixed;
@@ -322,6 +516,7 @@
             transition: color 0.3s ease, transform 0.4s var(--ease-bounce);
             width: max-content;
         }
+
         .side-nav-link::before {
             content: '';
             position: absolute;
@@ -331,13 +526,40 @@
             background-color: var(--accent);
             transition: all 0.4s var(--ease-bounce);
         }
-        
-        .nav-left .side-nav-link::before { right: 100%; width: 0; margin-right: 15px; }
-        .nav-right .side-nav-link::before { left: 100%; width: 0; margin-left: 15px; }
-        .nav-left .side-nav-link:hover, .nav-left .side-nav-link.active { color: var(--accent); transform: translateX(10px); }
-        .nav-right .side-nav-link:hover, .nav-right .side-nav-link.active { color: var(--accent); transform: translateX(-10px); }
-        .nav-left .side-nav-link:hover::before, .nav-left .side-nav-link.active::before { width: 20px; }
-        .nav-right .side-nav-link:hover::before, .nav-right .side-nav-link.active::before { width: 20px; }
+
+        .nav-left .side-nav-link::before {
+            right: 100%;
+            width: 0;
+            margin-right: 15px;
+        }
+
+        .nav-right .side-nav-link::before {
+            left: 100%;
+            width: 0;
+            margin-left: 15px;
+        }
+
+        .nav-left .side-nav-link:hover,
+        .nav-left .side-nav-link.active {
+            color: var(--accent);
+            transform: translateX(10px);
+        }
+
+        .nav-right .side-nav-link:hover,
+        .nav-right .side-nav-link.active {
+            color: var(--accent);
+            transform: translateX(-10px);
+        }
+
+        .nav-left .side-nav-link:hover::before,
+        .nav-left .side-nav-link.active::before {
+            width: 20px;
+        }
+
+        .nav-right .side-nav-link:hover::before,
+        .nav-right .side-nav-link.active::before {
+            width: 20px;
+        }
 
         .btn-solid-lime {
             background: var(--accent);
@@ -346,30 +568,34 @@
             font-weight: 900;
             text-transform: uppercase;
             transition: all 0.4s var(--ease-bounce);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
+
         .btn-solid-lime:hover {
             background: #ffffff;
             transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
         }
+
         .btn-solid-white {
             background: #ffffff;
             color: #111;
             border-radius: 12px;
             transition: all 0.4s var(--ease-bounce);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
+
         .btn-solid-white:hover {
             background: var(--accent);
             transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
         }
 
         .mono-img {
             filter: grayscale(0.2) contrast(1.15) brightness(0.95);
             transition: filter 0.6s ease, transform 0.6s var(--ease-bounce);
         }
+
         .group:hover .mono-img {
             filter: grayscale(0) contrast(1.05) brightness(1);
             transform: scale(1.03);
@@ -381,12 +607,27 @@
             transition: opacity 0.8s ease-out, transform 0.8s var(--ease-bounce), filter 0.8s ease-out;
             filter: blur(10px);
         }
-        .reveal-up { transform: translateY(60px); }
-        .reveal-down { transform: translateY(-60px); }
-        .reveal-left { transform: translateX(60px); }
-        .reveal-right { transform: translateX(-60px); }
-        .reveal-scale { transform: scale(0.9); }
-        
+
+        .reveal-up {
+            transform: translateY(60px);
+        }
+
+        .reveal-down {
+            transform: translateY(-60px);
+        }
+
+        .reveal-left {
+            transform: translateX(60px);
+        }
+
+        .reveal-right {
+            transform: translateX(-60px);
+        }
+
+        .reveal-scale {
+            transform: scale(0.9);
+        }
+
         .reveal-element.is-visible {
             opacity: 1;
             transform: translate(0, 0) scale(1);
@@ -400,6 +641,7 @@
             overflow: hidden;
             transition: transform 0.4s var(--ease-bounce), border-color 0.4s ease, background 0.4s ease;
         }
+
         .glass-card:hover {
             border-color: rgba(210, 252, 42, 0.2);
             background: rgba(210, 252, 42, 0.02);
@@ -410,7 +652,7 @@
             transition: margin 0.8s var(--ease-cinematic), border-radius 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic), opacity 0.8s ease, filter 0.8s ease;
             transform-origin: top center;
         }
-        
+
         #main-content-wrapper.wrapper-expanded {
             margin-left: 0 !important;
             margin-right: 0 !important;
@@ -420,12 +662,12 @@
             border-top-left-radius: 0 !important;
             border-top-right-radius: 0 !important;
         }
-        
+
         .wrapper-svg-container {
             transition: opacity 0.4s ease;
             will-change: opacity;
         }
-        
+
         #main-content-wrapper.wrapper-expanded .wrapper-svg-container {
             opacity: 0;
             pointer-events: none;
@@ -437,6 +679,7 @@
             filter: blur(15px);
             will-change: margin, border-radius, transform, opacity, filter;
         }
+
         body:not(.system-ready) .reveal-element {
             opacity: 0 !important;
             transform: translateY(40px) scale(0.95) !important;
@@ -445,28 +688,43 @@
         }
 
         .input-minimal {
-            background: rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             color: white;
             padding: 1rem 1.25rem;
             transition: all 0.4s var(--ease-bounce);
         }
+
         .input-minimal:focus {
             border-color: var(--accent);
             outline: none;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.4);
             transform: scale(1.02);
             box-shadow: 0 0 0 4px rgba(210, 252, 42, 0.05);
         }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg-olive); }
-        ::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
 
-        #mobile-menu { transition: transform 0.6s var(--ease-bounce), opacity 0.6s ease; }
-        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-olive);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        #mobile-menu {
+            transition: transform 0.6s var(--ease-bounce), opacity 0.6s ease;
+        }
+
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -484,23 +742,33 @@
             font-size: 0.85em;
             font-weight: 700;
             color: var(--accent);
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(210,252,42,0.3);
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(210, 252, 42, 0.3);
             border-radius: 6px;
             vertical-align: middle;
             text-transform: uppercase;
         }
 
         @media (max-width: 768px) {
-            .side-nav-link:hover { transform: none; }
-            .side-nav-link:hover::before { display: none; }
-            .glass-card:hover { transform: none; box-shadow: none; }
+            .side-nav-link:hover {
+                transform: none;
+            }
+
+            .side-nav-link:hover::before {
+                display: none;
+            }
+
+            .glass-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
         }
 
         #main-nav {
             transition: transform 0.5s var(--ease-bounce);
             transform: translateY(0);
         }
+
         #nav-inner {
             width: 100%;
             max-width: 100%;
@@ -510,17 +778,19 @@
             box-shadow: none;
             transform-origin: center top;
             will-change: width, max-width, padding, background-color, border-radius, box-shadow, backdrop-filter;
-            transition: width 0.5s var(--ease-bounce), 
-                        max-width 0.5s var(--ease-bounce), 
-                        padding 0.5s var(--ease-bounce), 
-                        background-color 0.5s ease, 
-                        border-radius 0.5s var(--ease-bounce), 
-                        box-shadow 0.5s ease, 
-                        backdrop-filter 0.5s ease;
+            transition: width 0.5s var(--ease-bounce),
+                max-width 0.5s var(--ease-bounce),
+                padding 0.5s var(--ease-bounce),
+                background-color 0.5s ease,
+                border-radius 0.5s var(--ease-bounce),
+                box-shadow 0.5s ease,
+                backdrop-filter 0.5s ease;
         }
+
         #main-nav.scrolled-nav {
             transform: translateY(20px);
         }
+
         #main-nav.scrolled-nav #nav-inner {
             width: 75%;
             max-width: 800px;
@@ -529,38 +799,74 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 9999px;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.5);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
         }
+
         #main-nav.scrolled-nav #nav-logo span {
             font-size: 1.1rem !important;
             line-height: 1 !important;
         }
+
         @media (max-width: 768px) {
             #nav-inner {
                 padding: 24px 24px;
             }
+
             #main-nav.scrolled-nav {
                 transform: translateY(15px);
             }
+
             #main-nav.scrolled-nav #nav-inner {
                 width: 92%;
                 max-width: 100%;
                 padding: 10px 20px;
                 gap: 20px;
             }
+
             #main-nav.scrolled-nav #nav-logo span {
                 font-size: 1rem !important;
             }
         }
-        
+
         /* Lenis Smooth Scroll Setup */
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto; }
-        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis.lenis-stopped { overflow: hidden; }
-        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        html.bot-mode #preloader {
+            display: none !important;
+        }
+
+        html.bot-mode #main-content-wrapper,
+        html.bot-mode .reveal-element,
+        html.bot-mode body:not(.system-ready) #home .reveal-element,
+        html.bot-mode body.is-booting #main-content-wrapper {
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+            transition: none !important;
+            animation: none !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
+
 <body class="relative min-h-screen flex flex-col">
 
     <div id="cursor-glow"></div>
@@ -576,29 +882,37 @@
 
     <nav id="main-nav" class="fixed top-0 w-full z-[100] bg-transparent pointer-events-none flex justify-center">
         <div class="flex justify-between items-center pointer-events-auto" id="nav-inner">
-            <a href="../" class="flex flex-col text-[#111] leading-none z-20 hover:scale-105 transition-all duration-400 origin-left" id="nav-logo">
-                <span class="font-serif-display font-black text-xl md:text-3xl tracking-tighter uppercase transition-all duration-400 logo-glitch-anim">HTET ZAW Paing</span>
+            <a href="../"
+                class="flex flex-col text-[#111] leading-none z-20 hover:scale-105 transition-all duration-400 origin-left"
+                id="nav-logo">
+                <span
+                    class="font-serif-display font-black text-xl md:text-3xl tracking-tighter uppercase transition-all duration-400 logo-glitch-anim">HTET
+                    ZAW Paing</span>
             </a>
-            
+
             <div class="hidden md:flex items-center gap-3 z-20">
-                <a href="../connect/" class="btn-solid-lime px-6 py-3 text-[11px] tracking-widest flex items-center gap-2 shadow-sm">
+                <a href="../connect/"
+                    class="btn-solid-lime px-6 py-3 text-[11px] tracking-widest flex items-center gap-2 shadow-sm">
                     <i data-lucide="link" class="w-3.5 h-3.5"></i>
                     <span data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</span>
                 </a>
                 <button id="lang-toggle" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm">
                     <i data-lucide="globe" class="w-4 h-4"></i>
                 </button>
-                
-                <button id="menu-toggle-desktop" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm group">
+
+                <button id="menu-toggle-desktop"
+                    class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm group">
                     <div class="relative w-[18px] h-3 flex flex-col justify-between overflow-hidden">
                         <span class="menu-line-1 w-full h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
-                        <span class="menu-line-2 w-[80%] h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
+                        <span
+                            class="menu-line-2 w-[80%] h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
                         <span class="menu-line-3 w-full h-[2px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
                     </div>
                 </button>
             </div>
 
-            <button id="menu-toggle" class="md:hidden z-50 btn-solid-white w-12 h-12 flex items-center justify-center shadow-sm group">
+            <button id="menu-toggle"
+                class="md:hidden z-50 btn-solid-white w-12 h-12 flex items-center justify-center shadow-sm group">
                 <div class="relative w-5 h-[14px] flex flex-col justify-between overflow-hidden">
                     <span class="menu-line-1 w-full h-[2.5px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
                     <span class="menu-line-2 w-[80%] h-[2.5px] bg-[#111] rounded-full group-hover:bg-[#d2fc2a]"></span>
@@ -608,27 +922,39 @@
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-[9999] bg-[#272a21] transform translate-x-full opacity-0 overflow-y-auto w-full h-[100svh] bg-pattern-grid flex flex-col">
-        <button id="menu-close" class="absolute top-8 right-8 btn-solid-lime w-12 h-12 flex items-center justify-center z-[10000] group">
-            <i data-lucide="x" class="w-5 h-5 transition-transform duration-500 group-hover:rotate-180 ease-[cubic-bezier(0.34,1.56,0.64,1)]"></i>
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[9999] bg-[#272a21] transform translate-x-full opacity-0 overflow-y-auto w-full h-[100svh] bg-pattern-grid flex flex-col">
+        <button id="menu-close"
+            class="absolute top-8 right-8 btn-solid-lime w-12 h-12 flex items-center justify-center z-[10000] group">
+            <i data-lucide="x"
+                class="w-5 h-5 transition-transform duration-500 group-hover:rotate-180 ease-[cubic-bezier(0.34,1.56,0.64,1)]"></i>
         </button>
-        
+
         <div class="flex flex-col items-center justify-center w-full flex-grow px-8 relative z-10">
-            <div class="flex flex-col items-center gap-6 text-[clamp(2.5rem,10vw,4.5rem)] font-black tracking-tighter uppercase leading-[0.9]">
-                <a href="../" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2" data-en="HOME" data-mm="ပင်မစာမျက်နှာ">HOME</a>
-                <a href="../about/" class="mobile-nav-link text-[#d2fc2a] relative group py-2" data-en="ABOUT" data-mm="အကြောင်း">
+            <div
+                class="flex flex-col items-center gap-6 text-[clamp(2.5rem,10vw,4.5rem)] font-black tracking-tighter uppercase leading-[0.9]">
+                <a href="../" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2"
+                    data-en="HOME" data-mm="ပင်မစာမျက်နှာ">HOME</a>
+                <a href="../about/" class="mobile-nav-link text-[#d2fc2a] relative group py-2" data-en="ABOUT"
+                    data-mm="အကြောင်း">
                     ABOUT
-                    <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-4 text-[#d2fc2a] pointer-events-none" viewBox="0 0 100 20" preserveAspectRatio="none">
-                        <path d="M0,10 Q12.5,0 25,10 T50,10 T75,10 T100,10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                    <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-4 text-[#d2fc2a] pointer-events-none"
+                        viewBox="0 0 100 20" preserveAspectRatio="none">
+                        <path d="M0,10 Q12.5,0 25,10 T50,10 T75,10 T100,10" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" />
                     </svg>
                 </a>
-                <a href="../projects/" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2" data-en="PROJECTS" data-mm="ဖန်တီးမှုများ">PROJECTS</a>
-                <a href="../expertise/" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2" data-en="EXPERTISE" data-mm="ကျွမ်းကျင်မှု">EXPERTISE</a>
-                <a href="../connect/" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2" data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</a>
+                <a href="../projects/" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2"
+                    data-en="PROJECTS" data-mm="ဖန်တီးမှုများ">PROJECTS</a>
+                <a href="../expertise/" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2"
+                    data-en="EXPERTISE" data-mm="ကျွမ်းကျင်မှု">EXPERTISE</a>
+                <a href="../connect/" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2"
+                    data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</a>
             </div>
-            
+
             <div class="mt-16 mb-8 w-full max-w-sm">
-                <button id="mobile-lang-toggle" class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3">
+                <button id="mobile-lang-toggle"
+                    class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3">
                     <i data-lucide="globe" class="w-4 h-4"></i>
                     <span id="mobile-lang-text">ENGLISH</span>
                 </button>
@@ -636,26 +962,36 @@
         </div>
     </div>
 
-    <div id="main-content-wrapper" class="mx-3 md:mx-6 mb-3 md:mb-6 mt-20 md:mt-24 rounded-[2.5rem] md:rounded-[3rem] bg-[#272a21] relative z-10 overflow-clip shadow-2xl flex-grow flex flex-col">
-        
-        <div class="wrapper-svg-container absolute top-[-1px] left-1/2 -translate-x-1/2 w-[260px] md:w-[340px] z-20 text-[#e8fb7a]" id="top-curve">
-            <svg viewBox="0 0 340 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-full drop-shadow-sm">
+    <div id="main-content-wrapper"
+        class="mx-3 md:mx-6 mb-3 md:mb-6 mt-20 md:mt-24 rounded-[2.5rem] md:rounded-[3rem] bg-[#272a21] relative z-10 overflow-clip shadow-2xl flex-grow flex flex-col">
+
+        <div class="wrapper-svg-container absolute top-[-1px] left-1/2 -translate-x-1/2 w-[260px] md:w-[340px] z-20 text-[#e8fb7a]"
+            id="top-curve">
+            <svg viewBox="0 0 340 45" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                class="w-full drop-shadow-sm">
                 <path d="M0,0 C35,0 50,45 90,45 L250,45 C290,45 305,0 340,0 Z" />
             </svg>
         </div>
 
-        <section id="home" class="relative min-h-[calc(100svh-8rem)] flex flex-col justify-center pt-24 pb-8 md:pb-12 px-4 md:px-12 z-10">
-            <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-60 pointer-events-none" data-speed="0.4"></div>
-            
-            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <span class="code-symbol code-anim-1 text-2xl lg:text-4xl" style="left: 10%; animation-delay: 0s;">&lt;/&gt;</span>
-                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 25%; animation-delay: -5s;">{ }</span>
-                <span class="code-symbol code-anim-1 text-2xl lg:text-4xl" style="left: 65%; animation-delay: -2s;">()=&gt;</span>
-                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 85%; animation-delay: -8s;">/* */</span>
+        <section id="home"
+            class="relative min-h-[calc(100svh-8rem)] flex flex-col justify-center pt-24 pb-8 md:pb-12 px-4 md:px-12 z-10">
+            <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-60 pointer-events-none" data-speed="0.4">
             </div>
-            
-            <div class="w-full grid grid-cols-1 lg:grid-cols-[1fr_2.5fr_1fr] gap-8 h-full items-center relative z-20 mt-16 md:mt-0 mb-8 md:mb-16">
-                
+
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <span class="code-symbol code-anim-1 text-2xl lg:text-4xl"
+                    style="left: 10%; animation-delay: 0s;">&lt;/&gt;</span>
+                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 25%; animation-delay: -5s;">{
+                    }</span>
+                <span class="code-symbol code-anim-1 text-2xl lg:text-4xl"
+                    style="left: 65%; animation-delay: -2s;">()=&gt;</span>
+                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 85%; animation-delay: -8s;">/*
+                    */</span>
+            </div>
+
+            <div
+                class="w-full grid grid-cols-1 lg:grid-cols-[1fr_2.5fr_1fr] gap-8 h-full items-center relative z-20 mt-16 md:mt-0 mb-8 md:mb-16">
+
                 <div class="hidden lg:flex flex-col pl-6 reveal-element reveal-right nav-left">
                     <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 ml-2">Pages</p>
                     <nav class="flex flex-col space-y-5">
@@ -668,35 +1004,48 @@
                 </div>
 
                 <div class="flex flex-col items-center text-center w-full relative z-30 justify-center h-full">
-                    
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-[rgba(255,255,255,0.02)] border border-[rgba(210,252,42,0.1)] text-[10px] font-mono tracking-widest text-white uppercase rounded-full reveal-element reveal-down mb-8">
+
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-1.5 bg-[rgba(255,255,255,0.02)] border border-[rgba(210,252,42,0.1)] text-[10px] font-mono tracking-widest text-white uppercase rounded-full reveal-element reveal-down mb-8">
                         <span class="w-2 h-2 rounded-full bg-[#d2fc2a] animate-pulse"></span>
-                        <span data-en="About The Architect" data-mm="ဖန်တီးသူ၏ နောက်ခံသမိုင်းကြောင်း">About The Architect</span>
+                        <span data-en="About The Architect" data-mm="ဖန်တီးသူ၏ နောက်ခံသမိုင်းကြောင်း">About The
+                            Architect</span>
                     </div>
 
-                    <h1 class="text-[clamp(3.5rem,8vw,6.5rem)] font-black uppercase leading-[0.9] tracking-tighter reveal-element reveal-scale w-full relative z-10 mb-6 md:mb-8">
+                    <h1
+                        class="text-[clamp(3.5rem,8vw,6.5rem)] font-black uppercase leading-[0.9] tracking-tighter reveal-element reveal-scale w-full relative z-10 mb-6 md:mb-8">
                         <span class="block text-white" data-en="BEHIND" data-mm="ကုဒ်လိုင်းများ၏">BEHIND</span>
-                        <span class="flex justify-center items-center text-outline-accent font-serif-display font-black tracking-normal min-h-[1.1em]" data-en="THE CODE." data-mm="နောက်ကွယ်။">
+                        <span
+                            class="flex justify-center items-center text-outline-accent font-serif-display font-black tracking-normal min-h-[1.1em]"
+                            data-en="THE CODE." data-mm="နောက်ကွယ်။">
                             THE CODE.
                         </span>
                     </h1>
 
-                    <p class="text-[#888d81] font-mono text-sm md:text-base leading-relaxed max-w-xl mx-auto shadow-black drop-shadow-md reveal-element reveal-up mb-10" style="transition-delay: 0.1s;">
-                        <span data-en="I am" data-mm="ကျွန်တော်ကတော့">ကျွန်တော်ကတော့</span> 
-                        <span class="text-white font-bold" data-en="Htet Zaw Paing" data-mm="ထက်ဇော်ပိုင်">Htet Zaw Paing</span> 
-                        <span data-en="A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story."
+                    <p class="text-[#888d81] font-mono text-sm md:text-base leading-relaxed max-w-xl mx-auto shadow-black drop-shadow-md reveal-element reveal-up mb-10"
+                        style="transition-delay: 0.1s;">
+                        <span data-en="I am" data-mm="ကျွန်တော်ကတော့">ကျွန်တော်ကတော့</span>
+                        <span class="text-white font-bold" data-en="Htet Zaw Paing" data-mm="ထက်ဇော်ပိုင်">Htet Zaw
+                            Paing</span>
+                        <span
+                            data-en="A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story."
                             data-mm="ပါ။ ကွန်ပျူတာကုဒ်တွေကို ရိုးရှင်းတဲ့ စာကြောင်းတွေလို့ မမြင်ဘဲ၊ အနာဂတ်ကို တည်ဆောက်မယ့် အုတ်မြစ်တွေလို့ ခံယူထားတဲ့ ဖန်တီးရှင်တစ်ယောက်ပါ။ ဒါကတော့ ကျွန်တော့်ရဲ့ ဖြတ်သန်းမှု ဇာတ်လမ်းပါပဲ။">
-                            A creator who sees lines of code not just as syntax, but as the building blocks of the future. This is my story.
+                            A creator who sees lines of code not just as syntax, but as the building blocks of the
+                            future. This is my story.
                         </span>
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal-element reveal-up w-full px-4" style="transition-delay: 0.2s;">
-                        <a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf" class="btn-solid-lime px-7 py-4 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center reveal-element reveal-up w-full px-4"
+                        style="transition-delay: 0.2s;">
+                        <a href="../cv.pdf" download="Htet_Zaw_Paing_CV.pdf"
+                            class="btn-solid-lime px-7 py-4 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl">
                             <i data-lucide="download" class="w-4 h-4"></i>
                             <span data-en="Download CV" data-mm="ကိုယ်ရေးမှတ်တမ်း (CV) ရယူရန်">Download CV</span>
                         </a>
-                        <a href="#biography" class="btn-solid-white px-7 py-4 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl">
-                            <span data-en="Read Biography" data-mm="ဖြတ်သန်းမှု သမိုင်းကြောင်း ဖတ်ရန်">Read Biography</span>
+                        <a href="#biography"
+                            class="btn-solid-white px-7 py-4 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-3 shadow-2xl">
+                            <span data-en="Read Biography" data-mm="ဖြတ်သန်းမှု သမိုင်းကြောင်း ဖတ်ရန်">Read
+                                Biography</span>
                         </a>
                     </div>
                 </div>
@@ -704,14 +1053,18 @@
                 <div class="hidden lg:flex flex-col items-end pr-6 reveal-element reveal-left nav-right">
                     <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 mr-2">Follow On</p>
                     <nav class="flex flex-col items-end space-y-5">
-                        <a href="https://github.com/hzp4softwareengineering" target="_blank" class="side-nav-link">GitHub</a>
-                        <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank" class="side-nav-link">LinkedIn</a>
-                        <a href="https://discord.com/users/1110430133707341894" target="_blank" class="side-nav-link">Discord</a>
+                        <a href="https://github.com/hzp4softwareengineering" target="_blank"
+                            class="side-nav-link">GitHub</a>
+                        <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank"
+                            class="side-nav-link">LinkedIn</a>
+                        <a href="https://discord.com/users/1110430133707341894" target="_blank"
+                            class="side-nav-link">Discord</a>
                     </nav>
                 </div>
             </div>
-            
-            <div class="mt-8 lg:hidden flex w-full justify-between px-4 z-30 reveal-element reveal-up" style="transition-delay: 0.3s;">
+
+            <div class="mt-8 lg:hidden flex w-full justify-between px-4 z-30 reveal-element reveal-up"
+                style="transition-delay: 0.3s;">
                 <nav class="flex flex-col space-y-3 text-xs font-black uppercase tracking-widest text-white">
                     <a href="../">Home</a>
                     <a href="../about/" class="text-[#d2fc2a]">About</a>
@@ -728,145 +1081,248 @@
         </section>
 
         <!-- Note: Removed overflow-hidden from this section to prevent it from clipping the sticky context -->
-        <section id="biography" class="py-24 md:py-36 px-6 md:px-12 relative border-t border-[rgba(210,252,42,0.05)] z-10">
-            <div class="absolute inset-0 scroll-bg bg-pattern-dots opacity-40 pointer-events-none" data-speed="-0.3"></div>
-            
+        <section id="biography"
+            class="py-24 md:py-36 px-6 md:px-12 relative border-t border-[rgba(210,252,42,0.05)] z-10">
+            <div class="absolute inset-0 scroll-bg bg-pattern-dots opacity-40 pointer-events-none" data-speed="-0.3">
+            </div>
+
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24 relative z-10">
-                
+
                 <div class="lg:col-span-4 relative">
-                    
+
                     <!-- The sticky element itself. MUST NOT have transform properties from reveal animations -->
                     <div class="relative lg:sticky top-32 w-full z-30 h-max">
-                        
+
                         <!-- The animation wrapper lives INSIDE the sticky container so it doesn't break sticky behavior -->
                         <div class="space-y-6 transition-transform duration-500 reveal-element reveal-right">
-                            
+
                             <div class="glass-card p-8 shadow-2xl">
-                                <h3 class="text-xl font-black mb-8 flex items-center gap-3 text-[#d2fc2a] uppercase tracking-tighter">
+                                <h3
+                                    class="text-xl font-black mb-8 flex items-center gap-3 text-[#d2fc2a] uppercase tracking-tighter">
                                     <i data-lucide="user" class="w-5 h-5"></i>
-                                    <span data-en="Personal Details" data-mm="ကိုယ်ရေးအချက်အလက်များ">Personal Details</span>
+                                    <span data-en="Personal Details" data-mm="ကိုယ်ရေးအချက်အလက်များ">Personal
+                                        Details</span>
                                 </h3>
                                 <div class="space-y-6 font-mono text-sm">
                                     <div>
-                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Full Name" data-mm="အမည်အပြည့်အစုံ">Full Name</p>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1"
+                                            data-en="Full Name" data-mm="အမည်အပြည့်အစုံ">Full Name</p>
                                         <p class="text-white font-bold tracking-wide">Htet Zaw Paing</p>
                                     </div>
                                     <div>
-                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Born" data-mm="မွေးသက္ကရာဇ်">Born</p>
-                                        <p class="text-white font-bold" data-en="April 10, 2004" data-mm="၁၀ ဧပြီ ၂၀၀၄">April 10, 2004</p>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1"
+                                            data-en="Born" data-mm="မွေးသက္ကရာဇ်">Born</p>
+                                        <p class="text-white font-bold" data-en="April 10, 2004" data-mm="၁၀ ဧပြီ ၂၀၀၄">
+                                            April 10, 2004</p>
                                     </div>
                                     <div>
-                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1" data-en="Base of Operations" data-mm="အခြေစိုက်ရာဒေသ">Base of Operations</p>
-                                        <p class="text-white font-bold" data-en="Yangon, Myanmar" data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</p>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-1"
+                                            data-en="Base of Operations" data-mm="အခြေစိုက်ရာဒေသ">Base of Operations</p>
+                                        <p class="text-white font-bold" data-en="Yangon, Myanmar"
+                                            data-mm="ရန်ကုန်၊ မြန်မာ">Yangon, Myanmar</p>
                                     </div>
                                     <div class="pt-4 border-t border-[rgba(255,255,255,0.05)]">
-                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-3" data-en="Family" data-mm="မိသားစု">Family</p>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-3"
+                                            data-en="Family" data-mm="မိသားစု">Family</p>
                                         <div class="space-y-3">
                                             <div class="flex justify-between items-center">
-                                                <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Father" data-mm="ဖခင်">Father</span>
+                                                <span
+                                                    class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider"
+                                                    data-en="Father" data-mm="ဖခင်">Father</span>
                                                 <span class="text-white font-bold">U Myo Zaw</span>
                                             </div>
                                             <div class="flex justify-between items-center">
-                                                <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Mother" data-mm="မိခင်">Mother</span>
+                                                <span
+                                                    class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider"
+                                                    data-en="Mother" data-mm="မိခင်">Mother</span>
                                                 <span class="text-white font-bold">Daw Nilar Aung</span>
                                             </div>
                                             <div class="flex justify-between items-center">
-                                                <span class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider" data-en="Brother" data-mm="ညီ/အစ်ကို">Brother</span>
+                                                <span
+                                                    class="text-[10px] text-[#888d81] font-bold uppercase tracking-wider"
+                                                    data-en="Brother" data-mm="ညီ/အစ်ကို">Brother</span>
                                                 <span class="text-white font-bold">Mg Aung Zaw Paing</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="pt-4 border-t border-[rgba(255,255,255,0.05)]">
-                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-2" data-en="Status" data-mm="လက်ရှိ လုပ်ငန်းအခြေအနေ">Status</p>
-                                        <div class="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded bg-[rgba(210,252,42,0.1)] border border-[#d2fc2a]/20">
-                                            <span class="w-2 h-2 bg-[#d2fc2a] rounded-full animate-pulse shadow-[0_0_10px_rgba(210,252,42,0.8)]"></span>
-                                            <span class="text-[10px] font-bold text-[#d2fc2a] tracking-widest uppercase" data-en="Open to Work" data-mm="အလုပ်ခေါ်ဆိုမှုများ လက်ခံနေပါသည်">Open to Work</span>
+                                        <p class="text-[9px] font-bold text-[#888d81] uppercase tracking-[0.2em] mb-2"
+                                            data-en="Status" data-mm="လက်ရှိ လုပ်ငန်းအခြေအနေ">Status</p>
+                                        <div
+                                            class="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded bg-[rgba(210,252,42,0.1)] border border-[#d2fc2a]/20">
+                                            <span
+                                                class="w-2 h-2 bg-[#d2fc2a] rounded-full animate-pulse shadow-[0_0_10px_rgba(210,252,42,0.8)]"></span>
+                                            <span class="text-[10px] font-bold text-[#d2fc2a] tracking-widest uppercase"
+                                                data-en="Open to Work" data-mm="အလုပ်ခေါ်ဆိုမှုများ လက်ခံနေပါသည်">Open
+                                                to Work</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="glass-card p-8">
-                                <h4 class="text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-4 text-[#888d81]" data-en="Tech Stack" data-mm="ကျွမ်းကျင်သော နည်းပညာများ">Tech Stack</h4>
+                                <h4 class="text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-4 text-[#888d81]"
+                                    data-en="Tech Stack" data-mm="ကျွမ်းကျင်သော နည်းပညာများ">Tech Stack</h4>
                                 <div class="flex flex-wrap gap-2 font-mono">
-                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">HTML/CSS</span>
-                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">JavaScript</span>
-                                    <span class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">React</span>
-                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">PHP</span>
-                                    <span class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">MySQL</span>
-                                    <span class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">Python</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">HTML/CSS</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">JavaScript</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">React</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">PHP</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-[rgba(255,255,255,0.02)] rounded border border-white/5 text-[10px] uppercase font-bold text-gray-300">MySQL</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-[rgba(210,252,42,0.1)] rounded border border-[#d2fc2a]/30 text-[10px] uppercase font-bold text-[#d2fc2a]">Python</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="lg:col-span-8 mt-24 md:mt-32 lg:mt-0">
                     <div class="flex items-center gap-4 mb-12 reveal-element reveal-up">
                         <span class="w-8 h-[2px] bg-[#d2fc2a]"></span>
                         <h2 class="text-4xl sm:text-5xl font-black tracking-tighter uppercase leading-[0.9]">
-                            <span data-en="Educational" data-mm="ပညာရေးနှင့် ဖြတ်သန်းခဲ့သော" class="text-white block">Educational</span> 
-                            <span class="text-[#d2fc2a] block font-serif-display italic tracking-normal" data-en="Voyage" data-mm="ခရီးစဉ်">Voyage</span>
+                            <span data-en="Educational" data-mm="ပညာရေးနှင့် ဖြတ်သန်းခဲ့သော"
+                                class="text-white block">Educational</span>
+                            <span class="text-[#d2fc2a] block font-serif-display italic tracking-normal"
+                                data-en="Voyage" data-mm="ခရီးစဉ်">Voyage</span>
                         </h2>
                     </div>
-                    
+
                     <div class="relative timeline-line space-y-16 mt-16">
-                        
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.1s;">
-                            <div class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400"></div>
+
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
+                            style="transition-delay: 0.1s;">
+                            <div
+                                class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400">
+                            </div>
                             <div>
-                                <span class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]" data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
-                                <h3 class="text-2xl md:text-3xl font-black mb-3 text-white tracking-tighter" data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in Computing</h3>
-                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures." data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures.</p>
+                                <span
+                                    class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]"
+                                    data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
+                                <h3 class="text-2xl md:text-3xl font-black mb-3 text-white tracking-tighter"
+                                    data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in
+                                    Computing</h3>
+                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl"
+                                    data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures."
+                                    data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">
+                                    Visionary goal to contribute novel research to the field of Artificial General
+                                    Intelligence (AGI) and Secure Quantum Architectures.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.2s;">
-                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#888d81] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
+                            style="transition-delay: 0.2s;">
+                            <div
+                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#888d81] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
+                            </div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
-                                <h3 class="text-xl md:text-2xl font-black mb-3 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors" data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing</h3>
-                                <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems." data-mm="အဆင့်မြင့် ဆော့ဖ်ဝဲလ်ဗိသုကာပညာနှင့် Cloud စနစ်များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် မဟာဘွဲ့ကို ရည်မှန်းထားပါသည်။">Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems.</p>
+                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block"
+                                    data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-3 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
+                                    data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing
+                                </h3>
+                                <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-xl"
+                                    data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems."
+                                    data-mm="အဆင့်မြင့် ဆော့ဖ်ဝဲလ်ဗိသုကာပညာနှင့် Cloud စနစ်များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် မဟာဘွဲ့ကို ရည်မှန်းထားပါသည်။">
+                                    Strategic goal to deepen expertise in Advanced Software Architecture and Cloud
+                                    Systems.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.3s;">
-                            <div class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400"></div>
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
+                            style="transition-delay: 0.3s;">
+                            <div
+                                class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400">
+                            </div>
                             <div>
-                                <span class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]" data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
-                                <h3 class="text-2xl md:text-3xl font-black mb-1 text-white tracking-tighter" data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">BSc (Hons) Computing</h3>
-                                <p class="text-[#d2fc2a] font-mono text-[10px] uppercase font-bold tracking-widest mb-4">Edinburgh Napier University</p>
-                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks." data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks.</p>
+                                <span
+                                    class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]"
+                                    data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
+                                <h3 class="text-2xl md:text-3xl font-black mb-1 text-white tracking-tighter"
+                                    data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">
+                                    BSc (Hons) Computing</h3>
+                                <p
+                                    class="text-[#d2fc2a] font-mono text-[10px] uppercase font-bold tracking-widest mb-4">
+                                    Edinburgh Napier University</p>
+                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl"
+                                    data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks."
+                                    data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">
+                                    Currently pursuing an advanced degree focused on scalable software architecture and
+                                    cloud systems. Deepening knowledge in secure coding practices and modern development
+                                    frameworks.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.4s;">
-                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#555] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
+                            style="transition-delay: 0.4s;">
+                            <div
+                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#555] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
+                            </div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block">2023 - 2025</span>
-                                <h3 class="text-xl md:text-2xl font-black mb-1 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors" data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher National Diploma</h3>
-                                <p class="text-[#666] font-mono text-[10px] uppercase font-bold tracking-widest mb-4">Info Myanmar University / Pearson</p>
-                                <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models." data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models.</p>
+                                <span
+                                    class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block">2023
+                                    - 2025</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-1 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
+                                    data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher
+                                    National Diploma</h3>
+                                <p class="text-[#666] font-mono text-[10px] uppercase font-bold tracking-widest mb-4">
+                                    Info Myanmar University / Pearson</p>
+                                <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-xl"
+                                    data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models."
+                                    data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">
+                                    Formalized technical skills with HNC and HND qualifications. Focused on full-stack
+                                    development, data structures, and the initial exploration of AI models.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.5s;">
-                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#444] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
+                            style="transition-delay: 0.5s;">
+                            <div
+                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#444] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
+                            </div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
-                                <h3 class="text-xl md:text-2xl font-black mb-1 text-[#888] tracking-tighter group-hover:text-[#d2fc2a] transition-colors" data-en="The Turning Point (Self-Learning)" data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point (Self-Learning)</h3>
-                                <p class="text-[#555] font-mono text-[10px] uppercase font-bold tracking-widest mb-4" data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period</p>
-                                <p class="text-[#555] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path." data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path.</p>
+                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block"
+                                    data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-1 text-[#888] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
+                                    data-en="The Turning Point (Self-Learning)"
+                                    data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point
+                                    (Self-Learning)</h3>
+                                <p class="text-[#555] font-mono text-[10px] uppercase font-bold tracking-widest mb-4"
+                                    data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period
+                                </p>
+                                <p class="text-[#555] text-sm md:text-base font-mono leading-relaxed max-w-xl"
+                                    data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path."
+                                    data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">
+                                    During the global pause caused by COVID-19, I discovered my passion for code. I
+                                    dedicated these two years to intense self-study, moving from 'Hello World' to
+                                    building functional applications. This period defined my career path.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.6s;">
-                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#333] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
+                            style="transition-delay: 0.6s;">
+                            <div
+                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#333] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
+                            </div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="2015 - 2020" data-mm="၂၀၁5 - ၂၀၂၀">2015 - 2020</span>
-                                <h3 class="text-lg md:text-xl font-black mb-1 text-[#666] tracking-tighter group-hover:text-[#d2fc2a] transition-colors" data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
-                                <p class="text-[#444] font-mono text-[10px] uppercase font-bold tracking-widest mb-4" data-en='No.2 Basic Education High School, Bahan ("Nanyan")' data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan ("Nanyan")</p>
-                                <p class="text-[#444] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming." data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">Developed academic discipline and logical thinking skills that would later serve as the foundation for programming.</p>
+                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block"
+                                    data-en="2015 - 2020" data-mm="၂၀၁5 - ၂၀၂၀">2015 - 2020</span>
+                                <h3 class="text-lg md:text-xl font-black mb-1 text-[#666] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
+                                    data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
+                                <p class="text-[#444] font-mono text-[10px] uppercase font-bold tracking-widest mb-4"
+                                    data-en='No.2 Basic Education High School, Bahan ("Nanyan")'
+                                    data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan
+                                    ("Nanyan")</p>
+                                <p class="text-[#444] text-sm md:text-base font-mono leading-relaxed max-w-xl"
+                                    data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming."
+                                    data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">
+                                    Developed academic discipline and logical thinking skills that would later serve as
+                                    the foundation for programming.</p>
                             </div>
                         </div>
 
@@ -875,95 +1331,131 @@
             </div>
         </section>
 
-        <section class="py-32 md:py-48 px-6 md:px-12 relative overflow-hidden z-10 border-t border-[rgba(210,252,42,0.05)] bg-[rgba(0,0,0,0.2)]">
-            <div class="absolute inset-0 scroll-bg bg-pattern-topo opacity-50 pointer-events-none" data-speed="-0.25"></div>
-            
+        <section
+            class="py-32 md:py-48 px-6 md:px-12 relative overflow-hidden z-10 border-t border-[rgba(210,252,42,0.05)] bg-[rgba(0,0,0,0.2)]">
+            <div class="absolute inset-0 scroll-bg bg-pattern-topo opacity-50 pointer-events-none" data-speed="-0.25">
+            </div>
+
             <div class="max-w-7xl mx-auto relative z-20">
                 <div class="flex flex-col lg:flex-row gap-16 lg:gap-0 items-center">
-                    
-                    <div class="lg:w-[45%] flex flex-col items-start justify-center reveal-element reveal-right lg:pr-16">
+
+                    <div
+                        class="lg:w-[45%] flex flex-col items-start justify-center reveal-element reveal-right lg:pr-16">
                         <div class="flex items-center gap-4 mb-6">
                             <span class="w-8 h-[2px] bg-[#d2fc2a]"></span>
-                            <span class="text-[10px] font-mono text-[#d2fc2a] tracking-[0.2em] uppercase font-bold" data-en="Written with Logic" data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသော">Written with Logic</span>
+                            <span class="text-[10px] font-mono text-[#d2fc2a] tracking-[0.2em] uppercase font-bold"
+                                data-en="Written with Logic" data-mm="ယုတ္တိဗေဒဖြင့် ရေးဖွဲ့ထားသော">Written with
+                                Logic</span>
                         </div>
-                        <h2 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] uppercase">
+                        <h2
+                            class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] uppercase">
                             <span class="text-white block" data-en="Code is" data-mm="ကုဒ်ဆိုသည်မှာ">Code is</span>
-                            <span class="text-[#d2fc2a] block mt-1 font-serif-display italic tracking-normal" data-en="Poetry." data-mm="ကဗျာတစ်ပုဒ်။">Poetry.</span>
+                            <span class="text-[#d2fc2a] block mt-1 font-serif-display italic tracking-normal"
+                                data-en="Poetry." data-mm="ကဗျာတစ်ပုဒ်။">Poetry.</span>
                         </h2>
                     </div>
 
                     <div class="hidden lg:block w-[1px] h-40 bg-[rgba(255,255,255,0.05)] shrink-0 mx-4"></div>
 
-                    <div class="lg:w-[55%] flex flex-col justify-center reveal-element reveal-left lg:pl-16" style="transition-delay: 0.1s;">
+                    <div class="lg:w-[55%] flex flex-col justify-center reveal-element reveal-left lg:pl-16"
+                        style="transition-delay: 0.1s;">
                         <div class="space-y-8 text-sm md:text-base text-[#888d81] font-mono leading-relaxed">
                             <p data-en="My journey into software engineering began quite unexpectedly during the COVID-19 pandemic. While aimlessly exploring websites in that period of isolation, I accidentally pressed the <kbd class='kbd-key'>F12</kbd> key. Suddenly, a hidden panel of raw text and symbols emerged on my screen. I had absolutely no idea what they were, what they were for, or how they worked. I was completely mesmerized to realize that these cryptic lines—known as source code—were the invisible gears actively powering the entire website."
-                               data-mm="ကျွန်တော် Software Engineer တစ်ယောက်အဖြစ် စတင်မယ့် ပထမဆုံးအချိန်ကတော့ COVID-19 ကပ်ရောဂါတွေစဖြစ်တဲ့အချိန်ပေါ့ မမျှော်လင့်ဘဲ စတင်ခဲ့တယ်။ Website မျိုးစုံလျောကြည့်ရင်း ကွန်ပြူတာ Keyboard က <kbd class='kbd-key'>F12</kbd> ခလုပ်လေးကို မတော်တဆသွားနှိပ်မိသွားပြီးတော့ အဲ့မှာ panel တခုပေါ်လာပြီးတော့ တစ်လုံးမှနားမလည်တဲ့စာသားတွေ သင်ကေတတွေပေါ်လာရော။ အဲ့တာဘာတွေမှန်းတော့လုံးဝမသိပေမယ့် အဲ့ဒီအရာလေးတွေကို code လို့ခေါ်တာသိပြီး ဒီ code လေးတွေကဘဲ ဒီ Website ကြီးတစ်ခုလုံးကို အသက်သွင်းပေးနေတာသိသွားတယ် စိတ်ဝင်စားသွားတယ်ပေါ့။">
-                                My journey into software engineering began quite unexpectedly during the COVID-19 pandemic. While aimlessly exploring websites in that period of isolation, I accidentally pressed the <kbd class='kbd-key'>F12</kbd> key. Suddenly, a hidden panel of raw text and symbols emerged on my screen. I had absolutely no idea what they were, what they were for, or how they worked. I was completely mesmerized to realize that these cryptic lines—known as source code—were the invisible gears actively powering the entire website.
+                                data-mm="ကျွန်တော် Software Engineer တစ်ယောက်အဖြစ် စတင်မယ့် ပထမဆုံးအချိန်ကတော့ COVID-19 ကပ်ရောဂါတွေစဖြစ်တဲ့အချိန်ပေါ့ မမျှော်လင့်ဘဲ စတင်ခဲ့တယ်။ Website မျိုးစုံလျောကြည့်ရင်း ကွန်ပြူတာ Keyboard က <kbd class='kbd-key'>F12</kbd> ခလုပ်လေးကို မတော်တဆသွားနှိပ်မိသွားပြီးတော့ အဲ့မှာ panel တခုပေါ်လာပြီးတော့ တစ်လုံးမှနားမလည်တဲ့စာသားတွေ သင်ကေတတွေပေါ်လာရော။ အဲ့တာဘာတွေမှန်းတော့လုံးဝမသိပေမယ့် အဲ့ဒီအရာလေးတွေကို code လို့ခေါ်တာသိပြီး ဒီ code လေးတွေကဘဲ ဒီ Website ကြီးတစ်ခုလုံးကို အသက်သွင်းပေးနေတာသိသွားတယ် စိတ်ဝင်စားသွားတယ်ပေါ့။">
+                                My journey into software engineering began quite unexpectedly during the COVID-19
+                                pandemic. While aimlessly exploring websites in that period of isolation, I accidentally
+                                pressed the <kbd class='kbd-key'>F12</kbd> key. Suddenly, a hidden panel of raw text and
+                                symbols emerged on my screen. I had absolutely no idea what they were, what they were
+                                for, or how they worked. I was completely mesmerized to realize that these cryptic
+                                lines—known as source code—were the invisible gears actively powering the entire
+                                website.
                             </p>
                             <p data-en="That single serendipitous moment sparked a profound curiosity within me. The sheer amazement of how simple text could architect functional, interactive digital worlds quickly evolved into a dedicated pursuit of learning. It transformed a simple accident into the foundation of my career as a software engineer today."
-                               data-mm="အဲ့မထင်မှတ်ဘဲဖြစ်သွားတဲ့အရာလေးကဘဲ ကျွန်တော့်ရဲ့ ဒီ code တွေအပေါ် စူးစမ်းလေ့လာလိုစိတ်ကိုနှိုးဆွပေးခဲ့တယ်။ ဒီစာသားလေးတွေ အားလုံးကဘဲ အပြန်အလှန်တုံ့ပြန်နိုင်တဲ့ Digital World ကြီးကို ဘယ်လိုတည်ဆောင်ပြီး ဘယ်လို အလုပ်လုပ်တယ်ဆိုတာ နားလည်ချင်လာခဲ့ပြီး အဲ့ဒီအရာကဘဲ လက်ရှိအချိန် ယနေ့ Software Engineer တစ်ယောက်ဖြစ်လာဖို့အတွက် အဓိကအရာဖြစ်လာခဲ့ပါတယ်ဗျ။">
-                                That single serendipitous moment sparked a profound curiosity within me. The sheer amazement of how simple text could architect functional, interactive digital worlds quickly evolved into a dedicated pursuit of learning. It transformed a simple accident into the foundation of my career as a software engineer today.
+                                data-mm="အဲ့မထင်မှတ်ဘဲဖြစ်သွားတဲ့အရာလေးကဘဲ ကျွန်တော့်ရဲ့ ဒီ code တွေအပေါ် စူးစမ်းလေ့လာလိုစိတ်ကိုနှိုးဆွပေးခဲ့တယ်။ ဒီစာသားလေးတွေ အားလုံးကဘဲ အပြန်အလှန်တုံ့ပြန်နိုင်တဲ့ Digital World ကြီးကို ဘယ်လိုတည်ဆောင်ပြီး ဘယ်လို အလုပ်လုပ်တယ်ဆိုတာ နားလည်ချင်လာခဲ့ပြီး အဲ့ဒီအရာကဘဲ လက်ရှိအချိန် ယနေ့ Software Engineer တစ်ယောက်ဖြစ်လာဖို့အတွက် အဓိကအရာဖြစ်လာခဲ့ပါတယ်ဗျ။">
+                                That single serendipitous moment sparked a profound curiosity within me. The sheer
+                                amazement of how simple text could architect functional, interactive digital worlds
+                                quickly evolved into a dedicated pursuit of learning. It transformed a simple accident
+                                into the foundation of my career as a software engineer today.
                             </p>
                         </div>
 
-                        <div class="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-wrap items-center justify-between gap-6">
+                        <div
+                            class="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-wrap items-center justify-between gap-6">
                             <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center border border-[#d2fc2a]/20 bg-[rgba(210,252,42,0.05)] shrink-0">
+                                <div
+                                    class="w-10 h-10 rounded-full flex items-center justify-center border border-[#d2fc2a]/20 bg-[rgba(210,252,42,0.05)] shrink-0">
                                     <i data-lucide="coffee" class="w-4 h-4 text-[#d2fc2a]"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1" data-en="Environment" data-mm="လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Environment</p>
-                                    <p class="text-white font-mono font-bold text-[10px] md:text-xs tracking-wide">VS Code + Cafè + Americano</p>
+                                    <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1"
+                                        data-en="Environment" data-mm="လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Environment</p>
+                                    <p class="text-white font-mono font-bold text-[10px] md:text-xs tracking-wide">VS
+                                        Code + Cafè + Americano</p>
                                 </div>
                             </div>
-                            
+
                             <div class="shrink-0 flex items-center gap-3">
-                                <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank" class="text-[10px] font-mono font-bold uppercase tracking-widest text-[#d2fc2a] hover:text-white transition-colors">CAS 🎵</a>
+                                <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank"
+                                    class="text-[10px] font-mono font-bold uppercase tracking-widest text-[#d2fc2a] hover:text-white transition-colors">CAS
+                                    🎵</a>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
 
-        <footer id="contact-form" class="cv-auto relative pt-32 pb-16 px-6 md:px-12 z-10 border-t border-[rgba(210,252,42,0.05)]">
-            <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-50 pointer-events-none" data-speed="-0.3"></div>
-            
+        <footer id="contact-form"
+            class="cv-auto relative pt-32 pb-16 px-6 md:px-12 z-10 border-t border-[rgba(210,252,42,0.05)]">
+            <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-50 pointer-events-none" data-speed="-0.3">
+            </div>
+
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 mb-20 relative z-10">
                 <div class="space-y-16">
                     <div class="space-y-6 reveal-element reveal-right">
                         <div class="flex items-center gap-4 mb-6">
                             <span class="w-8 h-[2px] bg-[#d2fc2a]"></span>
-                            <span class="text-[10px] font-mono text-[#d2fc2a] tracking-[0.2em] uppercase font-bold">Communication</span>
+                            <span
+                                class="text-[10px] font-mono text-[#d2fc2a] tracking-[0.2em] uppercase font-bold">Communication</span>
                         </div>
-                        <h2 class="text-5xl sm:text-6xl md:text-[6rem] font-black tracking-tighter leading-[0.9] uppercase">
+                        <h2
+                            class="text-5xl sm:text-6xl md:text-[6rem] font-black tracking-tighter leading-[0.9] uppercase">
                             <span data-en="Let's Work" data-mm="အတူတကွ" class="block text-white">Let's Work</span>
-                            <span class="text-[#d2fc2a] block font-serif-display italic tracking-normal" data-en="Together." data-mm="ပူးပေါင်းဆောင်ရွက်ကြပါစို့။">Together.</span>
+                            <span class="text-[#d2fc2a] block font-serif-display italic tracking-normal"
+                                data-en="Together." data-mm="ပူးပေါင်းဆောင်ရွက်ကြပါစို့။">Together.</span>
                         </h2>
-                        <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed mt-8 max-w-md" data-en="Have an innovative idea or a project in mind? Send me a message directly and let's build the future together." data-mm="သင့်ထံတွင် ဆန်းသစ်သော စိတ်ကူး သို့မဟုတ် လုပ်ငန်းစဉ်များ ရှိပါသလား။ ကျွန်ုပ်ထံ တိုက်ရိုက် စာပို့ဆက်သွယ်ပြီး အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့။">
-                            Have an innovative idea or a project in mind? Send me a message directly and let's build the future together.
+                        <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed mt-8 max-w-md"
+                            data-en="Have an innovative idea or a project in mind? Send me a message directly and let's build the future together."
+                            data-mm="သင့်ထံတွင် ဆန်းသစ်သော စိတ်ကူး သို့မဟုတ် လုပ်ငန်းစဉ်များ ရှိပါသလား။ ကျွန်ုပ်ထံ တိုက်ရိုက် စာပို့ဆက်သွယ်ပြီး အနာဂတ်ကို အတူတကွ တည်ဆောက်ကြပါစို့။">
+                            Have an innovative idea or a project in mind? Send me a message directly and let's build the
+                            future together.
                         </p>
                     </div>
 
                     <div class="space-y-8 reveal-element reveal-up" style="transition-delay: 0.1s;">
                         <a href="tel:+959456751882" class="flex items-center gap-6 group w-max">
-                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
+                            <div
+                                class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
                                 <i data-lucide="phone" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]" data-en="Phone" data-mm="ဖုန်းခေါ်ဆိုရန်">Phone</p>
+                                <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]"
+                                    data-en="Phone" data-mm="ဖုန်းခေါ်ဆိုရန်">Phone</p>
                                 <p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9456751882</p>
                             </div>
                         </a>
 
                         <a href="mailto:contact@htetzawpaing.site" class="flex items-center gap-6 group w-max">
-                            <div class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
+                            <div
+                                class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
                                 <i data-lucide="mail" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]" data-en="Email" data-mm="အီးမေးလ်ပို့ရန်">Email</p>
-                                <p class="text-lg md:text-xl font-black tracking-widest text-white break-all">contact@htetzawpaing.site</p>
+                                <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]"
+                                    data-en="Email" data-mm="အီးမေးလ်ပို့ရန်">Email</p>
+                                <p class="text-lg md:text-xl font-black tracking-widest text-white break-all">
+                                    contact@htetzawpaing.site</p>
                             </div>
                         </a>
                     </div>
@@ -973,36 +1465,53 @@
                     <form id="direct-email-form" class="space-y-8 relative z-10 p-8 md:p-10 glass-card">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-3">
-                                <label class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block" data-en="Name" data-mm="အမည်">Name</label>
-                                <input type="text" id="contact-name" class="w-full input-minimal text-sm font-mono" placeholder="John Doe" required>
+                                <label
+                                    class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
+                                    data-en="Name" data-mm="အမည်">Name</label>
+                                <input type="text" id="contact-name" class="w-full input-minimal text-sm font-mono"
+                                    placeholder="John Doe" required>
                             </div>
                             <div class="space-y-3">
-                                <label class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block" data-en="Email" data-mm="အီးမေးလ်">Email</label>
-                                <input type="email" id="contact-email" class="w-full input-minimal text-sm font-mono" placeholder="john@domain.com" required>
+                                <label
+                                    class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
+                                    data-en="Email" data-mm="အီးမေးလ်">Email</label>
+                                <input type="email" id="contact-email" class="w-full input-minimal text-sm font-mono"
+                                    placeholder="john@domain.com" required>
                             </div>
                         </div>
 
                         <div class="space-y-3">
-                            <label class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block" data-en="Subject" data-mm="အကြောင်းအရာ">Subject</label>
-                            <input type="text" id="contact-subject" class="w-full input-minimal text-sm font-mono" placeholder="Project Inquiry" required>
+                            <label
+                                class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
+                                data-en="Subject" data-mm="အကြောင်းအရာ">Subject</label>
+                            <input type="text" id="contact-subject" class="w-full input-minimal text-sm font-mono"
+                                placeholder="Project Inquiry" required>
                         </div>
 
                         <div class="space-y-3">
-                            <label class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block" data-en="Message" data-mm="စာသား">Message</label>
-                            <textarea id="contact-message" rows="4" class="w-full input-minimal text-sm font-mono resize-none" placeholder="Tell me about your project..." required></textarea>
+                            <label
+                                class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
+                                data-en="Message" data-mm="စာသား">Message</label>
+                            <textarea id="contact-message" rows="4"
+                                class="w-full input-minimal text-sm font-mono resize-none"
+                                placeholder="Tell me about your project..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-solid-lime w-full py-5 rounded-xl font-black text-xs uppercase tracking-[0.3em] flex justify-center items-center gap-4 mt-6">
-                            <span data-en="Send Message" data-mm="စာပို့မည်">Send Message</span> <i data-lucide="send" class="w-4 h-4"></i>
+                        <button type="submit"
+                            class="btn-solid-lime w-full py-5 rounded-xl font-black text-xs uppercase tracking-[0.3em] flex justify-center items-center gap-4 mt-6">
+                            <span data-en="Send Message" data-mm="စာပို့မည်">Send Message</span> <i data-lucide="send"
+                                class="w-4 h-4"></i>
                         </button>
                     </form>
                 </div>
             </div>
         </footer>
-    </div> 
+    </div>
 
-    <div class="w-full px-6 md:px-12 pb-6 md:pb-8 flex justify-between items-center text-[#111] text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest relative z-10">
-        <p>&copy; 2026 Htet Zaw Paing. <span data-en="All Rights Reserved." data-mm="မူပိုင်ခွင့်များ ရယူထားပြီး။" class="hidden sm:inline">All Rights Reserved.</span></p>
+    <div
+        class="w-full px-6 md:px-12 pb-6 md:pb-8 flex justify-between items-center text-[#111] text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest relative z-10">
+        <p>&copy; 2026 Htet Zaw Paing. <span data-en="All Rights Reserved." data-mm="မူပိုင်ခွင့်များ ရယူထားပြီး။"
+                class="hidden sm:inline">All Rights Reserved.</span></p>
         <div class="flex gap-4 md:gap-8">
             <a href="#" class="hover:text-black/60 transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-black/60 transition-colors">Terms</a>
@@ -1012,7 +1521,7 @@
     <script>
         // Lenis Smooth Scroll Initialization - Balanced for smooth gliding
         const lenis = new Lenis({
-            duration: 1.0, 
+            duration: 1.0,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             direction: 'vertical',
             gestureDirection: 'vertical',
@@ -1040,11 +1549,11 @@
 
         function raf(time) {
             lenis.raf(time);
-            
+
             // Smooth cursor glow physics
             glowX += (mouseX - glowX) * 0.15;
             glowY += (mouseY - glowY) * 0.15;
-            if(cursorGlow) cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
+            if (cursorGlow) cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
 
             // Scroll + Mouse Parallax on Backgrounds
             const scrollY = window.scrollY;
@@ -1062,10 +1571,10 @@
 
         // Navbar Scroll & Dynamic Zoom Effect
         const mainNav = document.getElementById('main-nav');
-        
+
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            
+
             // Navbar Scrolled Logic
             if (scrollY > 60) {
                 mainNav.classList.add('scrolled-nav');
@@ -1076,10 +1585,10 @@
             // Wrapper Expansion Zoom Logic (Expand smoothly after hero, shrink at footer)
             const wrapper = document.getElementById('main-content-wrapper');
             const footer = document.getElementById('contact-form');
-            
+
             if (wrapper && footer) {
                 const footerRect = footer.getBoundingClientRect();
-                
+
                 if (scrollY > 50 && footerRect.top > window.innerHeight * 0.85) {
                     wrapper.classList.add('wrapper-expanded');
                 } else {
@@ -1092,20 +1601,20 @@
 
         window.addEventListener('load', () => {
             const loadingText = document.getElementById('loading-text');
-            
+
             let loadState = 0;
             const loadingStates = ["Fetching Archives...", "Compiling Biographies...", "Injecting Vibe...", "Ready."];
-            
+
             const loaderInterval = setInterval(() => {
                 loadState++;
-                if(loadState < loadingStates.length) {
+                if (loadState < loadingStates.length) {
                     loadingText.innerText = loadingStates[loadState];
                 } else {
                     clearInterval(loaderInterval);
                     document.body.classList.remove('is-booting');
                     document.body.classList.add('system-ready');
                 }
-            }, 200); 
+            }, 200);
         });
 
         const baseTitle = "About - Htet Zaw Paing";
@@ -1155,7 +1664,7 @@
 
         // Mobile menu functionality
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         function openMenu() {
             mobileMenu.classList.remove('translate-x-full', 'opacity-0');
             document.body.style.overflow = 'hidden';
@@ -1172,7 +1681,7 @@
         document.querySelectorAll('.mobile-nav-link').forEach(link => link.addEventListener('click', closeMenu));
 
         const observerOptions = { root: null, threshold: 0.1, rootMargin: "-20px 0px" };
-        
+
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1181,7 +1690,7 @@
                 } else {
                     entry.target.classList.remove('is-visible');
                     const rect = entry.target.getBoundingClientRect();
-                    if(rect.top > window.innerHeight) {
+                    if (rect.top > window.innerHeight) {
                         entry.target.classList.add('is-hidden-down');
                         entry.target.classList.remove('is-hidden-up');
                     } else {
@@ -1214,15 +1723,15 @@
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("/sw.js").then(() => console.log("SW Registered"));
         }
-        
+
         const __logStyle = 'color: #888d81; font-family: monospace; font-size: 11px;';
-        
+
         console.log('%cStarting initial load...', __logStyle);
         console.log('%cStarting basic initialization...', __logStyle);
         console.log('%cInitializing page: home', __logStyle);
         console.log('%cPage enter started', __logStyle);
         console.log('%cPage enter completed', __logStyle);
-        
+
         const __logoHtet = `
     ██╗  ██╗████████╗███████╗████████╗
     ██║  ██║╚══██╔══╝██╔════╝╚══██╔══╝
@@ -1250,8 +1759,9 @@
         console.log('%c' + __logoHtet, 'color: #d2fc2a; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
         console.log('%c' + __logoZaw, 'color: #ffffff; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
         console.log('%c' + __logoPaing, 'color: #d2fc2a; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
-        
+
         console.log('%cresize issue prevention', __logStyle);
     </script>
 </body>
+
 </html>

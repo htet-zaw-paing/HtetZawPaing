@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script>
+        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        if(isBot) {
+            document.documentElement.classList.add('bot-mode');
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -629,7 +636,22 @@
             filter: grayscale(0) contrast(1.05) brightness(1);
             transform: scale(1.03);
         }
+        
+        html.bot-mode #preloader {
+            display: none !important;
+        }
 
+        html.bot-mode #main-content-wrapper,
+        html.bot-mode .reveal-element,
+        html.bot-mode body:not(.system-ready) #home .reveal-element,
+        html.bot-mode body.is-booting #main-content-wrapper {
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+            transition: none !important;
+            animation: none !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col">

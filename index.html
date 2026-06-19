@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script>
+        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        if(isBot) {
+            document.documentElement.classList.add('bot-mode');
+        }
+    </script>
+    
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -994,6 +1002,22 @@
 
         .lenis.lenis-scrolling iframe {
             pointer-events: none;
+        }
+
+        html.bot-mode #preloader {
+            display: none !important;
+        }
+
+        html.bot-mode #main-content-wrapper,
+        html.bot-mode .reveal-element,
+        html.bot-mode body:not(.system-ready) #home .reveal-element,
+        html.bot-mode body.is-booting #main-content-wrapper {
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+            transition: none !important;
+            animation: none !important;
+            visibility: visible !important;
         }
     </style>
 </head>
