@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <script>
-        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
-        if(isBot) {
+        const isBot = /bot|googlebot|google-inspectiontool|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        if (isBot) {
             document.documentElement.classList.add('bot-mode');
         }
     </script>
-    
+    <noscript>
+        <style>
+            #preloader {
+                display: none !important;
+            }
+
+            #main-content-wrapper,
+            .reveal-element {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        </style>
+    </noscript>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#000000">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https: wss: ws:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: blob: https:; frame-src 'self' https:;">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; connect-src 'self' https: wss: ws:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https:; img-src 'self' data: blob: https:; frame-src 'self' https:;">
 
     <title>Htet Zaw Paing - Software Engineer & Web Developer</title>
     <meta name="title" content="Htet Zaw Paing - Software Engineer & Web Developer">
-    <meta name="description" content="Hello, and welcome. I am Htet Zaw Paing, a Yangon-based Software Engineer and Web Developer specializing in intelligent systems and full-stack solutions.">
-    <meta name="keywords" content="Htet Zaw Paing, Software Engineer Myanmar, Web Developer Yangon, ထက်ဇော်ပိုင်, Myanmar Developer, Full Stack Engineer, Edinburgh Napier University, Info Myanmar University, Intelligent Systems, Network Security, Zaw Paing">
+    <meta name="description"
+        content="Hello, and welcome. I am Htet Zaw Paing, a Yangon-based Software Engineer and Web Developer specializing in intelligent systems and full-stack solutions.">
+    <meta name="keywords"
+        content="Htet Zaw Paing, Software Engineer Myanmar, Web Developer Yangon, ထက်ဇော်ပိုင်, Myanmar Developer, Full Stack Engineer, Edinburgh Napier University, Info Myanmar University, Intelligent Systems, Network Security, Zaw Paing">
     <meta name="author" content="Htet Zaw Paing">
 
 
@@ -155,7 +173,8 @@
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script defer id="supportfast-script" src="https://cdn.supportfast.ai/chatbot.js" data-chatbot-id="bot-oirq7rylle"></script>
+    <script defer id="supportfast-script" src="https://cdn.supportfast.ai/chatbot.js"
+        data-chatbot-id="bot-oirq7rylle"></script>
 
     <style>
         :root {

@@ -4,11 +4,25 @@
 <head>
 
     <script>
-        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        const isBot = /bot|googlebot|google-inspectiontool|crawler|spider|robot|crawling/i.test(navigator.userAgent);
         if (isBot) {
             document.documentElement.classList.add('bot-mode');
         }
     </script>
+    <noscript>
+        <style>
+            #preloader {
+                display: none !important;
+            }
+
+            #main-content-wrapper,
+            .reveal-element {
+                opacity: 1 !important;
+                transform: none !important;
+                filter: none !important;
+            }
+        </style>
+    </noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
