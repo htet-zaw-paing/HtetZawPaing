@@ -114,7 +114,6 @@
             --text-main: #f4f4f0;
             --text-muted: #888d81;
 
-            /* Enhanced Easing Functions */
             --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
             --ease-curtain: cubic-bezier(0.85, 0, 0.15, 1);
@@ -842,7 +841,6 @@
             }
         }
 
-        /* Lenis Smooth Scroll Setup */
         html.lenis {
             height: auto;
         }
@@ -1094,7 +1092,6 @@
             </div>
         </section>
 
-        <!-- Note: Removed overflow-hidden from this section to prevent it from clipping the sticky context -->
         <section id="biography"
             class="py-24 md:py-36 px-6 md:px-12 relative border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-dots opacity-40 pointer-events-none" data-speed="-0.3">
@@ -1104,10 +1101,8 @@
 
                 <div class="lg:col-span-4 relative">
 
-                    <!-- The sticky element itself. MUST NOT have transform properties from reveal animations -->
                     <div class="relative lg:sticky top-32 w-full z-30 h-max">
 
-                        <!-- The animation wrapper lives INSIDE the sticky container so it doesn't break sticky behavior -->
                         <div class="space-y-6 transition-transform duration-500 reveal-element reveal-right">
 
                             <div class="glass-card p-8 shadow-2xl">
@@ -1207,136 +1202,72 @@
                         </h2>
                     </div>
 
+                    <!-- Educational Voyage Section -->
                     <div class="relative timeline-line space-y-16 mt-16">
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
-                            style="transition-delay: 0.1s;">
-                            <div
-                                class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400">
-                            </div>
+                        <!-- Future Goal 2 (PhD) -->
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.1s;">
+                            <div class="absolute left-[-5px] top-1.5 w-3 h-3 rounded-full border-2 border-dashed border-[#555] bg-[#272a21] ring-4 ring-[#272a21] z-10 transition-colors group-hover:border-[#d2fc2a] duration-400"></div>
                             <div>
-                                <span
-                                    class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]"
-                                    data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
-                                <h3 class="text-2xl md:text-3xl font-black mb-3 text-white tracking-tighter"
-                                    data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in
-                                    Computing</h3>
-                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl"
-                                    data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures."
-                                    data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">
-                                    Visionary goal to contribute novel research to the field of Artificial General
-                                    Intelligence (AGI) and Secure Quantum Architectures.</p>
+                                <span class="inline-block px-3 py-1.5 rounded border border-dashed border-[#555] text-[#888d81] font-bold font-mono text-[10px] tracking-[0.2em] mb-4 group-hover:border-[#d2fc2a]/50 group-hover:text-[#d2fc2a] transition-colors" data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
+                                <h3 class="text-2xl md:text-3xl font-black mb-3 text-[#666] tracking-tighter group-hover:text-[#ccc] transition-colors" data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in Computing</h3>
+                                <p class="text-[#555] text-sm md:text-base font-mono leading-relaxed max-w-xl group-hover:text-[#888d81] transition-colors" data-en="Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures." data-mm="Artificial General Intelligence (AGI) နှင့် လုံခြုံရေးအဆင့်မြင့် Quantum ကွန်ပျူတာဗိသုကာ ပညာရပ်များတွင် သုတေသနအသစ်များ လုပ်ဆောင်နိုင်ရန် အနာဂတ် ရည်မှန်းချက်ထားရှိပါသည်။">Visionary goal to contribute novel research to the field of Artificial General Intelligence (AGI) and Secure Quantum Architectures.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
-                            style="transition-delay: 0.2s;">
-                            <div
-                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#888d81] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
-                            </div>
+                        <!-- Future Goal 1 (MSc) -->
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.2s;">
+                            <div class="absolute left-[-5px] top-1.5 w-3 h-3 rounded-full border-2 border-dashed border-[#555] bg-[#272a21] ring-4 ring-[#272a21] z-10 transition-colors group-hover:border-[#d2fc2a] duration-400"></div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block"
-                                    data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
-                                <h3 class="text-xl md:text-2xl font-black mb-3 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
-                                    data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing
-                                </h3>
-                                <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-xl"
-                                    data-en="Strategic goal to deepen expertise in Advanced Software Architecture and Cloud Systems."
-                                    data-mm="အဆင့်မြင့် ဆော့ဖ်ဝဲလ်ဗိသုကာပညာနှင့် Cloud စနစ်များတွင် ကျွမ်းကျင်မှုကို ပိုမိုနက်ရှိုင်းစေရန် မဟာဘွဲ့ကို ရည်မှန်းထားပါသည်။">
-                                    Strategic goal to deepen expertise in Advanced Software Architecture and Cloud
-                                    Systems.</p>
+                                <span class="inline-block px-3 py-1.5 rounded border border-dashed border-[#555] text-[#888d81] font-bold font-mono text-[10px] tracking-[0.2em] mb-4 group-hover:border-[#d2fc2a]/50 group-hover:text-[#d2fc2a] transition-colors" data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-3 text-[#666] tracking-tighter group-hover:text-[#ccc] transition-colors" data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing</h3>
+                                <p class="text-[#555] text-sm md:text-base font-mono leading-relaxed max-w-xl group-hover:text-[#888d81] transition-colors" data-en="Strategic goal to deepen expertise in Modern Software Development, Data Analysis, and Machine Learning." data-mm="ခေတ်မီ Software Development၊ Data Analysis နှင့် Machine Learning ပိုင်းများတွင် ကျွမ်းကျင်မှုကို အဆက်မပြတ် မြှင့်တင်သွားရန် ရည်မှန်းထားသည်။">Strategic goal to deepen expertise in Modern Software Development, Data Analysis, and Machine Learning.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
-                            style="transition-delay: 0.3s;">
-                            <div
-                                class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.6] duration-400">
+                        <!-- Current Phase (BSc) -->
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.3s;">
+                            <div class="absolute left-[-5px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#d2fc2a] shadow-[0_0_20px_rgba(210,252,42,0.8)] ring-4 ring-[#272a21] z-10 transition-transform group-hover:scale-[1.3] duration-400">
+                                <div class="absolute inset-0 rounded-full bg-[#d2fc2a] animate-ping opacity-75"></div>
                             </div>
-                            <div>
-                                <span
-                                    class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]"
-                                    data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
-                                <h3 class="text-2xl md:text-3xl font-black mb-1 text-white tracking-tighter"
-                                    data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">
-                                    BSc (Hons) Computing</h3>
-                                <p
-                                    class="text-[#d2fc2a] font-mono text-[10px] uppercase font-bold tracking-widest mb-4">
-                                    Edinburgh Napier University</p>
-                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl"
-                                    data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks."
-                                    data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">
-                                    Currently pursuing an advanced degree focused on scalable software architecture and
-                                    cloud systems. Deepening knowledge in secure coding practices and modern development
-                                    frameworks.</p>
+                            <div class="relative z-10">
+                                <span class="inline-block px-3 py-1.5 rounded bg-[#d2fc2a] text-[#111] shadow-[0_0_15px_rgba(210,252,42,0.3)] font-black font-mono text-[10px] tracking-[0.2em] mb-4" data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
+                                <h3 class="text-2xl md:text-3xl font-black mb-1 text-white tracking-tighter" data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">BSc (Hons) Computing</h3>
+                                <p class="text-[#d2fc2a] font-mono text-[10px] uppercase font-bold tracking-widest mb-4" data-en="Edinburgh Napier University" data-mm="Edinburgh Napier University">Edinburgh Napier University</p>
+                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks." data-mm="လက်ရှိတွင် ခိုင်မာချဲ့ထွင်နိုင်သော ဆော့ဖ်ဝဲလ်ဗိသုကာနှင့် Cloud စနစ်များကို အဓိကထား၍ အဆင့်မြင့်ဘွဲ့ကို ဆည်းပူးနေပါသည်။ လုံခြုံရေးမြင့်မားသော coding နည်းစနစ်များနှင့် ခေတ်မီ development framework များကိုလည်း ပိုမိုနက်ရှိုင်းစွာ လေ့လာနေပါသည်။">Currently pursuing an advanced degree focused on scalable software architecture and cloud systems. Deepening knowledge in secure coding practices and modern development frameworks.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
-                            style="transition-delay: 0.4s;">
-                            <div
-                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#555] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
-                            </div>
+                        <!-- Past Entry 1 (HND) -->
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.4s;">
+                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#888d81] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
                             <div>
-                                <span
-                                    class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block">2023
-                                    - 2025</span>
-                                <h3 class="text-xl md:text-2xl font-black mb-1 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
-                                    data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher
-                                    National Diploma</h3>
-                                <p class="text-[#666] font-mono text-[10px] uppercase font-bold tracking-widest mb-4">
-                                    Info Myanmar University / Pearson</p>
-                                <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-xl"
-                                    data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models."
-                                    data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">
-                                    Formalized technical skills with HNC and HND qualifications. Focused on full-stack
-                                    development, data structures, and the initial exploration of AI models.</p>
+                                <span class="inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4" data-en="2023 - 2025" data-mm="၂၀၂၃ - ၂၀၂၅">2023 - 2025</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-1 text-white tracking-tighter transition-colors" data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher National Diploma</h3>
+                                <p class="text-[#a1a1a1] font-mono text-[10px] uppercase font-bold tracking-widest mb-4" data-en="Info Myanmar University / Pearson" data-mm="Info Myanmar University / Pearson">Info Myanmar University / Pearson</p>
+                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models." data-mm="HNC နှင့် HND ဘွဲ့များဖြင့် နည်းပညာစွမ်းရည်များကို အခိုင်အမာ တည်ဆောက်ခဲ့ပါသည်။ Full-stack web development၊ data structures နှင့် AI မော်ဒယ်များကို အဓိကထား လေ့လာခဲ့ပါသည်။">Formalized technical skills with HNC and HND qualifications. Focused on full-stack development, data structures, and the initial exploration of AI models.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
-                            style="transition-delay: 0.5s;">
-                            <div
-                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#444] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
-                            </div>
+                        <!-- Past Entry 2 (Turning Point) -->
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.5s;">
+                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#888d81] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block"
-                                    data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
-                                <h3 class="text-xl md:text-2xl font-black mb-1 text-[#888] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
-                                    data-en="The Turning Point (Self-Learning)"
-                                    data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point
-                                    (Self-Learning)</h3>
-                                <p class="text-[#555] font-mono text-[10px] uppercase font-bold tracking-widest mb-4"
-                                    data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period
-                                </p>
-                                <p class="text-[#555] text-sm md:text-base font-mono leading-relaxed max-w-xl"
-                                    data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path."
-                                    data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">
-                                    During the global pause caused by COVID-19, I discovered my passion for code. I
-                                    dedicated these two years to intense self-study, moving from 'Hello World' to
-                                    building functional applications. This period defined my career path.</p>
+                                <span class="inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4" data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-1 text-white tracking-tighter transition-colors" data-en="The Turning Point (Self-Learning)" data-mm="ဘဝရဲ့ အလှည့်အပြောင်း (ကိုယ်တိုင် လေ့လာဆည်းပူးခြင်း)">The Turning Point (Self-Learning)</h3>
+                                <p class="text-[#a1a1a1] font-mono text-[10px] uppercase font-bold tracking-widest mb-4" data-en="Home / COVID-19 Period" data-mm="အိမ် / ကိုဗစ်ကာလ">Home / COVID-19 Period</p>
+                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path." data-mm="ကိုဗစ်ကာလ ကမ္ဘာကြီးရပ်တန့်နေချိန်မှာ programming အပေါ် ကျွန်တော့်ရဲ့ ဝါသနာကို ရှာဖွေတွေ့ရှိခဲ့ပါတယ်။ ဒီ ၂ နှစ်တာကာလကို 'Hello World' ရေးတာကနေစလို့ လက်တွေ့အသုံးချနိုင်တဲ့ application တွေ တည်ဆောက်နိုင်တဲ့အထိ ကိုယ်တိုင် ပြင်းပြင်းထန်ထန် လေ့လာခဲ့ပါတယ်။ ဒါဟာ ကျွန်တော့်ဘဝရဲ့ အရေးပါဆုံးသော အလှည့်အပြောင်းတစ်ခုပါပဲ။">During the global pause caused by COVID-19, I discovered my passion for code. I dedicated these two years to intense self-study, moving from 'Hello World' to building functional applications. This period defined my career path.</p>
                             </div>
                         </div>
 
-                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left"
-                            style="transition-delay: 0.6s;">
-                            <div
-                                class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#333] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400">
-                            </div>
+                        <!-- Past Entry 3 (Secondary Education) -->
+                        <div class="relative pl-12 md:pl-20 group reveal-element reveal-left" style="transition-delay: 0.6s;">
+                            <div class="absolute left-[-4px] top-1.5 w-3 h-3 rounded-full bg-[#888d81] ring-4 ring-[#272a21] z-10 transition-colors group-hover:bg-[#d2fc2a] duration-400"></div>
                             <div>
-                                <span class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block"
-                                    data-en="2015 - 2020" data-mm="၂၀၁5 - ၂၀၂၀">2015 - 2020</span>
-                                <h3 class="text-lg md:text-xl font-black mb-1 text-[#666] tracking-tighter group-hover:text-[#d2fc2a] transition-colors"
-                                    data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
-                                <p class="text-[#444] font-mono text-[10px] uppercase font-bold tracking-widest mb-4"
-                                    data-en='No.2 Basic Education High School, Bahan ("Nanyan")'
-                                    data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan
-                                    ("Nanyan")</p>
-                                <p class="text-[#444] text-sm md:text-base font-mono leading-relaxed max-w-xl"
-                                    data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming."
-                                    data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">
-                                    Developed academic discipline and logical thinking skills that would later serve as
-                                    the foundation for programming.</p>
+                                <span class="inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4" data-en="2015 - 2020" data-mm="၂၀၁၅ - ၂၀၂၀">2015 - 2020</span>
+                                <h3 class="text-xl md:text-2xl font-black mb-1 text-white tracking-tighter transition-colors" data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
+                                <p class="text-[#a1a1a1] font-mono text-[10px] uppercase font-bold tracking-widest mb-4" data-en='No.2 Basic Education High School, Bahan ("Nanyan")' data-mm="အ.ထ.က(၂) ဗဟန်း (နန်းယန်း)">No.2 Basic Education High School, Bahan ("Nanyan")</p>
+                                <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-xl" data-en="Developed academic discipline and logical thinking skills that would later serve as the foundation for programming." data-mm="ပညာရေးဆိုင်ရာ စည်းကမ်းချက်တွေနဲ့ ယုတ္တိဗေဒဆိုင်ရာ စဉ်းစားတွေးခေါ်မှုတွေကို စတင်တည်ဆောက်နိုင်ခဲ့ပြီး၊ ဒါတွေက နောက်ပိုင်း programming အတွက် အရေးပါတဲ့ အခြေခံအုတ်မြစ်တွေ ဖြစ်လာခဲ့ပါတယ်။">Developed academic discipline and logical thinking skills that would later serve as the foundation for programming.</p>
                             </div>
                         </div>
 
@@ -1533,7 +1464,7 @@
     </div>
 
     <script>
-        // Lenis Smooth Scroll Initialization - Balanced for smooth gliding
+        
         const lenis = new Lenis({
             duration: 1.0,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -1546,7 +1477,7 @@
             infinite: false,
         });
 
-        // Mouse Parallax Tracker
+        
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
         let glowX = mouseX;
@@ -1557,19 +1488,19 @@
             mouseY = e.clientY;
         });
 
-        // Loop handles Lenis scroll + dynamic section backgrounds + cursor glow
+        
         const cursorGlow = document.getElementById('cursor-glow');
         const scrollBgs = document.querySelectorAll('.scroll-bg');
 
         function raf(time) {
             lenis.raf(time);
 
-            // Smooth cursor glow physics
+            
             glowX += (mouseX - glowX) * 0.15;
             glowY += (mouseY - glowY) * 0.15;
             if (cursorGlow) cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
 
-            // Scroll + Mouse Parallax on Backgrounds
+            
             const scrollY = window.scrollY;
             scrollBgs.forEach(bg => {
                 const speed = parseFloat(bg.dataset.speed || 0.1);
@@ -1583,27 +1514,24 @@
         }
         requestAnimationFrame(raf);
 
-        // Navbar Scroll & Dynamic Zoom Effect
         const mainNav = document.getElementById('main-nav');
 
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
 
-            // Navbar Scrolled Logic
             if (scrollY > 60) {
                 mainNav.classList.add('scrolled-nav');
             } else {
                 mainNav.classList.remove('scrolled-nav');
             }
 
-            // Wrapper Expansion Zoom Logic (Expand smoothly after hero, shrink at footer)
             const wrapper = document.getElementById('main-content-wrapper');
             const footer = document.getElementById('contact-form');
 
             if (wrapper && footer) {
                 const footerRect = footer.getBoundingClientRect();
 
-                if (scrollY > 50 && footerRect.top > window.innerHeight * 0.85) {
+                if (scrollY > 0 && footerRect.top > window.innerHeight * 0.55) {
                     wrapper.classList.add('wrapper-expanded');
                 } else {
                     wrapper.classList.remove('wrapper-expanded');
@@ -1656,7 +1584,6 @@
         function updateLang(lang) {
             translatables.forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
-                // Uses innerHTML to safely parse <kbd> tags embedded inside translated strings
                 if (text) el.innerHTML = text;
             });
             const deskText = document.getElementById('lang-text');
@@ -1676,7 +1603,6 @@
         document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
         document.getElementById('mobile-lang-toggle')?.addEventListener('click', toggleLang);
 
-        // Mobile menu functionality
         const mobileMenu = document.getElementById('mobile-menu');
 
         function openMenu() {
@@ -1720,7 +1646,6 @@
             scrollObserver.observe(el);
         });
 
-        // Form handler
         const contactForm = document.getElementById('direct-email-form');
         if (contactForm) {
             contactForm.addEventListener('submit', function (e) {

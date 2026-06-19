@@ -1362,10 +1362,8 @@
                         enterprise solutions that I've engineered for the future.
                     </p>
 
-                    <div class="absolute -bottom-10 left-0 w-full z-30 reveal-element reveal-up lg:hidden flex justify-center"
-                        style="transition-delay: 0.2s;">
-                        <a href="#projects-list"
-                            class="btn-solid-lime px-7 py-3.5 text-[11px] sm:text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl whitespace-nowrap w-max rounded-xl">
+                    <div class="mt-8 w-full z-30 reveal-element reveal-up lg:hidden flex justify-center" style="transition-delay: 0.2s;">
+                        <a href="#projects-list" class="btn-solid-lime px-7 py-3.5 text-[11px] sm:text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl whitespace-nowrap w-max rounded-xl">
                             Explore Deployments <i data-lucide="arrow-down" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
@@ -2375,7 +2373,7 @@
 
             if (wrapper && footer) {
                 const footerRect = footer.getBoundingClientRect();
-                if (scrollY > 50 && footerRect.top > window.innerHeight * 0.85) {
+                if (scrollY > 0 && footerRect.top > window.innerHeight * 0.55) {
                     wrapper.classList.add('wrapper-expanded');
                 } else {
                     wrapper.classList.remove('wrapper-expanded');
