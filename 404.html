@@ -769,7 +769,6 @@
         }
         requestAnimationFrame(raf);
 
-        // 2. Navigation & Wrapper Resize Logic
         const mainNav = document.getElementById('main-nav');
         
         window.addEventListener('scroll', () => {
@@ -786,7 +785,7 @@
             
             if (wrapper && footer) {
                 const footerRect = footer.getBoundingClientRect();
-                if (scrollY > 0 && footerRect.top > window.innerHeight * 0.55) {
+                if (scrollY > 0 && footerRect.top > window.innerHeight * 0.3) {
                     wrapper.classList.add('wrapper-expanded');
                 } else {
                     wrapper.classList.remove('wrapper-expanded');
@@ -794,7 +793,6 @@
             }
         });
 
-        // 3. System Preloader 
         window.addEventListener('load', () => {
             const loadingText = document.getElementById('loading-text');
             let loadState = 0;
@@ -811,7 +809,6 @@
             }, 200); 
         });
 
-        // 4. 404 Specific Title Blinker & Icons
         const baseTitle = "404 - Page Not Found | Htet Zaw Paing";
         const messages = [
             "Hey, Come back!",
@@ -828,7 +825,7 @@
                 interval = setInterval(() => {
                     document.title = messages[i];
                     i = (i + 1) % messages.length;
-                }, 1000); // Slower interval matching index theme behavior
+                }, 1000);
             } else {
                 clearInterval(interval);
                 document.title = baseTitle;
@@ -837,7 +834,6 @@
 
         lucide.createIcons();
 
-        // 5. Language Translations
         let currentLang = localStorage.getItem('hzp_lang') || 'en';
         const translatables = document.querySelectorAll('[data-en]');
 
@@ -863,7 +859,6 @@
         document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
         document.getElementById('mobile-lang-toggle')?.addEventListener('click', toggleLang);
 
-        // 6. Mobile Menu Logic
         const mobileMenu = document.getElementById('mobile-menu');
         
         function openMenu() {

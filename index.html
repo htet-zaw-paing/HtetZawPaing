@@ -2108,7 +2108,7 @@
 
             if (wrapper && footer) {
                 const footerRect = footer.getBoundingClientRect();
-                if (scrollY > 0 && footerRect.top > window.innerHeight * 0.55) {
+                if (scrollY > 0 && footerRect.top > window.innerHeight * 0.3) {
                     wrapper.classList.add('wrapper-expanded');
                 } else {
                     wrapper.classList.remove('wrapper-expanded');
