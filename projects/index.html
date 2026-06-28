@@ -23,7 +23,7 @@
             }
         </style>
     </noscript>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -971,7 +971,6 @@
             }
         }
 
-        /* Lenis Smooth Scroll Setup */
         html.lenis {
             height: auto;
         }
@@ -992,7 +991,6 @@
             pointer-events: none;
         }
 
-        /* Carousel Styles adapted for Glass Card */
         .carousel-container {
             position: relative;
             width: 100%;
@@ -1107,7 +1105,6 @@
             background: #fff;
         }
 
-        /* Lightbox */
         #lightbox-modal {
             transition: opacity 0.4s ease;
         }
@@ -1362,8 +1359,10 @@
                         enterprise solutions that I've engineered for the future.
                     </p>
 
-                    <div class="mt-8 w-full z-30 reveal-element reveal-up lg:hidden flex justify-center" style="transition-delay: 0.2s;">
-                        <a href="#projects-list" class="btn-solid-lime px-7 py-3.5 text-[11px] sm:text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl whitespace-nowrap w-max rounded-xl">
+                    <div class="mt-8 w-full z-30 reveal-element reveal-up lg:hidden flex justify-center"
+                        style="transition-delay: 0.2s;">
+                        <a href="#projects-list"
+                            class="btn-solid-lime px-7 py-3.5 text-[11px] sm:text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl whitespace-nowrap w-max rounded-xl">
                             Explore Deployments <i data-lucide="arrow-down" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
@@ -1415,7 +1414,7 @@
             </div>
         </section>
 
-        <!-- Project 01: Secora Cyber Marketplace -->
+
         <section id="projects-list"
             class="py-24 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-dots opacity-40 pointer-events-none" data-speed="-0.3">
@@ -1534,7 +1533,7 @@
             </div>
         </section>
 
-        <!-- Project 02: Secora Voice AI -->
+
         <section
             class="py-24 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-30 pointer-events-none" data-speed="0.25">
@@ -1647,7 +1646,7 @@
             </div>
         </section>
 
-        <!-- Project 03: Sia Chatbot -->
+
         <section
             class="py-24 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-grid opacity-30 pointer-events-none" data-speed="-0.35">
@@ -1762,7 +1761,7 @@
             </div>
         </section>
 
-        <!-- Project 04: Sensori -->
+
         <section
             class="py-24 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-30 pointer-events-none" data-speed="0.3">
@@ -1883,7 +1882,7 @@
             </div>
         </section>
 
-        <!-- Project 05: Sori -->
+
         <section
             class="py-24 md:py-36 px-6 md:px-12 relative overflow-hidden border-t border-[rgba(210,252,42,0.05)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-grid opacity-30 pointer-events-none" data-speed="-0.35">
@@ -2008,7 +2007,7 @@
             </div>
         </section>
 
-        <!-- Flagship Project: MyanCode -->
+
         <section id="myancode-platform"
             class="py-32 md:py-48 px-6 md:px-12 relative overflow-hidden border-y border-[rgba(210,252,42,0.05)] bg-[rgba(0,0,0,0.2)] z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-topo opacity-50 pointer-events-none" data-speed="-0.25">
@@ -2162,7 +2161,7 @@
             </div>
         </section>
 
-        <!-- Footer -->
+
         <footer id="contact-form" class="cv-auto relative pt-32 pb-16 px-6 md:px-12 z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-50 pointer-events-none" data-speed="-0.3">
             </div>
@@ -2274,7 +2273,7 @@
         </div>
     </div>
 
-    <!-- Lightbox Modal inside olive theme -->
+
     <div id="lightbox-modal"
         class="fixed inset-0 z-[999999] bg-[#272a21]/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
         <button
@@ -2488,7 +2487,6 @@
             scrollObserver.observe(el);
         });
 
-        // Typewriter Effect
         const heroPhrases = ["THE IMPOSSIBLE", "SECURE SYSTEMS", "THE FUTURE", "ARCHITECTURES"];
         let heroPhraseIndex = 0;
         let heroCharIndex = 14;
@@ -2527,7 +2525,6 @@
             heroTypewriterLoop();
         }, 3000);
 
-        // Contact Form
         const contactFormE = document.getElementById('direct-email-form');
         if (contactFormE) {
             contactFormE.addEventListener('submit', function (e) {
@@ -2540,7 +2537,6 @@
             });
         }
 
-        // Carousel Functions
         function moveCarousel(id, direction) {
             const container = document.getElementById(id);
             if (!container) return;
@@ -2567,7 +2563,6 @@
             }
         });
 
-        // Lightbox Functions
         let currentLightboxImages = [];
         let currentLightboxIndex = 0;
         let zoomLevel = 1;
@@ -2744,3 +2739,29 @@
 </body>
 
 </html>
+
+<!--
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👋 Hello and welcome, fellow developer!
+
+I'm Htet Zaw Paing.
+Thanks for taking a look at my source code.
+
+This portfolio was designed and developed from scratch
+with a focus on performance, accessibility, and user experience.
+
+If you'd like to collaborate or discuss a project,
+I'd be happy to hear from you.
+
+Portfolio: https://htetzawpaing.site
+Company:   https://myancode.com
+Email:     contact@htetzawpaing.site | hello@myancode.com
+Phone:     +95 9 4567 5188 | +95 9 944 861000
+
+© 2026 Htet Zaw Paing. All rights reserved.
+
+Happy coding! 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+-->
