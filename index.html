@@ -2450,6 +2450,134 @@ Happy coding!
 
         console.log('%cresize issue prevention', __logStyle);
     </script>
+    
+    <style>
+        .hands-free-highlight {
+            position: relative;
+            border-radius: 16px;
+            animation: handsFreePulse 2s ease-in-out infinite alternate !important;
+            transition: all 0.5s ease;
+        }
+        .hands-free-highlight::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 0%;
+            background-color: var(--accent);
+            border-radius: 4px;
+            animation: handsFreeLine 2s ease-in-out infinite alternate;
+        }
+        @keyframes handsFreePulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(210, 252, 42, 0);
+                background-color: rgba(210, 252, 42, 0);
+            }
+            100% {
+                box-shadow: 0 0 40px 10px rgba(210, 252, 42, 0.15);
+                background-color: rgba(210, 252, 42, 0.08);
+            }
+        }
+        @keyframes handsFreeLine {
+            0% { height: 0%; opacity: 0; }
+            100% { height: 80%; opacity: 1; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tourElements = [
+                document.querySelector('#nav-logo'),
+                document.querySelector('#home h1'),
+                document.querySelector('#person h2').parentElement,
+                document.querySelector('#person .timeline-line'),
+                document.querySelector('#projects h2').parentElement,
+                document.querySelector('#specialization h2').parentElement,
+                document.querySelector('#news h2').parentElement,
+                document.querySelector('#contact-form h2').parentElement
+            ];
+
+            let idleTimer = null;
+            let tourTimer = null;
+            let isTouring = false;
+            let currentIndex = 0;
+            const IDLE_LIMIT = 5000; 
+            const TOUR_INTERVAL = 4000;
+
+            function resetIdle() {
+                if (isTouring) {
+                    isTouring = false;
+                    clearTimeout(tourTimer);
+                    removeHighlights();
+                }
+                clearTimeout(idleTimer);
+                idleTimer = setTimeout(startTour, IDLE_LIMIT);
+            }
+
+            function removeHighlights() {
+                document.querySelectorAll('.hands-free-highlight').forEach(el => {
+                    el.classList.remove('hands-free-highlight');
+                });
+            }
+
+            function startTour() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!document.body.classList.contains('system-ready') || 
+                   (mobileMenu && !mobileMenu.classList.contains('translate-x-full'))) {
+                    resetIdle();
+                    return;
+                }
+
+                const validStops = tourElements.filter(el => el !== null);
+                if (validStops.length === 0) return;
+
+                isTouring = true;
+                currentIndex = 0;
+
+                for (let i = 0; i < validStops.length; i++) {
+                    const rect = validStops[i].getBoundingClientRect();
+                    if (rect.top > window.innerHeight * 0.3) {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+
+                executeTourStep(validStops);
+            }
+
+            function executeTourStep(stops) {
+                if (!isTouring) return;
+
+                removeHighlights();
+                const target = stops[currentIndex];
+
+                if (target) {
+                    target.classList.add('hands-free-highlight');
+
+                    if (typeof lenis !== 'undefined') {
+                        lenis.scrollTo(target, { 
+                            offset: -120, 
+                            duration: 2.0, 
+                            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) 
+                        });
+                    } else {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+
+                currentIndex = (currentIndex + 1) % stops.length;
+                tourTimer = setTimeout(() => executeTourStep(stops), TOUR_INTERVAL);
+            }
+
+            const userEvents = ['mousemove', 'mousedown', 'keydown', 'touchstart', 'wheel'];
+            userEvents.forEach(evt => {
+                window.addEventListener(evt, resetIdle, { passive: true });
+            });
+
+            resetIdle();
+        });
+    </script>
 </body>
 
 </html>
