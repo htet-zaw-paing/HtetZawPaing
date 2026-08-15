@@ -170,7 +170,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
@@ -210,6 +210,54 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+        }
+
+        body.lang-mm,
+        body.lang-mm [data-mm],
+        body.lang-mm [data-mm] * {
+            font-family: 'Noto Sans Myanmar', 'Myanmar Text', 'Padauk', 'Inter', sans-serif;
+            letter-spacing: 0.01em;
+        }
+
+        body.lang-mm #home h1 {
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+        }
+
+        body.lang-mm #home h1 > span:first-child {
+            font-size: 0.78em;
+            line-height: 1.25;
+        }
+
+        body.lang-mm #hero-typewriter {
+            font-size: 0.72em;
+            line-height: 1.45;
+            letter-spacing: 0;
+            word-spacing: 0.12em;
+        }
+
+        body.lang-mm #home p,
+        body.lang-mm .font-mono[data-mm] {
+            line-height: 1.95;
+            word-spacing: 0.12em;
+        }
+
+        body.lang-mm .side-nav-link,
+        body.lang-mm .btn-solid-lime,
+        body.lang-mm .btn-solid-white,
+        body.lang-mm .project-tag {
+            line-height: 1.7;
+            letter-spacing: 0.03em;
+        }
+
+        body.language-switching #main-content-wrapper {
+            animation: language-switch-pulse 0.38s ease-out;
+        }
+
+        @keyframes language-switch-pulse {
+            0% { box-shadow: 0 0 0 rgba(210, 252, 42, 0); }
+            45% { box-shadow: 0 0 0 8px rgba(210, 252, 42, 0.12), 0 0 34px rgba(210, 252, 42, 0.16); }
+            100% { box-shadow: 0 0 0 rgba(210, 252, 42, 0); }
         }
 
         .font-mono {
@@ -1171,6 +1219,38 @@
             background: rgba(210, 252, 42, 0.05);
         }
 
+        .carousel-slide {
+            background: linear-gradient(110deg, rgba(210, 252, 42, 0.06), rgba(17, 17, 17, 0.98), rgba(210, 252, 42, 0.04));
+        }
+
+        .carousel-slide img,
+        #lightbox-img {
+            position: relative;
+            background: linear-gradient(110deg, rgba(210, 252, 42, 0.08) 8%, rgba(255, 255, 255, 0.12) 18%, rgba(210, 252, 42, 0.08) 33%);
+            background-size: 220% 100%;
+        }
+
+        .carousel-slide img.image-loading,
+        #lightbox-img.image-loading {
+            animation: image-shimmer 1.25s linear infinite;
+            opacity: 0.42;
+        }
+
+        .carousel-slide img.image-loaded,
+        #lightbox-img.image-loaded {
+            animation: image-loaded-in 0.45s ease-out both;
+        }
+
+        @keyframes image-shimmer {
+            from { background-position: 200% 0; }
+            to { background-position: -20% 0; }
+        }
+
+        @keyframes image-loaded-in {
+            from { opacity: 0.42; }
+            to { opacity: 1; }
+        }
+
         html.bot-mode #preloader {
             display: none !important;
         }
@@ -1199,7 +1279,7 @@
         <div class="curtain-seam"></div>
         <div class="loader-terminal">
             <span class="bracket">[</span>
-            <span id="loading-text">System.loading()</span><span class="loader-cursor"></span>
+            <span id="loading-text" data-en="System.loading()" data-mm="စနစ်စတင်နေသည်...">System.loading()</span><span class="loader-cursor"></span>
             <span class="bracket">]</span>
         </div>
     </div>
@@ -1280,7 +1360,7 @@
                 <button id="mobile-lang-toggle"
                     class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3">
                     <i data-lucide="globe" class="w-4 h-4"></i>
-                    <span id="mobile-lang-text">ENGLISH</span>
+                    <span id="mobile-lang-text" data-en="ENGLISH" data-mm="မြန်မာ">ENGLISH</span>
                 </button>
             </div>
         </div>
@@ -1323,13 +1403,13 @@
                 class="w-full grid grid-cols-1 lg:grid-cols-[1fr_2.5fr_1fr] gap-8 h-full items-end relative z-20 mb-8 md:mb-16">
 
                 <div class="hidden lg:flex flex-col pb-12 pl-6 reveal-element reveal-right nav-left">
-                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 ml-2">Pages</p>
+                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 ml-2" data-en="Pages" data-mm="စာမျက်နှာများ">Pages</p>
                     <nav class="flex flex-col space-y-5">
-                        <a href="../" class="side-nav-link">Home</a>
-                        <a href="../about/" class="side-nav-link">About</a>
-                        <a href="./" class="side-nav-link active">Projects</a>
-                        <a href="../expertise/" class="side-nav-link">Expertise</a>
-                        <a href="../connect/" class="side-nav-link">Connect</a>
+                        <a href="../" class="side-nav-link" data-en="Home" data-mm="ပင်မစာမျက်နှာ">Home</a>
+                        <a href="../about/" class="side-nav-link" data-en="About" data-mm="အကြောင်းအရာ">About</a>
+                        <a href="./" class="side-nav-link active" data-en="Projects" data-mm="ပရောဂျက်များ">Projects</a>
+                        <a href="../expertise/" class="side-nav-link" data-en="Expertise" data-mm="ကျွမ်းကျင်မှုများ">Expertise</a>
+                        <a href="../connect/" class="side-nav-link" data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</a>
                     </nav>
                 </div>
 
@@ -1343,7 +1423,7 @@
 
                     <h1
                         class="text-[clamp(3.2rem,8vw,7.5rem)] font-black uppercase leading-[0.9] tracking-tighter reveal-element reveal-scale w-full relative z-10 mb-4 md:mb-6">
-                        <span class="block text-white" data-en="BUILDING" data-mm="မဖြစ်နိုင်သည်များကို">BUILDING</span>
+                        <span class="block text-white" data-en="BUILDING" data-mm="တည်ဆောက်နေပါသည်">BUILDING</span>
                         <span
                             class="flex justify-center items-center text-outline-accent font-serif-display font-black tracking-normal min-h-[1.1em]">
                             <span id="hero-typewriter">THE IMPOSSIBLE</span><span
@@ -1363,20 +1443,20 @@
                         style="transition-delay: 0.2s;">
                         <a href="#projects-list"
                             class="btn-solid-lime px-7 py-3.5 text-[11px] sm:text-xs font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-2xl whitespace-nowrap w-max rounded-xl">
-                            Explore Deployments <i data-lucide="arrow-down" class="w-4 h-4 ml-1"></i>
+                            <span data-en="Explore Deployments" data-mm="တည်ဆောက်ထားသည့် စနစ်များကို ကြည့်ရှုရန်">Explore Deployments</span> <i data-lucide="arrow-down" class="w-4 h-4 ml-1"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="hidden lg:flex flex-col items-end pb-12 pr-6 reveal-element reveal-left nav-right">
-                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 mr-2">Follow On</p>
+                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 mr-2" data-en="Follow On" data-mm="ဆက်သွယ်နိုင်သည့်လမ်းကြောင်းများ">Follow On</p>
                     <nav class="flex flex-col items-end space-y-5">
                         <a href="https://github.com/hzp4softwareengineering" target="_blank"
-                            class="side-nav-link">GitHub</a>
+                            class="side-nav-link" data-en="GitHub" data-mm="GitHub">GitHub</a>
                         <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank"
-                            class="side-nav-link">LinkedIn</a>
+                            class="side-nav-link" data-en="LinkedIn" data-mm="LinkedIn">LinkedIn</a>
                         <a href="https://discord.com/users/1110430133707341894" target="_blank"
-                            class="side-nav-link">Discord</a>
+                            class="side-nav-link" data-en="Discord" data-mm="Discord">Discord</a>
                     </nav>
                 </div>
             </div>
@@ -1384,32 +1464,32 @@
             <div class="w-full flex justify-between items-center relative z-40 border-t border-[rgba(210,252,42,0.1)] pt-6 md:pt-8 px-2 md:px-6 reveal-element reveal-up"
                 style="transition-delay: 0.2s;">
                 <div class="hidden md:flex gap-6 opacity-40 font-mono text-xs uppercase tracking-widest font-bold">
-                    <span>16+ PROJECTS</span> <span>20+ SYSTEMS</span>
+                    <span data-en="16+ PROJECTS" data-mm="ပရောဂျက် ၁၆ ခုကျော်">16+ PROJECTS</span> <span data-en="20+ SYSTEMS" data-mm="စနစ် ၂၀ ကျော်">20+ SYSTEMS</span>
                 </div>
 
                 <a href="#projects-list"
                     class="hidden lg:flex btn-solid-lime px-8 py-3.5 text-[10px] tracking-widest items-center absolute left-1/2 -translate-x-1/2 shadow-xl hover:scale-110">
-                    Explore Deployments <i data-lucide="arrow-down" class="w-3.5 h-3.5 ml-2"></i>
+                    <span data-en="Explore Deployments" data-mm="တည်ဆောက်ထားသည့် စနစ်များကို ကြည့်ရှုရန်">Explore Deployments</span> <i data-lucide="arrow-down" class="w-3.5 h-3.5 ml-2"></i>
                 </a>
 
                 <div class="hidden md:flex gap-6 opacity-40 font-mono text-xs uppercase tracking-widest font-bold">
-                    <span>ENTERPRISE</span> <span>RESEARCH</span>
+                    <span data-en="ENTERPRISE" data-mm="လုပ်ငန်းသုံး">ENTERPRISE</span> <span data-en="RESEARCH" data-mm="သုတေသန">RESEARCH</span>
                 </div>
             </div>
 
             <div class="mt-8 lg:hidden flex w-full justify-between px-4 z-30 reveal-element reveal-up"
                 style="transition-delay: 0.3s;">
                 <nav class="flex flex-col space-y-3 text-xs font-black uppercase tracking-widest text-white">
-                    <a href="../">Home</a>
-                    <a href="../about/">About</a>
-                    <a href="./" class="text-[#d2fc2a]">Projects</a>
-                    <a href="../expertise/">Expertise</a>
-                    <a href="../connect/">Connect</a>
+                    <a href="../" data-en="Home" data-mm="ပင်မစာမျက်နှာ">Home</a>
+                    <a href="../about/" data-en="About" data-mm="အကြောင်းအရာ">About</a>
+                    <a href="./" class="text-[#d2fc2a]" data-en="Projects" data-mm="ပရောဂျက်များ">Projects</a>
+                    <a href="../expertise/" data-en="Expertise" data-mm="ကျွမ်းကျင်မှုများ">Expertise</a>
+                    <a href="../connect/" data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</a>
                 </nav>
                 <nav class="flex flex-col space-y-3 text-xs font-black uppercase tracking-widest text-white text-right">
-                    <a href="https://github.com/hzp4softwareengineering" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank">LinkedIn</a>
-                    <a href="https://discord.com/users/1110430133707341894" target="_blank">Discord</a>
+                    <a href="https://github.com/hzp4softwareengineering" target="_blank" data-en="GitHub" data-mm="GitHub">GitHub</a>
+                    <a href="https://www.linkedin.com/in/htet-zaw-paing-a768533a8" target="_blank" data-en="LinkedIn" data-mm="LinkedIn">LinkedIn</a>
+                    <a href="https://discord.com/users/1110430133707341894" target="_blank" data-en="Discord" data-mm="Discord">Discord</a>
                 </nav>
             </div>
         </section>
@@ -1466,9 +1546,9 @@
                     </div>
 
                     <div class="flex flex-wrap gap-2 pt-2 reveal-element reveal-up" style="transition-delay: 0.3s;">
-                        <span class="project-tag">Full Stack</span>
-                        <span class="project-tag">E-Commerce</span>
-                        <span class="project-tag">Architecture</span>
+                        <span class="project-tag" data-en="Full Stack" data-mm="အပြည့်အစုံ ဖွံ့ဖြိုးရေး">Full Stack</span>
+                        <span class="project-tag" data-en="E-Commerce" data-mm="အွန်လိုင်းကုန်သွယ်ရေး">E-Commerce</span>
+                        <span class="project-tag" data-en="Architecture" data-mm="စနစ်ဗိသုကာ">Architecture</span>
                     </div>
                 </div>
 
@@ -1640,7 +1720,7 @@
                     <div class="flex flex-wrap gap-2 pt-2 reveal-element reveal-up" style="transition-delay: 0.3s;">
                         <span class="project-tag">Python</span>
                         <span class="project-tag">NLP</span>
-                        <span class="project-tag">Speech Recog</span>
+                        <span class="project-tag" data-en="Speech Recog" data-mm="အသံမှတ်သားမှု">Speech Recog</span>
                     </div>
                 </div>
             </div>
@@ -1704,7 +1784,7 @@
                     <div class="flex flex-wrap gap-2 pt-2 reveal-element reveal-up" style="transition-delay: 0.3s;">
                         <span class="project-tag">Node.js</span>
                         <span class="project-tag">WebSocket</span>
-                        <span class="project-tag">AI Logic</span>
+                        <span class="project-tag" data-en="AI Logic" data-mm="AI လုပ်ဆောင်ချက်">AI Logic</span>
                     </div>
                 </div>
 
@@ -1876,7 +1956,7 @@
                     <div class="flex flex-wrap gap-2 pt-2 reveal-element reveal-up" style="transition-delay: 0.3s;">
                         <span class="project-tag">OpenCV</span>
                         <span class="project-tag">TensorFlow</span>
-                        <span class="project-tag">Real-time API</span>
+                        <span class="project-tag" data-en="Real-time API" data-mm="အချိန်နှင့်တစ်ပြေးညီ API">Real-time API</span>
                     </div>
                 </div>
             </div>
@@ -2152,10 +2232,10 @@
 
                     <div class="flex flex-wrap justify-center gap-3 pt-4 reveal-element reveal-up"
                         style="transition-delay: 0.4s;">
-                        <span class="project-tag px-6 py-2 text-[10px]">E-Commerce</span>
-                        <span class="project-tag px-6 py-2 text-[10px]">Service Platform</span>
-                        <span class="project-tag px-6 py-2 text-[10px]">Web Architecture</span>
-                        <span class="project-tag px-6 py-2 text-[10px]">SEO & Hosting</span>
+                        <span class="project-tag px-6 py-2 text-[10px]" data-en="E-Commerce" data-mm="အွန်လိုင်းကုန်သွယ်ရေး">E-Commerce</span>
+                        <span class="project-tag px-6 py-2 text-[10px]" data-en="Service Platform" data-mm="ဝန်ဆောင်မှုပလက်ဖောင်း">Service Platform</span>
+                        <span class="project-tag px-6 py-2 text-[10px]" data-en="Web Architecture" data-mm="ဝဘ်စနစ်ဗိသုကာ">Web Architecture</span>
+                        <span class="project-tag px-6 py-2 text-[10px]" data-en="SEO & Hosting" data-mm="SEO နှင့် Hosting">SEO & Hosting</span>
                     </div>
                 </div>
             </div>
@@ -2172,7 +2252,7 @@
                         <div class="flex items-center gap-4 mb-6">
                             <span class="w-8 h-[2px] bg-[#d2fc2a]"></span>
                             <span
-                                class="text-[10px] font-mono text-[#d2fc2a] tracking-[0.2em] uppercase font-bold">Communication</span>
+                                class="text-[10px] font-mono text-[#d2fc2a] tracking-[0.2em] uppercase font-bold" data-en="Communication" data-mm="ဆက်သွယ်ရန်">Communication</span>
                         </div>
                         <h2
                             class="text-5xl sm:text-6xl md:text-[6rem] font-black tracking-tighter leading-[0.9] uppercase">
@@ -2224,14 +2304,14 @@
                                     class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
                                     data-en="Name" data-mm="အမည်">Name</label>
                                 <input type="text" id="contact-name" class="w-full input-minimal text-sm font-mono"
-                                    placeholder="John Doe" required>
+                                    placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-mm="သင့်အမည်" required>
                             </div>
                             <div class="space-y-3">
                                 <label
                                     class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
                                     data-en="Email" data-mm="အီးမေးလ်">Email</label>
                                 <input type="email" id="contact-email" class="w-full input-minimal text-sm font-mono"
-                                    placeholder="john@domain.com" required>
+                                    placeholder="john@domain.com" data-placeholder-en="john@domain.com" data-placeholder-mm="အီးမေးလ်လိပ်စာ" required>
                             </div>
                         </div>
 
@@ -2240,7 +2320,7 @@
                                 class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
                                 data-en="Subject" data-mm="အကြောင်းအရာ">Subject</label>
                             <input type="text" id="contact-subject" class="w-full input-minimal text-sm font-mono"
-                                placeholder="Project Inquiry" required>
+                                placeholder="Project Inquiry" data-placeholder-en="Project Inquiry" data-placeholder-mm="ပရောဂျက်အကြောင်း စုံစမ်းရန်" required>
                         </div>
 
                         <div class="space-y-3">
@@ -2249,7 +2329,7 @@
                                 data-en="Message" data-mm="စာသား">Message</label>
                             <textarea id="contact-message" rows="4"
                                 class="w-full input-minimal text-sm font-mono resize-none"
-                                placeholder="Tell me about your project..." required></textarea>
+                                placeholder="Tell me about your project..." data-placeholder-en="Tell me about your project..." data-placeholder-mm="သင့်ပရောဂျက်အကြောင်း ရေးသားပေးပါ..." required></textarea>
                         </div>
 
                         <button type="submit"
@@ -2265,11 +2345,11 @@
 
     <div
         class="w-full px-6 md:px-12 pb-6 md:pb-8 flex justify-between items-center text-[#111] text-[9px] md:text-[10px] font-mono font-bold uppercase tracking-widest relative z-10">
-        <p>&copy; 2026 Htet Zaw Paing. <span data-en="All Rights Reserved." data-mm="မူပိုင်ခွင့်များ ရယူထားပြီး။"
+        <p>&copy; 2026 Htet Zaw Paing. <span data-en="All Rights Reserved." data-mm="မူပိုင်ခွင့်အားလုံး ထိန်းသိမ်းထားသည်။"
                 class="hidden sm:inline">All Rights Reserved.</span></p>
         <div class="flex gap-4 md:gap-8">
-            <a href="#" class="hover:text-black/60 transition-colors">Privacy Policy</a>
-            <a href="#" class="hover:text-black/60 transition-colors">Terms</a>
+            <a href="#" class="hover:text-black/60 transition-colors" data-en="Privacy Policy" data-mm="ကိုယ်ရေးအချက်အလက် မူဝါဒ">Privacy Policy</a>
+            <a href="#" class="hover:text-black/60 transition-colors" data-en="Terms" data-mm="စည်းမျဉ်းစည်းကမ်းများ">Terms</a>
         </div>
     </div>
 
@@ -2283,7 +2363,7 @@
         </button>
         <div class="relative w-full h-full max-w-7xl max-h-screen p-4 md:p-12 flex items-center justify-center overflow-hidden"
             id="lightbox-img-container">
-            <img id="lightbox-img" src alt="Project View"
+            <img id="lightbox-img" src alt="Project View" loading="lazy" decoding="async" data-alt-en="Project View" data-alt-mm="ပရောဂျက်မြင်ကွင်း"
                 class="max-w-full max-h-full object-contain rounded-lg shadow-2xl drop-shadow-[0_0_50px_rgba(0,0,0,0.8)]">
         </div>
         <button
@@ -2381,17 +2461,22 @@
         });
 
         document.body.classList.add('is-booting');
+        document.documentElement.lang = localStorage.getItem('hzp_lang') === 'mm' ? 'my' : 'en';
 
         window.addEventListener('load', () => {
             const loadingText = document.getElementById('loading-text');
 
             let loadState = 0;
-            const loadingStates = ["Booting Subsystems...", "Parsing Geometries...", "Injecting Styles...", "Ready."];
+            const loadingStates = {
+                en: ["Booting Subsystems...", "Parsing Geometries...", "Injecting Styles...", "Ready."],
+                mm: ["စနစ်များ စတင်နေသည်...", "ဖွဲ့စည်းပုံများကို စစ်ဆေးနေသည်...", "စတိုင်များ ထည့်သွင်းနေသည်...", "အဆင်သင့်ဖြစ်ပါပြီ။"]
+            };
 
             const loaderInterval = setInterval(() => {
                 loadState++;
-                if (loadState < loadingStates.length) {
-                    loadingText.innerText = loadingStates[loadState];
+                const activeLoadingStates = loadingStates[currentLang] || loadingStates.en;
+                if (loadState < activeLoadingStates.length) {
+                    loadingText.innerText = activeLoadingStates[loadState];
                 } else {
                     clearInterval(loaderInterval);
                     document.body.classList.remove('is-booting');
@@ -2421,11 +2506,54 @@
 
         let currentLang = localStorage.getItem('hzp_lang') || 'en';
         const translatables = document.querySelectorAll('[data-en]');
+        let languageAudioContext;
+
+        function playLanguageFeedback() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                languageAudioContext = languageAudioContext || new AudioContext();
+                const now = languageAudioContext.currentTime;
+                const oscillator = languageAudioContext.createOscillator();
+                const gain = languageAudioContext.createGain();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(520, now);
+                oscillator.frequency.exponentialRampToValueAtTime(780, now + 0.12);
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.055, now + 0.018);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+                oscillator.connect(gain);
+                gain.connect(languageAudioContext.destination);
+                oscillator.start(now);
+                oscillator.stop(now + 0.2);
+            } catch (error) {
+                console.debug('Language feedback unavailable', error);
+            }
+        }
+
+        function triggerLanguageFeedback() {
+            document.body.classList.remove('language-switching');
+            void document.body.offsetWidth;
+            document.body.classList.add('language-switching');
+            window.setTimeout(() => document.body.classList.remove('language-switching'), 420);
+            if (navigator.vibrate) navigator.vibrate(14);
+            playLanguageFeedback();
+        }
 
         function updateLang(lang) {
+            document.documentElement.lang = lang === 'mm' ? 'my' : 'en';
+            document.body.classList.toggle('lang-mm', lang === 'mm');
             translatables.forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
                 if (text) el.innerHTML = text;
+            });
+            document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+                const placeholder = el.getAttribute(`data-placeholder-${lang}`);
+                if (placeholder) el.setAttribute('placeholder', placeholder);
+            });
+            document.querySelectorAll('[data-alt-en]').forEach(el => {
+                const alt = el.getAttribute(`data-alt-${lang}`);
+                if (alt) el.setAttribute('alt', alt);
             });
             const deskText = document.getElementById('lang-text');
             const mobText = document.getElementById('mobile-lang-text');
@@ -2439,6 +2567,8 @@
             currentLang = currentLang === 'en' ? 'mm' : 'en';
             localStorage.setItem('hzp_lang', currentLang);
             updateLang(currentLang);
+            resetHeroTypewriter();
+            triggerLanguageFeedback();
         };
 
         document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
@@ -2487,43 +2617,79 @@
             scrollObserver.observe(el);
         });
 
-        const heroPhrases = ["THE IMPOSSIBLE", "SECURE SYSTEMS", "THE FUTURE", "ARCHITECTURES"];
+        const heroPhrases = {
+            en: ["THE IMPOSSIBLE", "SECURE SYSTEMS", "THE FUTURE", "ROBUST ARCHITECTURES"],
+            mm: ["မဖြစ်နိုင်သည့်အရာများ", "လုံခြုံသော စနစ်များ", "အနာဂတ် နည်းပညာများ", "ခိုင်မာသော စနစ်ဗိသုကာများ"]
+        };
         let heroPhraseIndex = 0;
-        let heroCharIndex = 14;
+        let heroCharIndex = 0;
         let heroIsDeleting = false;
+        let heroTypewriterTimer;
+        let heroUnits = [];
+
+        function segmentHeroText(text) {
+            try {
+                const segmenter = new Intl.Segmenter(currentLang === 'mm' ? 'my' : 'en', { granularity: 'grapheme' });
+                return Array.from(segmenter.segment(text), part => part.segment);
+            } catch (error) {
+                return Array.from(text);
+            }
+        }
+
+        function resetHeroTypewriter() {
+            window.clearTimeout(heroTypewriterTimer);
+            heroPhraseIndex = 0;
+            heroCharIndex = 0;
+            heroIsDeleting = false;
+            heroUnits = [];
+            heroTypewriterLoop();
+        }
 
         function heroTypewriterLoop() {
             const textEl = document.getElementById('hero-typewriter');
             if (!textEl) return;
 
-            const currentPhrase = heroPhrases[heroPhraseIndex];
+            const phrases = heroPhrases[currentLang] || heroPhrases.en;
+            const currentPhrase = phrases[heroPhraseIndex % phrases.length];
+            heroUnits = heroUnits.length && heroUnits.join('') === currentPhrase ? heroUnits : segmentHeroText(currentPhrase);
 
             if (heroIsDeleting) {
-                textEl.innerText = currentPhrase.substring(0, heroCharIndex - 1);
-                heroCharIndex--;
+                heroCharIndex = Math.max(0, heroCharIndex - 1);
             } else {
-                textEl.innerText = currentPhrase.substring(0, heroCharIndex + 1);
-                heroCharIndex++;
+                heroCharIndex = Math.min(heroUnits.length, heroCharIndex + 1);
             }
 
-            let speed = heroIsDeleting ? 40 : 80;
+            textEl.textContent = heroUnits.slice(0, heroCharIndex).join('');
 
-            if (!heroIsDeleting && heroCharIndex === currentPhrase.length) {
-                speed = 2500;
+            let speed = heroIsDeleting ? 48 : (currentLang === 'mm' ? 92 : 76);
+            if (!heroIsDeleting && heroCharIndex === heroUnits.length) {
+                speed = 2300;
                 heroIsDeleting = true;
             } else if (heroIsDeleting && heroCharIndex === 0) {
                 heroIsDeleting = false;
-                heroPhraseIndex = (heroPhraseIndex + 1) % heroPhrases.length;
-                speed = 400;
+                heroPhraseIndex = (heroPhraseIndex + 1) % phrases.length;
+                heroUnits = [];
+                speed = 520;
             }
 
-            setTimeout(heroTypewriterLoop, speed);
+            heroTypewriterTimer = window.setTimeout(heroTypewriterLoop, speed);
         }
 
-        setTimeout(() => {
-            heroIsDeleting = true;
-            heroTypewriterLoop();
-        }, 3000);
+        window.setTimeout(resetHeroTypewriter, 3200);
+
+        function bindImageLoading(img) {
+            if (!img) return;
+            const markLoaded = () => {
+                img.classList.remove('image-loading');
+                img.classList.add('image-loaded');
+            };
+            img.classList.add('image-loading');
+            img.addEventListener('load', markLoaded, { once: true });
+            img.addEventListener('error', markLoaded, { once: true });
+            if (img.complete && img.naturalWidth > 0) markLoaded();
+        }
+
+        document.querySelectorAll('img').forEach(bindImageLoading);
 
         const contactFormE = document.getElementById('direct-email-form');
         if (contactFormE) {
@@ -2647,6 +2813,8 @@
         }
 
         function updateLightboxContent() {
+            lightboxImg.classList.remove('image-loaded');
+            lightboxImg.classList.add('image-loading');
             lightboxImg.src = currentLightboxImages[currentLightboxIndex];
             lightboxCounter.innerText = `${currentLightboxIndex + 1} / ${currentLightboxImages.length}`;
         }
