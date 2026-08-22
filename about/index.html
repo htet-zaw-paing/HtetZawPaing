@@ -138,6 +138,7 @@ Happy coding!
             --accent: #d2fc2a;
             --text-main: #f4f4f0;
             --text-muted: #888d81;
+            --logo-color: #111;
 
             --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -366,9 +367,115 @@ Happy coding!
         }
 
         .logo-glitch-anim {
-            display: inline-block;
-            animation: smooth-slow-glitch 7s infinite ease-in-out;
             position: relative;
+            display: inline-block;
+            animation: glitch-hide-base 5s infinite;
+            color: var(--logo-color) !important;
+        }
+
+        .logo-glitch-anim::before,
+        .logo-glitch-anim::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: var(--logo-color) !important;
+            background: transparent;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .logo-glitch-anim::before {
+            clip-path: inset(0 0 55% 0);
+            animation: glitch-slice-top 5s infinite;
+        }
+
+        .logo-glitch-anim::after {
+            clip-path: inset(45% 0 0 0);
+            animation: glitch-slice-bottom 5s infinite;
+        }
+
+        @keyframes glitch-hide-base {
+
+            0%,
+            18%,
+            22%,
+            100% {
+                color: var(--logo-color);
+                text-shadow: none;
+            }
+
+            19%,
+            21% {
+                color: transparent;
+                text-shadow: none;
+            }
+        }
+
+        @keyframes glitch-slice-top {
+
+            0%,
+            18%,
+            22%,
+            100% {
+                opacity: 0;
+                transform: translate(0, 0);
+                text-shadow: none;
+            }
+
+            19% {
+                opacity: 1;
+                transform: translate(-8px, 0px);
+                text-shadow: 2px 0px 0px #fff;
+            }
+
+            20% {
+                opacity: 1;
+                transform: translate(8px, 0px);
+                clip-path: inset(0 0 45% 0);
+                text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.4);
+            }
+
+            21% {
+                opacity: 1;
+                transform: translate(-4px, 0px);
+                clip-path: inset(0 0 60% 0);
+                text-shadow: 2px 0px 0px #fff;
+            }
+        }
+
+        @keyframes glitch-slice-bottom {
+
+            0%,
+            18%,
+            22%,
+            100% {
+                opacity: 0;
+                transform: translate(0, 0);
+                text-shadow: none;
+            }
+
+            19% {
+                opacity: 1;
+                transform: translate(8px, 0px);
+                text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.4);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translate(-8px, 0px);
+                clip-path: inset(55% 0 0 0);
+                text-shadow: 2px 0px 0px #fff;
+            }
+
+            21% {
+                opacity: 1;
+                transform: translate(4px, 0px);
+                clip-path: inset(40% 0 0 0);
+                text-shadow: -2px 0px 0px rgba(0, 0, 0, 0.4);
+            }
         }
 
         .scroll-bg {
@@ -630,12 +737,10 @@ Happy coding!
         }
 
         .mono-img {
-            filter: grayscale(0.2) contrast(1.15) brightness(0.95);
-            transition: filter 0.6s ease, transform 0.6s var(--ease-bounce);
+            transition: transform 0.6s var(--ease-bounce);
         }
 
         .group:hover .mono-img {
-            filter: grayscale(0) contrast(1.05) brightness(1);
             transform: scale(1.03);
         }
 
@@ -901,6 +1006,1021 @@ Happy coding!
             animation: none !important;
             visibility: visible !important;
         }
+
+        /* ------------------------------------------------------------------
+           GRENOMINT THEME (Base / Default / Acid Mint) - Active Styles
+           ------------------------------------------------------------------ */
+        .theme-option.active {
+            background-color: rgba(210,252,42,0.1);
+            color: #d2fc2a;
+        }
+        .mobile-theme-option.active {
+            background-color: rgba(210,252,42,0.1);
+            border-color: rgba(210,252,42,0.3);
+            color: #d2fc2a;
+        }
+
+        /* ------------------------------------------------------------------
+           PANYCANDY (NEO BRUTALISM) THEME OVERRIDES
+           ------------------------------------------------------------------ */
+        html[data-theme="panycandy"] {
+            --bg-lime: #ff006e; /* Hot pink background */
+            --bg-olive: #ffffff; /* Stark white */
+            --accent: #ffb703; /* Yellow accents */
+            --text-main: #000000;
+            --text-muted: #111111;
+            --logo-color: #000;
+        }
+
+        html[data-theme="panycandy"] body {
+            background-color: var(--bg-lime) !important;
+            color: #000 !important;
+        }
+
+        html[data-theme="panycandy"] #main-content-wrapper {
+            background-color: #fff !important;
+            border: 5px solid #000 !important;
+            box-shadow: 15px 15px 0px #000 !important;
+            border-radius: 0 !important;
+        }
+
+        html[data-theme="panycandy"] .glass-card {
+            background: #fff !important;
+            border: 4px solid #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0px #000 !important;
+            transition: transform 0.1s, box-shadow 0.1s !important;
+            opacity: 1 !important;
+            backdrop-filter: none !important;
+        }
+
+        html[data-theme="panycandy"] .glass-card:hover {
+            transform: translate(4px, 4px) !important;
+            box-shadow: 4px 4px 0px #000 !important;
+            background-color: #f4f4f0 !important;
+        }
+
+        html[data-theme="panycandy"] .btn-solid-lime,
+        html[data-theme="panycandy"] .btn-solid-white,
+        html[data-theme="panycandy"] #theme-toggle-btn,
+        html[data-theme="panycandy"] #lang-toggle,
+        html[data-theme="panycandy"] #menu-toggle,
+        html[data-theme="panycandy"] #menu-toggle-desktop {
+            background-color: var(--accent) !important;
+            color: #111 !important;
+            border: 3px solid #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 5px 5px 0px #000 !important;
+            transition: all 0.1s ease !important;
+            text-transform: uppercase;
+        }
+
+        html[data-theme="panycandy"] .btn-solid-white {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        html[data-theme="panycandy"] .btn-solid-lime:hover,
+        html[data-theme="panycandy"] .btn-solid-white:hover,
+        html[data-theme="panycandy"] button:hover {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 3px 3px 0px #000 !important;
+        }
+
+        html[data-theme="panycandy"] .text-white,
+        html[data-theme="panycandy"] h1,
+        html[data-theme="panycandy"] h2,
+        html[data-theme="panycandy"] h3,
+        html[data-theme="panycandy"] p {
+            color: #000 !important;
+        }
+        
+        html[data-theme="panycandy"] .btn-solid-lime .text-white,
+        html[data-theme="panycandy"] button .text-white,
+        html[data-theme="panycandy"] .btn-solid-lime span,
+        html[data-theme="panycandy"] .btn-solid-lime i {
+            color: inherit !important;
+        }
+
+        html[data-theme="panycandy"] .text-\[\#d2fc2a\],
+        html[data-theme="panycandy"] .text-outline-accent {
+            color: var(--accent) !important;
+        }
+        
+        html[data-theme="panycandy"] .text-outline-accent {
+            -webkit-text-stroke: 2px #000;
+            text-shadow: 6px 6px 0px #000;
+        }
+
+        html[data-theme="panycandy"] h1, html[data-theme="panycandy"] h2 {
+            text-shadow: 4px 4px 0px var(--bg-lime);
+        }
+
+        html[data-theme="panycandy"] .bg-\[\#111\] {
+            background-color: var(--bg-lime) !important;
+            border-bottom: 4px solid #000;
+            border-radius: 0 !important;
+        }
+        
+        html[data-theme="panycandy"] section {
+            border-color: #000 !important;
+        }
+
+        html[data-theme="panycandy"] .input-minimal {
+            background: #fff !important;
+            border: 4px solid #000 !important;
+            border-radius: 0 !important;
+            color: #000 !important;
+            box-shadow: 6px 6px 0px #000 !important;
+        }
+        
+        html[data-theme="panycandy"] .input-minimal:focus {
+            box-shadow: 2px 2px 0px #000 !important;
+            transform: translate(4px, 4px) !important;
+        }
+
+        html[data-theme="panycandy"] .scroll-bg,
+        html[data-theme="panycandy"] #cursor-glow,
+        html[data-theme="panycandy"] .wrapper-svg-container {
+            display: none !important;
+        }
+
+        html[data-theme="panycandy"] #main-nav.scrolled-nav #nav-inner {
+            background: #fff !important;
+            border: 4px solid #000 !important;
+            box-shadow: 8px 8px 0px #000 !important;
+            border-radius: 0 !important;
+            backdrop-filter: none !important;
+        }
+
+        html[data-theme="panycandy"] #main-nav #nav-logo span {
+            color: #000 !important;
+            background: #fff;
+            padding: 4px 8px;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px var(--accent);
+            text-shadow: none !important;
+        }
+
+        html[data-theme="panycandy"] #mobile-menu {
+            background-color: var(--bg-lime) !important;
+            border-left: 5px solid #000 !important;
+        }
+        
+        html[data-theme="panycandy"] .mobile-nav-link {
+            color: #000 !important;
+            text-shadow: 3px 3px 0px #fff;
+            font-weight: 900 !important;
+        }
+
+        html[data-theme="panycandy"] .curtain {
+            background-color: var(--accent) !important;
+            background-image: none !important;
+        }
+        
+        html[data-theme="panycandy"] .loader-terminal {
+            color: #fff !important;
+            background: #000;
+            padding: 10px 20px;
+            border: 4px solid #fff;
+            box-shadow: 8px 8px 0px var(--bg-lime);
+        }
+
+        html[data-theme="panycandy"] .code-symbol {
+            color: rgba(0, 0, 0, 0.6) !important;
+            mix-blend-mode: normal !important;
+            font-weight: 900 !important;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        html[data-theme="panycandy"] .timeline-line::before {
+            background: #000 !important;
+            width: 4px !important;
+        }
+        
+        html[data-theme="panycandy"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="panycandy"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: #000 !important;
+            height: 4px !important;
+        }
+
+        html[data-theme="panycandy"] .text-\[\#888d81\] {
+            color: #222 !important;
+            font-weight: 700;
+        }
+
+        html[data-theme="panycandy"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="panycandy"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: #000 !important;
+            border-width: 4px !important;
+        }
+
+        html[data-theme="panycandy"] #theme-dropdown {
+            background-color: #fff !important;
+            border: 4px solid #000 !important;
+            box-shadow: 6px 6px 0px #000 !important;
+            border-radius: 0 !important;
+        }
+        html[data-theme="panycandy"] .theme-option {
+            color: #000 !important;
+            border-bottom: 2px solid #000;
+        }
+        html[data-theme="panycandy"] .theme-option:last-child {
+            border-bottom: none;
+        }
+        html[data-theme="panycandy"] .theme-option:hover,
+        html[data-theme="panycandy"] .theme-option.active {
+            background-color: var(--accent) !important;
+            color: #111 !important;
+        }
+
+        html[data-theme="panycandy"] .mobile-theme-option {
+            background: #fff !important;
+            border: 3px solid #000 !important;
+            color: #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 4px 4px 0px #000 !important;
+        }
+        html[data-theme="panycandy"] .mobile-theme-option:hover,
+        html[data-theme="panycandy"] .mobile-theme-option.active {
+            background: var(--accent) !important;
+            color: #111 !important;
+            transform: translate(2px, 2px) !important;
+            box-shadow: 2px 2px 0px #000 !important;
+        }
+        
+        html[data-theme="panycandy"] .menu-line-1,
+        html[data-theme="panycandy"] .menu-line-2,
+        html[data-theme="panycandy"] .menu-line-3 {
+            background-color: #000 !important;
+        }
+
+        /* Specifically Target Input Labels & Other Faded Texts to ensure visibility */
+        html[data-theme="panycandy"] .text-\[\#d2fc2a\]\/70 {
+            color: #000 !important;
+            font-weight: 900 !important;
+        }
+        html[data-theme="panycandy"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
+            color: var(--accent) !important;
+        }
+
+        /* Progress Bar Overrides for PanyCandy */
+        html[data-theme="panycandy"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            background-color: #fff !important;
+            border: 3px solid #000 !important;
+            border-radius: 0 !important;
+            height: 14px !important;
+            overflow: visible !important;
+            box-shadow: 4px 4px 0px #000 !important;
+        }
+        html[data-theme="panycandy"] .bg-\[\#d2fc2a\] {
+            background-color: var(--accent) !important;
+            border-right: 3px solid #000 !important;
+            border-radius: 0 !important;
+            height: 100% !important;
+            top: -3px !important; 
+            left: -3px !important;
+            bottom: -3px !important;
+            box-sizing: content-box !important;
+        }
+
+        /* About Page specific overrides for PanyCandy */
+        html[data-theme="panycandy"] .text-gray-300 {
+            color: #000 !important;
+            font-weight: 900 !important;
+        }
+        html[data-theme="panycandy"] .border-white\/5 {
+            border-color: #000 !important;
+            border-width: 2px !important;
+            border-style: solid !important;
+        }
+        html[data-theme="panycandy"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
+            background-color: #fff !important;
+            box-shadow: 2px 2px 0px #000 !important;
+        }
+        html[data-theme="panycandy"] .border-\[\#555\], html[data-theme="panycandy"] .border-dashed {
+            border-color: #000 !important;
+        }
+        html[data-theme="panycandy"] .text-\[\#ccc\],
+        html[data-theme="panycandy"] .text-\[\#a1a1a1\],
+        html[data-theme="panycandy"] .text-\[\#666\],
+        html[data-theme="panycandy"] .text-\[\#555\] {
+            color: #111 !important;
+            font-weight: 800 !important;
+        }
+        html[data-theme="panycandy"] .kbd-key {
+            background: #fff !important;
+            border: 2px solid #000 !important;
+            color: #000 !important;
+            box-shadow: 2px 2px 0px #000 !important;
+        }
+        html[data-theme="panycandy"] .bg-\[rgba\(210\,252\,42\,0\.1\)\] {
+            background: var(--accent) !important;
+            border: 2px solid #000 !important;
+            color: #111 !important;
+            box-shadow: 2px 2px 0px #000 !important;
+        }
+
+        /* ------------------------------------------------------------------
+           GLASSORTCELE (GLASSMORPHISM) THEME OVERRIDES
+           ------------------------------------------------------------------ */
+        html[data-theme="glassortcele"] {
+            --bg-lime: #0f172a; 
+            --bg-olive: rgba(255, 255, 255, 0.03);
+            --accent: #00f2fe; 
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --logo-color: #f8fafc;
+        }
+        html[data-theme="glassortcele"] body {
+            background: radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.25), transparent 40%),
+                        radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.3), transparent 40%),
+                        radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.25), transparent 40%),
+                        #0f172a !important;
+            background-attachment: fixed !important;
+        }
+        html[data-theme="glassortcele"] #main-content-wrapper {
+            background: rgba(255, 255, 255, 0.02) !important;
+            backdrop-filter: blur(40px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(150%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Fix the header bar on scroll */
+        html[data-theme="glassortcele"] #main-nav.scrolled-nav #nav-inner {
+            background: rgba(20, 20, 25, 0.45) !important;
+            backdrop-filter: blur(30px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        }
+        html[data-theme="glassortcele"] #main-nav.scrolled-nav #nav-logo span {
+            color: #fff !important;
+        }
+
+        html[data-theme="glassortcele"] .glass-card {
+            background: rgba(255, 255, 255, 0.03) !important;
+            backdrop-filter: blur(20px) saturate(120%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(120%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+            border-radius: 28px !important;
+            overflow: hidden !important;
+        }
+        html[data-theme="glassortcele"] .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-6px) scale(1.02) !important;
+            box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        html[data-theme="glassortcele"] .btn-solid-lime,
+        html[data-theme="glassortcele"] .btn-solid-white,
+        html[data-theme="glassortcele"] button:not(.theme-option):not(.mobile-theme-option) {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(16px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            border-radius: 999px !important; /* Apple pills */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+        html[data-theme="glassortcele"] .btn-solid-lime {
+            background: rgba(0, 242, 254, 0.1) !important;
+            border-color: rgba(0, 242, 254, 0.3) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.5) !important;
+        }
+        html[data-theme="glassortcele"] .btn-solid-lime:hover,
+        html[data-theme="glassortcele"] .btn-solid-white:hover,
+        html[data-theme="glassortcele"] button:not(.theme-option):not(.mobile-theme-option):hover {
+            background: rgba(255, 255, 255, 0.12) !important;
+            border-color: rgba(255, 255, 255, 0.25) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        html[data-theme="glassortcele"] .input-minimal {
+            background: rgba(0, 0, 0, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+            border-radius: 16px !important;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important;
+        }
+        html[data-theme="glassortcele"] .input-minimal:focus {
+            background: rgba(0, 0, 0, 0.25) !important;
+            border-color: rgba(0, 242, 254, 0.4) !important;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2), 0 0 15px rgba(0, 242, 254, 0.15) !important;
+        }
+
+        html[data-theme="glassortcele"] .bg-\[\#111\] {
+            background: rgba(0,0,0,0.4) !important;
+        }
+        
+        html[data-theme="glassortcele"] .text-\[\#d2fc2a\],
+        html[data-theme="glassortcele"] .text-outline-accent {
+            color: var(--accent) !important;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.4) !important;
+        }
+        html[data-theme="glassortcele"] .text-outline-accent {
+            -webkit-text-stroke: 1.5px var(--accent);
+            color: transparent !important;
+        }
+        
+        html[data-theme="glassortcele"] .scroll-bg {
+            opacity: 0.15 !important;
+            filter: hue-rotate(110deg) !important;
+        }
+        html[data-theme="glassortcele"] .wrapper-svg-container {
+            display: none !important;
+        }
+        html[data-theme="glassortcele"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="glassortcele"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: var(--accent) !important;
+            box-shadow: 0 0 8px var(--accent) !important;
+        }
+        html[data-theme="glassortcele"] .shadow-\[0_0_20px_rgba\(210\,252\,42\,0\.8\)\] {
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6) !important;
+        }
+        html[data-theme="glassortcele"] .shadow-\[0_0_15px_rgba\(210\,252\,42\,0\.9\)\] {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.6) !important;
+        }
+        html[data-theme="glassortcele"] .text-\[\#d2fc2a\]\/70 {
+            color: rgba(0, 242, 254, 0.8) !important;
+        }
+        
+        /* Dropdowns for glassmorphism */
+        html[data-theme="glassortcele"] #theme-dropdown {
+            background: rgba(20, 20, 25, 0.5) !important;
+            backdrop-filter: blur(20px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+            border: 1px solid rgba(255,255,255,0.1) !important;
+            border-radius: 20px !important;
+            padding: 8px !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+        }
+        html[data-theme="glassortcele"] .theme-option {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: none !important;
+            border-radius: 12px !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            color: #fff !important;
+            padding: 10px 16px !important;
+            margin-bottom: 4px !important;
+        }
+        html[data-theme="glassortcele"] .theme-option:last-child {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+        }
+        html[data-theme="glassortcele"] .theme-option:hover,
+        html[data-theme="glassortcele"] .theme-option.active {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: var(--accent) !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        html[data-theme="glassortcele"] #mobile-menu {
+            background: rgba(15, 23, 42, 0.85) !important;
+            backdrop-filter: blur(40px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+        }
+        html[data-theme="glassortcele"] .mobile-nav-link {
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.3) !important;
+        }
+        html[data-theme="glassortcele"] .mobile-theme-option {
+            background: rgba(255,255,255,0.03) !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            border-radius: 16px !important;
+        }
+        html[data-theme="glassortcele"] .mobile-theme-option.active,
+        html[data-theme="glassortcele"] .mobile-theme-option:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255,255,255,0.2) !important;
+            color: var(--accent) !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        }
+        html[data-theme="glassortcele"] .text-\[\#111\] {
+            color: #fff !important;
+        }
+        html[data-theme="glassortcele"] .menu-line-1,
+        html[data-theme="glassortcele"] .menu-line-2,
+        html[data-theme="glassortcele"] .menu-line-3 {
+            background-color: #fff !important;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5) !important;
+        }
+
+        /* Progress Bar Overrides for Glassortcele */
+        html[data-theme="glassortcele"] .bg-\[\#d2fc2a\] {
+            background-color: var(--accent) !important;
+        }
+        
+        /* About Page specific overrides for Glassortcele */
+        html[data-theme="glassortcele"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
+            background-color: rgba(255,255,255,0.05) !important;
+            backdrop-filter: blur(10px) !important;
+        }
+        html[data-theme="glassortcele"] .kbd-key {
+            background: rgba(255,255,255,0.1) !important;
+            border-color: rgba(255,255,255,0.2) !important;
+            color: var(--accent) !important;
+        }
+        html[data-theme="glassortcele"] .bg-\[rgba\(210\,252\,42\,0\.1\)\] {
+            background: rgba(0, 242, 254, 0.15) !important;
+            border-color: rgba(0, 242, 254, 0.4) !important;
+            color: var(--accent) !important;
+        }
+
+        /* ------------------------------------------------------------------
+           OFFOTO (NEUMORPHISM) THEME OVERRIDES
+           ------------------------------------------------------------------ */
+        html[data-theme="offoto"] {
+            --bg-lime: #e0e5ec;
+            --bg-olive: #e0e5ec;
+            --accent: #007aff; 
+            --text-main: #333333;
+            --text-muted: #666666;
+            --logo-color: #333333;
+        }
+        html[data-theme="offoto"] body,
+        html[data-theme="offoto"] #main-content-wrapper {
+            background-color: var(--bg-lime) !important;
+            color: var(--text-main) !important;
+            box-shadow: none !important;
+        }
+        html[data-theme="offoto"] #main-content-wrapper {
+            border: none !important;
+        }
+        html[data-theme="offoto"] .text-white,
+        html[data-theme="offoto"] h1,
+        html[data-theme="offoto"] h2,
+        html[data-theme="offoto"] h3,
+        html[data-theme="offoto"] p,
+        html[data-theme="offoto"] span {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .text-\[\#888d81\] {
+            color: var(--text-muted) !important;
+        }
+        html[data-theme="offoto"] .text-\[\#d2fc2a\] {
+            color: var(--accent) !important;
+        }
+        html[data-theme="offoto"] .text-outline-accent {
+            -webkit-text-stroke: 1.5px var(--accent);
+            color: transparent !important;
+        }
+        html[data-theme="offoto"] .glass-card {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            border-radius: 32px !important;
+            box-shadow: 12px 12px 24px rgb(163,177,198,0.6), -12px -12px 24px rgba(255,255,255, 0.8) !important;
+            backdrop-filter: none !important;
+            transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+            overflow: hidden !important;
+        }
+        html[data-theme="offoto"] .glass-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 16px 16px 32px rgb(163,177,198,0.7), -16px -16px 32px rgba(255,255,255, 0.9) !important;
+        }
+        
+        /* Prevent Carousel Overflow from clipping Neumorphic Shadows */
+        html[data-theme="offoto"] .overflow-hidden:has(#projects-track) {
+            width: calc(100% + 80px) !important;
+            margin-left: -40px !important;
+            padding-left: 40px !important;
+            padding-right: 40px !important;
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
+            margin-top: -40px !important;
+            margin-bottom: -40px !important;
+        }
+
+        html[data-theme="offoto"] .btn-solid-lime,
+        html[data-theme="offoto"] .btn-solid-white,
+        html[data-theme="offoto"] #theme-toggle-btn,
+        html[data-theme="offoto"] #lang-toggle,
+        html[data-theme="offoto"] #menu-toggle,
+        html[data-theme="offoto"] #menu-toggle-desktop,
+        html[data-theme="offoto"] button.w-14 {
+            background-color: var(--bg-lime) !important;
+            color: var(--accent) !important;
+            border: none !important;
+            box-shadow: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255, 0.8) !important;
+            border-radius: 12px !important;
+            transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+        }
+        html[data-theme="offoto"] .btn-solid-lime:hover,
+        html[data-theme="offoto"] .btn-solid-white:hover,
+        html[data-theme="offoto"] button.w-14:hover {
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.8) !important;
+            transform: scale(0.98) !important;
+        }
+        html[data-theme="offoto"] .input-minimal {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.8) !important;
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .input-minimal:focus {
+            box-shadow: inset 6px 6px 12px rgb(163,177,198,0.7), inset -6px -6px 12px rgba(255,255,255, 0.9) !important;
+        }
+        html[data-theme="offoto"] #main-nav.scrolled-nav #nav-inner {
+            background-color: var(--bg-lime) !important;
+            box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.8) !important;
+            border: none !important;
+        }
+        html[data-theme="offoto"] .bg-\[\#111\] {
+            background-color: var(--bg-lime) !important;
+            box-shadow: inset 6px 6px 12px rgb(163,177,198,0.6), inset -6px -6px 12px rgba(255,255,255, 0.8) !important;
+            border-radius: 24px !important;
+            padding: 8px !important;
+        }
+        html[data-theme="offoto"] .glass-card img {
+            border-radius: 18px !important;
+        }
+        html[data-theme="offoto"] #mobile-menu {
+            background-color: var(--bg-lime) !important;
+        }
+        html[data-theme="offoto"] .curtain {
+            background-color: var(--bg-lime) !important;
+            background-image: none !important;
+        }
+        html[data-theme="offoto"] .loader-terminal {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .scroll-bg,
+        html[data-theme="offoto"] #cursor-glow,
+        html[data-theme="offoto"] .wrapper-svg-container {
+            display: none !important;
+        }
+        html[data-theme="offoto"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="offoto"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: rgba(163,177,198,0.3) !important;
+        }
+        html[data-theme="offoto"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="offoto"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: var(--accent) !important;
+        }
+        html[data-theme="offoto"] .code-symbol {
+            color: rgba(163,177,198,0.8) !important;
+            mix-blend-mode: normal !important;
+        }
+        html[data-theme="offoto"] .timeline-line::before {
+            background: rgb(163,177,198,0.4) !important;
+        }
+        html[data-theme="offoto"] #theme-dropdown {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.8) !important;
+        }
+        html[data-theme="offoto"] .theme-option {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .theme-option:hover,
+        html[data-theme="offoto"] .theme-option.active {
+            background-color: rgba(163,177,198,0.2) !important;
+            color: var(--accent) !important;
+        }
+        html[data-theme="offoto"] .mobile-nav-link {
+            color: var(--text-main) !important;
+            text-shadow: none !important;
+        }
+        html[data-theme="offoto"] .mobile-theme-option {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255, 0.8) !important;
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .mobile-theme-option.active,
+        html[data-theme="offoto"] .mobile-theme-option:hover {
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.8) !important;
+            color: var(--accent) !important;
+            transform: scale(0.98) !important;
+        }
+        html[data-theme="offoto"] .text-\[\#111\] {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .menu-line-1,
+        html[data-theme="offoto"] .menu-line-2,
+        html[data-theme="offoto"] .menu-line-3 {
+            background-color: var(--text-main) !important;
+        }
+        
+        /* Specifically Target Input Labels & Faded Texts to ensure visibility */
+        html[data-theme="offoto"] .text-\[\#d2fc2a\]\/70 {
+            color: var(--text-muted) !important;
+            font-weight: 800 !important;
+        }
+        html[data-theme="offoto"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
+            color: var(--accent) !important;
+        }
+
+        /* Progress Bar Overrides for Offoto */
+        html[data-theme="offoto"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            background-color: var(--bg-lime) !important;
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.8) !important;
+            border-radius: 10px !important;
+            height: 10px !important;
+        }
+        html[data-theme="offoto"] .bg-\[\#d2fc2a\] {
+            background-color: var(--accent) !important;
+            border-radius: 10px !important;
+            height: 10px !important;
+        }
+
+        /* About Page specific overrides for Offoto */
+        html[data-theme="offoto"] .border-white\/5, html[data-theme="offoto"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: 3px 3px 6px rgb(163,177,198,0.6), -3px -3px 6px rgba(255,255,255, 0.5) !important;
+            color: var(--text-main) !important;
+        }
+        html[data-theme="offoto"] .text-\[\#ccc\],
+        html[data-theme="offoto"] .text-\[\#a1a1a1\],
+        html[data-theme="offoto"] .text-\[\#666\],
+        html[data-theme="offoto"] .text-\[\#555\],
+        html[data-theme="offoto"] .text-gray-300 {
+            color: var(--text-muted) !important;
+        }
+        html[data-theme="offoto"] .kbd-key {
+            background: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: inset 2px 2px 5px rgb(163,177,198,0.6), inset -2px -2px 5px rgba(255,255,255, 0.5) !important;
+            color: var(--accent) !important;
+        }
+        html[data-theme="offoto"] .bg-\[rgba\(210\,252\,42\,0\.1\)\] {
+            background: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: inset 3px 3px 6px rgb(163,177,198,0.6), inset -3px -3px 6px rgba(255,255,255, 0.5) !important;
+            color: var(--accent) !important;
+        }
+
+        /* ------------------------------------------------------------------
+           KIDDO (CLAYMORPHISM) THEME OVERRIDES
+           ------------------------------------------------------------------ */
+        html[data-theme="kiddo"] {
+            --bg-lime: #f0f4f8; 
+            --bg-olive: #ffffff;
+            --accent: #ff9f43; 
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --logo-color: #2d3436;
+        }
+        html[data-theme="kiddo"] body,
+        html[data-theme="kiddo"] #main-content-wrapper {
+            background-color: var(--bg-lime) !important;
+            color: var(--text-main) !important;
+            box-shadow: none !important;
+        }
+        html[data-theme="kiddo"] #main-content-wrapper {
+            border: none !important;
+        }
+        html[data-theme="kiddo"] .text-white,
+        html[data-theme="kiddo"] h1,
+        html[data-theme="kiddo"] h2,
+        html[data-theme="kiddo"] h3,
+        html[data-theme="kiddo"] p,
+        html[data-theme="kiddo"] span {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="kiddo"] .text-\[\#888d81\] {
+            color: var(--text-muted) !important;
+        }
+        html[data-theme="kiddo"] .text-\[\#d2fc2a\] {
+            color: var(--accent) !important;
+        }
+        html[data-theme="kiddo"] .text-outline-accent {
+            -webkit-text-stroke: 1.5px var(--accent);
+            color: transparent !important;
+        }
+        html[data-theme="kiddo"] .glass-card {
+            background-color: #f0f4f8 !important;
+            border: none !important;
+            border-radius: 36px !important; 
+            box-shadow: 10px 10px 20px rgba(166, 180, 200, 0.4), 
+                        -10px -10px 20px rgba(255, 255, 255, 0.9), 
+                        inset 4px 4px 10px rgba(255, 255, 255, 0.9), 
+                        inset -4px -4px 10px rgba(166, 180, 200, 0.2) !important;
+            backdrop-filter: none !important;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
+        }
+        html[data-theme="kiddo"] .glass-card:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 15px 15px 30px rgba(166, 180, 200, 0.3), 
+                        -15px -15px 30px rgba(255, 255, 255, 0.9), 
+                        inset 6px 6px 15px rgba(255, 255, 255, 0.9), 
+                        inset -6px -6px 15px rgba(166, 180, 200, 0.2) !important;
+        }
+        
+        /* Prevent Carousel Overflow from clipping Clay Shadows */
+        html[data-theme="kiddo"] .overflow-hidden:has(#projects-track) {
+            width: calc(100% + 80px) !important;
+            margin-left: -40px !important;
+            padding-left: 40px !important;
+            padding-right: 40px !important;
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
+            margin-top: -40px !important;
+            margin-bottom: -40px !important;
+        }
+
+        html[data-theme="kiddo"] .btn-solid-lime,
+        html[data-theme="kiddo"] .btn-solid-white,
+        html[data-theme="kiddo"] #theme-toggle-btn,
+        html[data-theme="kiddo"] #lang-toggle,
+        html[data-theme="kiddo"] #menu-toggle,
+        html[data-theme="kiddo"] #menu-toggle-desktop,
+        html[data-theme="kiddo"] button.w-14 {
+            background-color: var(--accent) !important;
+            color: #fff !important;
+            border: none !important;
+            border-radius: 999px !important;
+            box-shadow: 6px 6px 12px rgba(255, 159, 67, 0.4), 
+                        -6px -6px 12px rgba(255, 255, 255, 0.8), 
+                        inset 3px 3px 6px rgba(255, 255, 255, 0.4), 
+                        inset -3px -3px 6px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.2s ease !important;
+        }
+        html[data-theme="kiddo"] .btn-solid-lime:hover,
+        html[data-theme="kiddo"] .btn-solid-white:hover,
+        html[data-theme="kiddo"] button.w-14:hover {
+            transform: translateY(2px) scale(0.97) !important;
+            box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), 
+                        -2px -2px 5px rgba(255, 255, 255, 0.8), 
+                        inset 4px 4px 8px rgba(0, 0, 0, 0.1), 
+                        inset -4px -4px 8px rgba(255, 255, 255, 0.4) !important; 
+        }
+        html[data-theme="kiddo"] .input-minimal {
+            background-color: #f0f4f8 !important;
+            border: none !important;
+            border-radius: 20px !important;
+            box-shadow: inset 6px 6px 12px rgba(166, 180, 200, 0.4), 
+                        inset -6px -6px 12px rgba(255, 255, 255, 0.9) !important;
+            color: var(--text-main) !important;
+        }
+        html[data-theme="kiddo"] .input-minimal:focus {
+            box-shadow: inset 8px 8px 16px rgba(166, 180, 200, 0.5), 
+                        inset -8px -8px 16px rgba(255, 255, 255, 1),
+                        0 0 0 4px rgba(255, 159, 67, 0.3) !important;
+        }
+        html[data-theme="kiddo"] #main-nav.scrolled-nav #nav-inner {
+            background-color: #f0f4f8 !important;
+            box-shadow: 10px 10px 20px rgba(166, 180, 200, 0.4), 
+                        -10px -10px 20px rgba(255, 255, 255, 0.9),
+                        inset 4px 4px 10px rgba(255, 255, 255, 0.9), 
+                        inset -4px -4px 10px rgba(166, 180, 200, 0.2) !important;
+            border: none !important;
+            backdrop-filter: none !important;
+        }
+        html[data-theme="kiddo"] .bg-\[\#111\] {
+            background-color: #e2e8f0 !important;
+            box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+            border-radius: 24px !important;
+            padding: 10px !important;
+        }
+        html[data-theme="kiddo"] .glass-card img {
+            border-radius: 16px !important;
+        }
+        html[data-theme="kiddo"] #mobile-menu {
+            background-color: var(--bg-lime) !important;
+        }
+        html[data-theme="kiddo"] .curtain {
+            background-color: var(--bg-lime) !important;
+            background-image: none !important;
+        }
+        html[data-theme="kiddo"] .loader-terminal {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="kiddo"] .scroll-bg,
+        html[data-theme="kiddo"] #cursor-glow,
+        html[data-theme="kiddo"] .wrapper-svg-container,
+        html[data-theme="kiddo"] #hero-particles {
+            display: none !important;
+        }
+        html[data-theme="kiddo"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="kiddo"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: rgba(166, 180, 200, 0.3) !important;
+        }
+        html[data-theme="kiddo"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="kiddo"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: var(--accent) !important;
+            height: 4px !important;
+            border-radius: 4px !important;
+        }
+        html[data-theme="kiddo"] .code-symbol {
+            color: rgba(166, 180, 200, 0.6) !important;
+            mix-blend-mode: normal !important;
+        }
+        html[data-theme="kiddo"] .timeline-line::before {
+            background: rgba(166, 180, 200, 0.4) !important;
+            width: 4px !important;
+            border-radius: 4px !important;
+        }
+        html[data-theme="kiddo"] #theme-dropdown {
+            background-color: #f0f4f8 !important;
+            border: none !important;
+            border-radius: 24px !important;
+            box-shadow: 10px 10px 20px rgba(166, 180, 200, 0.4), 
+                        -10px -10px 20px rgba(255, 255, 255, 0.9),
+                        inset 2px 2px 5px rgba(255, 255, 255, 0.9), 
+                        inset -2px -2px 5px rgba(166, 180, 200, 0.2) !important;
+            padding: 10px !important;
+        }
+        html[data-theme="kiddo"] .theme-option {
+            color: var(--text-main) !important;
+            border: none !important;
+            border-radius: 16px !important;
+        }
+        html[data-theme="kiddo"] .theme-option:hover,
+        html[data-theme="kiddo"] .theme-option.active {
+            background-color: var(--accent) !important;
+            color: #fff !important;
+            box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
+        }
+        html[data-theme="kiddo"] .mobile-nav-link {
+            color: var(--text-main) !important;
+            text-shadow: none !important;
+        }
+        html[data-theme="kiddo"] .mobile-theme-option {
+            background: #f0f4f8 !important;
+            border: none !important;
+            border-radius: 16px !important;
+            box-shadow: 4px 4px 8px rgba(166, 180, 200, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 4px rgba(166, 180, 200, 0.2) !important;
+            color: var(--text-main) !important;
+            margin-bottom: 8px !important;
+        }
+        html[data-theme="kiddo"] .mobile-theme-option.active,
+        html[data-theme="kiddo"] .mobile-theme-option:hover {
+            background: var(--accent) !important;
+            color: #fff !important;
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.4) !important;
+        }
+        html[data-theme="kiddo"] .text-\[\#111\] {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="kiddo"] .menu-line-1,
+        html[data-theme="kiddo"] .menu-line-2,
+        html[data-theme="kiddo"] .menu-line-3 {
+            background-color: var(--text-main) !important;
+        }
+        
+        /* Specifically Target Input Labels & Faded Texts to ensure visibility */
+        html[data-theme="kiddo"] .text-\[\#d2fc2a\]\/70 {
+            color: var(--text-muted) !important;
+            font-weight: 800 !important;
+        }
+        html[data-theme="kiddo"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
+            color: var(--accent) !important;
+        }
+
+        /* Progress Bar Overrides for Kiddo */
+        html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            background-color: #f0f4f8 !important;
+            box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+            border-radius: 999px !important;
+            height: 16px !important;
+        }
+        html[data-theme="kiddo"] .bg-\[\#d2fc2a\] {
+            background-color: var(--accent) !important;
+            border-radius: 999px !important;
+            height: 16px !important;
+            box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* About Page specific overrides for Kiddo */
+        html[data-theme="kiddo"] .border-white\/5, html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
+            background-color: #f0f4f8 !important;
+            border: none !important;
+            box-shadow: 4px 4px 8px rgba(166, 180, 200, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 4px rgba(166, 180, 200, 0.2) !important;
+            color: var(--text-main) !important;
+            border-radius: 8px !important;
+        }
+        html[data-theme="kiddo"] .text-\[\#ccc\],
+        html[data-theme="kiddo"] .text-\[\#a1a1a1\],
+        html[data-theme="kiddo"] .text-\[\#666\],
+        html[data-theme="kiddo"] .text-\[\#555\],
+        html[data-theme="kiddo"] .text-gray-300 {
+            color: var(--text-muted) !important;
+        }
+        html[data-theme="kiddo"] .kbd-key {
+            background: #f0f4f8 !important;
+            border: none !important;
+            box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+            color: var(--accent) !important;
+            border-radius: 6px !important;
+        }
+        html[data-theme="kiddo"] .bg-\[rgba\(210\,252\,42\,0\.1\)\] {
+            background: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
+            color: var(--accent) !important;
+            border-radius: 8px !important;
+        }
     </style>
 </head>
 
@@ -933,6 +2053,32 @@ Happy coding!
                     <i data-lucide="link" class="w-3.5 h-3.5"></i>
                     <span data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</span>
                 </a>
+
+                <!-- Desktop Theme Dropdown -->
+                <div class="relative group" id="theme-dropdown-container">
+                    <button id="theme-toggle-btn" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm" title="Select Theme">
+                        <i data-lucide="palette" class="w-4 h-4"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div id="theme-dropdown" class="absolute top-full right-0 mt-3 w-48 rounded-xl bg-[#272a21] border border-[rgba(210,252,42,0.1)] shadow-2xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 z-[105]">
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="grenomint">
+                            Grenomint <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="panycandy">
+                            PanyCandy <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="glassortcele">
+                            Glassortcele <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="offoto">
+                            Offoto <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="kiddo">
+                            Kiddo <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                    </div>
+                </div>
+
                 <button id="lang-toggle" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm">
                     <i data-lucide="globe" class="w-4 h-4"></i>
                 </button>
@@ -989,7 +2135,34 @@ Happy coding!
                     data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</a>
             </div>
 
-            <div class="mt-16 mb-8 w-full max-w-sm">
+            <div class="mt-16 mb-8 w-full max-w-sm space-y-4">
+                
+                <!-- Mobile Theme Dropdown -->
+                <div class="relative w-full" id="mobile-theme-dropdown-container">
+                    <button id="mobile-theme-toggle-btn" class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3 relative">
+                        <i data-lucide="palette" class="w-4 h-4 absolute left-4"></i>
+                        <span id="mobile-theme-text">THEME: GRENOMINT</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 transition-transform duration-300" id="mobile-theme-chevron"></i>
+                    </button>
+                    <div id="mobile-theme-dropdown" class="hidden flex-col gap-2 mt-3 w-full">
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="grenomint">
+                            Grenomint
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="panycandy">
+                            PanyCandy
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="glassortcele">
+                            Glassortcele
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="offoto">
+                            Offoto
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="kiddo">
+                            Kiddo
+                        </button>
+                    </div>
+                </div>
+
                 <button id="mobile-lang-toggle"
                     class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3">
                     <i data-lucide="globe" class="w-4 h-4"></i>
@@ -1576,6 +2749,9 @@ Happy coding!
         let mouseY = window.innerHeight / 2;
         let glowX = mouseX;
         let glowY = mouseY;
+        
+        // Make particle color dynamically controllable globally
+        window.heroParticleColor = '210, 252, 42';
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -1687,11 +2863,46 @@ Happy coding!
         }
 
         updateLang(currentLang);
+        
+        let languageFeedbackTimer;
+        let languageAudioContext;
+
+        function playLanguageFeedback() {
+            try {
+                languageAudioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+                const now = languageAudioContext.currentTime;
+                const oscillator = languageAudioContext.createOscillator();
+                const gain = languageAudioContext.createGain();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(520, now);
+                oscillator.frequency.exponentialRampToValueAtTime(780, now + 0.09);
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.035, now + 0.015);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.14);
+                oscillator.connect(gain);
+                gain.connect(languageAudioContext.destination);
+                oscillator.start(now);
+                oscillator.stop(now + 0.15);
+            } catch (error) {
+                languageAudioContext = null;
+            }
+        }
+
+        function triggerLanguageFeedback() {
+            document.body.classList.remove('language-switching');
+            void document.body.offsetWidth;
+            document.body.classList.add('language-switching');
+            clearTimeout(languageFeedbackTimer);
+            languageFeedbackTimer = setTimeout(() => document.body.classList.remove('language-switching'), 650);
+            playLanguageFeedback();
+            if (navigator.vibrate) navigator.vibrate(14);
+        }
 
         const toggleLang = () => {
             currentLang = currentLang === 'en' ? 'mm' : 'en';
             localStorage.setItem('hzp_lang', currentLang);
             updateLang(currentLang);
+            triggerLanguageFeedback();
         };
 
         document.getElementById('lang-toggle')?.addEventListener('click', toggleLang);
@@ -1751,6 +2962,123 @@ Happy coding!
                 window.location.href = mailtoLink;
             });
         }
+        
+        // --- Theme Dropdown Logic ---
+        let currentTheme = localStorage.getItem('hzp_theme');
+        if (!currentTheme) {
+            currentTheme = 'grenomint';
+            localStorage.setItem('hzp_theme', currentTheme);
+        }
+
+        const themeDropdownContainer = document.getElementById('theme-dropdown-container');
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const themeDropdown = document.getElementById('theme-dropdown');
+        
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle-btn');
+        const mobileThemeDropdown = document.getElementById('mobile-theme-dropdown');
+        const mobileThemeChevron = document.getElementById('mobile-theme-chevron');
+        
+        const themeOptions = document.querySelectorAll('.theme-option, .mobile-theme-option');
+
+        // Toggle Desktop Dropdown
+        if(themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                themeDropdown.classList.toggle('opacity-0');
+                themeDropdown.classList.toggle('pointer-events-none');
+                themeDropdown.classList.toggle('-translate-y-2');
+            });
+        }
+
+        // Close Desktop Dropdown if clicked outside
+        document.addEventListener('click', (e) => {
+            if (themeDropdownContainer && !themeDropdownContainer.contains(e.target)) {
+                if (themeDropdown && !themeDropdown.classList.contains('opacity-0')) {
+                    themeDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+                }
+            }
+        });
+
+        // Toggle Mobile Dropdown
+        if (mobileThemeToggleBtn) {
+            mobileThemeToggleBtn.addEventListener('click', () => {
+                mobileThemeDropdown.classList.toggle('hidden');
+                mobileThemeDropdown.classList.toggle('flex');
+                mobileThemeChevron.classList.toggle('rotate-180');
+            });
+        }
+
+        function updateTheme(theme) {
+            // Apply base theme HTML attribute
+            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'kiddo') {
+                document.documentElement.setAttribute('data-theme', theme);
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            
+            // Set dynamic canvas particle colors
+            if (theme === 'glassortcele') {
+                window.heroParticleColor = '0, 242, 254'; // Cyan
+            } else if (theme === 'panycandy') {
+                window.heroParticleColor = '255, 183, 3'; // Yellow
+            } else if (theme === 'offoto') {
+                window.heroParticleColor = '0, 122, 255'; // Blue
+            } else if (theme === 'kiddo') {
+                window.heroParticleColor = '255, 159, 67'; // Orange
+            } else {
+                window.heroParticleColor = '210, 252, 42'; // Default Lime/Mint
+            }
+
+            // Update Mobile Toggle Text
+            const mobThemeText = document.getElementById('mobile-theme-text');
+            if (mobThemeText) {
+                let themeName = 'GRENOMINT';
+                if (theme === 'panycandy') themeName = 'PANYCANDY';
+                if (theme === 'glassortcele') themeName = 'GLASSORTCELE';
+                if (theme === 'offoto') themeName = 'OFFOTO';
+                if (theme === 'kiddo') themeName = 'KIDDO';
+                mobThemeText.innerText = `THEME: ${themeName}`;
+            }
+
+            // Update Checkmarks and Active States natively using CSS classes
+            themeOptions.forEach(opt => {
+                const isMatch = opt.getAttribute('data-set-theme') === theme;
+                
+                // Desktop Checkmark visual
+                const checkIcon = opt.querySelector('.check-icon');
+                if (checkIcon) {
+                    if (isMatch) checkIcon.classList.remove('opacity-0');
+                    else checkIcon.classList.add('opacity-0');
+                }
+
+                // Append Active class (the styling logic lives purely in CSS)
+                if (isMatch) {
+                    opt.classList.add('active');
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+        }
+
+        // Add Click Listeners to All Theme Options
+        themeOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                const selectedTheme = opt.getAttribute('data-set-theme');
+                currentTheme = selectedTheme;
+                localStorage.setItem('hzp_theme', selectedTheme);
+                updateTheme(selectedTheme);
+                triggerLanguageFeedback();
+                
+                // Automatically close desktop dropdown upon selection
+                if(themeDropdown) {
+                    themeDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+                }
+            });
+        });
+
+        // Initialize Theme Update on Load
+        updateTheme(currentTheme);
+        
     </script>
     <script>
         if ("serviceWorker" in navigator) {
@@ -1815,7 +3143,7 @@ I'd be happy to hear from you.
 Portfolio: https://htetzawpaing.site
 Company:   https://myancode.com
 Email:     contact@htetzawpaing.site | hello@myancode.com
-Phone:     +95 9 4567 5188 | +95 9 944 861000
+Phone:     +95 9 4567 51 882 | +95 9 944 86 1000
 
 © 2026 Htet Zaw Paing. All rights reserved.
 
@@ -1823,3 +3151,4 @@ Happy coding!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
+```eof
