@@ -207,6 +207,7 @@ Happy coding!
             --accent: #d2fc2a;
             --text-main: #f4f4f0;
             --text-muted: #888d81;
+            --logo-color: #111;
 
             --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
             --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -295,7 +296,9 @@ Happy coding!
         }
 
         body.language-switching #lang-toggle,
-        body.language-switching #mobile-lang-toggle {
+        body.language-switching #theme-toggle-btn,
+        body.language-switching #mobile-lang-toggle,
+        body.language-switching #mobile-theme-toggle-btn {
             animation: language-switch-control 0.65s var(--ease-bounce);
         }
 
@@ -324,7 +327,9 @@ Happy coding!
         @media (prefers-reduced-motion: reduce) {
             body.language-switching #main-content-wrapper,
             body.language-switching #lang-toggle,
-            body.language-switching #mobile-lang-toggle {
+            body.language-switching #theme-toggle-btn,
+            body.language-switching #mobile-lang-toggle,
+            body.language-switching #mobile-theme-toggle-btn {
                 animation: none;
             }
         }
@@ -560,8 +565,7 @@ Happy coding!
             position: relative;
             display: inline-block;
             animation: glitch-hide-base 5s infinite;
-            color: #111;
-            /* Enforce solid formal color */
+            color: var(--logo-color) !important;
         }
 
         .logo-glitch-anim::before,
@@ -572,34 +576,29 @@ Happy coding!
             left: 0;
             width: 100%;
             height: 100%;
-            color: #111;
+            color: var(--logo-color) !important;
             background: transparent;
             opacity: 0;
             pointer-events: none;
         }
 
-        /* Top half slice */
         .logo-glitch-anim::before {
             clip-path: inset(0 0 55% 0);
-            /* Cuts off bottom part */
             animation: glitch-slice-top 5s infinite;
         }
 
-        /* Bottom half slice */
         .logo-glitch-anim::after {
             clip-path: inset(45% 0 0 0);
-            /* Cuts off top part */
             animation: glitch-slice-bottom 5s infinite;
         }
 
-        /* Hides the main solid text precisely when the split layers appear */
         @keyframes glitch-hide-base {
 
             0%,
             18%,
             22%,
             100% {
-                color: #111;
+                color: var(--logo-color);
                 text-shadow: none;
             }
 
@@ -610,7 +609,6 @@ Happy coding!
             }
         }
 
-        /* Extreme horizontal translation with formal white/dark shadows */
         @keyframes glitch-slice-top {
 
             0%,
@@ -944,12 +942,10 @@ Happy coding!
         }
 
         .mono-img {
-            filter: grayscale(0.2) contrast(1.15) brightness(0.95);
-            transition: filter 0.6s ease, transform 0.6s var(--ease-bounce);
+            transition: transform 0.6s var(--ease-bounce);
         }
 
         .group:hover .mono-img {
-            filter: grayscale(0) contrast(1.05) brightness(1);
             transform: scale(1.03);
         }
 
@@ -1207,6 +1203,630 @@ Happy coding!
             animation: none !important;
             visibility: visible !important;
         }
+
+        /* ------------------------------------------------------------------
+           ACID MINT THEME (Base / Default) - Active Styles
+           ------------------------------------------------------------------ */
+        .theme-option.active {
+            background-color: rgba(210,252,42,0.1);
+            color: #d2fc2a;
+        }
+        .mobile-theme-option.active {
+            background-color: rgba(210,252,42,0.1);
+            border-color: rgba(210,252,42,0.3);
+            color: #d2fc2a;
+        }
+
+        /* ------------------------------------------------------------------
+           NEO BRUTALISM THEME OVERRIDES
+           ------------------------------------------------------------------ */
+        html[data-theme="neo-brutalism"] {
+            --bg-lime: #ffb703; /* Striking yellow */
+            --bg-olive: #ffffff; /* Stark white */
+            --accent: #ff006e; /* Hot pink */
+            --text-main: #000000;
+            --text-muted: #111111;
+            --logo-color: #000;
+        }
+
+        html[data-theme="neo-brutalism"] body {
+            background-color: var(--bg-lime) !important;
+            color: #000 !important;
+        }
+
+        html[data-theme="neo-brutalism"] #main-content-wrapper {
+            background-color: #fff !important;
+            border: 5px solid #000 !important;
+            box-shadow: 15px 15px 0px #000 !important;
+            border-radius: 0 !important;
+        }
+
+        html[data-theme="neo-brutalism"] .glass-card,
+        html[data-theme="neo-brutalism"] .news-card {
+            background: #fff !important;
+            border: 4px solid #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0px #000 !important;
+            transition: transform 0.1s, box-shadow 0.1s !important;
+            opacity: 1 !important;
+            backdrop-filter: none !important;
+        }
+
+        html[data-theme="neo-brutalism"] .glass-card:hover,
+        html[data-theme="neo-brutalism"] .news-card:hover {
+            transform: translate(4px, 4px) !important;
+            box-shadow: 4px 4px 0px #000 !important;
+            background-color: #f4f4f0 !important;
+        }
+
+        html[data-theme="neo-brutalism"] .btn-solid-lime,
+        html[data-theme="neo-brutalism"] .btn-solid-white,
+        html[data-theme="neo-brutalism"] #theme-toggle-btn,
+        html[data-theme="neo-brutalism"] #lang-toggle,
+        html[data-theme="neo-brutalism"] #menu-toggle,
+        html[data-theme="neo-brutalism"] #menu-toggle-desktop,
+        html[data-theme="neo-brutalism"] #projects-prev,
+        html[data-theme="neo-brutalism"] #projects-next,
+        html[data-theme="neo-brutalism"] #news-prev,
+        html[data-theme="neo-brutalism"] #news-next {
+            background-color: var(--accent) !important;
+            color: #fff !important;
+            border: 3px solid #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 5px 5px 0px #000 !important;
+            transition: all 0.1s ease !important;
+            text-transform: uppercase;
+        }
+
+        html[data-theme="neo-brutalism"] .btn-solid-white {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        html[data-theme="neo-brutalism"] .btn-solid-lime:hover,
+        html[data-theme="neo-brutalism"] .btn-solid-white:hover,
+        html[data-theme="neo-brutalism"] button:hover {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 3px 3px 0px #000 !important;
+        }
+
+        html[data-theme="neo-brutalism"] .text-white,
+        html[data-theme="neo-brutalism"] h1,
+        html[data-theme="neo-brutalism"] h2,
+        html[data-theme="neo-brutalism"] h3,
+        html[data-theme="neo-brutalism"] p {
+            color: #000 !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .btn-solid-lime .text-white,
+        html[data-theme="neo-brutalism"] button .text-white,
+        html[data-theme="neo-brutalism"] .btn-solid-lime span,
+        html[data-theme="neo-brutalism"] .btn-solid-lime i {
+            color: inherit !important;
+        }
+
+        html[data-theme="neo-brutalism"] .text-\[\#d2fc2a\],
+        html[data-theme="neo-brutalism"] .text-outline-accent {
+            color: var(--accent) !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .text-outline-accent {
+            -webkit-text-stroke: 2px #000;
+            text-shadow: 6px 6px 0px #000;
+        }
+
+        html[data-theme="neo-brutalism"] h1, html[data-theme="neo-brutalism"] h2 {
+            text-shadow: 4px 4px 0px var(--bg-lime);
+        }
+
+        html[data-theme="neo-brutalism"] .bg-\[\#111\] {
+            background-color: var(--bg-lime) !important;
+            border-bottom: 4px solid #000;
+            border-radius: 0 !important;
+        }
+        
+        html[data-theme="neo-brutalism"] #specialization {
+            background-color: var(--accent) !important;
+            border-top: 5px solid #000 !important;
+            border-bottom: 5px solid #000 !important;
+        }
+        
+        html[data-theme="neo-brutalism"] section {
+            border-color: #000 !important;
+        }
+
+        html[data-theme="neo-brutalism"] .input-minimal {
+            background: #fff !important;
+            border: 4px solid #000 !important;
+            border-radius: 0 !important;
+            color: #000 !important;
+            box-shadow: 6px 6px 0px #000 !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .input-minimal:focus {
+            box-shadow: 2px 2px 0px #000 !important;
+            transform: translate(4px, 4px) !important;
+        }
+
+        html[data-theme="neo-brutalism"] .scroll-bg,
+        html[data-theme="neo-brutalism"] #cursor-glow,
+        html[data-theme="neo-brutalism"] #hero-particles,
+        html[data-theme="neo-brutalism"] .wrapper-svg-container {
+            display: none !important;
+        }
+
+        html[data-theme="neo-brutalism"] #main-nav.scrolled-nav #nav-inner {
+            background: #fff !important;
+            border: 4px solid #000 !important;
+            box-shadow: 8px 8px 0px #000 !important;
+            border-radius: 0 !important;
+            backdrop-filter: none !important;
+        }
+
+        html[data-theme="neo-brutalism"] #main-nav #nav-logo span {
+            color: #000 !important;
+            background: #fff;
+            padding: 4px 8px;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px var(--accent);
+            text-shadow: none !important;
+        }
+
+        html[data-theme="neo-brutalism"] #mobile-menu {
+            background-color: var(--bg-lime) !important;
+            border-left: 5px solid #000 !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .mobile-nav-link {
+            color: #000 !important;
+            text-shadow: 3px 3px 0px #fff;
+            font-weight: 900 !important;
+        }
+
+        html[data-theme="neo-brutalism"] .curtain {
+            background-color: var(--accent) !important;
+            background-image: none !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .loader-terminal {
+            color: #fff !important;
+            background: #000;
+            padding: 10px 20px;
+            border: 4px solid #fff;
+            box-shadow: 8px 8px 0px var(--bg-lime);
+        }
+
+        html[data-theme="neo-brutalism"] .code-symbol {
+            color: #000 !important;
+            opacity: 0.8 !important;
+            font-weight: 900 !important;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        html[data-theme="neo-brutalism"] .timeline-line::before {
+            background: #000 !important;
+            width: 4px !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="neo-brutalism"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: #000 !important;
+            height: 4px !important;
+        }
+
+        html[data-theme="neo-brutalism"] .text-\[\#888d81\] {
+            color: #222 !important;
+            font-weight: 700;
+        }
+
+        html[data-theme="neo-brutalism"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="neo-brutalism"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: #000 !important;
+            border-width: 4px !important;
+        }
+
+        html[data-theme="neo-brutalism"] #theme-dropdown {
+            background-color: #fff !important;
+            border: 4px solid #000 !important;
+            box-shadow: 6px 6px 0px #000 !important;
+            border-radius: 0 !important;
+        }
+        html[data-theme="neo-brutalism"] .theme-option {
+            color: #000 !important;
+            border-bottom: 2px solid #000;
+        }
+        html[data-theme="neo-brutalism"] .theme-option:last-child {
+            border-bottom: none;
+        }
+        html[data-theme="neo-brutalism"] .theme-option:hover,
+        html[data-theme="neo-brutalism"] .theme-option.active {
+            background-color: var(--accent) !important;
+            color: #fff !important;
+        }
+
+        html[data-theme="neo-brutalism"] .mobile-theme-option {
+            background: #fff !important;
+            border: 3px solid #000 !important;
+            color: #000 !important;
+            border-radius: 0 !important;
+            box-shadow: 4px 4px 0px #000 !important;
+        }
+        html[data-theme="neo-brutalism"] .mobile-theme-option:hover,
+        html[data-theme="neo-brutalism"] .mobile-theme-option.active {
+            background: var(--accent) !important;
+            color: #fff !important;
+            transform: translate(2px, 2px) !important;
+            box-shadow: 2px 2px 0px #000 !important;
+        }
+        
+        html[data-theme="neo-brutalism"] .menu-line-1,
+        html[data-theme="neo-brutalism"] .menu-line-2,
+        html[data-theme="neo-brutalism"] .menu-line-3 {
+            background-color: #000 !important;
+        }
+
+        /* Specifically Target Input Labels */
+        html[data-theme="neo-brutalism"] .text-\[\#d2fc2a\]\/70 {
+            color: #000 !important;
+            font-weight: 900 !important;
+        }
+
+        /* ------------------------------------------------------------------
+           GLASSMORPHISM THEME OVERRIDES (Apple Liquid UI / visionOS Style)
+           ------------------------------------------------------------------ */
+        html[data-theme="glassmorphism"] {
+            --bg-lime: #0f172a; 
+            --bg-olive: rgba(255, 255, 255, 0.03);
+            --accent: #00f2fe; 
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --logo-color: #f8fafc;
+        }
+        html[data-theme="glassmorphism"] body {
+            background: radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.25), transparent 40%),
+                        radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.3), transparent 40%),
+                        radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.25), transparent 40%),
+                        #0f172a !important;
+            background-attachment: fixed !important;
+        }
+        html[data-theme="glassmorphism"] #main-content-wrapper {
+            background: rgba(255, 255, 255, 0.02) !important;
+            backdrop-filter: blur(40px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(150%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        /* Fix the header bar on scroll */
+        html[data-theme="glassmorphism"] #main-nav.scrolled-nav #nav-inner {
+            background: rgba(20, 20, 25, 0.45) !important;
+            backdrop-filter: blur(30px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        }
+        html[data-theme="glassmorphism"] #main-nav.scrolled-nav #nav-logo span {
+            color: #fff !important;
+        }
+
+        html[data-theme="glassmorphism"] .glass-card,
+        html[data-theme="glassmorphism"] .news-card {
+            background: rgba(255, 255, 255, 0.03) !important;
+            backdrop-filter: blur(20px) saturate(120%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(120%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+            border-radius: 28px !important;
+        }
+        html[data-theme="glassmorphism"] .glass-card:hover,
+        html[data-theme="glassmorphism"] .news-card:hover {
+            background: rgba(255, 255, 255, 0.06) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-6px) scale(1.02) !important;
+            box-shadow: 0 15px 40px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        html[data-theme="glassmorphism"] .btn-solid-lime,
+        html[data-theme="glassmorphism"] .btn-solid-white,
+        html[data-theme="glassmorphism"] button:not(.theme-option):not(.mobile-theme-option) {
+            background: rgba(255, 255, 255, 0.05) !important;
+            backdrop-filter: blur(16px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            border-radius: 999px !important; /* Apple pills */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        }
+        html[data-theme="glassmorphism"] .btn-solid-lime {
+            background: rgba(0, 242, 254, 0.1) !important;
+            border-color: rgba(0, 242, 254, 0.3) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+            text-shadow: 0 0 8px rgba(0, 242, 254, 0.5) !important;
+        }
+        html[data-theme="glassmorphism"] .btn-solid-lime:hover,
+        html[data-theme="glassmorphism"] .btn-solid-white:hover,
+        html[data-theme="glassmorphism"] button:not(.theme-option):not(.mobile-theme-option):hover {
+            background: rgba(255, 255, 255, 0.12) !important;
+            border-color: rgba(255, 255, 255, 0.25) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        html[data-theme="glassmorphism"] .input-minimal {
+            background: rgba(0, 0, 0, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            backdrop-filter: blur(12px) !important;
+            border-radius: 16px !important;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2) !important;
+        }
+        html[data-theme="glassmorphism"] .input-minimal:focus {
+            background: rgba(0, 0, 0, 0.25) !important;
+            border-color: rgba(0, 242, 254, 0.4) !important;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2), 0 0 15px rgba(0, 242, 254, 0.15) !important;
+        }
+
+        html[data-theme="glassmorphism"] .bg-\[\#111\] {
+            background: rgba(0,0,0,0.4) !important;
+        }
+        
+        html[data-theme="glassmorphism"] .text-\[\#d2fc2a\],
+        html[data-theme="glassmorphism"] .text-outline-accent {
+            color: var(--accent) !important;
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.4) !important;
+        }
+        html[data-theme="glassmorphism"] .text-outline-accent {
+            -webkit-text-stroke: 1.5px var(--accent);
+            color: transparent !important;
+        }
+        
+        html[data-theme="glassmorphism"] .scroll-bg {
+            opacity: 0.15 !important;
+            filter: hue-rotate(110deg) !important;
+        }
+        html[data-theme="glassmorphism"] .wrapper-svg-container {
+            display: none !important;
+        }
+        html[data-theme="glassmorphism"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="glassmorphism"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: var(--accent) !important;
+            box-shadow: 0 0 8px var(--accent) !important;
+        }
+        html[data-theme="glassmorphism"] .shadow-\[0_0_20px_rgba\(210\,252\,42\,0\.8\)\] {
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6) !important;
+        }
+        html[data-theme="glassmorphism"] .shadow-\[0_0_15px_rgba\(210\,252\,42\,0\.9\)\] {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.6) !important;
+        }
+        html[data-theme="glassmorphism"] .text-\[\#d2fc2a\]\/70 {
+            color: rgba(0, 242, 254, 0.8) !important;
+        }
+        
+        /* Dropdowns for glassmorphism */
+        html[data-theme="glassmorphism"] #theme-dropdown {
+            background: rgba(20, 20, 25, 0.6) !important;
+            backdrop-filter: blur(25px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+            border: 1px solid rgba(255,255,255,0.15) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+        }
+        html[data-theme="glassmorphism"] .theme-option {
+            background: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            color: #fff !important;
+            padding: 12px 16px !important;
+        }
+        html[data-theme="glassmorphism"] .theme-option:last-child {
+            border-bottom: none !important;
+        }
+        html[data-theme="glassmorphism"] .theme-option:hover,
+        html[data-theme="glassmorphism"] .theme-option.active {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            color: var(--accent) !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        html[data-theme="glassmorphism"] #mobile-menu {
+            background: rgba(15, 23, 42, 0.85) !important;
+            backdrop-filter: blur(40px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+        }
+        html[data-theme="glassmorphism"] .mobile-nav-link {
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.3) !important;
+        }
+        html[data-theme="glassmorphism"] .mobile-theme-option {
+            background: rgba(255,255,255,0.03) !important;
+            border: 1px solid rgba(255,255,255,0.08) !important;
+            border-radius: 16px !important;
+        }
+        html[data-theme="glassmorphism"] .mobile-theme-option.active,
+        html[data-theme="glassmorphism"] .mobile-theme-option:hover {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255,255,255,0.2) !important;
+            color: var(--accent) !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        }
+        html[data-theme="glassmorphism"] .text-\[\#111\] {
+            color: #fff !important;
+        }
+        html[data-theme="glassmorphism"] .menu-line-1,
+        html[data-theme="glassmorphism"] .menu-line-2,
+        html[data-theme="glassmorphism"] .menu-line-3 {
+            background-color: #fff !important;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5) !important;
+        }
+
+        /* ------------------------------------------------------------------
+           NEUMORPHISM THEME OVERRIDES
+           ------------------------------------------------------------------ */
+        html[data-theme="neumorphism"] {
+            --bg-lime: #e0e5ec;
+            --bg-olive: #e0e5ec;
+            --accent: #007aff; 
+            --text-main: #333333;
+            --text-muted: #666666;
+            --logo-color: #333333;
+        }
+        html[data-theme="neumorphism"] body,
+        html[data-theme="neumorphism"] #main-content-wrapper {
+            background-color: var(--bg-lime) !important;
+            color: var(--text-main) !important;
+            box-shadow: none !important;
+        }
+        html[data-theme="neumorphism"] #main-content-wrapper {
+            border: none !important;
+        }
+        html[data-theme="neumorphism"] .text-white,
+        html[data-theme="neumorphism"] h1,
+        html[data-theme="neumorphism"] h2,
+        html[data-theme="neumorphism"] h3,
+        html[data-theme="neumorphism"] p,
+        html[data-theme="neumorphism"] span {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="neumorphism"] .text-\[\#888d81\] {
+            color: var(--text-muted) !important;
+        }
+        html[data-theme="neumorphism"] .text-\[\#d2fc2a\] {
+            color: var(--accent) !important;
+        }
+        html[data-theme="neumorphism"] .text-outline-accent {
+            -webkit-text-stroke: 1.5px var(--accent);
+            color: transparent !important;
+        }
+        html[data-theme="neumorphism"] .glass-card,
+        html[data-theme="neumorphism"] .news-card {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            border-radius: 20px !important;
+            box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5) !important;
+            backdrop-filter: none !important;
+            transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+        }
+        html[data-theme="neumorphism"] .glass-card:hover,
+        html[data-theme="neumorphism"] .news-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255, 0.6) !important;
+        }
+        html[data-theme="neumorphism"] .btn-solid-lime,
+        html[data-theme="neumorphism"] .btn-solid-white,
+        html[data-theme="neumorphism"] #theme-toggle-btn,
+        html[data-theme="neumorphism"] #lang-toggle,
+        html[data-theme="neumorphism"] #menu-toggle,
+        html[data-theme="neumorphism"] #menu-toggle-desktop,
+        html[data-theme="neumorphism"] button.w-14 {
+            background-color: var(--bg-lime) !important;
+            color: var(--accent) !important;
+            border: none !important;
+            box-shadow: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255, 0.5) !important;
+            border-radius: 12px !important;
+            transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+        }
+        html[data-theme="neumorphism"] .btn-solid-lime:hover,
+        html[data-theme="neumorphism"] .btn-solid-white:hover,
+        html[data-theme="neumorphism"] button.w-14:hover {
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.5) !important;
+            transform: scale(0.98) !important;
+        }
+        html[data-theme="neumorphism"] .input-minimal {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.5) !important;
+            color: var(--text-main) !important;
+        }
+        html[data-theme="neumorphism"] .input-minimal:focus {
+            box-shadow: inset 6px 6px 12px rgb(163,177,198,0.7), inset -6px -6px 12px rgba(255,255,255, 0.6) !important;
+        }
+        html[data-theme="neumorphism"] #main-nav.scrolled-nav #nav-inner {
+            background-color: var(--bg-lime) !important;
+            box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5) !important;
+            border: none !important;
+        }
+        html[data-theme="neumorphism"] .bg-\[\#111\] {
+            background-color: #d1d9e6 !important;
+            box-shadow: inset 5px 5px 10px rgb(163,177,198,0.6), inset -5px -5px 10px rgba(255,255,255, 0.5) !important;
+            border-radius: 1.2rem !important;
+        }
+        html[data-theme="neumorphism"] #mobile-menu {
+            background-color: var(--bg-lime) !important;
+        }
+        html[data-theme="neumorphism"] .curtain {
+            background-color: var(--bg-lime) !important;
+            background-image: none !important;
+        }
+        html[data-theme="neumorphism"] .loader-terminal {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="neumorphism"] .scroll-bg,
+        html[data-theme="neumorphism"] #cursor-glow,
+        html[data-theme="neumorphism"] .wrapper-svg-container,
+        html[data-theme="neumorphism"] #hero-particles {
+            display: none !important;
+        }
+        html[data-theme="neumorphism"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="neumorphism"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: rgba(163,177,198,0.3) !important;
+        }
+        html[data-theme="neumorphism"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="neumorphism"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            background-color: var(--accent) !important;
+        }
+        html[data-theme="neumorphism"] .code-symbol {
+            color: rgba(163,177,198,0.5) !important;
+        }
+        html[data-theme="neumorphism"] .timeline-line::before {
+            background: rgb(163,177,198,0.4) !important;
+        }
+        html[data-theme="neumorphism"] #theme-dropdown {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5) !important;
+        }
+        html[data-theme="neumorphism"] .theme-option {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="neumorphism"] .theme-option:hover,
+        html[data-theme="neumorphism"] .theme-option.active {
+            background-color: rgba(163,177,198,0.2) !important;
+            color: var(--accent) !important;
+        }
+        html[data-theme="neumorphism"] .mobile-nav-link {
+            color: var(--text-main) !important;
+            text-shadow: none !important;
+        }
+        html[data-theme="neumorphism"] .mobile-theme-option {
+            background-color: var(--bg-lime) !important;
+            border: none !important;
+            box-shadow: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255, 0.5) !important;
+            color: var(--text-main) !important;
+        }
+        html[data-theme="neumorphism"] .mobile-theme-option.active,
+        html[data-theme="neumorphism"] .mobile-theme-option:hover {
+            box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.5) !important;
+            color: var(--accent) !important;
+            transform: scale(0.98) !important;
+        }
+        html[data-theme="neumorphism"] .text-\[\#111\] {
+            color: var(--text-main) !important;
+        }
+        html[data-theme="neumorphism"] .menu-line-1,
+        html[data-theme="neumorphism"] .menu-line-2,
+        html[data-theme="neumorphism"] .menu-line-3 {
+            background-color: var(--text-main) !important;
+        }
+        
+        /* Specifically Target Input Labels */
+        html[data-theme="neumorphism"] .text-\[\#d2fc2a\]\/70 {
+            color: var(--text-muted) !important;
+            font-weight: 800 !important;
+        }
     </style>
 </head>
 
@@ -1241,6 +1861,29 @@ Happy coding!
                     <i data-lucide="link" class="w-3.5 h-3.5"></i>
                     <span data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</span>
                 </a>
+
+                <!-- Desktop Theme Dropdown -->
+                <div class="relative group" id="theme-dropdown-container">
+                    <button id="theme-toggle-btn" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm" title="Select Theme">
+                        <i data-lucide="palette" class="w-4 h-4"></i>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div id="theme-dropdown" class="absolute top-full right-0 mt-3 w-48 rounded-xl bg-[#272a21] border border-[rgba(210,252,42,0.1)] shadow-2xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 z-[105]">
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="acid-mint">
+                            Acid Mint <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="neo-brutalism">
+                            Neo Brutalism <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="glassmorphism">
+                            Glassmorphism <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="neumorphism">
+                            Neumorphism <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                    </div>
+                </div>
+
                 <button id="lang-toggle" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm">
                     <i data-lucide="globe" class="w-4 h-4"></i>
                 </button>
@@ -1296,7 +1939,31 @@ Happy coding!
                     data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</a>
             </div>
 
-            <div class="mt-16 mb-8 w-full max-w-sm space-y-3">
+            <div class="mt-16 mb-8 w-full max-w-sm space-y-4">
+                
+                <!-- Mobile Theme Dropdown -->
+                <div class="relative w-full" id="mobile-theme-dropdown-container">
+                    <button id="mobile-theme-toggle-btn" class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3 relative">
+                        <i data-lucide="palette" class="w-4 h-4 absolute left-4"></i>
+                        <span id="mobile-theme-text">THEME: ACID MINT</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 transition-transform duration-300" id="mobile-theme-chevron"></i>
+                    </button>
+                    <div id="mobile-theme-dropdown" class="hidden flex-col gap-2 mt-3 w-full">
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="acid-mint">
+                            Acid Mint
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="neo-brutalism">
+                            Neo Brutalism
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="glassmorphism">
+                            Glassmorphism
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="neumorphism">
+                            Neumorphism
+                        </button>
+                    </div>
+                </div>
+
                 <button id="mobile-lang-toggle"
                     class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3">
                     <i data-lucide="globe" class="w-4 h-4"></i>
@@ -2226,6 +2893,9 @@ Happy coding!
         let glowX = mouseX;
         let glowY = mouseY;
 
+        // Make particle color dynamically controllable globally
+        window.heroParticleColor = '210, 252, 42';
+
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
@@ -2269,6 +2939,9 @@ Happy coding!
             const elapsed = time * 0.001;
             context.clearRect(0, 0, heroParticleWidth, heroParticleHeight);
 
+            // Read the dynamic RGB color configured from the theme logic
+            const pRgb = window.heroParticleColor || '210, 252, 42';
+
             if (heroParticlePointer.active) {
                 const pointerGlow = context.createRadialGradient(
                     heroParticlePointer.x,
@@ -2278,9 +2951,9 @@ Happy coding!
                     heroParticlePointer.y,
                     210
                 );
-                pointerGlow.addColorStop(0, 'rgba(210, 252, 42, 0.14)');
-                pointerGlow.addColorStop(0.45, 'rgba(210, 252, 42, 0.045)');
-                pointerGlow.addColorStop(1, 'rgba(210, 252, 42, 0)');
+                pointerGlow.addColorStop(0, `rgba(${pRgb}, 0.14)`);
+                pointerGlow.addColorStop(0.45, `rgba(${pRgb}, 0.045)`);
+                pointerGlow.addColorStop(1, `rgba(${pRgb}, 0)`);
                 context.fillStyle = pointerGlow;
                 context.fillRect(0, 0, heroParticleWidth, heroParticleHeight);
             }
@@ -2312,7 +2985,7 @@ Happy coding!
                 const nearby = heroParticles.slice(index + 1).filter(other => Math.hypot(other.x - particle.x, other.y - particle.y) < 132);
                 nearby.forEach(other => {
                     const distance = Math.hypot(other.x - particle.x, other.y - particle.y);
-                    context.strokeStyle = `rgba(210, 252, 42, ${Math.max(0, 0.2 - distance / 780)})`;
+                    context.strokeStyle = `rgba(${pRgb}, ${Math.max(0, 0.2 - distance / 780)})`;
                     context.lineWidth = 0.85;
                     context.beginPath();
                     context.moveTo(particle.x, particle.y);
@@ -2324,13 +2997,13 @@ Happy coding!
                     ? Math.hypot(heroParticlePointer.x - particle.x, heroParticlePointer.y - particle.y)
                     : 999;
                 const alpha = pointerDistance < 220 ? 0.92 : 0.46;
-                context.fillStyle = `rgba(210, 252, 42, ${alpha})`;
+                context.fillStyle = `rgba(${pRgb}, ${alpha})`;
                 context.beginPath();
                 context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 context.fill();
 
                 if (pointerDistance < 220) {
-                    context.strokeStyle = `rgba(210, 252, 42, ${Math.max(0, 0.32 - pointerDistance / 700)})`;
+                    context.strokeStyle = `rgba(${pRgb}, ${Math.max(0, 0.32 - pointerDistance / 700)})`;
                     context.lineWidth = 1;
                     context.beginPath();
                     context.arc(particle.x, particle.y, particle.radius + 3.5, 0, Math.PI * 2);
@@ -2763,6 +3436,116 @@ Happy coding!
             heroIsDeleting = true;
             heroTypewriterLoop();
         }, 3200);
+
+        // --- Theme Dropdown Logic ---
+        // Ensure Acid Mint is robustly default on initial launch
+        let currentTheme = localStorage.getItem('hzp_theme');
+        if (!currentTheme) {
+            currentTheme = 'acid-mint';
+            localStorage.setItem('hzp_theme', currentTheme);
+        }
+
+        const themeDropdownContainer = document.getElementById('theme-dropdown-container');
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const themeDropdown = document.getElementById('theme-dropdown');
+        
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle-btn');
+        const mobileThemeDropdown = document.getElementById('mobile-theme-dropdown');
+        const mobileThemeChevron = document.getElementById('mobile-theme-chevron');
+        
+        const themeOptions = document.querySelectorAll('.theme-option, .mobile-theme-option');
+
+        // Toggle Desktop Dropdown
+        if(themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                themeDropdown.classList.toggle('opacity-0');
+                themeDropdown.classList.toggle('pointer-events-none');
+                themeDropdown.classList.toggle('-translate-y-2');
+            });
+        }
+
+        // Close Desktop Dropdown if clicked outside
+        document.addEventListener('click', (e) => {
+            if (themeDropdownContainer && !themeDropdownContainer.contains(e.target)) {
+                if (themeDropdown && !themeDropdown.classList.contains('opacity-0')) {
+                    themeDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+                }
+            }
+        });
+
+        // Toggle Mobile Dropdown
+        if (mobileThemeToggleBtn) {
+            mobileThemeToggleBtn.addEventListener('click', () => {
+                mobileThemeDropdown.classList.toggle('hidden');
+                mobileThemeDropdown.classList.toggle('flex');
+                mobileThemeChevron.classList.toggle('rotate-180');
+            });
+        }
+
+        function updateTheme(theme) {
+            // Apply base theme HTML attribute
+            if (theme === 'neo-brutalism' || theme === 'glassmorphism' || theme === 'neumorphism') {
+                document.documentElement.setAttribute('data-theme', theme);
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            
+            // Set dynamic canvas particle colors
+            if (theme === 'glassmorphism') {
+                window.heroParticleColor = '0, 242, 254'; // Cyan
+            } else {
+                window.heroParticleColor = '210, 252, 42'; // Default Lime/Mint
+            }
+
+            // Update Mobile Toggle Text
+            const mobThemeText = document.getElementById('mobile-theme-text');
+            if (mobThemeText) {
+                let themeName = 'ACID MINT';
+                if (theme === 'neo-brutalism') themeName = 'NEO BRUTALISM';
+                if (theme === 'glassmorphism') themeName = 'GLASSMORPHISM';
+                if (theme === 'neumorphism') themeName = 'NEUMORPHISM';
+                mobThemeText.innerText = `THEME: ${themeName}`;
+            }
+
+            // Update Checkmarks and Active States natively using CSS classes
+            themeOptions.forEach(opt => {
+                const isMatch = opt.getAttribute('data-set-theme') === theme;
+                
+                // Desktop Checkmark visual
+                const checkIcon = opt.querySelector('.check-icon');
+                if (checkIcon) {
+                    if (isMatch) checkIcon.classList.remove('opacity-0');
+                    else checkIcon.classList.add('opacity-0');
+                }
+
+                // Append Active class (the styling logic lives purely in CSS)
+                if (isMatch) {
+                    opt.classList.add('active');
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+        }
+
+        // Add Click Listeners to All Theme Options
+        themeOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                const selectedTheme = opt.getAttribute('data-set-theme');
+                currentTheme = selectedTheme;
+                localStorage.setItem('hzp_theme', selectedTheme);
+                updateTheme(selectedTheme);
+                triggerLanguageFeedback();
+                
+                // Automatically close desktop dropdown upon selection
+                if(themeDropdown) {
+                    themeDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+                }
+            });
+        });
+
+        // Initialize Theme Update on Load
+        updateTheme(currentTheme);
 
     </script>
     <script>
