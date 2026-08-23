@@ -175,6 +175,108 @@ Happy coding!
             font-family: 'Playfair Display', serif;
         }
 
+        body.lang-mm [data-mm] {
+            font-family: 'Noto Sans Myanmar', 'Myanmar Text', 'Padauk', sans-serif;
+            letter-spacing: 0.01em;
+            word-spacing: 0.04em;
+        }
+
+        body.lang-mm [data-mm].font-serif-display {
+            font-style: normal;
+        }
+
+        body.lang-mm .uppercase[data-mm] {
+            text-transform: none;
+        }
+
+        body.lang-mm h1,
+        body.lang-mm h2,
+        body.lang-mm h3 {
+            letter-spacing: 0;
+            line-height: 1.3;
+        }
+
+        body.lang-mm .font-mono {
+            line-height: 1.8;
+        }
+
+        #home #hero-particles {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.84;
+            mix-blend-mode: screen;
+        }
+
+        #home .hero-heading-mm {
+            text-transform: none;
+            letter-spacing: 0;
+            line-height: 1.12;
+        }
+
+        #home .hero-heading-mm .font-serif-display {
+            font-family: 'Noto Sans Myanmar', 'Myanmar Text', 'Padauk', sans-serif;
+            font-style: normal;
+        }
+
+        #home .hero-heading-mm {
+            font-size: clamp(2rem, 4.4vw, 4.2rem);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            #home .hero-heading-mm {
+                font-size: clamp(1.75rem, 8.5vw, 3.1rem);
+                line-height: 1.55;
+            }
+        }
+
+        body.language-switching #main-content-wrapper {
+            animation: language-switch-pulse 0.65s var(--ease-cinematic);
+        }
+
+        body.language-switching #lang-toggle,
+        body.language-switching #theme-toggle-btn,
+        body.language-switching #mobile-lang-toggle,
+        body.language-switching #mobile-theme-toggle-btn {
+            animation: language-switch-control 0.65s var(--ease-bounce);
+        }
+
+        @keyframes language-switch-pulse {
+            0% {
+                box-shadow: 0 0 0 rgba(210, 252, 42, 0);
+            }
+            35% {
+                box-shadow: 0 0 42px rgba(210, 252, 42, 0.18), inset 0 0 28px rgba(210, 252, 42, 0.04);
+            }
+            100% {
+                box-shadow: 0 0 0 rgba(210, 252, 42, 0);
+            }
+        }
+
+        @keyframes language-switch-control {
+            0%, 100% {
+                transform: scale(1);
+            }
+            35% {
+                transform: scale(1.08);
+                box-shadow: 0 0 22px rgba(210, 252, 42, 0.36);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body.language-switching #main-content-wrapper,
+            body.language-switching #lang-toggle,
+            body.language-switching #theme-toggle-btn,
+            body.language-switching #mobile-lang-toggle,
+            body.language-switching #mobile-theme-toggle-btn {
+                animation: none;
+            }
+        }
+
         #preloader {
             position: fixed;
             inset: 0;
@@ -878,6 +980,226 @@ Happy coding!
             background: linear-gradient(to bottom, transparent, rgba(210, 252, 42, 0.3), transparent);
         }
 
+        .timeline-date-tag {
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            min-height: 2rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .environment-item {
+            min-width: 0;
+            min-height: 4.25rem;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.025);
+            transition: transform 0.3s var(--ease-bounce), border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .environment-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(210, 252, 42, 0.35);
+            background: rgba(210, 252, 42, 0.06);
+        }
+
+        .environment-item > span {
+            min-width: 0;
+            overflow-wrap: anywhere;
+        }
+
+        .cas-player-modal {
+            opacity: 0;
+            pointer-events: none;
+            overflow-y: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .cas-player-modal.hidden {
+            display: none;
+        }
+
+        .cas-player-modal.is-open {
+            display: flex;
+
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cas-player-panel {
+            width: min(100%, 44rem);
+            max-height: calc(100dvh - 2rem);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) rgba(255, 255, 255, 0.08);
+            background: var(--bg-olive);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 1.25rem;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 0.35s var(--ease-bounce);
+        }
+
+        .cas-player-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 13rem;
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .cas-player-now-playing {
+            display: grid;
+            grid-template-columns: 7.5rem minmax(0, 1fr);
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .cas-player-main,
+        .cas-player-track-rail {
+            min-width: 0;
+        }
+
+        .cas-player-track-rail {
+            padding-left: 1.25rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cas-player-art {
+            max-width: 7.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .cas-player-modal.is-open .cas-player-panel {
+            transform: translateY(0) scale(1);
+        }
+
+        .cas-player-backdrop {
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(12px);
+        }
+
+        .cas-player-art {
+            aspect-ratio: 1;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1rem;
+            background: var(--accent);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .cas-player-progress-track,
+        .cas-track-card-progress {
+            position: relative;
+            overflow: hidden;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .cas-player-progress-fill,
+        .cas-track-card-progress-fill {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 0;
+            border-radius: inherit;
+            background: var(--accent);
+            transition: width 0.08s linear;
+        }
+
+        .cas-player-range {
+            position: absolute;
+            inset: -0.55rem 0;
+            width: 100%;
+            height: 1.5rem;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .cas-player-control,
+        .cas-player-close,
+        .cas-player-track-button {
+            appearance: none;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+            color: inherit;
+            transition: transform 0.2s var(--ease-bounce), background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .cas-player-control:hover,
+        .cas-player-close:hover,
+        .cas-player-track-button:hover,
+        .cas-player-track-button.is-active {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            background: color-mix(in srgb, var(--accent) 14%, transparent);
+            color: var(--accent);
+        }
+
+        .cas-player-play {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-olive);
+        }
+
+        .cas-player-play:hover {
+            background: var(--accent);
+            color: var(--bg-olive);
+        }
+
+        .cas-player-track-button {
+            min-width: 0;
+            text-align: left;
+        }
+
+        .cas-player-track-button img {
+            width: 3rem;
+            height: 3rem;
+            flex: 0 0 auto;
+            object-fit: cover;
+            border-radius: 0.65rem;
+        }
+
+        .cas-player-track-button span {
+            min-width: 0;
+        }
+
+        .cas-player-track-title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 760px) {
+            .cas-player-layout,
+            .cas-player-now-playing {
+                grid-template-columns: 1fr;
+            }
+
+            .cas-player-now-playing {
+                gap: 1.25rem;
+            }
+
+            .cas-player-track-rail {
+                padding-left: 0;
+                border-left: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                padding-top: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cas-player-panel {
+                max-height: calc(100dvh - 1rem);
+                border-radius: 1.1rem;
+            }
+        }
+
         .kbd-key {
             display: inline-block;
             padding: 0.25em 0.5em;
@@ -890,6 +1212,15 @@ Happy coding!
             border-radius: 6px;
             vertical-align: middle;
             text-transform: uppercase;
+        }
+
+        @media (min-width: 1024px) {
+            .about-details-sticky {
+                position: sticky !important;
+                top: 8rem !important;
+                align-self: start !important;
+                height: fit-content !important;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1141,6 +1472,7 @@ Happy coding!
 
         html[data-theme="panycandy"] .scroll-bg,
         html[data-theme="panycandy"] #cursor-glow,
+        html[data-theme="panycandy"] #hero-particles,
         html[data-theme="panycandy"] .wrapper-svg-container {
             display: none !important;
         }
@@ -1655,6 +1987,7 @@ Happy coding!
         }
         html[data-theme="offoto"] .scroll-bg,
         html[data-theme="offoto"] #cursor-glow,
+        html[data-theme="offoto"] #hero-particles,
         html[data-theme="offoto"] .wrapper-svg-container {
             display: none !important;
         }
@@ -1978,7 +2311,7 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for Kiddo */
+        /* Progress Bar Overrides for Arancia */
         html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: #f0f4f8 !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
@@ -1992,7 +2325,7 @@ Happy coding!
             box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* About Page specific overrides for Kiddo */
+        /* About Page specific overrides for Arancia */
         html[data-theme="kiddo"] .border-white\/5, html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
             background-color: #f0f4f8 !important;
             border: none !important;
@@ -2033,7 +2366,9 @@ Happy coding!
         <div class="curtain curtain-bottom"></div>
         <div class="curtain-seam"></div>
         <div class="loader-terminal">
+            <span class="bracket">[</span>
             <span id="loading-text">System.loading()</span><span class="loader-cursor"></span>
+            <span class="bracket">]</span>
         </div>
     </div>
 
@@ -2043,8 +2378,8 @@ Happy coding!
                 class="flex flex-col text-[#111] leading-none z-20 hover:scale-105 transition-all duration-400 origin-left"
                 id="nav-logo">
                 <span
-                    class="font-serif-display font-black text-xl md:text-3xl tracking-tighter uppercase transition-all duration-400 logo-glitch-anim">HTET
-                    ZAW Paing</span>
+                    class="font-serif-display font-black text-xl md:text-3xl tracking-tighter uppercase transition-all duration-400 logo-glitch-anim"
+                    data-text="HTET ZAW PAING">HTET ZAW Paing</span>
             </a>
 
             <div class="hidden md:flex items-center gap-3 z-20">
@@ -2074,7 +2409,7 @@ Happy coding!
                             Offoto <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="kiddo">
-                            Kiddo <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                            Arancia <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                     </div>
                 </div>
@@ -2118,9 +2453,8 @@ Happy coding!
                 class="flex flex-col items-center gap-6 text-[clamp(2.5rem,10vw,4.5rem)] font-black tracking-tighter uppercase leading-[0.9]">
                 <a href="../" class="mobile-nav-link text-white hover:text-[#d2fc2a] transition-colors py-2"
                     data-en="HOME" data-mm="ပင်မစာမျက်နှာ">HOME</a>
-                <a href="../about/" class="mobile-nav-link text-[#d2fc2a] relative group py-2" data-en="ABOUT"
-                    data-mm="အကြောင်း">
-                    ABOUT
+                <a href="../about/" class="mobile-nav-link text-[#d2fc2a] relative group py-2">
+                    <span data-en="ABOUT" data-mm="အကြောင်း">ABOUT</span>
                     <svg class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-4 text-[#d2fc2a] pointer-events-none"
                         viewBox="0 0 100 20" preserveAspectRatio="none">
                         <path d="M0,10 Q12.5,0 25,10 T50,10 T75,10 T100,10" fill="none" stroke="currentColor"
@@ -2158,7 +2492,7 @@ Happy coding!
                             Offoto
                         </button>
                         <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="kiddo">
-                            Kiddo
+                            Arancia
                         </button>
                     </div>
                 </div>
@@ -2184,9 +2518,10 @@ Happy coding!
         </div>
 
         <section id="home"
-            class="relative min-h-[calc(100svh-8rem)] flex flex-col justify-center pt-24 pb-8 md:pb-12 px-4 md:px-12 z-10">
+            class="relative min-h-[calc(100svh-8rem)] flex flex-col justify-end pt-24 pb-8 md:pb-12 px-4 md:px-12 z-10">
             <div class="absolute inset-0 scroll-bg bg-pattern-wave opacity-60 pointer-events-none" data-speed="0.4">
             </div>
+            <canvas id="hero-particles" aria-hidden="true"></canvas>
 
             <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <span class="code-symbol code-anim-1 text-2xl lg:text-4xl"
@@ -2200,20 +2535,20 @@ Happy coding!
             </div>
 
             <div
-                class="w-full grid grid-cols-1 lg:grid-cols-[1fr_2.5fr_1fr] gap-8 h-full items-center relative z-20 mt-16 md:mt-0 mb-8 md:mb-16">
+                class="w-full grid grid-cols-1 lg:grid-cols-[1fr_2.5fr_1fr] gap-8 h-full items-end relative z-20 mt-16 md:mt-0 mb-8 md:mb-16">
 
                 <div class="hidden lg:flex flex-col pl-6 reveal-element reveal-right nav-left">
-                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 ml-2">Pages</p>
+                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 ml-2" data-en="Pages" data-mm="စာမျက်နှာများ">Pages</p>
                     <nav class="flex flex-col space-y-5">
-                        <a href="../" class="side-nav-link">Home</a>
-                        <a href="../about/" class="side-nav-link active">About</a>
-                        <a href="../projects/" class="side-nav-link">Projects</a>
-                        <a href="../expertise/" class="side-nav-link">Expertise</a>
-                        <a href="../connect/" class="side-nav-link">Connect</a>
+                        <a href="../" class="side-nav-link" data-en="Home" data-mm="ပင်မစာမျက်နှာ">Home</a>
+                        <a href="../about/" class="side-nav-link active" data-en="About" data-mm="အကြောင်း">About</a>
+                        <a href="../projects/" class="side-nav-link" data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
+                        <a href="../expertise/" class="side-nav-link" data-en="Expertise" data-mm="ကျွမ်းကျင်မှု">Expertise</a>
+                        <a href="../connect/" class="side-nav-link" data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</a>
                     </nav>
                 </div>
 
-                <div class="flex flex-col items-center text-center w-full relative z-30 justify-center h-full">
+                <div class="flex flex-col items-center text-center w-full relative z-30 justify-end h-full">
 
                     <div
                         class="inline-flex items-center gap-2 px-4 py-1.5 bg-[rgba(255,255,255,0.02)] border border-[rgba(210,252,42,0.1)] text-[10px] font-mono tracking-widest text-white uppercase rounded-full reveal-element reveal-down mb-8">
@@ -2261,7 +2596,7 @@ Happy coding!
                 </div>
 
                 <div class="hidden lg:flex flex-col items-end pr-6 reveal-element reveal-left nav-right">
-                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 mr-2">Follow On</p>
+                    <p class="text-[9px] text-[#888d81] font-mono tracking-[0.2em] uppercase mb-8 mr-2" data-en="Follow On" data-mm="ဆက်သွယ်နိုင်သည့်နေရာများ">Follow On</p>
                     <nav class="flex flex-col items-end space-y-5">
                         <a href="https://github.com/hzp4softwareengineering" target="_blank"
                             class="side-nav-link">GitHub</a>
@@ -2276,11 +2611,11 @@ Happy coding!
             <div class="mt-8 lg:hidden flex w-full justify-between px-4 z-30 reveal-element reveal-up"
                 style="transition-delay: 0.3s;">
                 <nav class="flex flex-col space-y-3 text-xs font-black uppercase tracking-widest text-white">
-                    <a href="../">Home</a>
-                    <a href="../about/" class="text-[#d2fc2a]">About</a>
-                    <a href="../projects/">Projects</a>
-                    <a href="../expertise/">Expertise</a>
-                    <a href="../connect/">Connect</a>
+                    <a href="../" data-en="Home" data-mm="ပင်မစာမျက်နှာ">Home</a>
+                    <a href="../about/" class="text-[#d2fc2a]" data-en="About" data-mm="အကြောင်း">About</a>
+                    <a href="../projects/" data-en="Projects" data-mm="ဖန်တီးမှုများ">Projects</a>
+                    <a href="../expertise/" data-en="Expertise" data-mm="ကျွမ်းကျင်မှု">Expertise</a>
+                    <a href="../connect/" data-en="Connect" data-mm="ဆက်သွယ်ရန်">Connect</a>
                 </nav>
                 <nav class="flex flex-col space-y-3 text-xs font-black uppercase tracking-widest text-white text-right">
                     <a href="https://github.com/hzp4softwareengineering" target="_blank">GitHub</a>
@@ -2299,7 +2634,7 @@ Happy coding!
 
                 <div class="lg:col-span-4 relative">
 
-                    <div class="relative lg:sticky top-32 w-full z-30 h-max">
+                    <div class="about-details-sticky relative w-full z-30 h-max">
 
                         <div class="space-y-6 transition-transform duration-500 reveal-element reveal-right">
 
@@ -2409,7 +2744,7 @@ Happy coding!
                             </div>
                             <div>
                                 <span
-                                    class="inline-block px-3 py-1.5 rounded border border-dashed border-[#555] text-[#888d81] font-bold font-mono text-[10px] tracking-[0.2em] mb-4 group-hover:border-[#d2fc2a]/50 group-hover:text-[#d2fc2a] transition-colors"
+                                    class="timeline-date-tag inline-block px-3 py-1.5 rounded border border-dashed border-[#555] text-[#888d81] font-bold font-mono text-[10px] tracking-[0.2em] mb-4 group-hover:border-[#d2fc2a]/50 group-hover:text-[#d2fc2a] transition-colors"
                                     data-en="Est. 2031 - 2035" data-mm="ခန့်မှန်း (၂၀၃၁ - ၂၀၃၅)">Est. 2031 - 2035</span>
                                 <h3 class="text-2xl md:text-3xl font-black mb-3 text-[#666] tracking-tighter group-hover:text-[#ccc] transition-colors"
                                     data-en="PhD in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ပါရဂူဘွဲ့ (PhD)">PhD in
@@ -2429,7 +2764,7 @@ Happy coding!
                             </div>
                             <div>
                                 <span
-                                    class="inline-block px-3 py-1.5 rounded border border-dashed border-[#555] text-[#888d81] font-bold font-mono text-[10px] tracking-[0.2em] mb-4 group-hover:border-[#d2fc2a]/50 group-hover:text-[#d2fc2a] transition-colors"
+                                    class="timeline-date-tag inline-block px-3 py-1.5 rounded border border-dashed border-[#555] text-[#888d81] font-bold font-mono text-[10px] tracking-[0.2em] mb-4 group-hover:border-[#d2fc2a]/50 group-hover:text-[#d2fc2a] transition-colors"
                                     data-en="Est. 2027 - 2029" data-mm="ခန့်မှန်း (၂၀၂၇ - ၂၀၂၉)">Est. 2027 - 2029</span>
                                 <h3 class="text-xl md:text-2xl font-black mb-3 text-[#666] tracking-tighter group-hover:text-[#ccc] transition-colors"
                                     data-en="MSc in Computing" data-mm="ကွန်ပျူတာသိပ္ပံ မဟာဘွဲ့ (MSc)">MSc in Computing
@@ -2450,7 +2785,7 @@ Happy coding!
                             </div>
                             <div class="relative z-10">
                                 <span
-                                    class="inline-block px-3 py-1.5 rounded bg-[#d2fc2a] text-[#111] shadow-[0_0_15px_rgba(210,252,42,0.3)] font-black font-mono text-[10px] tracking-[0.2em] mb-4"
+                                    class="timeline-date-tag inline-block px-3 py-1.5 rounded bg-[#d2fc2a] text-[#111] shadow-[0_0_15px_rgba(210,252,42,0.3)] font-black font-mono text-[10px] tracking-[0.2em] mb-4"
                                     data-en="2026 - Current" data-mm="၂၀၂၆ - လက်ရှိ">2026 - Current</span>
                                 <h3 class="text-2xl md:text-3xl font-black mb-1 text-white tracking-tighter"
                                     data-en="BSc (Hons) Computing" data-mm="ကွန်ပျူတာသိပ္ပံ ဂုဏ်ထူးတန်းဘွဲ့ (BSc Hons)">
@@ -2474,7 +2809,7 @@ Happy coding!
                             </div>
                             <div>
                                 <span
-                                    class="inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4"
+                                    class="timeline-date-tag inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4"
                                     data-en="2023 - 2025" data-mm="၂၀၂၃ - ၂၀၂၅">2023 - 2025</span>
                                 <h3 class="text-xl md:text-2xl font-black mb-1 text-white tracking-tighter transition-colors"
                                     data-en="Higher National Diploma" data-mm="Higher National Diploma (HND)">Higher
@@ -2497,7 +2832,7 @@ Happy coding!
                             </div>
                             <div>
                                 <span
-                                    class="inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4"
+                                    class="timeline-date-tag inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4"
                                     data-en="2021 - 2022" data-mm="၂၀၂၁ - ၂၀၂၂">2021 - 2022</span>
                                 <h3 class="text-xl md:text-2xl font-black mb-1 text-white tracking-tighter transition-colors"
                                     data-en="The Turning Point (Self-Learning)"
@@ -2522,7 +2857,7 @@ Happy coding!
                             </div>
                             <div>
                                 <span
-                                    class="inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4"
+                                    class="timeline-date-tag inline-block px-3 py-1.5 rounded bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[#ccc] font-bold font-mono text-[10px] tracking-[0.2em] mb-4"
                                     data-en="2015 - 2020" data-mm="၂၀၁၅ - ၂၀၂၀">2015 - 2020</span>
                                 <h3 class="text-xl md:text-2xl font-black mb-1 text-white tracking-tighter transition-colors"
                                     data-en="Secondary Education" data-mm="အခြေခံပညာ အထက်တန်း">Secondary Education</h3>
@@ -2591,32 +2926,127 @@ Happy coding!
                             </p>
                         </div>
 
-                        <div
-                            class="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)] flex flex-wrap items-center justify-between gap-6">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-10 h-10 rounded-full flex items-center justify-center border border-[#d2fc2a]/20 bg-[rgba(210,252,42,0.05)] shrink-0">
+                        <div class="mt-12 pt-8 border-t border-[rgba(255,255,255,0.05)]">
+                            <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-5"
+                                data-en="Environment" data-mm="လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Environment</p>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div class="environment-item flex flex-col items-start justify-between gap-3">
+                                    <i data-lucide="code-2" class="w-4 h-4 text-[#d2fc2a]"></i>
+                                    <span class="text-white font-mono font-bold text-[10px] tracking-wide">VS Code</span>
+                                </div>
+                                <div class="environment-item flex flex-col items-start justify-between gap-3">
                                     <i data-lucide="coffee" class="w-4 h-4 text-[#d2fc2a]"></i>
+                                    <span class="text-white font-mono font-bold text-[10px] tracking-wide">Cafè</span>
                                 </div>
-                                <div>
-                                    <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1"
-                                        data-en="Environment" data-mm="လုပ်ငန်းခွင် ပတ်ဝန်းကျင်">Environment</p>
-                                    <p class="text-white font-mono font-bold text-[10px] md:text-xs tracking-wide">VS
-                                        Code + Cafè + Americano</p>
+                                <div class="environment-item flex flex-col items-start justify-between gap-3">
+                                    <i data-lucide="cup-soda" class="w-4 h-4 text-[#d2fc2a]"></i>
+                                    <span class="text-white font-mono font-bold text-[10px] tracking-wide">Americano</span>
                                 </div>
+                                <button type="button" id="cas-player-trigger" aria-haspopup="dialog" aria-controls="cas-player-modal"
+                                    class="environment-item group col-span-2 sm:col-span-1 flex flex-col items-start justify-between gap-3">
+                                    <span class="flex items-center justify-between gap-2 w-full">
+                                        <i data-lucide="music-2" class="w-4 h-4 text-[#d2fc2a]"></i>
+                                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[#666] transition-colors group-hover:text-white"></i>
+                                    </span>
+                                    <span class="text-white font-mono font-bold text-[10px] tracking-wide">Cigarettes After Sex</span>
+                                </button>
                             </div>
-
-                            <div class="shrink-0 flex items-center gap-3">
-                                <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank"
-                                    class="text-[10px] font-mono font-bold uppercase tracking-widest text-[#d2fc2a] hover:text-white transition-colors">CAS
-                                    🎵</a>
-                            </div>
+                        </div>
                         </div>
                     </div>
 
                 </div>
-            </div>
         </section>
+
+        <div id="cas-player-modal" class="cas-player-modal fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="cas-player-title">
+            <div id="cas-player-backdrop" class="cas-player-backdrop absolute inset-0"></div>
+            <div class="cas-player-panel relative z-10 w-full max-w-2xl p-5 sm:p-7" role="document">
+                <div class="flex items-start justify-between gap-5 mb-6">
+                    <div>
+                        <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[var(--accent)] mb-2">Now Playing</p>
+                        <h2 id="cas-player-title" class="text-2xl sm:text-3xl font-black tracking-tighter">Cigarettes After Sex</h2>
+                    </div>
+                    <button type="button" id="cas-player-close" class="cas-player-close w-10 h-10 rounded-full flex items-center justify-center shrink-0" aria-label="Close music player">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <audio id="cas-player-audio" preload="metadata"></audio>
+
+                <div class="cas-player-layout">
+                    <div class="cas-player-main">
+                        <div class="cas-player-now-playing">
+                            <img id="cas-player-art" class="cas-player-art w-full" alt="Heavenly cover art">
+                            <div class="min-w-0">
+                        <p id="cas-player-song" class="text-2xl sm:text-3xl font-black tracking-tighter">Heavenly</p>
+                        <p id="cas-player-artist" class="mt-1 text-[10px] font-mono font-bold uppercase tracking-[0.2em] opacity-60">Cigarettes After Sex</p>
+                        <p id="cas-player-status" class="mt-5 min-h-4 text-[10px] font-mono opacity-60"></p>
+                        <div class="relative mt-5 py-2" aria-label="Audio progress">
+                            <div class="cas-player-progress-track">
+                                <div id="cas-player-progress-fill" class="cas-player-progress-fill"></div>
+                            </div>
+                            <input id="cas-player-range" class="cas-player-range" type="range" min="0" max="0" value="0" step="0.1" aria-label="Seek through song">
+                        </div>
+                        <div class="flex justify-between gap-4 text-[9px] font-mono font-bold opacity-60">
+                            <span id="cas-player-current-time">0:00</span>
+                            <span id="cas-player-duration">--:--</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-3 mt-5">
+                            <button type="button" id="cas-player-previous" class="cas-player-control w-10 h-10 rounded-full flex items-center justify-center" aria-label="Previous song">
+                                <i data-lucide="skip-back" class="w-4 h-4"></i>
+                            </button>
+                            <button type="button" id="cas-player-play" class="cas-player-control cas-player-play w-12 h-12 rounded-full flex items-center justify-center" aria-label="Play song">
+                                <i id="cas-player-play-icon" data-lucide="play" class="w-5 h-5"></i>
+                                <i id="cas-player-pause-icon" data-lucide="pause" class="w-5 h-5 hidden"></i>
+                            </button>
+                            <button type="button" id="cas-player-next" class="cas-player-control w-10 h-10 rounded-full flex items-center justify-center" aria-label="Next song">
+                                <i data-lucide="skip-forward" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cas-player-track-rail">
+                        <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] opacity-60 mb-3">Tracks</p>
+                        <div class="grid grid-cols-1 gap-3" id="cas-player-track-list">
+                        <button type="button" class="cas-player-track-button is-active rounded-xl p-3 flex items-center gap-3" data-track-index="0">
+                            <img data-track-art alt="Heavenly cover art">
+                            <span class="block min-w-0">
+                                <span class="cas-player-track-title block text-[11px] font-black">Heavenly</span>
+                                <span class="block mt-1 text-[10px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
+                                <span class="cas-track-card-progress block mt-2"><span class="cas-track-card-progress-fill block"></span></span>
+                                <span data-track-duration class="block mt-1 text-[10px] font-mono opacity-50">--:--</span>
+                            </span>
+                        </button>
+                        <button type="button" class="cas-player-track-button rounded-xl p-3 flex items-center gap-3" data-track-index="1">
+                            <img data-track-art alt="Sweet cover art">
+                            <span class="block min-w-0">
+                                <span class="cas-player-track-title block text-[11px] font-black">Sweet</span>
+                                <span class="block mt-1 text-[10px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
+                                <span class="cas-track-card-progress block mt-2"><span class="cas-track-card-progress-fill block"></span></span>
+                                <span data-track-duration class="block mt-1 text-[10px] font-mono opacity-50">--:--</span>
+                            </span>
+                        </button>
+                        <button type="button" class="cas-player-track-button rounded-xl p-3 flex items-center gap-3" data-track-index="2">
+                            <img data-track-art alt="Tejano Blue cover art">
+                            <span class="block min-w-0">
+                                <span class="cas-player-track-title block text-[11px] font-black">Tejano Blue</span>
+                                <span class="block mt-1 text-[10px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
+                                <span class="cas-track-card-progress block mt-2"><span class="cas-track-card-progress-fill block"></span></span>
+                                <span data-track-duration class="block mt-1 text-[10px] font-mono opacity-50">--:--</span>
+                            </span>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank" rel="noopener noreferrer" class="mt-6 flex items-center justify-center gap-2 text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-[var(--accent)] hover:text-white transition-colors">
+                    Cigarettes After Sex on YouTube
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
 
         <footer id="contact-form"
             class="cv-auto relative pt-32 pb-16 px-6 md:px-12 z-10 border-t border-[rgba(210,252,42,0.05)]">
@@ -2654,7 +3084,7 @@ Happy coding!
                             <div>
                                 <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]"
                                     data-en="Phone" data-mm="ဖုန်းခေါ်ဆိုရန်">Phone</p>
-                                <p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9456751882</p>
+                                <p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9 944 86 1000</p>
                             </div>
                         </a>
 
@@ -2681,14 +3111,14 @@ Happy coding!
                                     class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
                                     data-en="Name" data-mm="အမည်">Name</label>
                                 <input type="text" id="contact-name" class="w-full input-minimal text-sm font-mono"
-                                    placeholder="John Doe" required>
+                                    placeholder="John Doe" data-placeholder-en="John Doe" data-placeholder-mm="သင့်အမည်" required>
                             </div>
                             <div class="space-y-3">
                                 <label
                                     class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
                                     data-en="Email" data-mm="အီးမေးလ်">Email</label>
                                 <input type="email" id="contact-email" class="w-full input-minimal text-sm font-mono"
-                                    placeholder="john@domain.com" required>
+                                    placeholder="john@domain.com" data-placeholder-en="john@domain.com" data-placeholder-mm="အီးမေးလ်လိပ်စာ" required>
                             </div>
                         </div>
 
@@ -2697,7 +3127,7 @@ Happy coding!
                                 class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#d2fc2a]/70 block"
                                 data-en="Subject" data-mm="အကြောင်းအရာ">Subject</label>
                             <input type="text" id="contact-subject" class="w-full input-minimal text-sm font-mono"
-                                placeholder="Project Inquiry" required>
+                                placeholder="Project Inquiry" data-placeholder-en="Project Inquiry" data-placeholder-mm="စီမံကိန်းအကြောင်း မေးမြန်းရန်" required>
                         </div>
 
                         <div class="space-y-3">
@@ -2706,7 +3136,7 @@ Happy coding!
                                 data-en="Message" data-mm="စာသား">Message</label>
                             <textarea id="contact-message" rows="4"
                                 class="w-full input-minimal text-sm font-mono resize-none"
-                                placeholder="Tell me about your project..." required></textarea>
+                                placeholder="Tell me about your project..." data-placeholder-en="Tell me about your project..." data-placeholder-mm="သင့်စီမံကိန်းအကြောင်း ပြောပြပေးပါ..." required></textarea>
                         </div>
 
                         <button type="submit"
@@ -2761,6 +3191,124 @@ Happy coding!
 
         const cursorGlow = document.getElementById('cursor-glow');
         const scrollBgs = document.querySelectorAll('.scroll-bg');
+        const heroSection = document.getElementById('home');
+        const heroParticlesCanvas = document.getElementById('hero-particles');
+        const heroParticlesContext = heroParticlesCanvas?.getContext('2d');
+        const heroParticlePointer = { x: 0, y: 0, active: false };
+        const heroReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let heroParticles = [];
+        let heroParticleWidth = 0;
+        let heroParticleHeight = 0;
+
+        function resizeHeroParticles() {
+            if (!heroSection || !heroParticlesCanvas || !heroParticlesContext) return;
+            const rect = heroSection.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            heroParticleWidth = rect.width;
+            heroParticleHeight = rect.height;
+            heroParticlesCanvas.width = Math.round(heroParticleWidth * dpr);
+            heroParticlesCanvas.height = Math.round(heroParticleHeight * dpr);
+            heroParticlesContext.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const count = Math.min(112, Math.max(42, Math.round(heroParticleWidth / 15)));
+            heroParticles = Array.from({ length: count }, () => ({
+                x: Math.random() * heroParticleWidth,
+                y: Math.random() * heroParticleHeight,
+                vx: (Math.random() - 0.5) * 0.22,
+                vy: (Math.random() - 0.5) * 0.18,
+                radius: Math.random() * 2.1 + 0.7,
+                phase: Math.random() * Math.PI * 2,
+                drift: Math.random() * 0.8 + 0.35
+            }));
+        }
+
+        function renderHeroParticles(time) {
+            if (!heroParticlesContext || !heroParticleWidth || !heroParticleHeight || heroReducedMotion) return;
+            const context = heroParticlesContext;
+            const elapsed = time * 0.001;
+            context.clearRect(0, 0, heroParticleWidth, heroParticleHeight);
+            const pRgb = window.heroParticleColor || '210, 252, 42';
+
+            if (heroParticlePointer.active) {
+                const pointerGlow = context.createRadialGradient(
+                    heroParticlePointer.x,
+                    heroParticlePointer.y,
+                    0,
+                    heroParticlePointer.x,
+                    heroParticlePointer.y,
+                    210
+                );
+                pointerGlow.addColorStop(0, `rgba(${pRgb}, 0.14)`);
+                pointerGlow.addColorStop(0.45, `rgba(${pRgb}, 0.045)`);
+                pointerGlow.addColorStop(1, `rgba(${pRgb}, 0)`);
+                context.fillStyle = pointerGlow;
+                context.fillRect(0, 0, heroParticleWidth, heroParticleHeight);
+            }
+
+            heroParticles.forEach(particle => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.x += Math.sin(elapsed * particle.drift + particle.phase) * 0.08;
+                particle.y += Math.cos(elapsed * particle.drift + particle.phase) * 0.06;
+
+                if (heroParticlePointer.active) {
+                    const dx = heroParticlePointer.x - particle.x;
+                    const dy = heroParticlePointer.y - particle.y;
+                    const distance = Math.hypot(dx, dy);
+                    if (distance < 220 && distance > 0) {
+                        const force = (220 - distance) / 1150;
+                        particle.x -= dx * force;
+                        particle.y -= dy * force;
+                    }
+                }
+
+                if (particle.x < -12) particle.x = heroParticleWidth + 12;
+                if (particle.x > heroParticleWidth + 12) particle.x = -12;
+                if (particle.y < -12) particle.y = heroParticleHeight + 12;
+                if (particle.y > heroParticleHeight + 12) particle.y = -12;
+            });
+
+            heroParticles.forEach((particle, index) => {
+                const nearby = heroParticles.slice(index + 1).filter(other => Math.hypot(other.x - particle.x, other.y - particle.y) < 132);
+                nearby.forEach(other => {
+                    const distance = Math.hypot(other.x - particle.x, other.y - particle.y);
+                    context.strokeStyle = `rgba(${pRgb}, ${Math.max(0, 0.2 - distance / 780)})`;
+                    context.lineWidth = 0.85;
+                    context.beginPath();
+                    context.moveTo(particle.x, particle.y);
+                    context.lineTo(other.x, other.y);
+                    context.stroke();
+                });
+
+                const pointerDistance = heroParticlePointer.active
+                    ? Math.hypot(heroParticlePointer.x - particle.x, heroParticlePointer.y - particle.y)
+                    : 999;
+                const alpha = pointerDistance < 220 ? 0.92 : 0.46;
+                context.fillStyle = `rgba(${pRgb}, ${alpha})`;
+                context.beginPath();
+                context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                context.fill();
+
+                if (pointerDistance < 220) {
+                    context.strokeStyle = `rgba(${pRgb}, ${Math.max(0, 0.32 - pointerDistance / 700)})`;
+                    context.lineWidth = 1;
+                    context.beginPath();
+                    context.arc(particle.x, particle.y, particle.radius + 3.5, 0, Math.PI * 2);
+                    context.stroke();
+                }
+            });
+        }
+
+        heroSection?.addEventListener('pointermove', event => {
+            const rect = heroSection.getBoundingClientRect();
+            heroParticlePointer.x = event.clientX - rect.left;
+            heroParticlePointer.y = event.clientY - rect.top;
+            heroParticlePointer.active = true;
+        });
+        heroSection?.addEventListener('pointerleave', () => {
+            heroParticlePointer.active = false;
+        });
+        window.addEventListener('resize', resizeHeroParticles);
+        resizeHeroParticles();
 
         function raf(time) {
             lenis.raf(time);
@@ -2780,6 +3328,7 @@ Happy coding!
                 bg.style.backgroundPosition = `calc(50% + ${mouseOffsetX}px) calc(50% + ${scrollOffset + mouseOffsetY}px)`;
             });
 
+            renderHeroParticles(time);
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
@@ -2829,20 +3378,27 @@ Happy coding!
             }, 200);
         });
 
-        const baseTitle = "About - Htet Zaw Paing";
-        const messages = ["Connection Paused", "Awaiting Inputs...", "Session Idle"];
+        const baseTitles = {
+            en: "About - Htet Zaw Paing",
+            mm: "အကြောင်း - ထက်ဇော်ပိုင်"
+        };
+        const messages = {
+            en: ["Connection Paused", "Awaiting Inputs...", "Session Idle"],
+            mm: ["ချိတ်ဆက်မှု ခေတ္တရပ်ထားသည်", "အချက်အလက်များကို စောင့်ဆိုင်းနေသည်...", "Session အသုံးမပြုနေပါ။"]
+        };
         let i = 0;
         let interval;
 
         document.addEventListener("visibilitychange", () => {
             if (document.hidden) {
                 interval = setInterval(() => {
-                    document.title = messages[i];
+                    const currentMessages = messages[currentLang] || messages.en;
+                    document.title = currentMessages[i];
                     i = (i + 1) % messages.length;
                 }, 1000);
             } else {
                 clearInterval(interval);
-                document.title = baseTitle;
+                document.title = baseTitles[currentLang] || baseTitles.en;
             }
         });
 
@@ -2856,10 +3412,18 @@ Happy coding!
                 const text = el.getAttribute(`data-${lang}`);
                 if (text) el.innerHTML = text;
             });
+            document.documentElement.lang = lang === 'mm' ? 'my' : 'en';
+            document.body.classList.toggle('lang-mm', lang === 'mm');
+            document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+                const placeholder = el.getAttribute(`data-placeholder-${lang}`);
+                if (placeholder) el.setAttribute('placeholder', placeholder);
+            });
             const deskText = document.getElementById('lang-text');
             const mobText = document.getElementById('mobile-lang-text');
             if (deskText) deskText.innerText = lang.toUpperCase();
-            if (mobText) mobText.innerText = lang === 'en' ? 'ENGLISH' : 'MYANMAR';
+            if (mobText) mobText.innerText = lang === 'en' ? 'ENGLISH' : 'မြန်မာ';
+            const heroHeading = document.querySelector('#home h1');
+            if (heroHeading) heroHeading.classList.toggle('hero-heading-mm', lang === 'mm');
         }
 
         updateLang(currentLang);
@@ -3078,7 +3642,191 @@ Happy coding!
 
         // Initialize Theme Update on Load
         updateTheme(currentTheme);
-        
+
+        const casPlayerModal = document.getElementById('cas-player-modal');
+        const casPlayerTrigger = document.getElementById('cas-player-trigger');
+        const casPlayerAudio = document.getElementById('cas-player-audio');
+        const casPlayerArt = document.getElementById('cas-player-art');
+        const casPlayerSong = document.getElementById('cas-player-song');
+        const casPlayerStatus = document.getElementById('cas-player-status');
+        const casPlayerRange = document.getElementById('cas-player-range');
+        const casPlayerProgressFill = document.getElementById('cas-player-progress-fill');
+        const casPlayerCurrentTime = document.getElementById('cas-player-current-time');
+        const casPlayerDuration = document.getElementById('cas-player-duration');
+        const casPlayerPlay = document.getElementById('cas-player-play');
+        const casPlayerPlayIcon = document.getElementById('cas-player-play-icon');
+        const casPlayerPauseIcon = document.getElementById('cas-player-pause-icon');
+        const casPlayerTrackButtons = Array.from(document.querySelectorAll('.cas-player-track-button'));
+        const casPlayerTrackDurations = Array.from(document.querySelectorAll('[data-track-duration]'));
+        const casPlayerTrackProgressFills = Array.from(document.querySelectorAll('.cas-track-card-progress-fill'));
+
+        const createCasCoverArt = (title, background, foreground, detail) => {
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${background}"/><stop offset="1" stop-color="${foreground}"/></linearGradient></defs><rect width="400" height="400" fill="url(#g)"/><circle cx="300" cy="90" r="115" fill="${detail}" opacity=".35"/><circle cx="110" cy="325" r="160" fill="none" stroke="${detail}" stroke-width="2" opacity=".55"/><path d="M0 290 C100 230 180 360 400 235" fill="none" stroke="${detail}" stroke-width="3" opacity=".75"/><text x="32" y="52" fill="${detail}" font-family="Arial, sans-serif" font-size="13" letter-spacing="4">CIGARETTES AFTER SEX</text><text x="32" y="340" fill="${detail}" font-family="Georgia, serif" font-size="42" font-style="italic">${title}</text></svg>`;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+        };
+
+        const casTracks = [
+            {
+                title: 'Heavenly',
+                src: '../mp3/heavenly.mp3',
+                art: '../assets/cas.svg'
+            },
+            {
+                title: 'Sweet',
+                src: '../mp3/sweet.mp3',
+                art: '../assets/cas.svg'
+            },
+            {
+                title: 'Tejano Blue',
+                src: '../mp3/tejanoblue.mp3',
+                art: '../assets/cas.svg'
+            }
+        ];
+
+        if (casPlayerModal && casPlayerTrigger && casPlayerAudio) {
+            let casCurrentIndex = 0;
+            let casCloseTimer;
+
+            const formatCasTime = seconds => {
+                if (!Number.isFinite(seconds)) return '--:--';
+                const minutes = Math.floor(seconds / 60);
+                const remainder = Math.floor(seconds % 60);
+                return `${minutes}:${String(remainder).padStart(2, '0')}`;
+            };
+
+            const updateCasPlaybackState = () => {
+                const isPlaying = !casPlayerAudio.paused;
+                casPlayerPlayIcon?.classList.toggle('hidden', isPlaying);
+                casPlayerPauseIcon?.classList.toggle('hidden', !isPlaying);
+                casPlayerPlay?.setAttribute('aria-label', isPlaying ? 'Pause song' : 'Play song');
+            };
+
+            const updateCasProgress = () => {
+                const duration = casPlayerAudio.duration;
+                const currentTime = casPlayerAudio.currentTime || 0;
+                const progress = Number.isFinite(duration) && duration > 0 ? (currentTime / duration) * 100 : 0;
+                if (casPlayerProgressFill) casPlayerProgressFill.style.width = `${progress}%`;
+                if (casPlayerRange) {
+                    if (Number.isFinite(duration) && duration > 0) casPlayerRange.max = String(duration);
+                    casPlayerRange.value = String(currentTime);
+                }
+                if (casPlayerCurrentTime) casPlayerCurrentTime.textContent = formatCasTime(currentTime);
+                casPlayerTrackProgressFills.forEach((fill, index) => {
+                    fill.style.width = index === casCurrentIndex ? `${progress}%` : '0%';
+                });
+            };
+
+            const updateCasTrackSelection = () => {
+                casPlayerTrackButtons.forEach((button, index) => {
+                    button.classList.toggle('is-active', index === casCurrentIndex);
+                    button.setAttribute('aria-current', index === casCurrentIndex ? 'true' : 'false');
+                });
+            };
+
+            const setCasStatus = message => {
+                if (casPlayerStatus) casPlayerStatus.textContent = message;
+            };
+
+            const loadCasTrack = (index, autoplay = false) => {
+                casCurrentIndex = (index + casTracks.length) % casTracks.length;
+                const track = casTracks[casCurrentIndex];
+                document.querySelectorAll('[data-track-art]').forEach((image, trackIndex) => {
+                    if (casTracks[trackIndex]) {
+                        image.src = casTracks[trackIndex].art;
+                        image.alt = `${casTracks[trackIndex].title} cover art`;
+                    }
+                });
+                casPlayerAudio.pause();
+                casPlayerAudio.src = track.src;
+                casPlayerAudio.load();
+                if (casPlayerArt) {
+                    casPlayerArt.src = track.art;
+                    casPlayerArt.alt = `${track.title} cover art`;
+                }
+                if (casPlayerSong) casPlayerSong.textContent = track.title;
+                if (casPlayerRange) {
+                    casPlayerRange.value = '0';
+                    casPlayerRange.max = '0';
+                }
+                if (casPlayerCurrentTime) casPlayerCurrentTime.textContent = '0:00';
+                if (casPlayerDuration) casPlayerDuration.textContent = '--:--';
+                setCasStatus('');
+                updateCasTrackSelection();
+                updateCasPlaybackState();
+                updateCasProgress();
+                if (autoplay) {
+                    const playRequest = casPlayerAudio.play();
+                    if (playRequest) playRequest.catch(() => setCasStatus('Press play to start the sample.'));
+                }
+            };
+
+            const closeCasPlayer = () => {
+                casPlayerModal.classList.remove('is-open');
+                casPlayerAudio.pause();
+                document.body.style.overflow = 'auto';
+                clearTimeout(casCloseTimer);
+                casCloseTimer = setTimeout(() => casPlayerModal.classList.add('hidden'), 300);
+            };
+
+            casPlayerTrigger.addEventListener('click', () => {
+                clearTimeout(casCloseTimer);
+                casPlayerModal.classList.remove('hidden');
+                loadCasTrack(casCurrentIndex, false);
+                requestAnimationFrame(() => casPlayerModal.classList.add('is-open'));
+                document.body.style.overflow = 'hidden';
+            });
+
+            document.getElementById('cas-player-close')?.addEventListener('click', closeCasPlayer);
+            document.getElementById('cas-player-backdrop')?.addEventListener('click', closeCasPlayer);
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && casPlayerModal.classList.contains('is-open')) closeCasPlayer();
+            });
+
+            casPlayerPlay?.addEventListener('click', () => {
+                if (casPlayerAudio.paused) {
+                    const playRequest = casPlayerAudio.play();
+                    if (playRequest) playRequest.catch(() => setCasStatus('Press play to start the sample.'));
+                } else {
+                    casPlayerAudio.pause();
+                }
+            });
+
+            document.getElementById('cas-player-previous')?.addEventListener('click', () => {
+                loadCasTrack(casCurrentIndex - 1, !casPlayerAudio.paused);
+            });
+
+            document.getElementById('cas-player-next')?.addEventListener('click', () => {
+                loadCasTrack(casCurrentIndex + 1, !casPlayerAudio.paused);
+            });
+
+            casPlayerTrackButtons.forEach((button, index) => {
+                button.addEventListener('click', () => loadCasTrack(index, !casPlayerAudio.paused));
+            });
+
+            casPlayerRange?.addEventListener('input', () => {
+                if (Number.isFinite(casPlayerAudio.duration)) {
+                    casPlayerAudio.currentTime = Number(casPlayerRange.value);
+                    updateCasProgress();
+                }
+            });
+
+            casPlayerAudio.addEventListener('loadedmetadata', () => {
+                const duration = casPlayerAudio.duration;
+                if (casPlayerDuration) casPlayerDuration.textContent = formatCasTime(duration);
+                if (casPlayerTrackDurations[casCurrentIndex]) casPlayerTrackDurations[casCurrentIndex].textContent = formatCasTime(duration);
+                if (casPlayerRange) casPlayerRange.max = String(duration);
+                updateCasProgress();
+            });
+
+            casPlayerAudio.addEventListener('timeupdate', updateCasProgress);
+            casPlayerAudio.addEventListener('play', updateCasPlaybackState);
+            casPlayerAudio.addEventListener('pause', updateCasPlaybackState);
+            casPlayerAudio.addEventListener('ended', () => loadCasTrack(casCurrentIndex + 1, true));
+            casPlayerAudio.addEventListener('error', () => setCasStatus('Sample audio unavailable — replace this source URL.'));
+
+            loadCasTrack(0, false);
+        }
+
     </script>
     <script>
         if ("serviceWorker" in navigator) {
@@ -3151,4 +3899,3 @@ Happy coding!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
-```eof

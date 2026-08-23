@@ -2117,7 +2117,7 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for Kiddo */
+        /* Progress Bar Overrides for Arancia */
         html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: #f0f4f8 !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
@@ -2185,7 +2185,7 @@ Happy coding!
                             Offoto <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="kiddo">
-                            Kiddo <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                            Arancia <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                     </div>
                 </div>
@@ -2268,7 +2268,7 @@ Happy coding!
                             Offoto
                         </button>
                         <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="kiddo">
-                            Kiddo
+                            Arancia
                         </button>
                     </div>
                 </div>
@@ -3108,7 +3108,7 @@ Happy coding!
                             <div>
                                 <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]"
                                     data-en="Phone" data-mm="ဖုန်း">Phone</p>
-                                <p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9456751882</p>
+                                <p class="text-lg md:text-xl font-black tracking-widest text-white">+95 9 944 86 1000</p>
                             </div>
                         </a>
 
@@ -3746,8 +3746,6 @@ Happy coding!
             heroTypewriterLoop();
         }, 3200);
 
-        // --- Theme Dropdown Logic ---
-        // Ensure Acid Mint is robustly default on initial launch
         let currentTheme = localStorage.getItem('hzp_theme');
         if (!currentTheme) {
             currentTheme = 'grenomint';
@@ -3764,7 +3762,6 @@ Happy coding!
         
         const themeOptions = document.querySelectorAll('.theme-option, .mobile-theme-option');
 
-        // Toggle Desktop Dropdown
         if(themeToggleBtn) {
             themeToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -3774,7 +3771,6 @@ Happy coding!
             });
         }
 
-        // Close Desktop Dropdown if clicked outside
         document.addEventListener('click', (e) => {
             if (themeDropdownContainer && !themeDropdownContainer.contains(e.target)) {
                 if (themeDropdown && !themeDropdown.classList.contains('opacity-0')) {
@@ -3783,7 +3779,6 @@ Happy coding!
             }
         });
 
-        // Toggle Mobile Dropdown
         if (mobileThemeToggleBtn) {
             mobileThemeToggleBtn.addEventListener('click', () => {
                 mobileThemeDropdown.classList.toggle('hidden');
@@ -3793,27 +3788,24 @@ Happy coding!
         }
 
         function updateTheme(theme) {
-            // Apply base theme HTML attribute
             if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'kiddo') {
                 document.documentElement.setAttribute('data-theme', theme);
             } else {
                 document.documentElement.removeAttribute('data-theme');
             }
             
-            // Set dynamic canvas particle colors
             if (theme === 'glassortcele') {
-                window.heroParticleColor = '0, 242, 254'; // Cyan
+                window.heroParticleColor = '0, 242, 254'; 
             } else if (theme === 'panycandy') {
-                window.heroParticleColor = '255, 183, 3'; // Yellow
+                window.heroParticleColor = '255, 183, 3'; 
             } else if (theme === 'offoto') {
-                window.heroParticleColor = '0, 122, 255'; // Blue
+                window.heroParticleColor = '0, 122, 255'; 
             } else if (theme === 'kiddo') {
-                window.heroParticleColor = '255, 159, 67'; // Orange
+                window.heroParticleColor = '255, 159, 67'; 
             } else {
-                window.heroParticleColor = '210, 252, 42'; // Default Lime/Mint
+                window.heroParticleColor = '210, 252, 42'; 
             }
 
-            // Update Mobile Toggle Text
             const mobThemeText = document.getElementById('mobile-theme-text');
             if (mobThemeText) {
                 let themeName = 'GRENOMINT';
@@ -3824,18 +3816,15 @@ Happy coding!
                 mobThemeText.innerText = `THEME: ${themeName}`;
             }
 
-            // Update Checkmarks and Active States natively using CSS classes
             themeOptions.forEach(opt => {
                 const isMatch = opt.getAttribute('data-set-theme') === theme;
                 
-                // Desktop Checkmark visual
                 const checkIcon = opt.querySelector('.check-icon');
                 if (checkIcon) {
                     if (isMatch) checkIcon.classList.remove('opacity-0');
                     else checkIcon.classList.add('opacity-0');
                 }
 
-                // Append Active class (the styling logic lives purely in CSS)
                 if (isMatch) {
                     opt.classList.add('active');
                 } else {
@@ -3844,7 +3833,6 @@ Happy coding!
             });
         }
 
-        // Add Click Listeners to All Theme Options
         themeOptions.forEach(opt => {
             opt.addEventListener('click', () => {
                 const selectedTheme = opt.getAttribute('data-set-theme');
@@ -3853,14 +3841,12 @@ Happy coding!
                 updateTheme(selectedTheme);
                 triggerLanguageFeedback();
                 
-                // Automatically close desktop dropdown upon selection
                 if(themeDropdown) {
                     themeDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
                 }
             });
         });
 
-        // Initialize Theme Update on Load
         updateTheme(currentTheme);
 
     </script>
@@ -3935,4 +3921,3 @@ Happy coding!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
-```eof
