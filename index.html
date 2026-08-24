@@ -65,12 +65,10 @@ Happy coding!
         content="Htet Zaw Paing, Software Engineer Myanmar, Web Developer Yangon, ထက်ဇော်ပိုင်, Myanmar Developer, Full Stack Engineer, Edinburgh Napier University, Info Myanmar University, Intelligent Systems, Network Security, Zaw Paing">
     <meta name="author" content="Htet Zaw Paing">
 
-
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="geo.region" content="MM-06">
     <meta name="geo.placename" content="Yangon">
     <meta name="google-site-verification" content="5pDlHj8EE1F7eVufPw-otEg_VCJ1TA_P7OC2fVt9OgE" />
-
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.htetzawpaing.site/">
@@ -1167,7 +1165,7 @@ Happy coding!
             }
         }
 
-        /* Lenis Smooth Scroll Setup */
+        
         html.lenis {
             height: auto;
         }
@@ -1204,9 +1202,6 @@ Happy coding!
             visibility: visible !important;
         }
 
-        /* ------------------------------------------------------------------
-           GRENOMINT THEME (Base / Default / Acid Mint) - Active Styles
-           ------------------------------------------------------------------ */
         .theme-option.active {
             background-color: rgba(210,252,42,0.1);
             color: #d2fc2a;
@@ -1217,13 +1212,10 @@ Happy coding!
             color: #d2fc2a;
         }
 
-        /* ------------------------------------------------------------------
-           PANYCANDY (NEO BRUTALISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
         html[data-theme="panycandy"] {
-            --bg-lime: #ff006e; /* Hot pink background */
-            --bg-olive: #ffffff; /* Stark white */
-            --accent: #ffb703; /* Yellow accents */
+            --bg-lime: #ff006e;
+            --bg-olive: #ffffff;
+            --accent: #ffb703;
             --text-main: #000000;
             --text-muted: #111111;
             --logo-color: #000;
@@ -1329,6 +1321,39 @@ Happy coding!
             background-color: var(--accent) !important;
             border-top: 5px solid #000 !important;
             border-bottom: 5px solid #000 !important;
+        }
+
+        /* Keep the specialization panel readable in PanyCandy without affecting other sections. */
+        html[data-theme="panycandy"] #specialization > .max-w-7xl > div:last-child .reveal-element {
+            opacity: 1 !important;
+            transform: none !important;
+            filter: none !important;
+            visibility: visible !important;
+        }
+
+        html[data-theme="panycandy"] #specialization > .max-w-7xl > div:last-child .text-white,
+        html[data-theme="panycandy"] #specialization > .max-w-7xl > div:last-child .text-\[\#d2fc2a\] {
+            color: #000 !important;
+        }
+
+        html[data-theme="panycandy"] #specialization > .max-w-7xl > div:last-child .bg-\[\#ffffff\] {
+            background-color: #fff !important;
+            border: 3px solid #000 !important;
+            border-radius: 0 !important;
+            height: 14px !important;
+            overflow: visible !important;
+            box-shadow: 4px 4px 0 #000 !important;
+        }
+
+        html[data-theme="panycandy"] #specialization > .max-w-7xl > div:last-child .bg-\[\#d2fc2a\] {
+            background-color: #000 !important;
+            border-right: 3px solid #000 !important;
+            border-radius: 0 !important;
+            height: 100% !important;
+            top: -3px !important;
+            left: -3px !important;
+            bottom: -3px !important;
+            box-sizing: content-box !important;
         }
         
         html[data-theme="panycandy"] section {
@@ -1465,7 +1490,6 @@ Happy coding!
             background-color: #000 !important;
         }
 
-        /* Specifically Target Input Labels & Other Faded Texts to ensure visibility */
         html[data-theme="panycandy"] .text-\[\#d2fc2a\]\/70 {
             color: #000 !important;
             font-weight: 900 !important;
@@ -1474,7 +1498,6 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for PanyCandy */
         html[data-theme="panycandy"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: #fff !important;
             border: 3px solid #000 !important;
@@ -1494,9 +1517,6 @@ Happy coding!
             box-sizing: content-box !important;
         }
 
-        /* ------------------------------------------------------------------
-           GLASSORTCELE (GLASSMORPHISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
         html[data-theme="glassortcele"] {
             --bg-lime: #0f172a; 
             --bg-olive: rgba(255, 255, 255, 0.03);
@@ -1520,7 +1540,6 @@ Happy coding!
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         }
         
-        /* Fix the header bar on scroll */
         html[data-theme="glassortcele"] #main-nav.scrolled-nav #nav-inner {
             background: rgba(20, 20, 25, 0.45) !important;
             backdrop-filter: blur(30px) saturate(200%) !important;
@@ -1559,7 +1578,7 @@ Happy coding!
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             color: #fff !important;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-            border-radius: 999px !important; /* Apple pills */
+            border-radius: 999px !important; 
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
         }
         html[data-theme="glassortcele"] .btn-solid-lime {
@@ -1627,7 +1646,6 @@ Happy coding!
             color: rgba(0, 242, 254, 0.8) !important;
         }
         
-        /* Dropdowns for glassmorphism */
         html[data-theme="glassortcele"] #theme-dropdown {
             background: rgba(20, 20, 25, 0.5) !important;
             backdrop-filter: blur(20px) saturate(150%) !important;
@@ -1690,14 +1708,10 @@ Happy coding!
             box-shadow: 0 0 5px rgba(0,0,0,0.5) !important;
         }
 
-        /* Progress Bar Overrides for Glassortcele */
         html[data-theme="glassortcele"] .bg-\[\#d2fc2a\] {
             background-color: var(--accent) !important;
         }
 
-        /* ------------------------------------------------------------------
-           OFFOTO (NEUMORPHISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
         html[data-theme="offoto"] {
             --bg-lime: #e0e5ec;
             --bg-olive: #e0e5ec;
@@ -1749,7 +1763,6 @@ Happy coding!
             box-shadow: 16px 16px 32px rgb(163,177,198,0.7), -16px -16px 32px rgba(255,255,255, 0.9) !important;
         }
         
-        /* Prevent Carousel Overflow from clipping Neumorphic Shadows */
         html[data-theme="offoto"] .overflow-hidden:has(#projects-track),
         html[data-theme="offoto"] .overflow-hidden:has(#news-track) {
             width: calc(100% + 80px) !important;
@@ -1796,7 +1809,7 @@ Happy coding!
             box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.8) !important;
             border: none !important;
         }
-        html[data-theme="offoto"] .bg-\[\#111\] {
+        html[data-theme="offoto"] .bg-\[\#111\]:not(.menu-line-1):not(.menu-line-2):not(.menu-line-3) {
             background-color: var(--bg-lime) !important;
             box-shadow: inset 6px 6px 12px rgb(163,177,198,0.6), inset -6px -6px 12px rgba(255,255,255, 0.8) !important;
             border-radius: 24px !important;
@@ -1874,7 +1887,6 @@ Happy coding!
             background-color: var(--text-main) !important;
         }
         
-        /* Specifically Target Input Labels & Faded Texts to ensure visibility */
         html[data-theme="offoto"] .text-\[\#d2fc2a\]\/70 {
             color: var(--text-muted) !important;
             font-weight: 800 !important;
@@ -1883,7 +1895,6 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for Offoto */
         html[data-theme="offoto"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: var(--bg-lime) !important;
             box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.8) !important;
@@ -1896,10 +1907,7 @@ Happy coding!
             height: 10px !important;
         }
 
-        /* ------------------------------------------------------------------
-           KIDDO (CLAYMORPHISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
-        html[data-theme="kiddo"] {
+        html[data-theme="arancia"] {
             --bg-lime: #f0f4f8; 
             --bg-olive: #ffffff;
             --accent: #ff9f43; 
@@ -1907,35 +1915,35 @@ Happy coding!
             --text-muted: #636e72;
             --logo-color: #2d3436;
         }
-        html[data-theme="kiddo"] body,
-        html[data-theme="kiddo"] #main-content-wrapper {
+        html[data-theme="arancia"] body,
+        html[data-theme="arancia"] #main-content-wrapper {
             background-color: var(--bg-lime) !important;
             color: var(--text-main) !important;
             box-shadow: none !important;
         }
-        html[data-theme="kiddo"] #main-content-wrapper {
+        html[data-theme="arancia"] #main-content-wrapper {
             border: none !important;
         }
-        html[data-theme="kiddo"] .text-white,
-        html[data-theme="kiddo"] h1,
-        html[data-theme="kiddo"] h2,
-        html[data-theme="kiddo"] h3,
-        html[data-theme="kiddo"] p,
-        html[data-theme="kiddo"] span {
+        html[data-theme="arancia"] .text-white,
+        html[data-theme="arancia"] h1,
+        html[data-theme="arancia"] h2,
+        html[data-theme="arancia"] h3,
+        html[data-theme="arancia"] p,
+        html[data-theme="arancia"] span {
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .text-\[\#888d81\] {
+        html[data-theme="arancia"] .text-\[\#888d81\] {
             color: var(--text-muted) !important;
         }
-        html[data-theme="kiddo"] .text-\[\#d2fc2a\] {
+        html[data-theme="arancia"] .text-\[\#d2fc2a\] {
             color: var(--accent) !important;
         }
-        html[data-theme="kiddo"] .text-outline-accent {
+        html[data-theme="arancia"] .text-outline-accent {
             -webkit-text-stroke: 1.5px var(--accent);
             color: transparent !important;
         }
-        html[data-theme="kiddo"] .glass-card,
-        html[data-theme="kiddo"] .news-card {
+        html[data-theme="arancia"] .glass-card,
+        html[data-theme="arancia"] .news-card {
             background-color: #f0f4f8 !important;
             border: none !important;
             border-radius: 36px !important; 
@@ -1946,8 +1954,8 @@ Happy coding!
             backdrop-filter: none !important;
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
         }
-        html[data-theme="kiddo"] .glass-card:hover,
-        html[data-theme="kiddo"] .news-card:hover {
+        html[data-theme="arancia"] .glass-card:hover,
+        html[data-theme="arancia"] .news-card:hover {
             transform: translateY(-8px) scale(1.02) !important;
             box-shadow: 15px 15px 30px rgba(166, 180, 200, 0.3), 
                         -15px -15px 30px rgba(255, 255, 255, 0.9), 
@@ -1955,9 +1963,8 @@ Happy coding!
                         inset -6px -6px 15px rgba(166, 180, 200, 0.2) !important;
         }
         
-        /* Prevent Carousel Overflow from clipping Clay Shadows */
-        html[data-theme="kiddo"] .overflow-hidden:has(#projects-track),
-        html[data-theme="kiddo"] .overflow-hidden:has(#news-track) {
+        html[data-theme="arancia"] .overflow-hidden:has(#projects-track),
+        html[data-theme="arancia"] .overflow-hidden:has(#news-track) {
             width: calc(100% + 80px) !important;
             margin-left: -40px !important;
             padding-left: 40px !important;
@@ -1968,13 +1975,13 @@ Happy coding!
             margin-bottom: -40px !important;
         }
 
-        html[data-theme="kiddo"] .btn-solid-lime,
-        html[data-theme="kiddo"] .btn-solid-white,
-        html[data-theme="kiddo"] #theme-toggle-btn,
-        html[data-theme="kiddo"] #lang-toggle,
-        html[data-theme="kiddo"] #menu-toggle,
-        html[data-theme="kiddo"] #menu-toggle-desktop,
-        html[data-theme="kiddo"] button.w-14 {
+        html[data-theme="arancia"] .btn-solid-lime,
+        html[data-theme="arancia"] .btn-solid-white,
+        html[data-theme="arancia"] #theme-toggle-btn,
+        html[data-theme="arancia"] #lang-toggle,
+        html[data-theme="arancia"] #menu-toggle,
+        html[data-theme="arancia"] #menu-toggle-desktop,
+        html[data-theme="arancia"] button.w-14 {
             background-color: var(--accent) !important;
             color: #fff !important;
             border: none !important;
@@ -1985,16 +1992,16 @@ Happy coding!
                         inset -3px -3px 6px rgba(0, 0, 0, 0.1) !important;
             transition: all 0.2s ease !important;
         }
-        html[data-theme="kiddo"] .btn-solid-lime:hover,
-        html[data-theme="kiddo"] .btn-solid-white:hover,
-        html[data-theme="kiddo"] button.w-14:hover {
+        html[data-theme="arancia"] .btn-solid-lime:hover,
+        html[data-theme="arancia"] .btn-solid-white:hover,
+        html[data-theme="arancia"] button.w-14:hover {
             transform: translateY(2px) scale(0.97) !important;
             box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), 
                         -2px -2px 5px rgba(255, 255, 255, 0.8), 
                         inset 4px 4px 8px rgba(0, 0, 0, 0.1), 
                         inset -4px -4px 8px rgba(255, 255, 255, 0.4) !important; 
         }
-        html[data-theme="kiddo"] .input-minimal {
+        html[data-theme="arancia"] .input-minimal {
             background-color: #f0f4f8 !important;
             border: none !important;
             border-radius: 20px !important;
@@ -2002,12 +2009,12 @@ Happy coding!
                         inset -6px -6px 12px rgba(255, 255, 255, 0.9) !important;
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .input-minimal:focus {
+        html[data-theme="arancia"] .input-minimal:focus {
             box-shadow: inset 8px 8px 16px rgba(166, 180, 200, 0.5), 
                         inset -8px -8px 16px rgba(255, 255, 255, 1),
                         0 0 0 4px rgba(255, 159, 67, 0.3) !important;
         }
-        html[data-theme="kiddo"] #main-nav.scrolled-nav #nav-inner {
+        html[data-theme="arancia"] #main-nav.scrolled-nav #nav-inner {
             background-color: #f0f4f8 !important;
             box-shadow: 10px 10px 20px rgba(166, 180, 200, 0.4), 
                         -10px -10px 20px rgba(255, 255, 255, 0.9),
@@ -2016,51 +2023,51 @@ Happy coding!
             border: none !important;
             backdrop-filter: none !important;
         }
-        html[data-theme="kiddo"] .bg-\[\#111\] {
+        html[data-theme="arancia"] .bg-\[\#111\]:not(.menu-line-1):not(.menu-line-2):not(.menu-line-3) {
             background-color: #e2e8f0 !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
             border-radius: 24px !important;
             padding: 10px !important;
         }
-        html[data-theme="kiddo"] .glass-card img {
+        html[data-theme="arancia"] .glass-card img {
             border-radius: 16px !important;
         }
-        html[data-theme="kiddo"] #mobile-menu {
+        html[data-theme="arancia"] #mobile-menu {
             background-color: var(--bg-lime) !important;
         }
-        html[data-theme="kiddo"] .curtain {
+        html[data-theme="arancia"] .curtain {
             background-color: var(--bg-lime) !important;
             background-image: none !important;
         }
-        html[data-theme="kiddo"] .loader-terminal {
+        html[data-theme="arancia"] .loader-terminal {
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .scroll-bg,
-        html[data-theme="kiddo"] #cursor-glow,
-        html[data-theme="kiddo"] .wrapper-svg-container,
-        html[data-theme="kiddo"] #hero-particles {
+        html[data-theme="arancia"] .scroll-bg,
+        html[data-theme="arancia"] #cursor-glow,
+        html[data-theme="arancia"] .wrapper-svg-container,
+        html[data-theme="arancia"] #hero-particles {
             display: none !important;
         }
-        html[data-theme="kiddo"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
-        html[data-theme="kiddo"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+        html[data-theme="arancia"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="arancia"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
             border-color: rgba(166, 180, 200, 0.3) !important;
         }
-        html[data-theme="kiddo"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
-        html[data-theme="kiddo"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+        html[data-theme="arancia"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="arancia"] .w-8.h-\[2px\].bg-\[\#888d81\] {
             background-color: var(--accent) !important;
             height: 4px !important;
             border-radius: 4px !important;
         }
-        html[data-theme="kiddo"] .code-symbol {
+        html[data-theme="arancia"] .code-symbol {
             color: rgba(166, 180, 200, 0.6) !important;
             mix-blend-mode: normal !important;
         }
-        html[data-theme="kiddo"] .timeline-line::before {
+        html[data-theme="arancia"] .timeline-line::before {
             background: rgba(166, 180, 200, 0.4) !important;
             width: 4px !important;
             border-radius: 4px !important;
         }
-        html[data-theme="kiddo"] #theme-dropdown {
+        html[data-theme="arancia"] #theme-dropdown {
             background-color: #f0f4f8 !important;
             border: none !important;
             border-radius: 24px !important;
@@ -2070,22 +2077,22 @@ Happy coding!
                         inset -2px -2px 5px rgba(166, 180, 200, 0.2) !important;
             padding: 10px !important;
         }
-        html[data-theme="kiddo"] .theme-option {
+        html[data-theme="arancia"] .theme-option {
             color: var(--text-main) !important;
             border: none !important;
             border-radius: 16px !important;
         }
-        html[data-theme="kiddo"] .theme-option:hover,
-        html[data-theme="kiddo"] .theme-option.active {
+        html[data-theme="arancia"] .theme-option:hover,
+        html[data-theme="arancia"] .theme-option.active {
             background-color: var(--accent) !important;
             color: #fff !important;
             box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
         }
-        html[data-theme="kiddo"] .mobile-nav-link {
+        html[data-theme="arancia"] .mobile-nav-link {
             color: var(--text-main) !important;
             text-shadow: none !important;
         }
-        html[data-theme="kiddo"] .mobile-theme-option {
+        html[data-theme="arancia"] .mobile-theme-option {
             background: #f0f4f8 !important;
             border: none !important;
             border-radius: 16px !important;
@@ -2093,42 +2100,693 @@ Happy coding!
             color: var(--text-main) !important;
             margin-bottom: 8px !important;
         }
-        html[data-theme="kiddo"] .mobile-theme-option.active,
-        html[data-theme="kiddo"] .mobile-theme-option:hover {
+        html[data-theme="arancia"] .mobile-theme-option.active,
+        html[data-theme="arancia"] .mobile-theme-option:hover {
             background: var(--accent) !important;
             color: #fff !important;
             box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.4) !important;
         }
-        html[data-theme="kiddo"] .text-\[\#111\] {
+        html[data-theme="arancia"] .text-\[\#111\] {
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .menu-line-1,
-        html[data-theme="kiddo"] .menu-line-2,
-        html[data-theme="kiddo"] .menu-line-3 {
+        html[data-theme="arancia"] .menu-line-1,
+        html[data-theme="arancia"] .menu-line-2,
+        html[data-theme="arancia"] .menu-line-3 {
             background-color: var(--text-main) !important;
         }
         
-        /* Specifically Target Input Labels & Faded Texts to ensure visibility */
-        html[data-theme="kiddo"] .text-\[\#d2fc2a\]\/70 {
+        html[data-theme="arancia"] .text-\[\#d2fc2a\]\/70 {
             color: var(--text-muted) !important;
             font-weight: 800 !important;
         }
-        html[data-theme="kiddo"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
+        html[data-theme="arancia"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for Arancia */
-        html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+        html[data-theme="arancia"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: #f0f4f8 !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
             border-radius: 999px !important;
             height: 16px !important;
         }
-        html[data-theme="kiddo"] .bg-\[\#d2fc2a\] {
+        html[data-theme="arancia"] .bg-\[\#d2fc2a\] {
             background-color: var(--accent) !important;
             border-radius: 999px !important;
             height: 16px !important;
             box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        html[data-theme="offoto"] .timeline-date-tag,
+        html[data-theme="arancia"] .timeline-date-tag {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: max-content;
+            height: auto !important;
+            min-height: 1.75rem;
+            padding: 0.375rem 0.75rem !important;
+            margin-bottom: 1rem !important;
+            line-height: 1 !important;
+            white-space: nowrap;
+            vertical-align: middle;
+            box-sizing: border-box;
+            color: var(--text-main) !important;
+        }
+
+        html[data-theme="offoto"] .overflow-hidden:has(#projects-track),
+        html[data-theme="arancia"] .overflow-hidden:has(#projects-track) {
+            margin-bottom: 3rem !important;
+        }
+
+        html[data-theme="offoto"] #news,
+        html[data-theme="arancia"] #news {
+            margin-top: 4rem !important;
+        }
+
+        html[data-theme="offoto"] #news > .news-content,
+        html[data-theme="arancia"] #news > .news-content {
+            padding-top: 4rem !important;
+        }
+
+        html[data-theme="gotham"] {
+            --bg-lime: #000000;
+            --bg-olive: #000000;
+            --accent: #ffffff;
+            --text-main: #ffffff;
+            --text-muted: #ffffff;
+            --logo-color: #ffffff;
+        }
+
+        html[data-theme="gotham"],
+        html[data-theme="gotham"] body {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] ::selection {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        html[data-theme="gotham"] #main-content-wrapper {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border: 4px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 12px 12px 0 #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0 #ffffff !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        html[data-theme="gotham"] #nav-logo,
+        html[data-theme="gotham"] #nav-logo span,
+        html[data-theme="gotham"] h1,
+        html[data-theme="gotham"] h2,
+        html[data-theme="gotham"] h3,
+        html[data-theme="gotham"] h4,
+        html[data-theme="gotham"] h5,
+        html[data-theme="gotham"] h6,
+        html[data-theme="gotham"] p,
+        html[data-theme="gotham"] label,
+        html[data-theme="gotham"] .text-white,
+        html[data-theme="gotham"] .text-\[\#111\],
+        html[data-theme="gotham"] .text-\[\#888d81\],
+        html[data-theme="gotham"] .text-\[\#d2fc2a\],
+        html[data-theme="gotham"] .text-\[\#e8fb7a\] {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .text-outline-accent {
+            color: transparent !important;
+            -webkit-text-stroke: 2px #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0 #ffffff !important;
+            backdrop-filter: none !important;
+        }
+
+        html[data-theme="gotham"] .glass-card:hover,
+        html[data-theme="gotham"] .news-card:hover {
+            background: #000000 !important;
+            border-color: #ffffff !important;
+            box-shadow: 4px 4px 0 #ffffff !important;
+            transform: translate(4px, 4px) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 6px 6px 0 #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime:hover,
+        html[data-theme="gotham"] .btn-solid-white:hover,
+        html[data-theme="gotham"] #theme-toggle-btn:hover,
+        html[data-theme="gotham"] #lang-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover,
+        html[data-theme="gotham"] #menu-close:hover,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn:hover,
+        html[data-theme="gotham"] #mobile-lang-toggle:hover,
+        html[data-theme="gotham"] #projects-prev:hover,
+        html[data-theme="gotham"] #projects-next:hover,
+        html[data-theme="gotham"] #news-prev:hover,
+        html[data-theme="gotham"] #news-next:hover {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: 3px 3px 0 #ffffff !important;
+            transform: translate(3px, 3px) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime span,
+        html[data-theme="gotham"] .btn-solid-lime i,
+        html[data-theme="gotham"] .btn-solid-white span,
+        html[data-theme="gotham"] .btn-solid-white i,
+        html[data-theme="gotham"] #theme-toggle-btn svg,
+        html[data-theme="gotham"] #lang-toggle svg,
+        html[data-theme="gotham"] #menu-toggle svg,
+        html[data-theme="gotham"] #menu-toggle-desktop svg,
+        html[data-theme="gotham"] #menu-close svg,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn svg,
+        html[data-theme="gotham"] #mobile-lang-toggle svg,
+        html[data-theme="gotham"] #projects-prev svg,
+        html[data-theme="gotham"] #projects-next svg,
+        html[data-theme="gotham"] #news-prev svg,
+        html[data-theme="gotham"] #news-next svg {
+            color: inherit !important;
+            stroke: currentColor !important;
+        }
+
+        html[data-theme="gotham"] .menu-line-1,
+        html[data-theme="gotham"] .menu-line-2,
+        html[data-theme="gotham"] .menu-line-3 {
+            background-color: #000000 !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #menu-toggle:hover .menu-line-1,
+        html[data-theme="gotham"] #menu-toggle:hover .menu-line-2,
+        html[data-theme="gotham"] #menu-toggle:hover .menu-line-3,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover .menu-line-1,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover .menu-line-2,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover .menu-line-3 {
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .side-nav-link,
+        html[data-theme="gotham"] .mobile-nav-link,
+        html[data-theme="gotham"] a {
+            color: #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .side-nav-link::before {
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #mobile-menu {
+            background: #000000 !important;
+            background-image: none !important;
+            border-left: 4px solid #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 6px 6px 0 #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .theme-option,
+        html[data-theme="gotham"] .mobile-theme-option {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .theme-option:hover,
+        html[data-theme="gotham"] .theme-option.active,
+        html[data-theme="gotham"] .mobile-theme-option:hover,
+        html[data-theme="gotham"] .mobile-theme-option.active {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .theme-option svg,
+        html[data-theme="gotham"] .mobile-theme-option svg {
+            color: currentColor !important;
+            stroke: currentColor !important;
+        }
+
+        html[data-theme="gotham"] .input-minimal {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .input-minimal::placeholder {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+
+        html[data-theme="gotham"] .timeline-line::before {
+            background: #ffffff !important;
+            width: 3px !important;
+        }
+
+        html[data-theme="gotham"] .bg-pattern-wave,
+        html[data-theme="gotham"] .bg-pattern-dots,
+        html[data-theme="gotham"] .bg-pattern-grid,
+        html[data-theme="gotham"] .bg-pattern-topo,
+        html[data-theme="gotham"] .scroll-bg {
+            background-image: none !important;
+        }
+
+        html[data-theme="gotham"] .code-symbol,
+        html[data-theme="gotham"] .wrapper-svg-container {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .curtain {
+            background: #000000 !important;
+            background-image: none !important;
+            border-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .curtain-seam {
+            background: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .loader-terminal,
+        html[data-theme="gotham"] #loading-text,
+        html[data-theme="gotham"] .loader-cursor,
+        html[data-theme="gotham"] .bracket {
+            color: #ffffff !important;
+            background-color: transparent !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .bg-\[\#111\],
+        html[data-theme="gotham"] .bg-\[\#272a21\],
+        html[data-theme="gotham"] [class*="bg-pattern-"] {
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+
+        html[data-theme="gotham"] .bg-\[\#d2fc2a\],
+        html[data-theme="gotham"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="gotham"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #cursor-glow {
+            display: none !important;
+            background: none !important;
+            mix-blend-mode: normal !important;
+        }
+
+        html[data-theme="gotham"] img,
+        html[data-theme="gotham"] picture,
+        html[data-theme="gotham"] video,
+        html[data-theme="gotham"] .mono-img {
+            filter: none !important;
+            mix-blend-mode: normal !important;
+        }
+
+        html[data-theme="gotham"] body.language-switching #main-content-wrapper,
+        html[data-theme="gotham"] body.language-switching #lang-toggle,
+        html[data-theme="gotham"] body.language-switching #theme-toggle-btn,
+        html[data-theme="gotham"] body.language-switching #mobile-lang-toggle,
+        html[data-theme="gotham"] body.language-switching #mobile-theme-toggle-btn {
+            animation: none !important;
+        }
+
+        html[data-theme="gotham"] ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        html[data-theme="gotham"] ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border-radius: 0;
+        }
+
+        html[data-theme="gotham"] #main-content-wrapper {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 10px 10px 0 rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.26) !important;
+            box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.13) !important;
+        }
+
+        html[data-theme="gotham"] .glass-card:hover,
+        html[data-theme="gotham"] .news-card:hover {
+            border-color: rgba(255, 255, 255, 0.34) !important;
+            box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.18) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime:hover,
+        html[data-theme="gotham"] .btn-solid-white:hover,
+        html[data-theme="gotham"] #theme-toggle-btn:hover,
+        html[data-theme="gotham"] #lang-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover,
+        html[data-theme="gotham"] #menu-close:hover,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn:hover,
+        html[data-theme="gotham"] #mobile-lang-toggle:hover,
+        html[data-theme="gotham"] #projects-prev:hover,
+        html[data-theme="gotham"] #projects-next:hover,
+        html[data-theme="gotham"] #news-prev:hover,
+        html[data-theme="gotham"] #news-next:hover {
+            border-color: rgba(255, 255, 255, 0.34) !important;
+            box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.16) !important;
+        }
+
+        html[data-theme="gotham"] #mobile-menu {
+            border-left-width: 1px !important;
+            border-left-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.14) !important;
+        }
+
+        html[data-theme="gotham"] .theme-option,
+        html[data-theme="gotham"] .mobile-theme-option {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.18) !important;
+        }
+
+        html[data-theme="gotham"] .input-minimal {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.24) !important;
+        }
+
+        html[data-theme="gotham"] .side-nav-link::before {
+            background-color: rgba(255, 255, 255, 0.28) !important;
+        }
+
+        html[data-theme="gotham"] .timeline-line::before {
+            background: rgba(255, 255, 255, 0.24) !important;
+            width: 1px !important;
+        }
+
+        html[data-theme="gotham"] .curtain {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        html[data-theme="gotham"] .curtain-seam {
+            opacity: 0.45 !important;
+        }
+
+        html[data-theme="gotham"] * {
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] [class~="border"],
+        html[data-theme="gotham"] [class*="border-"] {
+            border: none !important;
+        }
+
+        html[data-theme="gotham"] #main-content-wrapper,
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card,
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown,
+        html[data-theme="gotham"] .input-minimal,
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .timeline-line::before,
+        html[data-theme="gotham"] .curtain-seam,
+        html[data-theme="gotham"] .side-nav-link::before,
+        html[data-theme="gotham"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="gotham"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            display: none !important;
+            background: none !important;
+        }
+
+        html[data-theme="gotham"] .bg-\[\#d2fc2a\],
+        html[data-theme="gotham"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] .timeline-date-tag,
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] .timeline-date-tag span,
+        html[data-theme="gotham"] .btn-solid-lime span,
+        html[data-theme="gotham"] .btn-solid-lime i,
+        html[data-theme="gotham"] .btn-solid-white span,
+        html[data-theme="gotham"] .btn-solid-white i {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav,
+        html[data-theme="gotham"] #nav-inner {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #nav-logo,
+        html[data-theme="gotham"] #nav-logo span,
+        html[data-theme="gotham"] #nav-inner a:not(.btn-solid-lime):not(.btn-solid-white) {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner .btn-solid-lime,
+        html[data-theme="gotham"] #nav-inner .btn-solid-white,
+        html[data-theme="gotham"] #nav-inner #theme-toggle-btn,
+        html[data-theme="gotham"] #nav-inner #lang-toggle,
+        html[data-theme="gotham"] #nav-inner #menu-toggle,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner .btn-solid-lime span,
+        html[data-theme="gotham"] #nav-inner .btn-solid-lime i,
+        html[data-theme="gotham"] #nav-inner .btn-solid-white span,
+        html[data-theme="gotham"] #nav-inner .btn-solid-white i,
+        html[data-theme="gotham"] #nav-inner #theme-toggle-btn svg,
+        html[data-theme="gotham"] #nav-inner #lang-toggle svg,
+        html[data-theme="gotham"] #nav-inner #menu-toggle svg,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop svg {
+            color: #000000 !important;
+            stroke: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner .menu-line-1,
+        html[data-theme="gotham"] #nav-inner .menu-line-2,
+        html[data-theme="gotham"] #nav-inner .menu-line-3,
+        html[data-theme="gotham"] #nav-inner #menu-toggle:hover .menu-line-1,
+        html[data-theme="gotham"] #nav-inner #menu-toggle:hover .menu-line-2,
+        html[data-theme="gotham"] #nav-inner #menu-toggle:hover .menu-line-3,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop:hover .menu-line-1,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop:hover .menu-line-2,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop:hover .menu-line-3 {
+            background-color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            width: 100% !important;
+            max-width: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo span {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #000000 !important;
+            animation: none !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo span::before,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo span::after {
+            display: none !important;
+            content: none !important;
+            opacity: 0 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .btn-solid-lime,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .btn-solid-white,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #theme-toggle-btn,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #lang-toggle,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #menu-toggle,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #menu-toggle-desktop {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner svg,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner i,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-1,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-2,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-3 {
+            color: #000000 !important;
+            stroke: #000000 !important;
+            background-color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav {
+            background: transparent !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            width: 75% !important;
+            max-width: 800px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
+            padding: 12px 32px !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border-radius: 999px !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner svg,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner i {
+            background-color: transparent !important;
+            color: #000000 !important;
+            stroke: #000000 !important;
+            fill: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-1,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-2,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-3 {
+            background-color: #000000 !important;
+        }
+
+        @media (max-width: 768px) {
+            html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+                width: 92% !important;
+                max-width: 100% !important;
+                padding: 10px 20px !important;
+                border-radius: 999px !important;
+            }
         }
     </style>
 </head>
@@ -2165,12 +2823,10 @@ Happy coding!
                     <span data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</span>
                 </a>
 
-                <!-- Desktop Theme Dropdown -->
                 <div class="relative group" id="theme-dropdown-container">
                     <button id="theme-toggle-btn" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm" title="Select Theme">
                         <i data-lucide="palette" class="w-4 h-4"></i>
                     </button>
-                    <!-- Dropdown Menu -->
                     <div id="theme-dropdown" class="absolute top-full right-0 mt-3 w-48 rounded-xl bg-[#272a21] border border-[rgba(210,252,42,0.1)] shadow-2xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 z-[105]">
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="grenomint">
                             Grenomint <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
@@ -2184,8 +2840,11 @@ Happy coding!
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="offoto">
                             Offoto <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
-                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="kiddo">
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="arancia">
                             Arancia <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="gotham">
+                            Gotham <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                     </div>
                 </div>
@@ -2247,7 +2906,6 @@ Happy coding!
 
             <div class="mt-16 mb-8 w-full max-w-sm space-y-4">
                 
-                <!-- Mobile Theme Dropdown -->
                 <div class="relative w-full" id="mobile-theme-dropdown-container">
                     <button id="mobile-theme-toggle-btn" class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3 relative">
                         <i data-lucide="palette" class="w-4 h-4 absolute left-4"></i>
@@ -2267,8 +2925,11 @@ Happy coding!
                         <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="offoto">
                             Offoto
                         </button>
-                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="kiddo">
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="arancia">
                             Arancia
+                        </button>
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="gotham">
+                            Gotham
                         </button>
                     </div>
                 </div>
@@ -2308,8 +2969,7 @@ Happy coding!
                     style="left: 45%; animation-delay: -12s;">&gt;_</span>
                 <span class="code-symbol code-anim-1 text-2xl lg:text-4xl"
                     style="left: 65%; animation-delay: -2s;">()=&gt;</span>
-                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 85%; animation-delay: -8s;">/*
-                    */</span>
+                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 85%; animation-delay: -8s;"></span>
                 <span class="code-symbol code-anim-3 text-2xl lg:text-3xl"
                     style="left: 15%; animation-delay: -15s;">if()</span>
                 <span class="code-symbol code-anim-1 text-lg lg:text-2xl" style="left: 75%; animation-delay: -4s;">[
@@ -2486,7 +3146,7 @@ Happy coding!
                         </div>
                         <div>
                             <span
-                                class="text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]"
+                                class="timeline-date-tag text-[#111] font-black font-mono text-[10px] tracking-[0.2em] mb-4 inline-block px-3 py-1.5 rounded bg-[#d2fc2a]"
                                 data-en="CURRENT - 2026" data-mm="လက်ရှိ - ၂၀၂၆">CURRENT - 2026</span>
                             <h3 class="text-2xl md:text-4xl font-black mb-3 text-white tracking-tighter" data-en="BSc (Hons) in Computing" data-mm="ကွန်ပျူတာပညာရပ်ဆိုင်ရာ BSc (Hons) ဘွဲ့">BSc (Hons) in Computing</h3>
                             <p class="text-[#888d81] text-sm md:text-base font-mono leading-relaxed max-w-lg"
@@ -2503,7 +3163,7 @@ Happy coding!
                         </div>
                         <div>
                             <span
-                                class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="2024 - 2025" data-mm="၂၀၂၄ - ၂၀၂၅">2024 - 2025</span>
+                                class="timeline-date-tag text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="2024 - 2025" data-mm="၂၀၂၄ - ၂၀၂၅">2024 - 2025</span>
                             <h3
                                 class="text-xl md:text-3xl font-black mb-3 text-[#ccc] tracking-tighter group-hover:text-[#d2fc2a] transition-colors" data-en="HND in Computing" data-mm="ကွန်ပျူတာပညာရပ်ဆိုင်ရာ HND ဘွဲ့">HND in Computing</h3>
                             <p class="text-[#666] text-sm md:text-base font-mono leading-relaxed max-w-lg"
@@ -2520,7 +3180,7 @@ Happy coding!
                         </div>
                         <div>
                             <span
-                                class="text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="2023 - 2024" data-mm="၂၀၂၃ - ၂၀၂၄">2023 - 2024</span>
+                                class="timeline-date-tag text-[#888d81] font-mono font-bold text-[10px] tracking-[0.2em] mb-3 block" data-en="2023 - 2024" data-mm="၂၀၂၃ - ၂၀၂၄">2023 - 2024</span>
                             <h3
                                 class="text-xl md:text-3xl font-black mb-3 text-[#888] tracking-tighter group-hover:text-[#d2fc2a] transition-colors" data-en="HNC in Computing" data-mm="ကွန်ပျူတာပညာရပ်ဆိုင်ရာ HNC ဘွဲ့">HNC in Computing</h3>
                             <p class="text-[#555] text-sm md:text-base font-mono leading-relaxed max-w-lg"
@@ -2880,7 +3540,7 @@ Happy coding!
                                 data-mm="Front-End နှင့် Back-End စနစ်များ">Front & Backend Systems</span>
                             <span class="text-[#d2fc2a]">98%</span>
                         </div>
-                        <div class="h-1.5 rounded-full w-full bg-[rgba(255,255,255,0.05)] relative overflow-hidden">
+                        <div class="h-1.5 rounded-full w-full bg-[#ffffff] relative overflow-hidden">
                             <div class="absolute left-0 top-0 bottom-0 bg-[#d2fc2a]" style="width: 98%"></div>
                         </div>
                     </div>
@@ -2891,7 +3551,7 @@ Happy coding!
                                 Technologies</span>
                             <span class="text-[#d2fc2a]">92%</span>
                         </div>
-                        <div class="h-1.5 rounded-full w-full bg-[rgba(255,255,255,0.05)] relative overflow-hidden">
+                        <div class="h-1.5 rounded-full w-full bg-[#ffffff] relative overflow-hidden">
                             <div class="absolute left-0 top-0 bottom-0 bg-[#d2fc2a]" style="width: 92%"></div>
                         </div>
                     </div>
@@ -2902,7 +3562,7 @@ Happy coding!
                                 data-mm="Software တည်ဆောက်ပုံစနစ်များ">Software Architecture</span>
                             <span class="text-[#d2fc2a]">85%</span>
                         </div>
-                        <div class="h-1.5 rounded-full w-full bg-[rgba(255,255,255,0.05)] relative overflow-hidden">
+                        <div class="h-1.5 rounded-full w-full bg-[#ffffff] relative overflow-hidden">
                             <div class="absolute left-0 top-0 bottom-0 bg-[#d2fc2a]" style="width: 85%"></div>
                         </div>
                     </div>
@@ -2915,7 +3575,7 @@ Happy coding!
             <div class="absolute inset-0 scroll-bg bg-pattern-dots opacity-30 pointer-events-none" data-speed="0.2">
             </div>
 
-            <div class="max-w-[90rem] mx-auto relative z-10">
+            <div class="news-content max-w-[90rem] mx-auto relative z-10">
                 <div
                     class="flex flex-col md:flex-row justify-between md:items-end mb-20 gap-8 border-b border-[rgba(210,252,42,0.1)] pb-10">
                     <div class="reveal-element reveal-up max-w-3xl">
@@ -3202,7 +3862,6 @@ Happy coding!
         let glowX = mouseX;
         let glowY = mouseY;
 
-        // Make particle color dynamically controllable globally
         window.heroParticleColor = '210, 252, 42';
 
         window.addEventListener('mousemove', (e) => {
@@ -3248,7 +3907,6 @@ Happy coding!
             const elapsed = time * 0.001;
             context.clearRect(0, 0, heroParticleWidth, heroParticleHeight);
 
-            // Read the dynamic RGB color configured from the theme logic
             const pRgb = window.heroParticleColor || '210, 252, 42';
 
             if (heroParticlePointer.active) {
@@ -3788,7 +4446,7 @@ Happy coding!
         }
 
         function updateTheme(theme) {
-            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'kiddo') {
+            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'arancia' || theme === 'gotham') {
                 document.documentElement.setAttribute('data-theme', theme);
             } else {
                 document.documentElement.removeAttribute('data-theme');
@@ -3800,8 +4458,10 @@ Happy coding!
                 window.heroParticleColor = '255, 183, 3'; 
             } else if (theme === 'offoto') {
                 window.heroParticleColor = '0, 122, 255'; 
-            } else if (theme === 'kiddo') {
+            } else if (theme === 'arancia') {
                 window.heroParticleColor = '255, 159, 67'; 
+            } else if (theme === 'gotham') {
+                window.heroParticleColor = '255, 255, 255'; 
             } else {
                 window.heroParticleColor = '210, 252, 42'; 
             }
@@ -3812,7 +4472,8 @@ Happy coding!
                 if (theme === 'panycandy') themeName = 'PANYCANDY';
                 if (theme === 'glassortcele') themeName = 'GLASSORTCELE';
                 if (theme === 'offoto') themeName = 'OFFOTO';
-                if (theme === 'kiddo') themeName = 'KIDDO';
+                if (theme === 'arancia') themeName = 'ARANCIA';
+                if (theme === 'gotham') themeName = 'BATMAN';
                 mobThemeText.innerText = `THEME: ${themeName}`;
             }
 
@@ -3892,7 +4553,7 @@ Happy coding!
         console.log('%c' + __logoPaing, 'color: #d2fc2a; font-weight: bold; font-family: monospace; font-size: 10px; line-height: 1.1; white-space: pre;');
 
         console.log('%cresize issue prevention', __logStyle);
-    </script>
+    </script> 
 </body>
 
 </html>
@@ -3921,3 +4582,4 @@ Happy coding!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
+```eof

@@ -1010,10 +1010,55 @@ Happy coding!
             overflow-wrap: anywhere;
         }
 
+        .cas-player-trigger {
+            cursor: pointer;
+            text-align: left;
+            border-color: color-mix(in srgb, var(--accent) 55%, rgba(255, 255, 255, 0.1));
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), rgba(255, 255, 255, 0.025));
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent), 0 0 18px color-mix(in srgb, var(--accent) 8%, transparent);
+        }
+
+        .cas-player-trigger:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 20%, transparent), rgba(255, 255, 255, 0.06));
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 20%, transparent), 0 10px 26px color-mix(in srgb, var(--accent) 14%, transparent);
+        }
+
+        .cas-player-trigger:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .cas-player-trigger-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            width: fit-content;
+            padding: 0.24rem 0.45rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #111;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.48rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
         .cas-player-modal {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 2147483000 !important;
+            isolation: isolate;
+            box-sizing: border-box;
+            align-items: center;
+            padding: max(5.5rem, calc(env(safe-area-inset-top) + 4.5rem)) max(0.75rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
             opacity: 0;
             pointer-events: none;
-            overflow-y: auto;
+            overflow: hidden;
+            overscroll-behavior: none;
             transition: opacity 0.3s ease;
         }
 
@@ -1029,33 +1074,43 @@ Happy coding!
         }
 
         .cas-player-panel {
-            width: min(100%, 44rem);
-            max-height: calc(100dvh - 2rem);
+            position: relative;
+            z-index: 1 !important;
+            width: min(100%, 48rem);
+            max-height: calc(100dvh - 7rem);
             overflow-y: auto;
             overscroll-behavior: contain;
+            touch-action: pan-y;
+            scrollbar-gutter: stable;
+            -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
             scrollbar-color: var(--accent) rgba(255, 255, 255, 0.08);
-            background: var(--bg-olive);
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 1.25rem;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            background: linear-gradient(180deg, #202020 0%, #181818 42%, #121212 100%);
+            color: #f5f5f5;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 0.75rem;
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.58), 0 0 0 1px rgba(0, 0, 0, 0.25);
             transform: translateY(18px) scale(0.97);
             transition: transform 0.35s var(--ease-bounce);
         }
 
         .cas-player-layout {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 13rem;
-            gap: 1.25rem;
+            grid-template-columns: minmax(0, 1fr) 14rem;
+            gap: 1.75rem;
             align-items: start;
         }
 
         .cas-player-now-playing {
-            display: grid;
-            grid-template-columns: 7.5rem minmax(0, 1fr);
-            gap: 1rem;
-            align-items: start;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+            align-items: stretch;
+        }
+
+        .cas-player-now-playing > .min-w-0 {
+            width: 100%;
+            min-width: 0;
         }
 
         .cas-player-main,
@@ -1064,12 +1119,12 @@ Happy coding!
         }
 
         .cas-player-track-rail {
-            padding-left: 1.25rem;
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            padding-left: 1.5rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.14);
         }
 
         .cas-player-art {
-            max-width: 7.5rem;
+            max-width: 18rem;
             margin-left: auto;
             margin-right: auto;
             display: block;
@@ -1079,27 +1134,101 @@ Happy coding!
             transform: translateY(0) scale(1);
         }
 
+        .cas-player-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            min-height: 4rem;
+            padding: 0.35rem 3.75rem 0.95rem 0.1rem;
+            background: rgba(24, 24, 24, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .cas-player-kicker {
+            margin-bottom: 0.35rem !important;
+            color: rgba(255, 255, 255, 0.56);
+            font-size: 0.55rem !important;
+            letter-spacing: 0.18em;
+        }
+
+        .cas-player-heading {
+            font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+        }
+
+        .cas-player-close {
+            position: absolute;
+            z-index: 20;
+            top: 0.65rem;
+            right: 0.65rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+        }
+
+        .cas-player-control {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cas-player-artist-link {
+            padding-top: 1.15rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+
         .cas-player-backdrop {
-            background: rgba(0, 0, 0, 0.72);
-            backdrop-filter: blur(12px);
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(18px) saturate(0.72);
+            -webkit-backdrop-filter: blur(18px) saturate(0.72);
+            touch-action: none;
+        }
+
+        html.cas-player-open,
+        body.cas-player-open {
+            overflow: hidden !important;
+            overscroll-behavior: none !important;
         }
 
         .cas-player-art {
             aspect-ratio: 1;
             width: 100%;
             object-fit: cover;
-            border-radius: 1rem;
-            background: var(--accent);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+            border-radius: 0.35rem;
+            background: #111;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.42);
         }
 
         .cas-player-progress-track,
         .cas-track-card-progress {
             position: relative;
             overflow: hidden;
-            height: 4px;
+            height: 5px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        .cas-player-progress-track::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
         }
 
         .cas-player-progress-fill,
@@ -1125,9 +1254,9 @@ Happy coding!
         .cas-player-close,
         .cas-player-track-button {
             appearance: none;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            background: rgba(255, 255, 255, 0.06);
-            color: inherit;
+            border: 0;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.72);
             transition: transform 0.2s var(--ease-bounce), background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
 
@@ -1136,33 +1265,56 @@ Happy coding!
         .cas-player-track-button:hover,
         .cas-player-track-button.is-active {
             transform: translateY(-2px);
-            border-color: var(--accent);
-            background: color-mix(in srgb, var(--accent) 14%, transparent);
-            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .cas-player-track-button.is-active {
+            transform: none;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 3px 0 0 var(--accent);
+        }
+
+        .cas-player-track-button:focus-visible,
+        .cas-player-control:focus-visible,
+        .cas-player-close:focus-visible,
+        .cas-player-artist-link:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
         }
 
         .cas-player-play {
+            width: 3.25rem !important;
+            height: 3.25rem !important;
             background: var(--accent);
-            border-color: var(--accent);
-            color: var(--bg-olive);
+            color: #111;
+            box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 25%, transparent);
         }
 
         .cas-player-play:hover {
             background: var(--accent);
-            color: var(--bg-olive);
+            color: #111;
+            transform: scale(1.06);
         }
 
         .cas-player-track-button {
+            display: grid;
+            grid-template-columns: 2.75rem minmax(0, 1fr);
+            align-items: center;
             min-width: 0;
+            width: 100%;
+            padding: 0.55rem;
             text-align: left;
+            border-radius: 0.45rem;
         }
 
         .cas-player-track-button img {
-            width: 3rem;
-            height: 3rem;
+            width: 2.75rem;
+            height: 2.75rem;
             flex: 0 0 auto;
             object-fit: cover;
-            border-radius: 0.65rem;
+            border-radius: 0.2rem;
+            background: #282828;
         }
 
         .cas-player-track-button span {
@@ -1173,30 +1325,196 @@ Happy coding!
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 0.7rem !important;
+            line-height: 1.15;
+        }
+
+        .cas-player-track-button > span > span:nth-child(2),
+        .cas-player-track-button > span > span:nth-child(4) {
+            font-size: 0.47rem !important;
+            line-height: 1.15;
+        }
+
+        .cas-player-track-button > span > span:nth-child(2) {
+            letter-spacing: 0.1em;
+        }
+
+        @media (min-width: 761px) and (max-width: 1024px) {
+            .cas-player-panel {
+                width: min(100%, 42rem);
+            }
+
+            .cas-player-layout {
+                grid-template-columns: minmax(0, 1fr) 12rem;
+                gap: 1.25rem;
+            }
+
+            .cas-player-now-playing {
+                grid-template-columns: 7.25rem minmax(0, 1fr);
+                gap: 1rem;
+            }
+
+            .cas-player-art {
+                max-width: 7.25rem;
+            }
         }
 
         @media (max-width: 760px) {
+            .cas-player-modal {
+                align-items: flex-start;
+                padding: max(5.25rem, calc(env(safe-area-inset-top) + 4.5rem)) max(0.5rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.5rem, env(safe-area-inset-left));
+            }
+
+            .cas-player-panel {
+                max-height: calc(100dvh - 6rem);
+            }
+
             .cas-player-layout,
             .cas-player-now-playing {
                 grid-template-columns: 1fr;
             }
 
             .cas-player-now-playing {
-                gap: 1.25rem;
+                gap: 0.85rem;
+            }
+
+            .cas-player-art {
+                max-width: 15rem;
             }
 
             .cas-player-track-rail {
                 padding-left: 0;
                 border-left: 0;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.14);
                 padding-top: 1.25rem;
             }
         }
 
         @media (max-width: 640px) {
             .cas-player-panel {
-                max-height: calc(100dvh - 1rem);
-                border-radius: 1.1rem;
+                width: 100%;
+                max-height: calc(100dvh - 6rem);
+                padding: 1rem !important;
+                border-radius: 0.85rem;
+            }
+
+            .cas-player-panel > .cas-player-header,
+            .cas-player-panel > .cas-player-layout,
+            .cas-player-panel > .cas-player-artist-link {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .cas-player-header {
+                gap: 0.75rem;
+                min-height: 3.25rem;
+                margin-bottom: 1rem !important;
+                padding: 0.25rem 3.25rem 0.75rem 0;
+            }
+
+            .cas-player-kicker {
+                margin-bottom: 0.3rem !important;
+                font-size: 0.45rem !important;
+                letter-spacing: 0.15em;
+            }
+
+            .cas-player-heading {
+                font-size: 1.12rem;
+                line-height: 1.08;
+            }
+
+            .cas-player-close {
+                top: 0.55rem;
+                right: 0.55rem;
+                width: 2.1rem;
+                height: 2.1rem;
+            }
+
+            .cas-player-now-playing {
+                gap: 0.9rem;
+            }
+
+            .cas-player-art {
+                max-width: 7rem;
+            }
+
+            #cas-player-song {
+                font-size: 1.35rem !important;
+                line-height: 1.05;
+            }
+
+            #cas-player-artist {
+                margin-top: 0.35rem !important;
+                font-size: 0.5rem !important;
+                letter-spacing: 0.12em !important;
+            }
+
+            #cas-player-status {
+                margin-top: 0.8rem !important;
+                min-height: 0.75rem;
+                font-size: 0.55rem !important;
+                line-height: 1.35;
+            }
+
+            .cas-player-progress-track {
+                height: 4px;
+            }
+
+            #cas-player-current-time,
+            #cas-player-duration {
+                font-size: 0.5rem !important;
+            }
+
+            #cas-player-previous,
+            #cas-player-next {
+                width: 2.25rem !important;
+                height: 2.25rem !important;
+            }
+
+            #cas-player-play {
+                width: 2.75rem !important;
+                height: 2.75rem !important;
+            }
+
+            .cas-player-track-rail {
+                padding-top: 0.9rem;
+            }
+
+            .cas-player-track-rail > p {
+                margin-bottom: 0.6rem !important;
+                font-size: 0.5rem !important;
+            }
+
+            #cas-player-track-list {
+                gap: 0.45rem !important;
+            }
+
+            .cas-player-track-button {
+                grid-template-columns: 2.35rem minmax(0, 1fr);
+                padding: 0.4rem;
+                border-radius: 0.35rem;
+                gap: 0.55rem;
+            }
+
+            .cas-player-track-button img {
+                width: 2.35rem;
+                height: 2.35rem;
+            }
+
+            .cas-player-track-title {
+                font-size: 0.56rem !important;
+            }
+
+            .cas-player-track-button span span:nth-child(2),
+            .cas-player-track-button [data-track-duration] {
+                font-size: 0.45rem !important;
+            }
+
+            .cas-player-artist-link {
+                margin-top: 1rem !important;
+                padding-top: 0.85rem;
+                font-size: 0.5rem !important;
+                letter-spacing: 0.1em !important;
             }
         }
 
@@ -1338,9 +1656,7 @@ Happy coding!
             visibility: visible !important;
         }
 
-        /* ------------------------------------------------------------------
-           GRENOMINT THEME (Base / Default / Acid Mint) - Active Styles
-           ------------------------------------------------------------------ */
+        
         .theme-option.active {
             background-color: rgba(210,252,42,0.1);
             color: #d2fc2a;
@@ -1351,13 +1667,11 @@ Happy coding!
             color: #d2fc2a;
         }
 
-        /* ------------------------------------------------------------------
-           PANYCANDY (NEO BRUTALISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
+        
         html[data-theme="panycandy"] {
-            --bg-lime: #ff006e; /* Hot pink background */
-            --bg-olive: #ffffff; /* Stark white */
-            --accent: #ffb703; /* Yellow accents */
+            --bg-lime: #ff006e; 
+            --bg-olive: #ffffff; 
+            --accent: #ffb703; 
             --text-main: #000000;
             --text-muted: #111111;
             --logo-color: #000;
@@ -1587,7 +1901,7 @@ Happy coding!
             background-color: #000 !important;
         }
 
-        /* Specifically Target Input Labels & Other Faded Texts to ensure visibility */
+        
         html[data-theme="panycandy"] .text-\[\#d2fc2a\]\/70 {
             color: #000 !important;
             font-weight: 900 !important;
@@ -1596,7 +1910,7 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for PanyCandy */
+        
         html[data-theme="panycandy"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: #fff !important;
             border: 3px solid #000 !important;
@@ -1616,7 +1930,7 @@ Happy coding!
             box-sizing: content-box !important;
         }
 
-        /* About Page specific overrides for PanyCandy */
+        
         html[data-theme="panycandy"] .text-gray-300 {
             color: #000 !important;
             font-weight: 900 !important;
@@ -1653,9 +1967,7 @@ Happy coding!
             box-shadow: 2px 2px 0px #000 !important;
         }
 
-        /* ------------------------------------------------------------------
-           GLASSORTCELE (GLASSMORPHISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
+        
         html[data-theme="glassortcele"] {
             --bg-lime: #0f172a; 
             --bg-olive: rgba(255, 255, 255, 0.03);
@@ -1679,7 +1991,7 @@ Happy coding!
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         }
         
-        /* Fix the header bar on scroll */
+        
         html[data-theme="glassortcele"] #main-nav.scrolled-nav #nav-inner {
             background: rgba(20, 20, 25, 0.45) !important;
             backdrop-filter: blur(30px) saturate(200%) !important;
@@ -1716,7 +2028,7 @@ Happy coding!
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             color: #fff !important;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-            border-radius: 999px !important; /* Apple pills */
+            border-radius: 999px !important; 
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
         }
         html[data-theme="glassortcele"] .btn-solid-lime {
@@ -1784,7 +2096,7 @@ Happy coding!
             color: rgba(0, 242, 254, 0.8) !important;
         }
         
-        /* Dropdowns for glassmorphism */
+        
         html[data-theme="glassortcele"] #theme-dropdown {
             background: rgba(20, 20, 25, 0.5) !important;
             backdrop-filter: blur(20px) saturate(150%) !important;
@@ -1847,12 +2159,12 @@ Happy coding!
             box-shadow: 0 0 5px rgba(0,0,0,0.5) !important;
         }
 
-        /* Progress Bar Overrides for Glassortcele */
+        
         html[data-theme="glassortcele"] .bg-\[\#d2fc2a\] {
             background-color: var(--accent) !important;
         }
         
-        /* About Page specific overrides for Glassortcele */
+        
         html[data-theme="glassortcele"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
             background-color: rgba(255,255,255,0.05) !important;
             backdrop-filter: blur(10px) !important;
@@ -1868,9 +2180,7 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* ------------------------------------------------------------------
-           OFFOTO (NEUMORPHISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
+        
         html[data-theme="offoto"] {
             --bg-lime: #e0e5ec;
             --bg-olive: #e0e5ec;
@@ -1920,7 +2230,7 @@ Happy coding!
             box-shadow: 16px 16px 32px rgb(163,177,198,0.7), -16px -16px 32px rgba(255,255,255, 0.9) !important;
         }
         
-        /* Prevent Carousel Overflow from clipping Neumorphic Shadows */
+        
         html[data-theme="offoto"] .overflow-hidden:has(#projects-track) {
             width: calc(100% + 80px) !important;
             margin-left: -40px !important;
@@ -2044,7 +2354,7 @@ Happy coding!
             background-color: var(--text-main) !important;
         }
         
-        /* Specifically Target Input Labels & Faded Texts to ensure visibility */
+        
         html[data-theme="offoto"] .text-\[\#d2fc2a\]\/70 {
             color: var(--text-muted) !important;
             font-weight: 800 !important;
@@ -2053,7 +2363,7 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for Offoto */
+        
         html[data-theme="offoto"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: var(--bg-lime) !important;
             box-shadow: inset 4px 4px 8px rgb(163,177,198,0.6), inset -4px -4px 8px rgba(255,255,255, 0.8) !important;
@@ -2066,7 +2376,7 @@ Happy coding!
             height: 10px !important;
         }
 
-        /* About Page specific overrides for Offoto */
+        
         html[data-theme="offoto"] .border-white\/5, html[data-theme="offoto"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
             background-color: var(--bg-lime) !important;
             border: none !important;
@@ -2093,10 +2403,8 @@ Happy coding!
             color: var(--accent) !important;
         }
 
-        /* ------------------------------------------------------------------
-           KIDDO (CLAYMORPHISM) THEME OVERRIDES
-           ------------------------------------------------------------------ */
-        html[data-theme="kiddo"] {
+        
+        html[data-theme="arancia"] {
             --bg-lime: #f0f4f8; 
             --bg-olive: #ffffff;
             --accent: #ff9f43; 
@@ -2104,34 +2412,34 @@ Happy coding!
             --text-muted: #636e72;
             --logo-color: #2d3436;
         }
-        html[data-theme="kiddo"] body,
-        html[data-theme="kiddo"] #main-content-wrapper {
+        html[data-theme="arancia"] body,
+        html[data-theme="arancia"] #main-content-wrapper {
             background-color: var(--bg-lime) !important;
             color: var(--text-main) !important;
             box-shadow: none !important;
         }
-        html[data-theme="kiddo"] #main-content-wrapper {
+        html[data-theme="arancia"] #main-content-wrapper {
             border: none !important;
         }
-        html[data-theme="kiddo"] .text-white,
-        html[data-theme="kiddo"] h1,
-        html[data-theme="kiddo"] h2,
-        html[data-theme="kiddo"] h3,
-        html[data-theme="kiddo"] p,
-        html[data-theme="kiddo"] span {
+        html[data-theme="arancia"] .text-white,
+        html[data-theme="arancia"] h1,
+        html[data-theme="arancia"] h2,
+        html[data-theme="arancia"] h3,
+        html[data-theme="arancia"] p,
+        html[data-theme="arancia"] span {
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .text-\[\#888d81\] {
+        html[data-theme="arancia"] .text-\[\#888d81\] {
             color: var(--text-muted) !important;
         }
-        html[data-theme="kiddo"] .text-\[\#d2fc2a\] {
+        html[data-theme="arancia"] .text-\[\#d2fc2a\] {
             color: var(--accent) !important;
         }
-        html[data-theme="kiddo"] .text-outline-accent {
+        html[data-theme="arancia"] .text-outline-accent {
             -webkit-text-stroke: 1.5px var(--accent);
             color: transparent !important;
         }
-        html[data-theme="kiddo"] .glass-card {
+        html[data-theme="arancia"] .glass-card {
             background-color: #f0f4f8 !important;
             border: none !important;
             border-radius: 36px !important; 
@@ -2142,7 +2450,7 @@ Happy coding!
             backdrop-filter: none !important;
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
         }
-        html[data-theme="kiddo"] .glass-card:hover {
+        html[data-theme="arancia"] .glass-card:hover {
             transform: translateY(-8px) scale(1.02) !important;
             box-shadow: 15px 15px 30px rgba(166, 180, 200, 0.3), 
                         -15px -15px 30px rgba(255, 255, 255, 0.9), 
@@ -2150,8 +2458,8 @@ Happy coding!
                         inset -6px -6px 15px rgba(166, 180, 200, 0.2) !important;
         }
         
-        /* Prevent Carousel Overflow from clipping Clay Shadows */
-        html[data-theme="kiddo"] .overflow-hidden:has(#projects-track) {
+        
+        html[data-theme="arancia"] .overflow-hidden:has(#projects-track) {
             width: calc(100% + 80px) !important;
             margin-left: -40px !important;
             padding-left: 40px !important;
@@ -2162,13 +2470,13 @@ Happy coding!
             margin-bottom: -40px !important;
         }
 
-        html[data-theme="kiddo"] .btn-solid-lime,
-        html[data-theme="kiddo"] .btn-solid-white,
-        html[data-theme="kiddo"] #theme-toggle-btn,
-        html[data-theme="kiddo"] #lang-toggle,
-        html[data-theme="kiddo"] #menu-toggle,
-        html[data-theme="kiddo"] #menu-toggle-desktop,
-        html[data-theme="kiddo"] button.w-14 {
+        html[data-theme="arancia"] .btn-solid-lime,
+        html[data-theme="arancia"] .btn-solid-white,
+        html[data-theme="arancia"] #theme-toggle-btn,
+        html[data-theme="arancia"] #lang-toggle,
+        html[data-theme="arancia"] #menu-toggle,
+        html[data-theme="arancia"] #menu-toggle-desktop,
+        html[data-theme="arancia"] button.w-14 {
             background-color: var(--accent) !important;
             color: #fff !important;
             border: none !important;
@@ -2179,16 +2487,16 @@ Happy coding!
                         inset -3px -3px 6px rgba(0, 0, 0, 0.1) !important;
             transition: all 0.2s ease !important;
         }
-        html[data-theme="kiddo"] .btn-solid-lime:hover,
-        html[data-theme="kiddo"] .btn-solid-white:hover,
-        html[data-theme="kiddo"] button.w-14:hover {
+        html[data-theme="arancia"] .btn-solid-lime:hover,
+        html[data-theme="arancia"] .btn-solid-white:hover,
+        html[data-theme="arancia"] button.w-14:hover {
             transform: translateY(2px) scale(0.97) !important;
             box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), 
                         -2px -2px 5px rgba(255, 255, 255, 0.8), 
                         inset 4px 4px 8px rgba(0, 0, 0, 0.1), 
                         inset -4px -4px 8px rgba(255, 255, 255, 0.4) !important; 
         }
-        html[data-theme="kiddo"] .input-minimal {
+        html[data-theme="arancia"] .input-minimal {
             background-color: #f0f4f8 !important;
             border: none !important;
             border-radius: 20px !important;
@@ -2196,12 +2504,12 @@ Happy coding!
                         inset -6px -6px 12px rgba(255, 255, 255, 0.9) !important;
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .input-minimal:focus {
+        html[data-theme="arancia"] .input-minimal:focus {
             box-shadow: inset 8px 8px 16px rgba(166, 180, 200, 0.5), 
                         inset -8px -8px 16px rgba(255, 255, 255, 1),
                         0 0 0 4px rgba(255, 159, 67, 0.3) !important;
         }
-        html[data-theme="kiddo"] #main-nav.scrolled-nav #nav-inner {
+        html[data-theme="arancia"] #main-nav.scrolled-nav #nav-inner {
             background-color: #f0f4f8 !important;
             box-shadow: 10px 10px 20px rgba(166, 180, 200, 0.4), 
                         -10px -10px 20px rgba(255, 255, 255, 0.9),
@@ -2210,51 +2518,51 @@ Happy coding!
             border: none !important;
             backdrop-filter: none !important;
         }
-        html[data-theme="kiddo"] .bg-\[\#111\] {
+        html[data-theme="arancia"] .bg-\[\#111\] {
             background-color: #e2e8f0 !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
             border-radius: 24px !important;
             padding: 10px !important;
         }
-        html[data-theme="kiddo"] .glass-card img {
+        html[data-theme="arancia"] .glass-card img {
             border-radius: 16px !important;
         }
-        html[data-theme="kiddo"] #mobile-menu {
+        html[data-theme="arancia"] #mobile-menu {
             background-color: var(--bg-lime) !important;
         }
-        html[data-theme="kiddo"] .curtain {
+        html[data-theme="arancia"] .curtain {
             background-color: var(--bg-lime) !important;
             background-image: none !important;
         }
-        html[data-theme="kiddo"] .loader-terminal {
+        html[data-theme="arancia"] .loader-terminal {
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .scroll-bg,
-        html[data-theme="kiddo"] #cursor-glow,
-        html[data-theme="kiddo"] .wrapper-svg-container,
-        html[data-theme="kiddo"] #hero-particles {
+        html[data-theme="arancia"] .scroll-bg,
+        html[data-theme="arancia"] #cursor-glow,
+        html[data-theme="arancia"] .wrapper-svg-container,
+        html[data-theme="arancia"] #hero-particles {
             display: none !important;
         }
-        html[data-theme="kiddo"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
-        html[data-theme="kiddo"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+        html[data-theme="arancia"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="arancia"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
             border-color: rgba(166, 180, 200, 0.3) !important;
         }
-        html[data-theme="kiddo"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
-        html[data-theme="kiddo"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+        html[data-theme="arancia"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="arancia"] .w-8.h-\[2px\].bg-\[\#888d81\] {
             background-color: var(--accent) !important;
             height: 4px !important;
             border-radius: 4px !important;
         }
-        html[data-theme="kiddo"] .code-symbol {
+        html[data-theme="arancia"] .code-symbol {
             color: rgba(166, 180, 200, 0.6) !important;
             mix-blend-mode: normal !important;
         }
-        html[data-theme="kiddo"] .timeline-line::before {
+        html[data-theme="arancia"] .timeline-line::before {
             background: rgba(166, 180, 200, 0.4) !important;
             width: 4px !important;
             border-radius: 4px !important;
         }
-        html[data-theme="kiddo"] #theme-dropdown {
+        html[data-theme="arancia"] #theme-dropdown {
             background-color: #f0f4f8 !important;
             border: none !important;
             border-radius: 24px !important;
@@ -2264,22 +2572,22 @@ Happy coding!
                         inset -2px -2px 5px rgba(166, 180, 200, 0.2) !important;
             padding: 10px !important;
         }
-        html[data-theme="kiddo"] .theme-option {
+        html[data-theme="arancia"] .theme-option {
             color: var(--text-main) !important;
             border: none !important;
             border-radius: 16px !important;
         }
-        html[data-theme="kiddo"] .theme-option:hover,
-        html[data-theme="kiddo"] .theme-option.active {
+        html[data-theme="arancia"] .theme-option:hover,
+        html[data-theme="arancia"] .theme-option.active {
             background-color: var(--accent) !important;
             color: #fff !important;
             box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
         }
-        html[data-theme="kiddo"] .mobile-nav-link {
+        html[data-theme="arancia"] .mobile-nav-link {
             color: var(--text-main) !important;
             text-shadow: none !important;
         }
-        html[data-theme="kiddo"] .mobile-theme-option {
+        html[data-theme="arancia"] .mobile-theme-option {
             background: #f0f4f8 !important;
             border: none !important;
             border-radius: 16px !important;
@@ -2287,72 +2595,211 @@ Happy coding!
             color: var(--text-main) !important;
             margin-bottom: 8px !important;
         }
-        html[data-theme="kiddo"] .mobile-theme-option.active,
-        html[data-theme="kiddo"] .mobile-theme-option:hover {
+        html[data-theme="arancia"] .mobile-theme-option.active,
+        html[data-theme="arancia"] .mobile-theme-option:hover {
             background: var(--accent) !important;
             color: #fff !important;
             box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.1), inset -4px -4px 8px rgba(255, 255, 255, 0.4) !important;
         }
-        html[data-theme="kiddo"] .text-\[\#111\] {
+        html[data-theme="arancia"] .text-\[\#111\] {
             color: var(--text-main) !important;
         }
-        html[data-theme="kiddo"] .menu-line-1,
-        html[data-theme="kiddo"] .menu-line-2,
-        html[data-theme="kiddo"] .menu-line-3 {
+        html[data-theme="arancia"] .menu-line-1,
+        html[data-theme="arancia"] .menu-line-2,
+        html[data-theme="arancia"] .menu-line-3 {
             background-color: var(--text-main) !important;
         }
         
-        /* Specifically Target Input Labels & Faded Texts to ensure visibility */
-        html[data-theme="kiddo"] .text-\[\#d2fc2a\]\/70 {
+        
+        html[data-theme="arancia"] .text-\[\#d2fc2a\]\/70 {
             color: var(--text-muted) !important;
             font-weight: 800 !important;
         }
-        html[data-theme="kiddo"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
+        html[data-theme="arancia"] .group:hover .group-hover\:text-\[\#d2fc2a\] {
             color: var(--accent) !important;
         }
 
-        /* Progress Bar Overrides for Arancia */
-        html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+        
+        html[data-theme="arancia"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
             background-color: #f0f4f8 !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
             border-radius: 999px !important;
             height: 16px !important;
         }
-        html[data-theme="kiddo"] .bg-\[\#d2fc2a\] {
+        html[data-theme="arancia"] .bg-\[\#d2fc2a\] {
             background-color: var(--accent) !important;
             border-radius: 999px !important;
             height: 16px !important;
             box-shadow: 2px 2px 5px rgba(255, 159, 67, 0.4), inset 2px 2px 5px rgba(255, 255, 255, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* About Page specific overrides for Arancia */
-        html[data-theme="kiddo"] .border-white\/5, html[data-theme="kiddo"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
+        
+        html[data-theme="arancia"] .border-white\/5, html[data-theme="arancia"] .bg-\[rgba\(255\,255\,255\,0\.02\)\] {
             background-color: #f0f4f8 !important;
             border: none !important;
             box-shadow: 4px 4px 8px rgba(166, 180, 200, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.9), inset 2px 2px 4px rgba(255, 255, 255, 0.9), inset -2px -2px 4px rgba(166, 180, 200, 0.2) !important;
             color: var(--text-main) !important;
             border-radius: 8px !important;
         }
-        html[data-theme="kiddo"] .text-\[\#ccc\],
-        html[data-theme="kiddo"] .text-\[\#a1a1a1\],
-        html[data-theme="kiddo"] .text-\[\#666\],
-        html[data-theme="kiddo"] .text-\[\#555\],
-        html[data-theme="kiddo"] .text-gray-300 {
+        html[data-theme="arancia"] .text-\[\#ccc\],
+        html[data-theme="arancia"] .text-\[\#a1a1a1\],
+        html[data-theme="arancia"] .text-\[\#666\],
+        html[data-theme="arancia"] .text-\[\#555\],
+        html[data-theme="arancia"] .text-gray-300 {
             color: var(--text-muted) !important;
         }
-        html[data-theme="kiddo"] .kbd-key {
+        html[data-theme="arancia"] .kbd-key {
             background: #f0f4f8 !important;
             border: none !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
             color: var(--accent) !important;
             border-radius: 6px !important;
         }
-        html[data-theme="kiddo"] .bg-\[rgba\(210\,252\,42\,0\.1\)\] {
+        html[data-theme="arancia"] .bg-\[rgba\(210\,252\,42\,0\.1\)\] {
             background: var(--bg-lime) !important;
             border: none !important;
             box-shadow: inset 4px 4px 8px rgba(166, 180, 200, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.9) !important;
             color: var(--accent) !important;
             border-radius: 8px !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-panel,
+        html[data-theme="offoto"] .cas-player-panel,
+        html[data-theme="arancia"] .cas-player-panel {
+            background: linear-gradient(180deg, #202020 0%, #181818 44%, #121212 100%) !important;
+            color: #f5f5f5 !important;
+            border: 1px solid rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.64), 0 0 0 1px rgba(0, 0, 0, 0.35) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-panel h2,
+        html[data-theme="panycandy"] .cas-player-panel p,
+        html[data-theme="panycandy"] .cas-player-panel span,
+        html[data-theme="offoto"] .cas-player-panel h2,
+        html[data-theme="offoto"] .cas-player-panel p,
+        html[data-theme="offoto"] .cas-player-panel span,
+        html[data-theme="arancia"] .cas-player-panel h2,
+        html[data-theme="arancia"] .cas-player-panel p,
+        html[data-theme="arancia"] .cas-player-panel span {
+            color: #f5f5f5 !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-header,
+        html[data-theme="offoto"] .cas-player-header,
+        html[data-theme="arancia"] .cas-player-header {
+            background: rgba(24, 24, 24, 0.98) !important;
+            border-bottom-color: rgba(255, 255, 255, 0.16) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-kicker,
+        html[data-theme="panycandy"] .cas-player-artist-link,
+        html[data-theme="offoto"] .cas-player-kicker,
+        html[data-theme="offoto"] .cas-player-artist-link,
+        html[data-theme="arancia"] .cas-player-kicker,
+        html[data-theme="arancia"] .cas-player-artist-link {
+            color: var(--accent) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-progress-fill,
+        html[data-theme="panycandy"] .cas-track-card-progress-fill,
+        html[data-theme="offoto"] .cas-player-progress-fill,
+        html[data-theme="offoto"] .cas-track-card-progress-fill,
+        html[data-theme="arancia"] .cas-player-progress-fill,
+        html[data-theme="arancia"] .cas-track-card-progress-fill {
+            background-color: var(--accent) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-kicker,
+        html[data-theme="offoto"] .cas-player-kicker,
+        html[data-theme="arancia"] .cas-player-kicker {
+            background-color: transparent !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-control,
+        html[data-theme="panycandy"] .cas-player-close,
+        html[data-theme="offoto"] .cas-player-control,
+        html[data-theme="offoto"] .cas-player-close,
+        html[data-theme="arancia"] .cas-player-control,
+        html[data-theme="arancia"] .cas-player-close {
+            color: rgba(255, 255, 255, 0.82) !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-play,
+        html[data-theme="offoto"] .cas-player-play,
+        html[data-theme="arancia"] .cas-player-play {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+            color: #111 !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-track-button,
+        html[data-theme="offoto"] .cas-player-track-button,
+        html[data-theme="arancia"] .cas-player-track-button {
+            color: #f5f5f5 !important;
+            background: transparent !important;
+            border-color: transparent !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-track-button:hover,
+        html[data-theme="panycandy"] .cas-player-track-button.is-active,
+        html[data-theme="offoto"] .cas-player-track-button:hover,
+        html[data-theme="offoto"] .cas-player-track-button.is-active,
+        html[data-theme="arancia"] .cas-player-track-button:hover,
+        html[data-theme="arancia"] .cas-player-track-button.is-active {
+            color: #fff !important;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: transparent !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-track-button p,
+        html[data-theme="panycandy"] .cas-player-track-button span,
+        html[data-theme="offoto"] .cas-player-track-button p,
+        html[data-theme="offoto"] .cas-player-track-button span,
+        html[data-theme="arancia"] .cas-player-track-button p,
+        html[data-theme="arancia"] .cas-player-track-button span {
+            color: inherit !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-track-rail,
+        html[data-theme="offoto"] .cas-player-track-rail,
+        html[data-theme="arancia"] .cas-player-track-rail {
+            border-left-color: rgba(255, 255, 255, 0.16) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-progress-track,
+        html[data-theme="panycandy"] .cas-track-card-progress,
+        html[data-theme="offoto"] .cas-player-progress-track,
+        html[data-theme="offoto"] .cas-track-card-progress,
+        html[data-theme="arancia"] .cas-player-progress-track,
+        html[data-theme="arancia"] .cas-track-card-progress {
+            background: rgba(255, 255, 255, 0.26) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-trigger,
+        html[data-theme="offoto"] .cas-player-trigger,
+        html[data-theme="arancia"] .cas-player-trigger {
+            color: #fff !important;
+            background: #181818 !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18), inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent) !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-trigger > span,
+        html[data-theme="panycandy"] .cas-player-trigger i,
+        html[data-theme="offoto"] .cas-player-trigger > span,
+        html[data-theme="offoto"] .cas-player-trigger i,
+        html[data-theme="arancia"] .cas-player-trigger > span,
+        html[data-theme="arancia"] .cas-player-trigger i {
+            color: #fff !important;
+        }
+
+        html[data-theme="panycandy"] .cas-player-trigger .cas-player-trigger-action,
+        html[data-theme="offoto"] .cas-player-trigger .cas-player-trigger-action,
+        html[data-theme="arancia"] .cas-player-trigger .cas-player-trigger-action {
+            background: var(--accent) !important;
+            color: #111 !important;
         }
     </style>
 </head>
@@ -2389,12 +2836,12 @@ Happy coding!
                     <span data-en="CONNECT" data-mm="ဆက်သွယ်ရန်">CONNECT</span>
                 </a>
 
-                <!-- Desktop Theme Dropdown -->
+                
                 <div class="relative group" id="theme-dropdown-container">
                     <button id="theme-toggle-btn" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm" title="Select Theme">
                         <i data-lucide="palette" class="w-4 h-4"></i>
                     </button>
-                    <!-- Dropdown Menu -->
+                    
                     <div id="theme-dropdown" class="absolute top-full right-0 mt-3 w-48 rounded-xl bg-[#272a21] border border-[rgba(210,252,42,0.1)] shadow-2xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 z-[105]">
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="grenomint">
                             Grenomint <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
@@ -2408,7 +2855,7 @@ Happy coding!
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="offoto">
                             Offoto <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
-                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="kiddo">
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="arancia">
                             Arancia <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                     </div>
@@ -2471,7 +2918,7 @@ Happy coding!
 
             <div class="mt-16 mb-8 w-full max-w-sm space-y-4">
                 
-                <!-- Mobile Theme Dropdown -->
+                
                 <div class="relative w-full" id="mobile-theme-dropdown-container">
                     <button id="mobile-theme-toggle-btn" class="btn-solid-white w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest flex items-center justify-center gap-3 relative">
                         <i data-lucide="palette" class="w-4 h-4 absolute left-4"></i>
@@ -2491,7 +2938,7 @@ Happy coding!
                         <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="offoto">
                             Offoto
                         </button>
-                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="kiddo">
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="arancia">
                             Arancia
                         </button>
                     </div>
@@ -2530,8 +2977,7 @@ Happy coding!
                     }</span>
                 <span class="code-symbol code-anim-1 text-2xl lg:text-4xl"
                     style="left: 65%; animation-delay: -2s;">()=&gt;</span>
-                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 85%; animation-delay: -8s;">/*
-                    */</span>
+                <span class="code-symbol code-anim-2 text-xl lg:text-3xl" style="left: 85%; animation-delay: -8s;"></span>
             </div>
 
             <div
@@ -2942,13 +3388,14 @@ Happy coding!
                                     <i data-lucide="cup-soda" class="w-4 h-4 text-[#d2fc2a]"></i>
                                     <span class="text-white font-mono font-bold text-[10px] tracking-wide">Americano</span>
                                 </div>
-                                <button type="button" id="cas-player-trigger" aria-haspopup="dialog" aria-controls="cas-player-modal"
-                                    class="environment-item group col-span-2 sm:col-span-1 flex flex-col items-start justify-between gap-3">
+                                <button type="button" id="cas-player-trigger" aria-haspopup="dialog" aria-controls="cas-player-modal" aria-label="Open Cigarettes After Sex player"
+                                    class="cas-player-trigger environment-item group col-span-2 sm:col-span-1 flex flex-col items-start justify-between gap-3">
                                     <span class="flex items-center justify-between gap-2 w-full">
                                         <i data-lucide="music-2" class="w-4 h-4 text-[#d2fc2a]"></i>
                                         <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[#666] transition-colors group-hover:text-white"></i>
                                     </span>
                                     <span class="text-white font-mono font-bold text-[10px] tracking-wide">Cigarettes After Sex</span>
+                                    <span class="cas-player-trigger-action" data-en="Open player" data-mm="သီချင်းဖွင့်ရန်">Open player</span>
                                 </button>
                             </div>
                         </div>
@@ -2958,13 +3405,13 @@ Happy coding!
                 </div>
         </section>
 
-        <div id="cas-player-modal" class="cas-player-modal fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="cas-player-title">
+        <div id="cas-player-modal" class="cas-player-modal fixed inset-0 z-[100001] hidden items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="cas-player-title">
             <div id="cas-player-backdrop" class="cas-player-backdrop absolute inset-0"></div>
-            <div class="cas-player-panel relative z-10 w-full max-w-2xl p-5 sm:p-7" role="document">
-                <div class="flex items-start justify-between gap-5 mb-6">
+            <div class="cas-player-panel relative z-10 w-full max-w-2xl p-5 sm:p-7" role="document" tabindex="0" data-lenis-prevent aria-label="Scrollable music player">
+                <div class="cas-player-header flex items-start justify-between gap-5 mb-6">
                     <div>
-                        <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[var(--accent)] mb-2">Now Playing</p>
-                        <h2 id="cas-player-title" class="text-2xl sm:text-3xl font-black tracking-tighter">Cigarettes After Sex</h2>
+                        <p class="cas-player-kicker text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[var(--accent)] mb-2">Now Playing</p>
+                        <h2 id="cas-player-title" class="cas-player-heading text-2xl sm:text-3xl font-black tracking-tighter">Cigarettes After Sex</h2>
                     </div>
                     <button type="button" id="cas-player-close" class="cas-player-close w-10 h-10 rounded-full flex items-center justify-center shrink-0" aria-label="Close music player">
                         <i data-lucide="x" class="w-4 h-4"></i>
@@ -3014,34 +3461,34 @@ Happy coding!
                             <img data-track-art alt="Heavenly cover art">
                             <span class="block min-w-0">
                                 <span class="cas-player-track-title block text-[11px] font-black">Heavenly</span>
-                                <span class="block mt-1 text-[10px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
+                                <span class="block mt-1 text-[8px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
                                 <span class="cas-track-card-progress block mt-2"><span class="cas-track-card-progress-fill block"></span></span>
-                                <span data-track-duration class="block mt-1 text-[10px] font-mono opacity-50">--:--</span>
+                                <span data-track-duration class="block mt-1 text-[8px] font-mono opacity-50">--:--</span>
                             </span>
                         </button>
                         <button type="button" class="cas-player-track-button rounded-xl p-3 flex items-center gap-3" data-track-index="1">
                             <img data-track-art alt="Sweet cover art">
                             <span class="block min-w-0">
                                 <span class="cas-player-track-title block text-[11px] font-black">Sweet</span>
-                                <span class="block mt-1 text-[10px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
+                                <span class="block mt-1 text-[8px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
                                 <span class="cas-track-card-progress block mt-2"><span class="cas-track-card-progress-fill block"></span></span>
-                                <span data-track-duration class="block mt-1 text-[10px] font-mono opacity-50">--:--</span>
+                                <span data-track-duration class="block mt-1 text-[8px] font-mono opacity-50">--:--</span>
                             </span>
                         </button>
                         <button type="button" class="cas-player-track-button rounded-xl p-3 flex items-center gap-3" data-track-index="2">
                             <img data-track-art alt="Tejano Blue cover art">
                             <span class="block min-w-0">
                                 <span class="cas-player-track-title block text-[11px] font-black">Tejano Blue</span>
-                                <span class="block mt-1 text-[10px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
+                                <span class="block mt-1 text-[8px] font-mono uppercase tracking-wider opacity-60">Cigarettes After Sex</span>
                                 <span class="cas-track-card-progress block mt-2"><span class="cas-track-card-progress-fill block"></span></span>
-                                <span data-track-duration class="block mt-1 text-[10px] font-mono opacity-50">--:--</span>
+                                <span data-track-duration class="block mt-1 text-[8px] font-mono opacity-50">--:--</span>
                             </span>
                         </button>
                         </div>
                     </div>
                 </div>
 
-                <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank" rel="noopener noreferrer" class="mt-6 flex items-center justify-center gap-2 text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-[var(--accent)] hover:text-white transition-colors">
+                <a href="https://www.youtube.com/@CigarettesAfterSex" target="_blank" rel="noopener noreferrer" class="cas-player-artist-link mt-6 flex items-center justify-center gap-2 text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-[var(--accent)] hover:text-white transition-colors">
                     Cigarettes After Sex on YouTube
                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
@@ -3174,20 +3621,18 @@ Happy coding!
             infinite: false,
         });
 
-
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
         let glowX = mouseX;
         let glowY = mouseY;
         
-        // Make particle color dynamically controllable globally
+
         window.heroParticleColor = '210, 252, 42';
 
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
-
 
         const cursorGlow = document.getElementById('cursor-glow');
         const scrollBgs = document.querySelectorAll('.scroll-bg');
@@ -3313,11 +3758,9 @@ Happy coding!
         function raf(time) {
             lenis.raf(time);
 
-
             glowX += (mouseX - glowX) * 0.15;
             glowY += (mouseY - glowY) * 0.15;
             if (cursorGlow) cursorGlow.style.transform = `translate(${glowX}px, ${glowY}px) translate(-50%, -50%)`;
-
 
             const scrollY = window.scrollY;
             scrollBgs.forEach(bg => {
@@ -3527,7 +3970,7 @@ Happy coding!
             });
         }
         
-        // --- Theme Dropdown Logic ---
+
         let currentTheme = localStorage.getItem('hzp_theme');
         if (!currentTheme) {
             currentTheme = 'grenomint';
@@ -3544,7 +3987,6 @@ Happy coding!
         
         const themeOptions = document.querySelectorAll('.theme-option, .mobile-theme-option');
 
-        // Toggle Desktop Dropdown
         if(themeToggleBtn) {
             themeToggleBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -3554,7 +3996,6 @@ Happy coding!
             });
         }
 
-        // Close Desktop Dropdown if clicked outside
         document.addEventListener('click', (e) => {
             if (themeDropdownContainer && !themeDropdownContainer.contains(e.target)) {
                 if (themeDropdown && !themeDropdown.classList.contains('opacity-0')) {
@@ -3563,7 +4004,6 @@ Happy coding!
             }
         });
 
-        // Toggle Mobile Dropdown
         if (mobileThemeToggleBtn) {
             mobileThemeToggleBtn.addEventListener('click', () => {
                 mobileThemeDropdown.classList.toggle('hidden');
@@ -3573,49 +4013,46 @@ Happy coding!
         }
 
         function updateTheme(theme) {
-            // Apply base theme HTML attribute
-            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'kiddo') {
+
+            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'arancia') {
                 document.documentElement.setAttribute('data-theme', theme);
             } else {
                 document.documentElement.removeAttribute('data-theme');
             }
             
-            // Set dynamic canvas particle colors
+
             if (theme === 'glassortcele') {
-                window.heroParticleColor = '0, 242, 254'; // Cyan
+                window.heroParticleColor = '0, 242, 254';
             } else if (theme === 'panycandy') {
-                window.heroParticleColor = '255, 183, 3'; // Yellow
+                window.heroParticleColor = '255, 183, 3';
             } else if (theme === 'offoto') {
-                window.heroParticleColor = '0, 122, 255'; // Blue
-            } else if (theme === 'kiddo') {
-                window.heroParticleColor = '255, 159, 67'; // Orange
+                window.heroParticleColor = '0, 122, 255';
+            } else if (theme === 'arancia') {
+                window.heroParticleColor = '255, 159, 67';
             } else {
-                window.heroParticleColor = '210, 252, 42'; // Default Lime/Mint
+                window.heroParticleColor = '210, 252, 42';
             }
 
-            // Update Mobile Toggle Text
             const mobThemeText = document.getElementById('mobile-theme-text');
             if (mobThemeText) {
                 let themeName = 'GRENOMINT';
                 if (theme === 'panycandy') themeName = 'PANYCANDY';
                 if (theme === 'glassortcele') themeName = 'GLASSORTCELE';
                 if (theme === 'offoto') themeName = 'OFFOTO';
-                if (theme === 'kiddo') themeName = 'KIDDO';
+                if (theme === 'arancia') themeName = 'arancia';
                 mobThemeText.innerText = `THEME: ${themeName}`;
             }
 
-            // Update Checkmarks and Active States natively using CSS classes
             themeOptions.forEach(opt => {
                 const isMatch = opt.getAttribute('data-set-theme') === theme;
                 
-                // Desktop Checkmark visual
+
                 const checkIcon = opt.querySelector('.check-icon');
                 if (checkIcon) {
                     if (isMatch) checkIcon.classList.remove('opacity-0');
                     else checkIcon.classList.add('opacity-0');
                 }
 
-                // Append Active class (the styling logic lives purely in CSS)
                 if (isMatch) {
                     opt.classList.add('active');
                 } else {
@@ -3624,7 +4061,6 @@ Happy coding!
             });
         }
 
-        // Add Click Listeners to All Theme Options
         themeOptions.forEach(opt => {
             opt.addEventListener('click', () => {
                 const selectedTheme = opt.getAttribute('data-set-theme');
@@ -3633,14 +4069,13 @@ Happy coding!
                 updateTheme(selectedTheme);
                 triggerLanguageFeedback();
                 
-                // Automatically close desktop dropdown upon selection
+
                 if(themeDropdown) {
                     themeDropdown.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
                 }
             });
         });
 
-        // Initialize Theme Update on Load
         updateTheme(currentTheme);
 
         const casPlayerModal = document.getElementById('cas-player-modal');
@@ -3686,6 +4121,30 @@ Happy coding!
         if (casPlayerModal && casPlayerTrigger && casPlayerAudio) {
             let casCurrentIndex = 0;
             let casCloseTimer;
+            let casPreviousBodyOverflow = '';
+            let casLenisWasStopped = false;
+
+            const preventCasBackgroundScroll = event => {
+                if (!casPlayerModal.classList.contains('is-open')) return;
+                const eventTarget = event.target;
+                if (eventTarget instanceof Element && eventTarget.closest('.cas-player-panel')) return;
+                event.preventDefault();
+            };
+
+            document.addEventListener('wheel', preventCasBackgroundScroll, { passive: false });
+            document.addEventListener('touchmove', preventCasBackgroundScroll, { passive: false });
+            document.addEventListener('keydown', event => {
+                if (!casPlayerModal.classList.contains('is-open')) return;
+                const eventTarget = event.target;
+                if (eventTarget instanceof Element && eventTarget.closest('.cas-player-panel')) return;
+                if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar'].includes(event.key)) {
+                    event.preventDefault();
+                }
+            });
+
+            if (casPlayerModal.parentElement !== document.body) {
+                document.body.appendChild(casPlayerModal);
+            }
 
             const formatCasTime = seconds => {
                 if (!Number.isFinite(seconds)) return '--:--';
@@ -3763,16 +4222,24 @@ Happy coding!
             const closeCasPlayer = () => {
                 casPlayerModal.classList.remove('is-open');
                 casPlayerAudio.pause();
-                document.body.style.overflow = 'auto';
+                document.documentElement.classList.remove('cas-player-open');
+                document.body.classList.remove('cas-player-open');
+                document.body.style.overflow = casPreviousBodyOverflow;
+                if (!casLenisWasStopped && typeof lenis !== 'undefined' && typeof lenis.start === 'function') lenis.start();
                 clearTimeout(casCloseTimer);
                 casCloseTimer = setTimeout(() => casPlayerModal.classList.add('hidden'), 300);
             };
 
             casPlayerTrigger.addEventListener('click', () => {
                 clearTimeout(casCloseTimer);
+                casPreviousBodyOverflow = document.body.style.overflow;
+                casLenisWasStopped = typeof lenis !== 'undefined' && lenis.isStopped === true;
+                if (typeof lenis !== 'undefined' && typeof lenis.stop === 'function') lenis.stop();
                 casPlayerModal.classList.remove('hidden');
                 loadCasTrack(casCurrentIndex, false);
                 requestAnimationFrame(() => casPlayerModal.classList.add('is-open'));
+                document.documentElement.classList.add('cas-player-open');
+                document.body.classList.add('cas-player-open');
                 document.body.style.overflow = 'hidden';
             });
 
