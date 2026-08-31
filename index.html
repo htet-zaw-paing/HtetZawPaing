@@ -14,7 +14,7 @@ I'd be happy to hear from you.
 Portfolio: https://htetzawpaing.site
 Company:   https://myancode.com
 Email:     contact@htetzawpaing.site | hello@myancode.com
-Phone:     +95 9 4567 5188 | +95 9 944 861000
+Phone:     +95 9 4567 51 882 | +95 9 944 86 1000
 
 © 2026 Htet Zaw Paing. All rights reserved.
 
@@ -22,6 +22,7 @@ Happy coding!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,6 +96,8 @@ Happy coding!
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v2026">
     <link rel="canonical" href="https://www.htetzawpaing.site/">
     <link rel="manifest" href="manifest.json">
+    <link rel="preload" href="https://unpkg.com/lucide@latest" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" as="script">
 
     <script type="application/ld+json">
         {
@@ -947,6 +950,12 @@ Happy coding!
             transform: scale(1.03);
         }
 
+        section:not(#home),
+        footer {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 900px;
+        }
+
         .mask-image-bottom {
             -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
@@ -1323,7 +1332,7 @@ Happy coding!
             border-bottom: 5px solid #000 !important;
         }
 
-        /* Keep the specialization panel readable in PanyCandy without affecting other sections. */
+        
         html[data-theme="panycandy"] #specialization > .max-w-7xl > div:last-child .reveal-element {
             opacity: 1 !important;
             transform: none !important;
@@ -3337,7 +3346,7 @@ Happy coding!
 
                         <div class="glass-card w-full md:w-[calc(50%-1.25rem)] flex-shrink-0 group flex flex-col p-2">
                             <div class="h-64 md:h-[400px] relative overflow-hidden bg-[#111] rounded-[1.2rem]">
-                                <img src="https://cdn.jsdelivr.net/gh/FlashChinchilla/images/sensori.png" loading="lazy"
+                                <img src="https://cdn.jsdelivr.net/gh/FlashChinchilla/images/sensori.png" loading="lazy" decoding="async"
                                     decoding="async" class="w-full h-full object-cover mono-img"
                                     onerror="this.src='https://placehold.co/800x600/111/d2fc2a?text=Sensori+Preview'">
                             </div>
@@ -4034,11 +4043,11 @@ Happy coding!
                     wrapper.classList.remove('wrapper-expanded');
                 }
             }
-        });
+        }, { passive: true });
 
         document.body.classList.add('is-booting');
 
-        window.addEventListener('load', () => {
+        const bootPage = () => {
             const loadingText = document.getElementById('loading-text');
 
             let loadState = 0;
@@ -4055,8 +4064,10 @@ Happy coding!
                     document.body.classList.remove('is-booting');
                     document.body.classList.add('system-ready');
                 }
-            }, 200);
-        });
+            }, 65);
+        };
+
+        document.addEventListener('DOMContentLoaded', bootPage, { once: true });
 
         const baseTitles = {
             en: "Htet Zaw Paing - Software Engineer & Web Developer",
@@ -4582,4 +4593,3 @@ Happy coding!
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
-```eof
