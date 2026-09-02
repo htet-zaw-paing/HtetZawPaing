@@ -23,6 +23,7 @@ Happy coding!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +51,17 @@ Happy coding!
     </noscript>
 
     <meta charset="UTF-8">
+
+    <style id="critical-css">
+        :root { --bg-lime: #e8fb7a; --bg-olive: #272a21; --accent: #d2fc2a; --text-main: #f4f4f0; }
+        html { width: 100%; overflow-x: hidden; background: var(--bg-lime); }
+        body { margin: 0; width: 100%; overflow-x: hidden; background: var(--bg-lime); color: var(--text-main); font-family: Inter, sans-serif; -webkit-font-smoothing: antialiased; }
+        #preloader { position: fixed; inset: 0; z-index: 999999; display: flex; align-items: center; justify-content: center; background: transparent; }
+        #home { position: relative; min-height: 100svh; overflow: hidden; }
+        #home #hero-particles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+        #main-content-wrapper { position: relative; }
+        .reveal-element { opacity: 0; }
+    </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -190,6 +202,10 @@ Happy coding!
           ]
         }
     </script>
+    <link rel="preload" href="./tailwind.css" as="style">
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuBWYMZg.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPQ.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFRD-vYSZviVYUb_rj3ij__anPXDTnCjmHKM4nYO7KN_gGUbtY.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="./tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
