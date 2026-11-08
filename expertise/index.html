@@ -24,7 +24,7 @@ Happy coding!
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="gotham">
 
 <head>
 
@@ -133,7 +133,7 @@ Happy coding!
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap"
         rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
@@ -2079,7 +2079,1114 @@ Happy coding!
         }
 
     </style>
-</head>
+<style>
+
+        html, body {
+            margin: 0;
+            min-width: 0;
+            overflow-x: hidden;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        #nav-inner {
+            box-sizing: border-box;
+            max-width: 100vw;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans Myanmar', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6,
+        button, .btn-solid-lime, .btn-solid-white,
+        .side-nav-link, .mobile-nav-link, #nav-logo,
+        .theme-option, .mobile-theme-option {
+            font-family: 'Orbitron', 'Noto Sans Myanmar', sans-serif;
+        }
+        .font-serif-display {
+            font-family: 'Orbitron', 'Noto Sans Myanmar', sans-serif;
+        }
+        .theme-hint {
+            position: absolute;
+            top: calc(100% + 12px);
+            right: 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            width: 226px;
+            padding: 12px 12px 12px 14px;
+            color: #ffffff;
+            background: #272a21;
+            border: 1px solid rgba(210, 252, 42, 0.5);
+            border-radius: 12px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+            font-family: 'Orbitron', 'Noto Sans Myanmar', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: 0.04em;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 120;
+        }
+        .theme-hint.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .theme-hint-close {
+            flex: 0 0 auto;
+            width: 20px;
+            height: 20px;
+            margin: -3px -3px 0 0;
+            color: currentColor;
+            font: 700 18px/18px sans-serif;
+            opacity: 0.8;
+        }
+        .theme-hint-close:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+        html[data-theme="panycandy"] .theme-hint {
+            color: #000000;
+            background: #ffffff;
+            border-color: #000000;
+            box-shadow: 6px 6px 0 #000000;
+        }
+        html[data-theme="offoto"] .theme-hint,
+        html[data-theme="arancia"] .theme-hint {
+            color: #ffffff;
+            background: #111111;
+            border-color: var(--accent);
+        }
+        @media (max-width: 767px) {
+            .theme-hint {
+                position: relative;
+                top: auto;
+                right: auto;
+                width: 100%;
+                margin-top: 12px;
+            }
+        }
+    
+        #cookie-consent {
+            position: fixed;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 14px 16px 14px 18px;
+            color: #ffffff;
+            background: rgba(39, 42, 33, 0.97);
+            border: 1px solid rgba(210, 252, 42, 0.55);
+            border-radius: 14px;
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+            font-family: 'Inter', 'Noto Sans Myanmar', sans-serif;
+            font-size: 12px;
+            line-height: 1.45;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(18px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        #cookie-consent.is-visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        #cookie-consent p {
+            margin: 0;
+        }
+        #cookie-consent-accept {
+            flex: 0 0 auto;
+            padding: 10px 16px;
+            color: #111111;
+            background: var(--accent, #d2fc2a);
+            border: 0;
+            border-radius: 9px;
+            font-family: 'Orbitron', 'Noto Sans Myanmar', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        #cookie-consent-accept:hover {
+            background: #ffffff;
+        }
+        html[data-theme="panycandy"] #cookie-consent {
+            color: #000000;
+            background: #ffffff;
+            border-color: #000000;
+            box-shadow: 7px 7px 0 #000000;
+        }
+        html[data-theme="offoto"] #cookie-consent,
+        html[data-theme="arancia"] #cookie-consent {
+            color: #ffffff;
+            background: #111111;
+            border-color: var(--accent);
+        }
+        @media (max-width: 600px) {
+            #cookie-consent {
+                left: 12px;
+                right: 12px;
+                bottom: 12px;
+                align-items: stretch;
+                flex-direction: column;
+                gap: 10px;
+                padding: 14px;
+                font-size: 11px;
+            }
+            #cookie-consent-accept {
+                width: 100%;
+            }
+        }
+
+        html[data-theme="gotham"] {
+            --bg-lime: #000000;
+            --bg-olive: #000000;
+            --accent: #ffffff;
+            --text-main: #ffffff;
+            --text-muted: #ffffff;
+            --logo-color: #ffffff;
+        }
+        html[data-theme="gotham"],
+        html[data-theme="gotham"] body,
+        html[data-theme="gotham"] #main-content-wrapper {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+        html[data-theme="gotham"] ::selection {
+            background: #ffffff;
+            color: #000000;
+        }
+        html[data-theme="gotham"] #main-content-wrapper {
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 12px 12px 0 #ffffff !important;
+        }
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0 #ffffff !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+        html[data-theme="gotham"] #nav-logo,
+        html[data-theme="gotham"] #nav-logo span,
+        html[data-theme="gotham"] h1,
+        html[data-theme="gotham"] h2,
+        html[data-theme="gotham"] h3,
+        html[data-theme="gotham"] h4,
+        html[data-theme="gotham"] h5,
+        html[data-theme="gotham"] h6,
+        html[data-theme="gotham"] p,
+        html[data-theme="gotham"] label,
+        html[data-theme="gotham"] .text-white,
+        html[data-theme="gotham"] .text-main,
+        html[data-theme="gotham"] .text-muted,
+        html[data-theme="gotham"] a {
+            color: #ffffff !important;
+            text-shadow: none !important;
+        }
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card,
+        html[data-theme="gotham"] .skill-card,
+        html[data-theme="gotham"] .project-card {
+            background: #000000 !important;
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0 #ffffff !important;
+            backdrop-filter: none !important;
+        }
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 6px 6px 0 #ffffff !important;
+            text-shadow: none !important;
+        }
+        html[data-theme="gotham"] .btn-solid-lime:hover,
+        html[data-theme="gotham"] .btn-solid-white:hover,
+        html[data-theme="gotham"] #theme-toggle-btn:hover,
+        html[data-theme="gotham"] #lang-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn:hover,
+        html[data-theme="gotham"] #mobile-lang-toggle:hover {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: 3px 3px 0 #ffffff !important;
+            transform: translate(3px, 3px) !important;
+        }
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 6px 6px 0 #ffffff !important;
+        }
+        html[data-theme="gotham"] .theme-option,
+        html[data-theme="gotham"] .mobile-theme-option {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+        }
+        html[data-theme="gotham"] .theme-option:hover,
+        html[data-theme="gotham"] .theme-option.active,
+        html[data-theme="gotham"] .mobile-theme-option:hover,
+        html[data-theme="gotham"] .mobile-theme-option.active {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+        html[data-theme="gotham"] .menu-line-1,
+        html[data-theme="gotham"] .menu-line-2,
+        html[data-theme="gotham"] .menu-line-3 {
+            background-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+        html[data-theme="gotham"] #mobile-menu {
+            background: #000000 !important;
+            background-image: none !important;
+            border-left: 4px solid #ffffff !important;
+        }
+        html[data-theme="gotham"] .input-minimal,
+        html[data-theme="gotham"] input,
+        html[data-theme="gotham"] textarea,
+        html[data-theme="gotham"] select {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+        }
+        html[data-theme="gotham"] .input-minimal::placeholder,
+        html[data-theme="gotham"] input::placeholder,
+        html[data-theme="gotham"] textarea::placeholder {
+            color: #ffffff !important;
+            opacity: 0.8;
+        }
+        html[data-theme="gotham"] [class*="bg-pattern-"],
+        html[data-theme="gotham"] .scroll-bg,
+        html[data-theme="gotham"] .wrapper-svg-container {
+            background-image: none !important;
+        }
+
+        html[data-theme="gotham"] {
+            --bg-lime: #000000;
+            --bg-olive: #000000;
+            --accent: #ffffff;
+            --text-main: #ffffff;
+            --text-muted: #ffffff;
+            --logo-color: #ffffff;
+        }
+
+        html[data-theme="gotham"],
+        html[data-theme="gotham"] body {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] ::selection {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        html[data-theme="gotham"] #main-content-wrapper {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border: 4px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 12px 12px 0 #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0 #ffffff !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        html[data-theme="gotham"] #nav-logo,
+        html[data-theme="gotham"] #nav-logo span,
+        html[data-theme="gotham"] h1,
+        html[data-theme="gotham"] h2,
+        html[data-theme="gotham"] h3,
+        html[data-theme="gotham"] h4,
+        html[data-theme="gotham"] h5,
+        html[data-theme="gotham"] h6,
+        html[data-theme="gotham"] p,
+        html[data-theme="gotham"] label,
+        html[data-theme="gotham"] .text-white,
+        html[data-theme="gotham"] .text-\[\#111\],
+        html[data-theme="gotham"] .text-\[\#888d81\],
+        html[data-theme="gotham"] .text-\[\#d2fc2a\],
+        html[data-theme="gotham"] .text-\[\#e8fb7a\] {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .text-outline-accent {
+            color: transparent !important;
+            -webkit-text-stroke: 2px #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 8px 8px 0 #ffffff !important;
+            backdrop-filter: none !important;
+        }
+
+        html[data-theme="gotham"] .glass-card:hover,
+        html[data-theme="gotham"] .news-card:hover {
+            background: #000000 !important;
+            border-color: #ffffff !important;
+            box-shadow: 4px 4px 0 #ffffff !important;
+            transform: translate(4px, 4px) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 6px 6px 0 #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime:hover,
+        html[data-theme="gotham"] .btn-solid-white:hover,
+        html[data-theme="gotham"] #theme-toggle-btn:hover,
+        html[data-theme="gotham"] #lang-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover,
+        html[data-theme="gotham"] #menu-close:hover,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn:hover,
+        html[data-theme="gotham"] #mobile-lang-toggle:hover,
+        html[data-theme="gotham"] #projects-prev:hover,
+        html[data-theme="gotham"] #projects-next:hover,
+        html[data-theme="gotham"] #news-prev:hover,
+        html[data-theme="gotham"] #news-next:hover {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: 3px 3px 0 #ffffff !important;
+            transform: translate(3px, 3px) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime span,
+        html[data-theme="gotham"] .btn-solid-lime i,
+        html[data-theme="gotham"] .btn-solid-white span,
+        html[data-theme="gotham"] .btn-solid-white i,
+        html[data-theme="gotham"] #theme-toggle-btn svg,
+        html[data-theme="gotham"] #lang-toggle svg,
+        html[data-theme="gotham"] #menu-toggle svg,
+        html[data-theme="gotham"] #menu-toggle-desktop svg,
+        html[data-theme="gotham"] #menu-close svg,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn svg,
+        html[data-theme="gotham"] #mobile-lang-toggle svg,
+        html[data-theme="gotham"] #projects-prev svg,
+        html[data-theme="gotham"] #projects-next svg,
+        html[data-theme="gotham"] #news-prev svg,
+        html[data-theme="gotham"] #news-next svg {
+            color: inherit !important;
+            stroke: currentColor !important;
+        }
+
+        html[data-theme="gotham"] .menu-line-1,
+        html[data-theme="gotham"] .menu-line-2,
+        html[data-theme="gotham"] .menu-line-3 {
+            background-color: #000000 !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #menu-toggle:hover .menu-line-1,
+        html[data-theme="gotham"] #menu-toggle:hover .menu-line-2,
+        html[data-theme="gotham"] #menu-toggle:hover .menu-line-3,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover .menu-line-1,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover .menu-line-2,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover .menu-line-3 {
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .side-nav-link,
+        html[data-theme="gotham"] .mobile-nav-link,
+        html[data-theme="gotham"] a {
+            color: #ffffff !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .side-nav-link::before {
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #mobile-menu {
+            background: #000000 !important;
+            background-image: none !important;
+            border-left: 4px solid #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown {
+            background: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 6px 6px 0 #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .theme-option,
+        html[data-theme="gotham"] .mobile-theme-option {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .theme-option:hover,
+        html[data-theme="gotham"] .theme-option.active,
+        html[data-theme="gotham"] .mobile-theme-option:hover,
+        html[data-theme="gotham"] .mobile-theme-option.active {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .theme-option svg,
+        html[data-theme="gotham"] .mobile-theme-option svg {
+            color: currentColor !important;
+            stroke: currentColor !important;
+        }
+
+        html[data-theme="gotham"] .input-minimal {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .input-minimal::placeholder {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+
+        html[data-theme="gotham"] .timeline-line::before {
+            background: #ffffff !important;
+            width: 3px !important;
+        }
+
+        html[data-theme="gotham"] .bg-pattern-wave,
+        html[data-theme="gotham"] .bg-pattern-dots,
+        html[data-theme="gotham"] .bg-pattern-grid,
+        html[data-theme="gotham"] .bg-pattern-topo,
+        html[data-theme="gotham"] .scroll-bg {
+            background-image: none !important;
+        }
+
+        html[data-theme="gotham"] .code-symbol,
+        html[data-theme="gotham"] .wrapper-svg-container {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .curtain {
+            background: #000000 !important;
+            background-image: none !important;
+            border-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .curtain-seam {
+            background: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .loader-terminal,
+        html[data-theme="gotham"] #loading-text,
+        html[data-theme="gotham"] .loader-cursor,
+        html[data-theme="gotham"] .bracket {
+            color: #ffffff !important;
+            background-color: transparent !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .bg-\[\#111\],
+        html[data-theme="gotham"] .bg-\[\#272a21\],
+        html[data-theme="gotham"] [class*="bg-pattern-"] {
+            background-color: #000000 !important;
+            background-image: none !important;
+        }
+
+        html[data-theme="gotham"] .bg-\[\#d2fc2a\],
+        html[data-theme="gotham"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            background-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] .border-\[rgba\(210\,252\,42\,0\.05\)\],
+        html[data-theme="gotham"] .border-\[rgba\(210\,252\,42\,0\.1\)\] {
+            border-color: #ffffff !important;
+        }
+
+        html[data-theme="gotham"] #cursor-glow {
+            display: none !important;
+            background: none !important;
+            mix-blend-mode: normal !important;
+        }
+
+        html[data-theme="gotham"] img,
+        html[data-theme="gotham"] picture,
+        html[data-theme="gotham"] video,
+        html[data-theme="gotham"] .mono-img {
+            filter: none !important;
+            mix-blend-mode: normal !important;
+        }
+
+        html[data-theme="gotham"] body.language-switching #main-content-wrapper,
+        html[data-theme="gotham"] body.language-switching #lang-toggle,
+        html[data-theme="gotham"] body.language-switching #theme-toggle-btn,
+        html[data-theme="gotham"] body.language-switching #mobile-lang-toggle,
+        html[data-theme="gotham"] body.language-switching #mobile-theme-toggle-btn {
+            animation: none !important;
+        }
+
+        html[data-theme="gotham"] ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        html[data-theme="gotham"] ::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border-radius: 0;
+        }
+
+        html[data-theme="gotham"] #main-content-wrapper {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 10px 10px 0 rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.26) !important;
+            box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.13) !important;
+        }
+
+        html[data-theme="gotham"] .glass-card:hover,
+        html[data-theme="gotham"] .news-card:hover {
+            border-color: rgba(255, 255, 255, 0.34) !important;
+            box-shadow: 3px 3px 0 rgba(255, 255, 255, 0.18) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.12) !important;
+        }
+
+        html[data-theme="gotham"] .btn-solid-lime:hover,
+        html[data-theme="gotham"] .btn-solid-white:hover,
+        html[data-theme="gotham"] #theme-toggle-btn:hover,
+        html[data-theme="gotham"] #lang-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle:hover,
+        html[data-theme="gotham"] #menu-toggle-desktop:hover,
+        html[data-theme="gotham"] #menu-close:hover,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn:hover,
+        html[data-theme="gotham"] #mobile-lang-toggle:hover,
+        html[data-theme="gotham"] #projects-prev:hover,
+        html[data-theme="gotham"] #projects-next:hover,
+        html[data-theme="gotham"] #news-prev:hover,
+        html[data-theme="gotham"] #news-next:hover {
+            border-color: rgba(255, 255, 255, 0.34) !important;
+            box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.16) !important;
+        }
+
+        html[data-theme="gotham"] #mobile-menu {
+            border-left-width: 1px !important;
+            border-left-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.22) !important;
+            box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.14) !important;
+        }
+
+        html[data-theme="gotham"] .theme-option,
+        html[data-theme="gotham"] .mobile-theme-option {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.18) !important;
+        }
+
+        html[data-theme="gotham"] .input-minimal {
+            border-width: 1px !important;
+            border-color: rgba(255, 255, 255, 0.24) !important;
+        }
+
+        html[data-theme="gotham"] .side-nav-link::before {
+            background-color: rgba(255, 255, 255, 0.28) !important;
+        }
+
+        html[data-theme="gotham"] .timeline-line::before {
+            background: rgba(255, 255, 255, 0.24) !important;
+            width: 1px !important;
+        }
+
+        html[data-theme="gotham"] .curtain {
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        html[data-theme="gotham"] .curtain-seam {
+            opacity: 0.45 !important;
+        }
+
+        html[data-theme="gotham"] * {
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] [class~="border"],
+        html[data-theme="gotham"] [class*="border-"] {
+            border: none !important;
+        }
+
+        html[data-theme="gotham"] #main-content-wrapper,
+        html[data-theme="gotham"] #nav-inner,
+        html[data-theme="gotham"] .glass-card,
+        html[data-theme="gotham"] .news-card,
+        html[data-theme="gotham"] #theme-dropdown,
+        html[data-theme="gotham"] #mobile-theme-dropdown,
+        html[data-theme="gotham"] .input-minimal,
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] .timeline-line::before,
+        html[data-theme="gotham"] .curtain-seam,
+        html[data-theme="gotham"] .side-nav-link::before,
+        html[data-theme="gotham"] .w-8.h-\[2px\].bg-\[\#d2fc2a\],
+        html[data-theme="gotham"] .w-8.h-\[2px\].bg-\[\#888d81\] {
+            display: none !important;
+            background: none !important;
+        }
+
+        html[data-theme="gotham"] .bg-\[\#d2fc2a\],
+        html[data-theme="gotham"] .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] .timeline-date-tag,
+        html[data-theme="gotham"] .btn-solid-lime,
+        html[data-theme="gotham"] .btn-solid-white,
+        html[data-theme="gotham"] #theme-toggle-btn,
+        html[data-theme="gotham"] #lang-toggle,
+        html[data-theme="gotham"] #menu-toggle,
+        html[data-theme="gotham"] #menu-toggle-desktop,
+        html[data-theme="gotham"] #menu-close,
+        html[data-theme="gotham"] #mobile-theme-toggle-btn,
+        html[data-theme="gotham"] #mobile-lang-toggle,
+        html[data-theme="gotham"] #projects-prev,
+        html[data-theme="gotham"] #projects-next,
+        html[data-theme="gotham"] #news-prev,
+        html[data-theme="gotham"] #news-next {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] .timeline-date-tag span,
+        html[data-theme="gotham"] .btn-solid-lime span,
+        html[data-theme="gotham"] .btn-solid-lime i,
+        html[data-theme="gotham"] .btn-solid-white span,
+        html[data-theme="gotham"] .btn-solid-white i {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav,
+        html[data-theme="gotham"] #nav-inner {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #nav-logo,
+        html[data-theme="gotham"] #nav-logo span,
+        html[data-theme="gotham"] #nav-inner a:not(.btn-solid-lime):not(.btn-solid-white) {
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner .btn-solid-lime,
+        html[data-theme="gotham"] #nav-inner .btn-solid-white,
+        html[data-theme="gotham"] #nav-inner #theme-toggle-btn,
+        html[data-theme="gotham"] #nav-inner #lang-toggle,
+        html[data-theme="gotham"] #nav-inner #menu-toggle,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner .btn-solid-lime span,
+        html[data-theme="gotham"] #nav-inner .btn-solid-lime i,
+        html[data-theme="gotham"] #nav-inner .btn-solid-white span,
+        html[data-theme="gotham"] #nav-inner .btn-solid-white i,
+        html[data-theme="gotham"] #nav-inner #theme-toggle-btn svg,
+        html[data-theme="gotham"] #nav-inner #lang-toggle svg,
+        html[data-theme="gotham"] #nav-inner #menu-toggle svg,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop svg {
+            color: #000000 !important;
+            stroke: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #nav-inner .menu-line-1,
+        html[data-theme="gotham"] #nav-inner .menu-line-2,
+        html[data-theme="gotham"] #nav-inner .menu-line-3,
+        html[data-theme="gotham"] #nav-inner #menu-toggle:hover .menu-line-1,
+        html[data-theme="gotham"] #nav-inner #menu-toggle:hover .menu-line-2,
+        html[data-theme="gotham"] #nav-inner #menu-toggle:hover .menu-line-3,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop:hover .menu-line-1,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop:hover .menu-line-2,
+        html[data-theme="gotham"] #nav-inner #menu-toggle-desktop:hover .menu-line-3 {
+            background-color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            width: 100% !important;
+            max-width: none !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo span {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            color: #000000 !important;
+            animation: none !important;
+            text-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo span::before,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-logo span::after {
+            display: none !important;
+            content: none !important;
+            opacity: 0 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .btn-solid-lime,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .btn-solid-white,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #theme-toggle-btn,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #lang-toggle,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #menu-toggle,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner #menu-toggle-desktop {
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner svg,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner i,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-1,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-2,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-3 {
+            color: #000000 !important;
+            stroke: #000000 !important;
+            background-color: #000000 !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav {
+            background: transparent !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+            width: 75% !important;
+            max-width: 800px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            box-sizing: border-box !important;
+            padding: 12px 32px !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border-radius: 999px !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner svg,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner i {
+            background-color: transparent !important;
+            color: #000000 !important;
+            stroke: #000000 !important;
+            fill: none !important;
+        }
+
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-1,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-2,
+        html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner .menu-line-3 {
+            background-color: #000000 !important;
+        }
+
+        @media (max-width: 768px) {
+            html[data-theme="gotham"] #main-nav.scrolled-nav #nav-inner {
+                width: 92% !important;
+                max-width: 100% !important;
+                padding: 10px 20px !important;
+                border-radius: 999px !important;
+            }
+        }
+
+        #home {
+            min-height: calc(100svh - 6rem);
+        }
+
+        #home .hero-portrait {
+            position: relative;
+            width: clamp(320px, 40vw, 590px);
+            aspect-ratio: 1;
+            flex: 0 0 auto;
+            padding: 7px;
+            margin: 0 auto;
+            border: 1px solid var(--accent);
+            border-radius: 2.25rem;
+            background: rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 26px 84px rgba(0, 0, 0, 0.38);
+        }
+
+        #home .hero-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            z-index: 1;
+            border-radius: 1.65rem;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 12%, rgba(0, 0, 0, 0.46) 100%);
+            pointer-events: none;
+        }
+
+        #home .hero-portrait img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.65rem;
+        }
+
+        #home .hero-heading {
+            position: relative;
+            z-index: 2;
+            width: clamp(320px, 40vw, 590px);
+            max-width: 100%;
+            margin-top: clamp(-12rem, -13vw, -7rem) !important;
+            padding: 0;
+            font-size: clamp(1rem, 1.75vw, 1.85rem);
+            line-height: 0.96;
+            letter-spacing: -0.045em;
+            text-shadow: 0 4px 22px rgba(0, 0, 0, 0.84), 0 1px 3px rgba(0, 0, 0, 0.98);
+        }
+
+        #home .hero-heading.hero-heading-mm {
+            width: clamp(320px, 40vw, 590px);
+            font-size: clamp(0.95rem, 1.45vw, 1.65rem);
+        }
+
+        #home .hero-heading-dynamic {
+            text-shadow: 0 3px 18px rgba(0, 0, 0, 0.88);
+        }
+
+        html[data-theme="offoto"] #home .hero-heading-static,
+        html[data-theme="panycandy"] #home .hero-heading-static,
+        html[data-theme="arancia"] #home .hero-heading-static,
+        html[data-theme="gotham"] #home .hero-heading-static {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            text-shadow: 0 3px 0 #000000, 0 0 16px rgba(0, 0, 0, 0.95) !important;
+        }
+
+
+        #home .hero-heading-dynamic {
+            text-shadow: 0 3px 18px rgba(0, 0, 0, 0.88);
+        }
+        html[data-theme="gotham"] #home .hero-heading-static,
+        html[data-theme="gotham"] #home .hero-heading-dynamic {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            text-shadow: 0 3px 0 #000000, 0 0 16px rgba(0, 0, 0, 0.95) !important;
+        }
+        #home .hero-heading-static,
+        #home .hero-heading-dynamic {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            white-space: nowrap;
+        }
+        #home .hero-heading-dynamic {
+            display: flex;
+        }
+        #home .hero-heading + div {
+            bottom: clamp(-6.5rem, -22vw, -5.5rem) !important;
+        }
+        @media (max-width: 1023px) {
+            #home .hero-heading + div {
+                position: relative !important;
+                inset: auto !important;
+                width: 100%;
+                margin-top: clamp(2rem, 6vw, 3rem);
+                flex: 0 0 auto;
+            }
+        }
+        @media (max-width: 768px) {
+            #home .hero-heading {
+                width: min(92vw, 590px);
+                font-size: clamp(2rem, 8vw, 4.2rem) !important;
+                line-height: 0.96 !important;
+                letter-spacing: -0.045em !important;
+            }
+        }
+
+        /* Full-width cookie consent bar */
+        #cookie-consent {
+            box-sizing: border-box !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 22px clamp(22px, 5vw, 76px) !important;
+            min-height: 88px;
+            border-width: 3px 0 0 !important;
+            border-radius: 0 !important;
+            background: #000000 !important;
+            color: #ffffff !important;
+            box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.45), 0 -3px 0 #ffffff !important;
+            font-size: clamp(13px, 1.15vw, 16px) !important;
+            line-height: 1.55 !important;
+        }
+        #cookie-consent p {
+            max-width: 900px;
+            font-weight: 600;
+        }
+        #cookie-consent-accept {
+            min-width: 168px;
+            min-height: 48px;
+            padding: 13px 22px !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: 3px solid #ffffff !important;
+            border-radius: 0 !important;
+            box-shadow: 5px 5px 0 #ffffff !important;
+            font-size: 11px !important;
+        }
+        #cookie-consent-accept:hover {
+            background: #000000 !important;
+            color: #ffffff !important;
+            box-shadow: 3px 3px 0 #ffffff !important;
+            transform: translate(2px, 2px) !important;
+        }
+        html[data-theme="panycandy"] #cookie-consent {
+            background: #ffffff !important;
+            color: #000000 !important;
+            box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.2), 0 -3px 0 #000000 !important;
+        }
+        html[data-theme="panycandy"] #cookie-consent-accept {
+            background: #000000 !important;
+            color: #ffffff !important;
+            border-color: #000000 !important;
+            box-shadow: 5px 5px 0 #000000 !important;
+        }
+        @media (max-width: 600px) {
+            #cookie-consent {
+                align-items: stretch !important;
+                flex-direction: column !important;
+                gap: 14px !important;
+                padding: 18px 16px 20px !important;
+                min-height: 0;
+                font-size: 12px !important;
+            }
+            #cookie-consent-accept {
+                width: 100%;
+                min-height: 46px;
+            }
+        }
+</style>
+    </head>
 
 <body class="relative min-h-screen flex flex-col">
 
@@ -2118,9 +3225,16 @@ Happy coding!
                     <button id="theme-toggle-btn" class="btn-solid-white w-11 h-11 flex items-center justify-center shadow-sm" title="Select Theme">
                         <i data-lucide="palette" class="w-4 h-4"></i>
                     </button>
+                    <div id="theme-hint" class="theme-hint" role="status" aria-live="polite">
+                        <span data-en="More themes to try. Click the palette button." data-mm="စမ်းသုံးနိုင်သော theme များရှိပါသည်။ palette ခလုတ်ကိုနှိပ်ပါ။">More themes to try. Click the palette button.</span>
+                        <button id="theme-hint-close" class="theme-hint-close" type="button" aria-label="Close theme hint">×</button>
+                    </div>
                     
                     <div id="theme-dropdown" class="absolute top-full right-0 mt-3 w-48 rounded-xl bg-[#272a21] border border-[rgba(210,252,42,0.1)] shadow-2xl overflow-hidden opacity-0 pointer-events-none transform -translate-y-2 transition-all duration-300 z-[105]">
-                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="grenomint">
+                        <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="gotham">
+                            Gotham <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
+                        </button>
+<button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="grenomint">
                             Grenomint <i data-lucide="check" class="w-4 h-4 check-icon opacity-0 text-[#d2fc2a]"></i>
                         </button>
                         <button class="theme-option w-full text-left px-4 py-3 text-sm font-mono text-white hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] transition-colors flex items-center justify-between" data-set-theme="panycandy">
@@ -2202,8 +3316,15 @@ Happy coding!
                         <span id="mobile-theme-text">THEME: GRENOMINT</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 absolute right-4 transition-transform duration-300" id="mobile-theme-chevron"></i>
                     </button>
+                    <div id="mobile-theme-hint" class="theme-hint" role="status" aria-live="polite">
+                        <span data-en="More themes to try. Open this button to choose one." data-mm="စမ်းသုံးနိုင်သော theme များရှိပါသည်။ ဤခလုတ်ကိုဖွင့်ပြီးရွေးချယ်ပါ။">More themes to try. Open this button to choose one.</span>
+                        <button id="mobile-theme-hint-close" class="theme-hint-close" type="button" aria-label="Close theme hint">×</button>
+                    </div>
                     <div id="mobile-theme-dropdown" class="hidden flex-col gap-2 mt-3 w-full">
-                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="grenomint">
+                        <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="gotham">
+                            Gotham
+                        </button>
+<button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="grenomint">
                             Grenomint
                         </button>
                         <button class="mobile-theme-option w-full py-3 rounded-xl border border-[rgba(255,255,255,0.1)] text-xs font-mono font-bold text-white uppercase tracking-widest bg-black/20 hover:bg-[rgba(210,252,42,0.1)] hover:text-[#d2fc2a] hover:border-[rgba(210,252,42,0.3)] transition-all" data-set-theme="panycandy">
@@ -2645,7 +3766,7 @@ Happy coding!
                             </div>
                         </a>
 
-                        <a href="mailto:contact@htetzawpaing.site" class="flex items-center gap-6 group w-max">
+                        <a href="/cdn-cgi/l/email-protection#2f4c40415b4e4c5b6f475b4a5b554e585f4e464148015c465b4a" class="flex items-center gap-6 group w-max">
                             <div
                                 class="w-14 h-14 rounded-2xl flex items-center justify-center border border-[rgba(210,252,42,0.2)] text-[#d2fc2a] group-hover:bg-[#d2fc2a] group-hover:text-[#111] group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-400 var(--ease-bounce) shadow-sm">
                                 <i data-lucide="mail" class="w-5 h-5"></i>
@@ -2654,7 +3775,7 @@ Happy coding!
                                 <p class="text-[9px] font-mono font-bold uppercase tracking-[0.2em] text-[#666] mb-1.5 transition-colors group-hover:text-[#d2fc2a]"
                                     data-en="Email" data-mm="အီးမေးလ်ပို့ရန်">Email</p>
                                 <p class="text-lg md:text-xl font-black tracking-widest text-white break-all">
-                                    contact@htetzawpaing.site</p>
+                                    <span class="__cf_email__" data-cfemail="1b7874756f7a786f5b736f7e6f617a6c6b7a72757c3568726f7e">[email&#160;protected]</span></p>
                             </div>
                         </a>
                     </div>
@@ -2717,7 +3838,7 @@ Happy coding!
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const lenis = new Lenis({
             duration: 1.0,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -3276,7 +4397,7 @@ Happy coding!
         }, 3200);
         let currentTheme = localStorage.getItem('hzp_theme');
         if (!currentTheme) {
-            currentTheme = 'grenomint';
+            currentTheme = 'gotham';
             localStorage.setItem('hzp_theme', currentTheme);
         }
 
@@ -3313,7 +4434,7 @@ Happy coding!
         }
 
         function updateTheme(theme) {
-            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'arancia') {
+            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'arancia' || theme === 'gotham') {
                 document.documentElement.setAttribute('data-theme', theme);
             } else {
                 document.documentElement.removeAttribute('data-theme');
@@ -3324,18 +4445,18 @@ Happy coding!
                 window.heroParticleColor = '255, 183, 3';
             } else if (theme === 'offoto') {
                 window.heroParticleColor = '0, 122, 255';
-            } else if (theme === 'arancia') {
+            } else if (theme === 'arancia' || theme === 'gotham') {
                 window.heroParticleColor = '255, 159, 67';
             } else {
                 window.heroParticleColor = '210, 252, 42';
             }
             const mobThemeText = document.getElementById('mobile-theme-text');
             if (mobThemeText) {
-                let themeName = 'GRENOMINT';
+                let themeName = 'GOTHAM';
                 if (theme === 'panycandy') themeName = 'PANYCANDY';
                 if (theme === 'glassortcele') themeName = 'GLASSORTCELE';
                 if (theme === 'offoto') themeName = 'OFFOTO';
-                if (theme === 'arancia') themeName = 'ARANCIA';
+                if (theme === 'arancia' || theme === 'gotham') themeName = 'ARANCIA';
                 mobThemeText.innerText = `THEME: ${themeName}`;
             }
             themeOptions.forEach(opt => {
@@ -3365,6 +4486,21 @@ Happy coding!
             });
         });
         updateTheme(currentTheme);
+        const themeHints = [document.getElementById('theme-hint'), document.getElementById('mobile-theme-hint')].filter(Boolean);
+        const themeHintCookie = 'hzp_theme_hint_seen=1; max-age=31536000; path=/; SameSite=Lax';
+        const hasSeenThemeHint = () => document.cookie.split('; ').some(cookie => cookie.startsWith('hzp_theme_hint_seen='));
+        const rememberThemeHint = () => { document.cookie = themeHintCookie; };
+        const closeThemeHint = hint => {
+            hint?.classList.remove('is-visible');
+            rememberThemeHint();
+        };
+        document.getElementById('theme-hint-close')?.addEventListener('click', () => closeThemeHint(document.getElementById('theme-hint')));
+        document.getElementById('mobile-theme-hint-close')?.addEventListener('click', () => closeThemeHint(document.getElementById('mobile-theme-hint')));
+        setTimeout(() => {
+            if (hasSeenThemeHint()) return;
+            themeHints.forEach(hint => hint.classList.add('is-visible'));
+            rememberThemeHint();
+        }, 6000);
 
     </script>
     <script>
@@ -3411,6 +4547,25 @@ Happy coding!
         console.log('%cresize issue prevention', __logStyle);
     </script>
     <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8fb197fbdd534636901845ba99652497"}'></script>
+
+    <div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie notice">
+        <p data-en="This website uses cookies to enhance your browsing experience." data-mm="ဤဝဘ်ဆိုဒ်သည် သင့်အသုံးပြုမှုအတွေ့အကြုံကိုကောင်းမွန်စေရန် cookies များကိုအသုံးပြုပါသည်။">This website uses cookies to enhance your browsing experience.</p>
+        <button id="cookie-consent-accept" type="button" data-en="I understand" data-mm="နားလည်ပါပြီ">I understand</button>
+    </div>
+
+    <script>
+        const cookieConsent = document.getElementById('cookie-consent');
+        const cookieConsentKey = 'hzp_cookie_consent=1; max-age=31536000; path=/; SameSite=Lax';
+        const hasCookieConsent = () => document.cookie.split('; ').some(cookie => cookie.startsWith('hzp_cookie_consent='));
+        const acceptCookieConsent = () => {
+            document.cookie = cookieConsentKey;
+            cookieConsent?.classList.remove('is-visible');
+        };
+        if (cookieConsent && !hasCookieConsent()) {
+            requestAnimationFrame(() => cookieConsent.classList.add('is-visible'));
+            document.getElementById('cookie-consent-accept')?.addEventListener('click', acceptCookieConsent);
+        }
+    </script>
 </body>
 
 </html>
