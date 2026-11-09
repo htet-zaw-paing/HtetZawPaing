@@ -3264,6 +3264,55 @@ Happy coding!
     #home .hero-portrait { isolation: isolate; }
 
     #home .hero-cyber-layer {
+        --hero-primary: #7eff40;
+        --hero-secondary: #ffffff;
+        --hero-line: #7eff40;
+        --hero-dark: #000000;
+    }
+
+    html[data-theme="gotham"] #home .hero-cyber-layer {
+        --hero-primary: #ffffff;
+        --hero-secondary: #000000;
+        --hero-line: #ffffff;
+        --hero-dark: #000000;
+    }
+
+    html[data-theme="grenomint"] #home .hero-cyber-layer {
+        --hero-primary: #98ffcc;
+        --hero-secondary: #27c96f;
+        --hero-line: #98ffcc;
+        --hero-dark: #0b2418;
+    }
+
+    html[data-theme="panycandy"] #home .hero-cyber-layer {
+        --hero-primary: #ff80b5;
+        --hero-secondary: #ff003c;
+        --hero-line: #ff80b5;
+        --hero-dark: #000000;
+    }
+
+    html[data-theme="glassortcele"] #home .hero-cyber-layer {
+        --hero-primary: #00f2fe;
+        --hero-secondary: #0ea5e9;
+        --hero-line: #ffffff;
+        --hero-dark: #071a2b;
+    }
+
+    html[data-theme="offoto"] #home .hero-cyber-layer {
+        --hero-primary: #007aff;
+        --hero-secondary: #003f9e;
+        --hero-line: #ffffff;
+        --hero-dark: #07152e;
+    }
+
+    html[data-theme="arancia"] #home .hero-cyber-layer {
+        --hero-primary: #ff8a00;
+        --hero-secondary: #ff5a00;
+        --hero-line: #ffffff;
+        --hero-dark: #2a1200;
+    }
+
+    #home .hero-cyber-layer {
         position: absolute;
         inset: 0;
         z-index: 2;
@@ -3279,9 +3328,34 @@ Happy coding!
     }
 
     #home .hero-cyber-layer img {
-        filter: grayscale(1) contrast(1.18) brightness(1.02) !important;
+        filter: grayscale(0.35) contrast(1.08) brightness(1.1) !important;
         transform: none;
         mix-blend-mode: normal;
+    }
+
+    html[data-theme="gotham"] #home .hero-portrait > img,
+    html[data-theme="gotham"] #home .hero-cyber-layer img {
+        filter: grayscale(1) contrast(1.08) brightness(1.08) !important;
+    }
+
+    html[data-theme="grenomint"] #home .hero-cyber-layer img {
+        filter: grayscale(1) sepia(0.72) hue-rotate(78deg) saturate(1.7) contrast(1.08) brightness(1.08) !important;
+    }
+
+    html[data-theme="panycandy"] #home .hero-cyber-layer img {
+        filter: grayscale(1) sepia(0.9) hue-rotate(300deg) saturate(2.4) contrast(1.08) brightness(1.08) !important;
+    }
+
+    html[data-theme="glassortcele"] #home .hero-cyber-layer img {
+        filter: grayscale(1) sepia(0.7) hue-rotate(150deg) saturate(2.2) contrast(1.08) brightness(1.08) !important;
+    }
+
+    html[data-theme="offoto"] #home .hero-cyber-layer img {
+        filter: grayscale(1) sepia(0.8) hue-rotate(175deg) saturate(2.1) contrast(1.08) brightness(1.08) !important;
+    }
+
+    html[data-theme="arancia"] #home .hero-cyber-layer img {
+        filter: grayscale(1) sepia(0.85) hue-rotate(345deg) saturate(2.2) contrast(1.08) brightness(1.08) !important;
     }
 
     #home .hero-cyber-layer::before,
@@ -3294,14 +3368,14 @@ Happy coding!
 
     #home .hero-cyber-layer::before {
         background:
-            repeating-linear-gradient(0deg, transparent 0 3px, rgba(126, 255, 64, 0.14) 3px 4px),
-            linear-gradient(125deg, transparent 0 44%, rgba(255, 255, 255, 0.18));
+            repeating-linear-gradient(0deg, transparent 0 3px, color-mix(in srgb, var(--hero-primary) 24%, transparent) 3px 4px),
+            linear-gradient(125deg, color-mix(in srgb, var(--hero-dark) 28%, transparent), transparent 44%, color-mix(in srgb, var(--hero-secondary) 24%, transparent));
         mix-blend-mode: screen;
     }
 
     #home .hero-cyber-layer::after {
-        border: 1px solid #ffffff;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.16), 0 0 14px rgba(126, 255, 64, 0.12);
+        border: 1px solid var(--hero-line);
+        box-shadow: inset 0 0 20px color-mix(in srgb, var(--hero-secondary) 16%, transparent), 0 0 14px color-mix(in srgb, var(--hero-primary) 22%, transparent);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -5020,7 +5094,7 @@ Happy coding!
         }
 
         function updateTheme(theme) {
-            if (theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'arancia' || theme === 'gotham') {
+            if (theme === 'grenomint' || theme === 'panycandy' || theme === 'glassortcele' || theme === 'offoto' || theme === 'arancia' || theme === 'gotham') {
                 document.documentElement.setAttribute('data-theme', theme);
             } else {
                 document.documentElement.removeAttribute('data-theme');
@@ -5043,6 +5117,7 @@ Happy coding!
             const mobThemeText = document.getElementById('mobile-theme-text');
             if (mobThemeText) {
                 let themeName = 'GOTHAM';
+                if (theme === 'grenomint') themeName = 'GRENOMINT';
                 if (theme === 'panycandy') themeName = 'PANYCANDY';
                 if (theme === 'glassortcele') themeName = 'GLASSORTCELE';
                 if (theme === 'offoto') themeName = 'OFFOTO';
@@ -5169,7 +5244,7 @@ Happy coding!
             if (!portrait || !layer) return;
 
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const smoothing = reduceMotion ? 1 : 0.1;
+            const smoothing = reduceMotion ? 1 : 0.24;
             const idleDelay = 900;
             const baseMask = 'linear-gradient(rgba(255,255,255,0.025), rgba(255,255,255,0.025))';
             let pointer = { x: -999, y: -999 };
@@ -5184,7 +5259,7 @@ Happy coding!
             const createSpot = (bounds, now, phaseOffset = 0) => {
                 const marginX = bounds.width * 0.08;
                 const marginY = bounds.height * 0.08;
-                const duration = randomBetween(3000, 4700);
+                const duration = randomBetween(1200, 2100);
                 return {
                     fromX: randomBetween(marginX, bounds.width - marginX),
                     fromY: randomBetween(marginY, bounds.height - marginY),
@@ -5207,7 +5282,7 @@ Happy coding!
                     spot.toX = randomBetween(bounds.width * 0.08, bounds.width * 0.92);
                     spot.toY = randomBetween(bounds.height * 0.08, bounds.height * 0.92);
                     spot.startAt = now;
-                    spot.duration = randomBetween(3000, 4700);
+                    spot.duration = randomBetween(1200, 2100);
                     spot.radius = randomBetween(Math.min(bounds.width, bounds.height) * 0.18, Math.min(bounds.width, bounds.height) * 0.27);
                     progress = 0;
                 }
