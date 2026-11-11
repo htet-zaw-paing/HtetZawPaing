@@ -7,7 +7,7 @@ const PRECACHE_URLS = [
   '/index.html',
   '/tailwind.css',
   '/manifest.json',
-  '/me-black.png'
+  '/me-favicon.png'
 ];
 
 const isCacheableResponse = response => {
